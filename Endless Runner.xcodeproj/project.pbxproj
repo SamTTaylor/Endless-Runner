@@ -1,0 +1,439 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		6875160E1A24F92600748410 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 6875160D1A24F92600748410 /* main.m */; };
+		687516111A24F92600748410 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 687516101A24F92600748410 /* AppDelegate.m */; };
+		687516141A24F92600748410 /* GameScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 687516131A24F92600748410 /* GameScene.m */; };
+		687516161A24F92600748410 /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 687516151A24F92600748410 /* GameScene.sks */; };
+		687516191A24F92600748410 /* GameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 687516181A24F92600748410 /* GameViewController.m */; };
+		6875161C1A24F92600748410 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6875161A1A24F92600748410 /* Main.storyboard */; };
+		6875161E1A24F92600748410 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6875161D1A24F92600748410 /* Images.xcassets */; };
+		687516211A24F92600748410 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6875161F1A24F92600748410 /* LaunchScreen.xib */; };
+		6875162D1A24F92600748410 /* Endless_RunnerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6875162C1A24F92600748410 /* Endless_RunnerTests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		687516271A24F92600748410 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 687516001A24F92600748410 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 687516071A24F92600748410;
+			remoteInfo = "Endless Runner";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		687516081A24F92600748410 /* Endless Runner.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Endless Runner.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		6875160C1A24F92600748410 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6875160D1A24F92600748410 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		6875160F1A24F92600748410 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		687516101A24F92600748410 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		687516121A24F92600748410 /* GameScene.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GameScene.h; sourceTree = "<group>"; };
+		687516131A24F92600748410 /* GameScene.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GameScene.m; sourceTree = "<group>"; };
+		687516151A24F92600748410 /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
+		687516171A24F92600748410 /* GameViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GameViewController.h; sourceTree = "<group>"; };
+		687516181A24F92600748410 /* GameViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GameViewController.m; sourceTree = "<group>"; };
+		6875161B1A24F92600748410 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		6875161D1A24F92600748410 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		687516201A24F92600748410 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		687516261A24F92600748410 /* Endless RunnerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Endless RunnerTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		6875162B1A24F92600748410 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6875162C1A24F92600748410 /* Endless_RunnerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Endless_RunnerTests.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		687516051A24F92600748410 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		687516231A24F92600748410 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		687515FF1A24F92600748410 = {
+			isa = PBXGroup;
+			children = (
+				6875160A1A24F92600748410 /* Endless Runner */,
+				687516291A24F92600748410 /* Endless RunnerTests */,
+				687516091A24F92600748410 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		687516091A24F92600748410 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				687516081A24F92600748410 /* Endless Runner.app */,
+				687516261A24F92600748410 /* Endless RunnerTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		6875160A1A24F92600748410 /* Endless Runner */ = {
+			isa = PBXGroup;
+			children = (
+				6875160F1A24F92600748410 /* AppDelegate.h */,
+				687516101A24F92600748410 /* AppDelegate.m */,
+				687516121A24F92600748410 /* GameScene.h */,
+				687516131A24F92600748410 /* GameScene.m */,
+				687516151A24F92600748410 /* GameScene.sks */,
+				687516171A24F92600748410 /* GameViewController.h */,
+				687516181A24F92600748410 /* GameViewController.m */,
+				6875161A1A24F92600748410 /* Main.storyboard */,
+				6875161D1A24F92600748410 /* Images.xcassets */,
+				6875161F1A24F92600748410 /* LaunchScreen.xib */,
+				6875160B1A24F92600748410 /* Supporting Files */,
+			);
+			path = "Endless Runner";
+			sourceTree = "<group>";
+		};
+		6875160B1A24F92600748410 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				6875160C1A24F92600748410 /* Info.plist */,
+				6875160D1A24F92600748410 /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		687516291A24F92600748410 /* Endless RunnerTests */ = {
+			isa = PBXGroup;
+			children = (
+				6875162C1A24F92600748410 /* Endless_RunnerTests.m */,
+				6875162A1A24F92600748410 /* Supporting Files */,
+			);
+			path = "Endless RunnerTests";
+			sourceTree = "<group>";
+		};
+		6875162A1A24F92600748410 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				6875162B1A24F92600748410 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		687516071A24F92600748410 /* Endless Runner */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 687516301A24F92600748410 /* Build configuration list for PBXNativeTarget "Endless Runner" */;
+			buildPhases = (
+				687516041A24F92600748410 /* Sources */,
+				687516051A24F92600748410 /* Frameworks */,
+				687516061A24F92600748410 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Endless Runner";
+			productName = "Endless Runner";
+			productReference = 687516081A24F92600748410 /* Endless Runner.app */;
+			productType = "com.apple.product-type.application";
+		};
+		687516251A24F92600748410 /* Endless RunnerTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 687516331A24F92600748410 /* Build configuration list for PBXNativeTarget "Endless RunnerTests" */;
+			buildPhases = (
+				687516221A24F92600748410 /* Sources */,
+				687516231A24F92600748410 /* Frameworks */,
+				687516241A24F92600748410 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				687516281A24F92600748410 /* PBXTargetDependency */,
+			);
+			name = "Endless RunnerTests";
+			productName = "Endless RunnerTests";
+			productReference = 687516261A24F92600748410 /* Endless RunnerTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		687516001A24F92600748410 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0610;
+				ORGANIZATIONNAME = sheffield;
+				TargetAttributes = {
+					687516071A24F92600748410 = {
+						CreatedOnToolsVersion = 6.1;
+					};
+					687516251A24F92600748410 = {
+						CreatedOnToolsVersion = 6.1;
+						TestTargetID = 687516071A24F92600748410;
+					};
+				};
+			};
+			buildConfigurationList = 687516031A24F92600748410 /* Build configuration list for PBXProject "Endless Runner" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 687515FF1A24F92600748410;
+			productRefGroup = 687516091A24F92600748410 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				687516071A24F92600748410 /* Endless Runner */,
+				687516251A24F92600748410 /* Endless RunnerTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		687516061A24F92600748410 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				687516211A24F92600748410 /* LaunchScreen.xib in Resources */,
+				6875161E1A24F92600748410 /* Images.xcassets in Resources */,
+				687516161A24F92600748410 /* GameScene.sks in Resources */,
+				6875161C1A24F92600748410 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		687516241A24F92600748410 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		687516041A24F92600748410 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				687516191A24F92600748410 /* GameViewController.m in Sources */,
+				687516111A24F92600748410 /* AppDelegate.m in Sources */,
+				687516141A24F92600748410 /* GameScene.m in Sources */,
+				6875160E1A24F92600748410 /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		687516221A24F92600748410 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6875162D1A24F92600748410 /* Endless_RunnerTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		687516281A24F92600748410 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 687516071A24F92600748410 /* Endless Runner */;
+			targetProxy = 687516271A24F92600748410 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		6875161A1A24F92600748410 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				6875161B1A24F92600748410 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		6875161F1A24F92600748410 /* LaunchScreen.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				687516201A24F92600748410 /* Base */,
+			);
+			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		6875162E1A24F92600748410 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		6875162F1A24F92600748410 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		687516311A24F92600748410 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = "Endless Runner/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		687516321A24F92600748410 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = "Endless Runner/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		687516341A24F92600748410 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "Endless RunnerTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Endless Runner.app/Endless Runner";
+			};
+			name = Debug;
+		};
+		687516351A24F92600748410 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "Endless RunnerTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Endless Runner.app/Endless Runner";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		687516031A24F92600748410 /* Build configuration list for PBXProject "Endless Runner" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6875162E1A24F92600748410 /* Debug */,
+				6875162F1A24F92600748410 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		687516301A24F92600748410 /* Build configuration list for PBXNativeTarget "Endless Runner" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				687516311A24F92600748410 /* Debug */,
+				687516321A24F92600748410 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		687516331A24F92600748410 /* Build configuration list for PBXNativeTarget "Endless RunnerTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				687516341A24F92600748410 /* Debug */,
+				687516351A24F92600748410 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 687516001A24F92600748410 /* Project object */;
+}
