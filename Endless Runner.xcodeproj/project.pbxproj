@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		682428001A28740B00F71A3D /* GameModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 682427FF1A28740B00F71A3D /* GameModel.m */; };
+		682428091A287ED000F71A3D /* bgforest.png in Resources */ = {isa = PBXBuildFile; fileRef = 682428081A287ED000F71A3D /* bgforest.png */; };
+		6824280B1A287FA800F71A3D /* avatar.png in Resources */ = {isa = PBXBuildFile; fileRef = 6824280A1A287FA800F71A3D /* avatar.png */; };
 		6875160E1A24F92600748410 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 6875160D1A24F92600748410 /* main.m */; };
 		687516111A24F92600748410 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 687516101A24F92600748410 /* AppDelegate.m */; };
 		687516141A24F92600748410 /* GameScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 687516131A24F92600748410 /* GameScene.m */; };
@@ -29,6 +32,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		682427FE1A28740B00F71A3D /* GameModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameModel.h; sourceTree = "<group>"; };
+		682427FF1A28740B00F71A3D /* GameModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameModel.m; sourceTree = "<group>"; };
+		682428081A287ED000F71A3D /* bgforest.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = bgforest.png; path = "Endless Runner/Images/bgforest.png"; sourceTree = "<group>"; };
+		6824280A1A287FA800F71A3D /* avatar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = avatar.png; path = "Endless Runner/Images/avatar.png"; sourceTree = "<group>"; };
 		687516081A24F92600748410 /* Endless Runner.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Endless Runner.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6875160C1A24F92600748410 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6875160D1A24F92600748410 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -65,9 +72,35 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		682428011A28748C00F71A3D /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				682428031A2874A000F71A3D /* Backgrounds */,
+				682428021A28749800F71A3D /* Characters */,
+			);
+			name = Images;
+			sourceTree = "<group>";
+		};
+		682428021A28749800F71A3D /* Characters */ = {
+			isa = PBXGroup;
+			children = (
+				6824280A1A287FA800F71A3D /* avatar.png */,
+			);
+			name = Characters;
+			sourceTree = "<group>";
+		};
+		682428031A2874A000F71A3D /* Backgrounds */ = {
+			isa = PBXGroup;
+			children = (
+				682428081A287ED000F71A3D /* bgforest.png */,
+			);
+			name = Backgrounds;
+			sourceTree = "<group>";
+		};
 		687515FF1A24F92600748410 = {
 			isa = PBXGroup;
 			children = (
+				682428011A28748C00F71A3D /* Images */,
 				6875160A1A24F92600748410 /* Endless Runner */,
 				687516291A24F92600748410 /* Endless RunnerTests */,
 				687516091A24F92600748410 /* Products */,
@@ -97,6 +130,8 @@
 				6875161D1A24F92600748410 /* Images.xcassets */,
 				6875161F1A24F92600748410 /* LaunchScreen.xib */,
 				6875160B1A24F92600748410 /* Supporting Files */,
+				682427FE1A28740B00F71A3D /* GameModel.h */,
+				682427FF1A28740B00F71A3D /* GameModel.m */,
 			);
 			path = "Endless Runner";
 			sourceTree = "<group>";
@@ -208,6 +243,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				687516211A24F92600748410 /* LaunchScreen.xib in Resources */,
+				682428091A287ED000F71A3D /* bgforest.png in Resources */,
+				6824280B1A287FA800F71A3D /* avatar.png in Resources */,
 				6875161E1A24F92600748410 /* Images.xcassets in Resources */,
 				687516161A24F92600748410 /* GameScene.sks in Resources */,
 				6875161C1A24F92600748410 /* Main.storyboard in Resources */,
@@ -230,6 +267,7 @@
 			files = (
 				687516191A24F92600748410 /* GameViewController.m in Sources */,
 				687516111A24F92600748410 /* AppDelegate.m in Sources */,
+				682428001A28740B00F71A3D /* GameModel.m in Sources */,
 				687516141A24F92600748410 /* GameScene.m in Sources */,
 				6875160E1A24F92600748410 /* main.m in Sources */,
 			);
@@ -424,6 +462,7 @@
 				687516321A24F92600748410 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		687516331A24F92600748410 /* Build configuration list for PBXNativeTarget "Endless RunnerTests" */ = {
 			isa = XCConfigurationList;
@@ -432,6 +471,7 @@
 				687516351A24F92600748410 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
