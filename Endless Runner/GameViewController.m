@@ -42,13 +42,30 @@
     // Create and configure the scene.
     self.gamescene = [GameScene unarchiveFromFile:@"GameScene"];
     self.gamescene.scaleMode = SKSceneScaleModeAspectFill;
-    [self setGameBackground:[SKSpriteNode spriteNodeWithImageNamed:@"bgforest"]];
-
-    
-    self.playercharacter = [SKSpriteNode spriteNodeWithImageNamed:@"avatar"];
+    self.model = [[GameModel alloc] initWithPlayer];
+    [self setGameBackground:self.model.backgroundnode];
     [self placePlayer];
     // Present the scene.
     [skView presentScene:self.gamescene];
+    if (self.motionManager.gyroAvailable) {
+        self.motionManager.gyroUpdateInterval = 0.01; // 100 Hz
+        self.gyroHandler = ^(CMGyroData *gyroData, NSError *error) {
+            CMRotationRate rotate = gyroData.rotationRate;
+            // need to update the user interface on the main thread
+            dispatch_async(dispatch_get_main_queue(),^{
+                NSLog(@"%f", rotate.x);
+            });
+        };
+        [self.motionManager startGyroUpdatesToQueue:[[NSOperationQueue alloc]init] withHandler:self.gyroHandler];
+    }
+    else {
+        NSLog(@"No gyroscope on the device");
+        self.motionManager = nil;
+    }
+
+    //Prepare the Gyro
+    self.motionManager = [[CMMotionManager alloc]init];
+    
 }
 
 
@@ -67,19 +84,17 @@
     
     for (UITouch *touch in touches) {
         //CGPoint location = [touch locationInNode:self.gamescene];
+        //[self.model rotatePlayer];
+        [self.model movePlayer];
         
-        
-        SKAction *action = [SKAction rotateByAngle:M_PI duration:1];
-        
-        [self.playercharacter runAction:[SKAction repeatActionForever:action]];
     }
 }
 
 -(void)placePlayer{
-    self.playercharacter.yScale = 0.5;
-    self.playercharacter.xScale = -0.5;
-    [self.playercharacter setPosition:CGPointMake(self.playercharacter.frame.size.width/2, self.playercharacter.frame.size.height)];
-    [self.gamescene addChild:self.playercharacter];
+    self.model.player.node.yScale = 0.5;
+    self.model.player.node.xScale = -0.5;
+    [self.model.player.node setPosition:CGPointMake(self.model.player.node.frame.size.width/2, self.model.player.node.frame.size.height)];
+    [self.gamescene addChild:self.model.player.node];
 
 }
 

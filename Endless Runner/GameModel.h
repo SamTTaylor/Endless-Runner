@@ -7,7 +7,15 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "Player.h"
 
 @interface GameModel : NSObject
 
+@property Player* player;
+@property SKSpriteNode* backgroundnode;
+
+- (id)initWithPlayer;
+
+- (void)rotatePlayer;
+- (void)movePlayer;
 @end
