@@ -14,16 +14,10 @@
 -(void)didMoveToView:(SKView *)view {
     /* Setup your scene here */
     
-    self.physicsWorld.gravity = CGVectorMake(0,0);
+    //self.physicsWorld.gravity = CGVectorMake(0,0);
+    self.physicsBody = [SKPhysicsBody bodyWithEdgeLoopFromRect:self.frame];
+    [self.physicsWorld setContactDelegate:self];
     
-    
-   /* SKLabelNode *myLabel = [SKLabelNode labelNodeWithFontNamed:@"Chalkduster"];
-    myLabel.text = @"Hello, World!";
-    myLabel.fontSize = 65;
-    myLabel.position = CGPointMake(CGRectGetMidX(self.frame),
-                                   CGRectGetMidY(self.frame));
-    
-    [self addChild:myLabel];*/
 }
 
 -(void)update:(CFTimeInterval)currentTime {

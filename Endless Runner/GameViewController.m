@@ -136,7 +136,7 @@
     [[self presentingViewController] dismissViewControllerAnimated:YES completion:nil];
 }
 -(IBAction)jumpPressed:(UIButton*)sender{
-    [self.model jumpEntity:self.model.player multiplier:2];
+    [self.model jumpEntity:self.model.player multiplier:100];
 }
 
 
