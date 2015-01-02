@@ -17,6 +17,8 @@
 @property GameScene* gamescene;
 @property GameModel* model;
 
+@property bool tiltbool;
+
 @property (strong) CMMotionManager *motionManager;
 
 @property (copy) CMGyroHandler gyroHandler;

@@ -22,6 +22,8 @@
 		6875161E1A24F92600748410 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6875161D1A24F92600748410 /* Images.xcassets */; };
 		687516211A24F92600748410 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6875161F1A24F92600748410 /* LaunchScreen.xib */; };
 		6875162D1A24F92600748410 /* Endless_RunnerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6875162C1A24F92600748410 /* Endless_RunnerTests.m */; };
+		68AA902A1A56BE430056E5A2 /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 68AA90291A56BE430056E5A2 /* SettingsViewController.m */; };
+		68AA902D1A56C4700056E5A2 /* MainMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 68AA902C1A56C4700056E5A2 /* MainMenuViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,6 +63,10 @@
 		687516261A24F92600748410 /* Endless RunnerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Endless RunnerTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6875162B1A24F92600748410 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6875162C1A24F92600748410 /* Endless_RunnerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Endless_RunnerTests.m; sourceTree = "<group>"; };
+		68AA90281A56BE430056E5A2 /* SettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsViewController.h; sourceTree = "<group>"; };
+		68AA90291A56BE430056E5A2 /* SettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsViewController.m; sourceTree = "<group>"; };
+		68AA902B1A56C4700056E5A2 /* MainMenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainMenuViewController.h; sourceTree = "<group>"; };
+		68AA902C1A56C4700056E5A2 /* MainMenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainMenuViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,7 +112,6 @@
 			name = Backgrounds;
 			sourceTree = "<group>";
 		};
-
 		683D21CB1A2F7F390081FF3F /* Entities */ = {
 			isa = PBXGroup;
 			children = (
@@ -147,8 +152,12 @@
 				687516121A24F92600748410 /* GameScene.h */,
 				687516131A24F92600748410 /* GameScene.m */,
 				687516151A24F92600748410 /* GameScene.sks */,
+				68AA902B1A56C4700056E5A2 /* MainMenuViewController.h */,
+				68AA902C1A56C4700056E5A2 /* MainMenuViewController.m */,
 				687516171A24F92600748410 /* GameViewController.h */,
 				687516181A24F92600748410 /* GameViewController.m */,
+				68AA90281A56BE430056E5A2 /* SettingsViewController.h */,
+				68AA90291A56BE430056E5A2 /* SettingsViewController.m */,
 				6875161A1A24F92600748410 /* Main.storyboard */,
 				6875161D1A24F92600748410 /* Images.xcassets */,
 				6875161F1A24F92600748410 /* LaunchScreen.xib */,
@@ -235,6 +244,7 @@
 				TargetAttributes = {
 					687516071A24F92600748410 = {
 						CreatedOnToolsVersion = 6.1;
+						DevelopmentTeam = 6YEH9YEK8B;
 					};
 					687516251A24F92600748410 = {
 						CreatedOnToolsVersion = 6.1;
@@ -292,6 +302,8 @@
 				683D21C41A2F7CC90081FF3F /* Entity.m in Sources */,
 				687516191A24F92600748410 /* GameViewController.m in Sources */,
 				687516111A24F92600748410 /* AppDelegate.m in Sources */,
+				68AA902A1A56BE430056E5A2 /* SettingsViewController.m in Sources */,
+				68AA902D1A56C4700056E5A2 /* MainMenuViewController.m in Sources */,
 				682428001A28740B00F71A3D /* GameModel.m in Sources */,
 				687516141A24F92600748410 /* GameScene.m in Sources */,
 				683D21C71A2F7CD50081FF3F /* Player.m in Sources */,

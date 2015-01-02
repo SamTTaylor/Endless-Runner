@@ -1,9 +1,135 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="13E28" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BV1-FR-VrT">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="4bF-eE-v15">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
     </dependencies>
     <scenes>
+        <!--Main Menu View Controller-->
+        <scene sceneID="vIE-LY-yET">
+            <objects>
+                <viewController id="5VM-Tk-vgp" customClass="MainMenuViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="emr-5g-PhJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="zSf-Y8-NGX"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="zR5-30-NiK">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Cb8-9q-qNS">
+                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <state key="normal" title="Settings">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="SVp-U8-3F3" kind="show" identifier="segueToSettings" id="yuM-wc-8Jc"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dZU-qR-Oa0">
+                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <state key="normal" title="Play">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="BV1-FR-VrT" kind="show" id="QSQ-fe-3LX"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <constraints>
+                            <constraint firstAttribute="centerY" secondItem="Cb8-9q-qNS" secondAttribute="centerY" constant="100" id="SJK-0e-ZXv"/>
+                            <constraint firstAttribute="centerX" secondItem="dZU-qR-Oa0" secondAttribute="centerX" id="U72-ul-Ium"/>
+                            <constraint firstAttribute="centerX" secondItem="Cb8-9q-qNS" secondAttribute="centerX" id="fvz-sm-olJ"/>
+                            <constraint firstAttribute="centerY" secondItem="dZU-qR-Oa0" secondAttribute="centerY" constant="200" id="gyX-8t-Zb6"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="Cb8-9q-qNS"/>
+                                <exclude reference="dZU-qR-Oa0"/>
+                            </mask>
+                            <mask key="constraints">
+                                <exclude reference="U72-ul-Ium"/>
+                                <exclude reference="gyX-8t-Zb6"/>
+                                <exclude reference="SJK-0e-ZXv"/>
+                                <exclude reference="fvz-sm-olJ"/>
+                            </mask>
+                        </variation>
+                        <variation key="heightClass=regular-widthClass=regular">
+                            <mask key="subviews">
+                                <include reference="Cb8-9q-qNS"/>
+                                <include reference="dZU-qR-Oa0"/>
+                            </mask>
+                            <mask key="constraints">
+                                <include reference="U72-ul-Ium"/>
+                                <include reference="gyX-8t-Zb6"/>
+                                <include reference="SJK-0e-ZXv"/>
+                                <include reference="fvz-sm-olJ"/>
+                            </mask>
+                        </variation>
+                    </view>
+                    <extendedEdge key="edgesForExtendedLayout"/>
+                    <navigationItem key="navigationItem" id="rWK-Sv-7Le"/>
+                    <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dnL-lB-C0F" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-565.5" y="778.5"/>
+        </scene>
+        <!--Settings View Controller-->
+        <scene sceneID="NqV-QM-xZ7">
+            <objects>
+                <viewController id="SVp-U8-3F3" customClass="SettingsViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="bcZ-4w-SI2"/>
+                        <viewControllerLayoutGuide type="bottom" id="4dK-qD-l0n"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Y8k-wz-r37">
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="OgR-G4-H3K">
+                                <rect key="frame" x="-61" y="-14" width="123" height="29"/>
+                                <segments>
+                                    <segment title="Buttons"/>
+                                    <segment title="Tilt"/>
+                                </segments>
+                                <connections>
+                                    <action selector="tiltcontrolMoved:" destination="SVp-U8-3F3" eventType="valueChanged" id="wKD-qe-MQA"/>
+                                </connections>
+                            </segmentedControl>
+                        </subviews>
+                        <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <constraints>
+                            <constraint firstAttribute="centerY" secondItem="OgR-G4-H3K" secondAttribute="centerY" id="fpr-Up-VSd"/>
+                            <constraint firstAttribute="centerX" secondItem="OgR-G4-H3K" secondAttribute="centerX" id="lNl-2M-GPT"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="OgR-G4-H3K"/>
+                            </mask>
+                            <mask key="constraints">
+                                <exclude reference="fpr-Up-VSd"/>
+                                <exclude reference="lNl-2M-GPT"/>
+                            </mask>
+                        </variation>
+                        <variation key="heightClass=regular-widthClass=regular">
+                            <mask key="subviews">
+                                <include reference="OgR-G4-H3K"/>
+                            </mask>
+                            <mask key="constraints">
+                                <include reference="fpr-Up-VSd"/>
+                                <include reference="lNl-2M-GPT"/>
+                            </mask>
+                        </variation>
+                    </view>
+                    <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
+                    <connections>
+                        <outlet property="tiltcontrol" destination="OgR-G4-H3K" id="Iub-96-4cl"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="GWy-SA-426" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-561" y="1492.5"/>
+        </scene>
         <!--Game View Controller-->
         <scene sceneID="tXr-a1-R10">
             <objects>
@@ -17,11 +143,27 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
+                    <navigationItem key="navigationItem" id="cFp-Wj-uGf"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SZV-WD-TEh" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="300" y="744"/>
+            <point key="canvasLocation" x="106.5" y="778.5"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="qqw-Gj-P5D">
+            <objects>
+                <navigationController id="4bF-eE-v15" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="ciN-nW-Hzf">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="5VM-Tk-vgp" kind="relationship" relationship="rootViewController" id="sLy-t9-ZoB"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hFM-0o-gSV" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1291.5" y="778.5"/>
         </scene>
     </scenes>
 </document>
