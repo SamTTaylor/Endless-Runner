@@ -152,6 +152,8 @@
 				687516121A24F92600748410 /* GameScene.h */,
 				687516131A24F92600748410 /* GameScene.m */,
 				687516151A24F92600748410 /* GameScene.sks */,
+				682427FE1A28740B00F71A3D /* GameModel.h */,
+				682427FF1A28740B00F71A3D /* GameModel.m */,
 				68AA902B1A56C4700056E5A2 /* MainMenuViewController.h */,
 				68AA902C1A56C4700056E5A2 /* MainMenuViewController.m */,
 				687516171A24F92600748410 /* GameViewController.h */,
@@ -163,8 +165,6 @@
 				6875161F1A24F92600748410 /* LaunchScreen.xib */,
 				683D21CB1A2F7F390081FF3F /* Entities */,
 				6875160B1A24F92600748410 /* Supporting Files */,
-				682427FE1A28740B00F71A3D /* GameModel.h */,
-				682427FF1A28740B00F71A3D /* GameModel.m */,
 			);
 			path = "Endless Runner";
 			sourceTree = "<group>";

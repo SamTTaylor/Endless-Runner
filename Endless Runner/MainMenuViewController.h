@@ -8,10 +8,13 @@
 
 #import <UIKit/UIKit.h>
 #import "SettingsViewController.h"
+#import "GameViewController.h"
 
 @interface MainMenuViewController : UIViewController
 
 @property bool tiltbool;
+
 @property SettingsViewController *svc;
+@property GameViewController *gvc;
 
 @end

@@ -14,6 +14,11 @@
 
 @interface GameViewController : UIViewController
 
+@property (weak) IBOutlet UIButton *left;
+@property (weak) IBOutlet UIButton *right;
+@property (weak) IBOutlet UIButton *quit;
+
+
 @property GameScene* gamescene;
 @property GameModel* model;
 

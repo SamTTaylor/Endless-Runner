@@ -30,7 +30,8 @@
         [self.svc setTiltbool:self.tiltbool];
     }
     if ([[segue identifier]isEqualToString:@"segueToGame"]) {
-        
+        self.gvc = [segue destinationViewController];
+        [self.gvc setTiltbool:self.tiltbool];
     }
 }
 

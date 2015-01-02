@@ -65,6 +65,15 @@
 
     //Prepare the Gyro
     self.motionManager = [[CMMotionManager alloc]init];
+    
+    
+    if (self.tiltbool == true){
+        self.left.hidden = true;
+        self.right.hidden = true;
+    } else {
+        self.left.hidden = false;
+        self.right.hidden = false;
+    }
 }
 
 
@@ -84,7 +93,7 @@
     for (UITouch *touch in touches) {
         //CGPoint location = [touch locationInNode:self.gamescene];
         //[self.model rotatePlayer];
-        [self.model movePlayer];
+        //[self.model movePlayer];
 
     }
 }
@@ -115,5 +124,17 @@
 - (BOOL)prefersStatusBarHidden {
     return YES;
 }
+
+
+-(IBAction)leftPressed:(UIButton*)sender{
+    [self.model slowPlayer];
+}
+-(IBAction)rightPressed:(UIButton*)sender{
+    [self.model movePlayer];
+}
+-(IBAction)quitPressed:(UIButton*)sender{
+    [[self presentingViewController] dismissViewControllerAnimated:YES completion:nil];
+}
+
 
 @end

@@ -31,7 +31,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="BV1-FR-VrT" kind="show" id="QSQ-fe-3LX"/>
+                                    <segue destination="BV1-FR-VrT" kind="presentation" identifier="segueToGame" modalTransitionStyle="flipHorizontal" id="QSQ-fe-3LX"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -141,9 +141,118 @@
                     <view key="view" contentMode="scaleToFill" id="3se-qz-xqx" customClass="SKView">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="p55-KT-ord">
+                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="33"/>
+                                <state key="normal" title="Right">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <variation key="heightClass=regular-widthClass=regular" ambiguous="YES" misplaced="YES">
+                                    <rect key="frame" x="459" y="663" width="94" height="76"/>
+                                </variation>
+                                <connections>
+                                    <action selector="rightPressed:" destination="BV1-FR-VrT" eventType="touchUpInside" id="YN1-QN-mdx"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="elc-Hv-mLz">
+                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="33"/>
+                                <state key="normal" title="Left">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <variation key="heightClass=regular-widthClass=regular" ambiguous="YES" misplaced="YES">
+                                    <rect key="frame" x="277" y="680" width="86" height="41"/>
+                                </variation>
+                                <connections>
+                                    <action selector="leftPressed:" destination="BV1-FR-VrT" eventType="touchUpInside" id="Vmt-6M-ZXe"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fWy-EB-Khq">
+                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                <state key="normal" title="Quit Game">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <variation key="heightClass=regular-widthClass=regular" ambiguous="YES" misplaced="YES">
+                                    <rect key="frame" x="24" y="725" width="139" height="43"/>
+                                </variation>
+                                <connections>
+                                    <action selector="quitPressed:" destination="BV1-FR-VrT" eventType="touchUpInside" id="SUw-kE-GL2"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="centerX" secondItem="p55-KT-ord" secondAttribute="centerX" constant="-50" id="3Bk-oD-afY"/>
+                            <constraint firstAttribute="centerX" secondItem="elc-Hv-mLz" secondAttribute="centerX" id="Bkf-sH-rxg"/>
+                            <constraint firstAttribute="centerY" secondItem="p55-KT-ord" secondAttribute="centerY" constant="-50" id="JgZ-Ir-Fri"/>
+                            <constraint firstAttribute="centerY" relation="greaterThanOrEqual" secondItem="p55-KT-ord" secondAttribute="centerY" constant="-300" id="QYh-Te-mvv"/>
+                            <constraint firstAttribute="centerY" relation="greaterThanOrEqual" secondItem="elc-Hv-mLz" secondAttribute="centerY" constant="200" id="XCs-t7-o0Q">
+                                <variation key="heightClass=regular-widthClass=regular" constant="-300"/>
+                            </constraint>
+                            <constraint firstAttribute="centerX" secondItem="elc-Hv-mLz" secondAttribute="centerX" id="ZIA-YL-mVc">
+                                <variation key="heightClass=regular-widthClass=regular" constant="100"/>
+                            </constraint>
+                            <constraint firstAttribute="centerX" secondItem="p55-KT-ord" secondAttribute="centerX" constant="-50" id="gzB-A2-F7n"/>
+                            <constraint firstAttribute="centerX" secondItem="elc-Hv-mLz" secondAttribute="centerX" constant="50" id="mkZ-qD-r5B"/>
+                            <constraint firstAttribute="centerX" secondItem="p55-KT-ord" secondAttribute="centerX" constant="-50" id="nPg-EM-cDt">
+                                <variation key="heightClass=regular-widthClass=regular" constant="-100"/>
+                            </constraint>
+                            <constraint firstAttribute="centerY" relation="greaterThanOrEqual" secondItem="fWy-EB-Khq" secondAttribute="centerY" constant="-200" id="pkJ-M6-fUe">
+                                <variation key="heightClass=regular-widthClass=regular" constant="-350"/>
+                            </constraint>
+                            <constraint firstAttribute="centerX" relation="lessThanOrEqual" secondItem="fWy-EB-Khq" secondAttribute="centerX" constant="-200" id="qKa-vM-e8t">
+                                <variation key="heightClass=regular-widthClass=regular" constant="300"/>
+                            </constraint>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="p55-KT-ord"/>
+                                <exclude reference="elc-Hv-mLz"/>
+                                <exclude reference="fWy-EB-Khq"/>
+                            </mask>
+                            <mask key="constraints">
+                                <exclude reference="Bkf-sH-rxg"/>
+                                <exclude reference="XCs-t7-o0Q"/>
+                                <exclude reference="ZIA-YL-mVc"/>
+                                <exclude reference="mkZ-qD-r5B"/>
+                                <exclude reference="pkJ-M6-fUe"/>
+                                <exclude reference="qKa-vM-e8t"/>
+                                <exclude reference="3Bk-oD-afY"/>
+                                <exclude reference="JgZ-Ir-Fri"/>
+                                <exclude reference="QYh-Te-mvv"/>
+                                <exclude reference="gzB-A2-F7n"/>
+                                <exclude reference="nPg-EM-cDt"/>
+                            </mask>
+                        </variation>
+                        <variation key="heightClass=regular-widthClass=regular">
+                            <mask key="subviews">
+                                <include reference="p55-KT-ord"/>
+                                <include reference="elc-Hv-mLz"/>
+                                <include reference="fWy-EB-Khq"/>
+                            </mask>
+                            <mask key="constraints">
+                                <exclude reference="Bkf-sH-rxg"/>
+                                <include reference="XCs-t7-o0Q"/>
+                                <include reference="ZIA-YL-mVc"/>
+                                <exclude reference="mkZ-qD-r5B"/>
+                                <include reference="pkJ-M6-fUe"/>
+                                <include reference="qKa-vM-e8t"/>
+                                <exclude reference="3Bk-oD-afY"/>
+                                <exclude reference="JgZ-Ir-Fri"/>
+                                <include reference="QYh-Te-mvv"/>
+                                <exclude reference="gzB-A2-F7n"/>
+                                <include reference="nPg-EM-cDt"/>
+                            </mask>
+                        </variation>
                     </view>
                     <navigationItem key="navigationItem" id="cFp-Wj-uGf"/>
+                    <connections>
+                        <outlet property="left" destination="elc-Hv-mLz" id="g7g-dH-6lS"/>
+                        <outlet property="quit" destination="fWy-EB-Khq" id="zI9-L1-e0m"/>
+                        <outlet property="right" destination="p55-KT-ord" id="BcD-xx-Do5"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SZV-WD-TEh" sceneMemberID="firstResponder"/>
             </objects>

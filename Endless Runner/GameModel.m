@@ -28,7 +28,13 @@
 }
 
 -(void)movePlayer{
-    SKAction *action = [SKAction moveBy:CGVectorMake(100, 0) duration:10];
+    SKAction *action = [SKAction moveBy:CGVectorMake(100, 0) duration:1];
+    
+    [self.player.node runAction:[SKAction repeatActionForever:action]];
+}
+
+-(void)slowPlayer{
+    SKAction *action = [SKAction moveBy:CGVectorMake(-100, 0) duration:1];
     
     [self.player.node runAction:[SKAction repeatActionForever:action]];
 }

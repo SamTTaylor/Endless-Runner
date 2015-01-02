@@ -18,4 +18,6 @@
 
 - (void)rotatePlayer;
 - (void)movePlayer;
+- (void)slowPlayer;
+
 @end
