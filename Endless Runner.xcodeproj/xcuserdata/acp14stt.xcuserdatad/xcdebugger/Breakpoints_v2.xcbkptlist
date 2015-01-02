@@ -10,6 +10,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Endless Runner/GameViewController.h"
+<<<<<<< Updated upstream
             timestampString = "439323653.293034"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
@@ -127,6 +128,13 @@
             endingLineNumber = "25"
             landmarkName = "-application:didFinishLaunchingWithOptions:"
             landmarkType = "5">
+=======
+            timestampString = "438859701.18026"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "11"
+            endingLineNumber = "11">
+>>>>>>> Stashed changes
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

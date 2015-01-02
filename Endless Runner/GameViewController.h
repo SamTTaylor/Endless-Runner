@@ -12,7 +12,6 @@
 #import "GameScene.h"
 #import "GameModel.h"
 
-
 @interface GameViewController : UIViewController
 
 @property GameScene* gamescene;

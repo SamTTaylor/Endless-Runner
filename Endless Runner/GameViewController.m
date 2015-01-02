@@ -65,7 +65,6 @@
 
     //Prepare the Gyro
     self.motionManager = [[CMMotionManager alloc]init];
-    
 }
 
 
@@ -86,7 +85,7 @@
         //CGPoint location = [touch locationInNode:self.gamescene];
         //[self.model rotatePlayer];
         [self.model movePlayer];
-        
+
     }
 }
 

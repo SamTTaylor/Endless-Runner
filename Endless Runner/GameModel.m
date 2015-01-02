@@ -32,5 +32,4 @@
     
     [self.player.node runAction:[SKAction repeatActionForever:action]];
 }
-
 @end

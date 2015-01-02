@@ -10,9 +10,12 @@
 		682428001A28740B00F71A3D /* GameModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 682427FF1A28740B00F71A3D /* GameModel.m */; };
 		682428091A287ED000F71A3D /* bgforest.png in Resources */ = {isa = PBXBuildFile; fileRef = 682428081A287ED000F71A3D /* bgforest.png */; };
 		6824280B1A287FA800F71A3D /* avatar.png in Resources */ = {isa = PBXBuildFile; fileRef = 6824280A1A287FA800F71A3D /* avatar.png */; };
+<<<<<<< Updated upstream
 		683D21C41A2F7CC90081FF3F /* Entity.m in Sources */ = {isa = PBXBuildFile; fileRef = 683D21C31A2F7CC90081FF3F /* Entity.m */; };
 		683D21C71A2F7CD50081FF3F /* Player.m in Sources */ = {isa = PBXBuildFile; fileRef = 683D21C61A2F7CD50081FF3F /* Player.m */; };
 		683D21CA1A2F7F320081FF3F /* LivingEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = 683D21C91A2F7F320081FF3F /* LivingEntity.m */; };
+=======
+>>>>>>> Stashed changes
 		6875160E1A24F92600748410 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 6875160D1A24F92600748410 /* main.m */; };
 		687516111A24F92600748410 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 687516101A24F92600748410 /* AppDelegate.m */; };
 		687516141A24F92600748410 /* GameScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 687516131A24F92600748410 /* GameScene.m */; };
@@ -39,12 +42,15 @@
 		682427FF1A28740B00F71A3D /* GameModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameModel.m; sourceTree = "<group>"; };
 		682428081A287ED000F71A3D /* bgforest.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = bgforest.png; path = "Endless Runner/Images/bgforest.png"; sourceTree = "<group>"; };
 		6824280A1A287FA800F71A3D /* avatar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = avatar.png; path = "Endless Runner/Images/avatar.png"; sourceTree = "<group>"; };
+<<<<<<< Updated upstream
 		683D21C21A2F7CC90081FF3F /* Entity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Entity.h; sourceTree = "<group>"; };
 		683D21C31A2F7CC90081FF3F /* Entity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Entity.m; sourceTree = "<group>"; };
 		683D21C51A2F7CD50081FF3F /* Player.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Player.h; sourceTree = "<group>"; };
 		683D21C61A2F7CD50081FF3F /* Player.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Player.m; sourceTree = "<group>"; };
 		683D21C81A2F7F320081FF3F /* LivingEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LivingEntity.h; sourceTree = "<group>"; };
 		683D21C91A2F7F320081FF3F /* LivingEntity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LivingEntity.m; sourceTree = "<group>"; };
+=======
+>>>>>>> Stashed changes
 		687516081A24F92600748410 /* Endless Runner.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Endless Runner.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6875160C1A24F92600748410 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6875160D1A24F92600748410 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -106,6 +112,7 @@
 			name = Backgrounds;
 			sourceTree = "<group>";
 		};
+<<<<<<< Updated upstream
 		683D21CB1A2F7F390081FF3F /* Entities */ = {
 			isa = PBXGroup;
 			children = (
@@ -119,6 +126,8 @@
 			name = Entities;
 			sourceTree = "<group>";
 		};
+=======
+>>>>>>> Stashed changes
 		687515FF1A24F92600748410 = {
 			isa = PBXGroup;
 			children = (
