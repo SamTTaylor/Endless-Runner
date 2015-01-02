@@ -17,7 +17,8 @@
 - (id)initWithPlayer;
 
 - (void)rotatePlayer;
-- (void)movePlayer;
-- (void)slowPlayer;
+- (void)impulseEntityRight:(Entity*)ent multiplier:(int)m;
+- (void)impulseEntityLeft:(Entity*)ent multiplier:(int)m;
+- (void)jumpEntity:(Entity*)ent multiplier:(int)m;
 
 @end

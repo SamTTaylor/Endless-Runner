@@ -27,15 +27,22 @@
     [self.player.node runAction:[SKAction repeatActionForever:action]];
 }
 
--(void)movePlayer{
-    SKAction *action = [SKAction moveBy:CGVectorMake(100, 0) duration:1];
-    
-    [self.player.node runAction:[SKAction repeatActionForever:action]];
+-(void)impulseEntityRight:(Entity*)ent multiplier:(int)m{
+    CGFloat impulseX = m*50.0f;
+    CGFloat impulseY = 0.0f;
+    [ent.node.physicsBody applyImpulse:CGVectorMake(impulseX, impulseY) atPoint:ent.node.position];
 }
 
--(void)slowPlayer{
-    SKAction *action = [SKAction moveBy:CGVectorMake(-100, 0) duration:1];
+-(void)impulseEntityLeft:(Entity*)ent multiplier:(int)m{
+    CGFloat impulseX = m*-50.0f;
+    CGFloat impulseY = 0.0f;
+    [ent.node.physicsBody applyImpulse:CGVectorMake(impulseX, impulseY) atPoint:ent.node.position];
+}
+
+-(void)jumpEntity:(Entity*)ent multiplier:(int)m{
+    CGFloat impulseX = 0.0f;
+    CGFloat impulseY = m * 50.0f;
+    [ent.node.physicsBody applyImpulse:CGVectorMake(impulseX, impulseY) atPoint:ent.node.position];
     
-    [self.player.node runAction:[SKAction repeatActionForever:action]];
 }
 @end

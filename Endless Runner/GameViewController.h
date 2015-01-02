@@ -16,6 +16,7 @@
 
 @property (weak) IBOutlet UIButton *left;
 @property (weak) IBOutlet UIButton *right;
+@property (weak) IBOutlet UIButton *jump;
 @property (weak) IBOutlet UIButton *quit;
 
 

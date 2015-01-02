@@ -16,5 +16,6 @@
 
 
 - (id)initWithNode:(SKSpriteNode*)node;
+- (CGRect)collisionBoundingBox;
 
 @end

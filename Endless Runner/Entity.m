@@ -21,4 +21,8 @@
     return self;
 }
 
+-(CGRect)collisionBoundingBox {
+    return CGRectInset(self.node.frame, 2, 0);
+}
+
 @end

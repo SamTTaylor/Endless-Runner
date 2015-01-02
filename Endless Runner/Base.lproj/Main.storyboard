@@ -149,7 +149,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <variation key="heightClass=regular-widthClass=regular" ambiguous="YES" misplaced="YES">
-                                    <rect key="frame" x="459" y="663" width="94" height="76"/>
+                                    <rect key="frame" x="453" y="662" width="94" height="76"/>
                                 </variation>
                                 <connections>
                                     <action selector="rightPressed:" destination="BV1-FR-VrT" eventType="touchUpInside" id="YN1-QN-mdx"/>
@@ -162,7 +162,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <variation key="heightClass=regular-widthClass=regular" ambiguous="YES" misplaced="YES">
-                                    <rect key="frame" x="277" y="680" width="86" height="41"/>
+                                    <rect key="frame" x="257" y="680" width="86" height="41"/>
                                 </variation>
                                 <connections>
                                     <action selector="leftPressed:" destination="BV1-FR-VrT" eventType="touchUpInside" id="Vmt-6M-ZXe"/>
@@ -175,10 +175,23 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <variation key="heightClass=regular-widthClass=regular" ambiguous="YES" misplaced="YES">
-                                    <rect key="frame" x="24" y="725" width="139" height="43"/>
+                                    <rect key="frame" x="31" y="725" width="139" height="43"/>
                                 </variation>
                                 <connections>
                                     <action selector="quitPressed:" destination="BV1-FR-VrT" eventType="touchUpInside" id="SUw-kE-GL2"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yMe-QW-ccX">
+                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="33"/>
+                                <state key="normal" title="Jump">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <variation key="heightClass=regular-widthClass=regular" ambiguous="YES" misplaced="YES">
+                                    <rect key="frame" x="669" y="725" width="131" height="67"/>
+                                </variation>
+                                <connections>
+                                    <action selector="jumpPressed:" destination="BV1-FR-VrT" eventType="touchUpInside" id="tVo-dE-Jqa"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -187,6 +200,9 @@
                             <constraint firstAttribute="centerX" secondItem="p55-KT-ord" secondAttribute="centerX" constant="-50" id="3Bk-oD-afY"/>
                             <constraint firstAttribute="centerX" secondItem="elc-Hv-mLz" secondAttribute="centerX" id="Bkf-sH-rxg"/>
                             <constraint firstAttribute="centerY" secondItem="p55-KT-ord" secondAttribute="centerY" constant="-50" id="JgZ-Ir-Fri"/>
+                            <constraint firstAttribute="centerY" relation="lessThanOrEqual" secondItem="yMe-QW-ccX" secondAttribute="centerY" constant="350" id="LuW-7X-UxK">
+                                <variation key="heightClass=regular-widthClass=regular" constant="-350"/>
+                            </constraint>
                             <constraint firstAttribute="centerY" relation="greaterThanOrEqual" secondItem="p55-KT-ord" secondAttribute="centerY" constant="-300" id="QYh-Te-mvv"/>
                             <constraint firstAttribute="centerY" relation="greaterThanOrEqual" secondItem="elc-Hv-mLz" secondAttribute="centerY" constant="200" id="XCs-t7-o0Q">
                                 <variation key="heightClass=regular-widthClass=regular" constant="-300"/>
@@ -196,6 +212,7 @@
                             </constraint>
                             <constraint firstAttribute="centerX" secondItem="p55-KT-ord" secondAttribute="centerX" constant="-50" id="gzB-A2-F7n"/>
                             <constraint firstAttribute="centerX" secondItem="elc-Hv-mLz" secondAttribute="centerX" constant="50" id="mkZ-qD-r5B"/>
+                            <constraint firstAttribute="centerX" relation="greaterThanOrEqual" secondItem="yMe-QW-ccX" secondAttribute="centerX" constant="-350" id="nNM-pg-9XS"/>
                             <constraint firstAttribute="centerX" secondItem="p55-KT-ord" secondAttribute="centerX" constant="-50" id="nPg-EM-cDt">
                                 <variation key="heightClass=regular-widthClass=regular" constant="-100"/>
                             </constraint>
@@ -211,19 +228,22 @@
                                 <exclude reference="p55-KT-ord"/>
                                 <exclude reference="elc-Hv-mLz"/>
                                 <exclude reference="fWy-EB-Khq"/>
+                                <exclude reference="yMe-QW-ccX"/>
                             </mask>
                             <mask key="constraints">
+                                <exclude reference="pkJ-M6-fUe"/>
+                                <exclude reference="qKa-vM-e8t"/>
                                 <exclude reference="Bkf-sH-rxg"/>
                                 <exclude reference="XCs-t7-o0Q"/>
                                 <exclude reference="ZIA-YL-mVc"/>
                                 <exclude reference="mkZ-qD-r5B"/>
-                                <exclude reference="pkJ-M6-fUe"/>
-                                <exclude reference="qKa-vM-e8t"/>
                                 <exclude reference="3Bk-oD-afY"/>
                                 <exclude reference="JgZ-Ir-Fri"/>
                                 <exclude reference="QYh-Te-mvv"/>
                                 <exclude reference="gzB-A2-F7n"/>
                                 <exclude reference="nPg-EM-cDt"/>
+                                <exclude reference="LuW-7X-UxK"/>
+                                <exclude reference="nNM-pg-9XS"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=regular-widthClass=regular">
@@ -231,24 +251,28 @@
                                 <include reference="p55-KT-ord"/>
                                 <include reference="elc-Hv-mLz"/>
                                 <include reference="fWy-EB-Khq"/>
+                                <include reference="yMe-QW-ccX"/>
                             </mask>
                             <mask key="constraints">
+                                <include reference="pkJ-M6-fUe"/>
+                                <include reference="qKa-vM-e8t"/>
                                 <exclude reference="Bkf-sH-rxg"/>
                                 <include reference="XCs-t7-o0Q"/>
                                 <include reference="ZIA-YL-mVc"/>
                                 <exclude reference="mkZ-qD-r5B"/>
-                                <include reference="pkJ-M6-fUe"/>
-                                <include reference="qKa-vM-e8t"/>
                                 <exclude reference="3Bk-oD-afY"/>
                                 <exclude reference="JgZ-Ir-Fri"/>
                                 <include reference="QYh-Te-mvv"/>
                                 <exclude reference="gzB-A2-F7n"/>
                                 <include reference="nPg-EM-cDt"/>
+                                <include reference="LuW-7X-UxK"/>
+                                <include reference="nNM-pg-9XS"/>
                             </mask>
                         </variation>
                     </view>
                     <navigationItem key="navigationItem" id="cFp-Wj-uGf"/>
                     <connections>
+                        <outlet property="jump" destination="yMe-QW-ccX" id="pCa-7L-fl8"/>
                         <outlet property="left" destination="elc-Hv-mLz" id="g7g-dH-6lS"/>
                         <outlet property="quit" destination="fWy-EB-Khq" id="zI9-L1-e0m"/>
                         <outlet property="right" destination="p55-KT-ord" id="BcD-xx-Do5"/>

@@ -8,13 +8,13 @@
 
 #import "GameScene.h"
 
+
 @implementation GameScene
 
 -(void)didMoveToView:(SKView *)view {
     /* Setup your scene here */
     
-    
-    
+    self.physicsWorld.gravity = CGVectorMake(0,0);
     
     
    /* SKLabelNode *myLabel = [SKLabelNode labelNodeWithFontNamed:@"Chalkduster"];
@@ -29,5 +29,6 @@
 -(void)update:(CFTimeInterval)currentTime {
     /* Called before each frame is rendered */
 }
+
 
 @end

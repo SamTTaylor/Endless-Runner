@@ -127,13 +127,16 @@
 
 
 -(IBAction)leftPressed:(UIButton*)sender{
-    [self.model slowPlayer];
+    [self.model impulseEntityLeft:self.model.player multiplier:50];
 }
 -(IBAction)rightPressed:(UIButton*)sender{
-    [self.model movePlayer];
+    [self.model impulseEntityRight:self.model.player multiplier:50];
 }
 -(IBAction)quitPressed:(UIButton*)sender{
     [[self presentingViewController] dismissViewControllerAnimated:YES completion:nil];
+}
+-(IBAction)jumpPressed:(UIButton*)sender{
+    [self.model jumpEntity:self.model.player multiplier:2];
 }
 
 
