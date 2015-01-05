@@ -13,10 +13,9 @@
 
 -(void)didMoveToView:(SKView *)view {
     /* Setup your scene here */
-    
-    //self.physicsWorld.gravity = CGVectorMake(0,0);
     self.physicsBody = [SKPhysicsBody bodyWithEdgeLoopFromRect:CGRectMake(-300, 0, self.frame.size.width+600, self.frame.size.height)];
     [self.physicsWorld setContactDelegate:self];
+    self.physicsWorld.gravity = CGVectorMake(0.0, -5.0);
     self.view.showsNodeCount = YES;
     self.view.showsFPS = YES;
 }

@@ -109,7 +109,7 @@ NSTimer *updatetimer;
 }
 
 - (void)setGameGround:(SKTexture*) groundtexture{
-    
+    //Sets up the ground sprites, makes them scroll passed in a loop
     SKAction* moveGround = [SKAction moveByX:-self.model.groundtexture.size.width*2 y:0 duration:0.001 * self.model.groundtexture.size.width*2];
     SKAction* resetGround = [SKAction moveByX:self.model.groundtexture.size.width*2 y:0 duration:0];
     SKAction* loopGroundMovement = [SKAction repeatActionForever:[SKAction sequence:@[moveGround, resetGround]]];
@@ -122,6 +122,13 @@ NSTimer *updatetimer;
         [sprite runAction:loopGroundMovement];
         [self.gamescene addChild:sprite];
     }
+    
+    //Adds an invisible tactile node for everything to stand on.
+    SKNode* groundCollisionNode = [SKNode node];
+    groundCollisionNode.position = CGPointMake(0, 20);
+    groundCollisionNode.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:CGSizeMake(self.gamescene.size.width*4, 50)];
+    groundCollisionNode.physicsBody.dynamic = NO;
+    [self.gamescene addChild:groundCollisionNode];
 }
 
 -(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
@@ -146,9 +153,10 @@ NSTimer *updatetimer;
 }
 
 - (void)updaterFireMethod:(NSTimer *)updatetimer{
-   // TactileObject *Tobj = [self.model newEnvironmentObject];
-   // [self.model placeEntWithLoc:0 Ent:Tobj];
-   // [self.gamescene addChild:Tobj.node];
+    TactileObject *Tobj = [self.model newEnvironmentObjectWithImageNamed:@"rock"];
+    [self.model placeEntWithLoc:0 Ent:Tobj];
+    [Tobj.node setScale:0.1];
+    [self.gamescene addChild:Tobj.node];
 }
 
 - (BOOL)shouldAutorotate

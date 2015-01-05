@@ -21,9 +21,9 @@
 - (void)placePlayer;
 - (void)impulseEntityRight:(Entity*)ent multiplier:(int)m;
 - (void)impulseEntityLeft:(Entity*)ent multiplier:(int)m;
--(void)placeEntWithLoc:(int)loc Ent:(Entity*)ent;
+- (void)placeEntWithLoc:(int)loc Ent:(Entity*)ent;
 - (void)jumpEntity:(Entity*)ent multiplier:(int)m;
 
--(TactileObject*)newEnvironmentObject;
+-(TactileObject*)newEnvironmentObjectWithImageNamed:(NSString*)name;
 
 @end

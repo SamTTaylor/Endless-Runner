@@ -64,10 +64,8 @@
     }
 }
 
--(TactileObject*)newEnvironmentObject{
-    TactileObject  *Tobj = [[TactileObject alloc] initWithNode:[SKSpriteNode spriteNodeWithImageNamed:@"rock"]];
-    Tobj.node.yScale = 0.5;
-    Tobj.node.xScale = 0.5;
+-(TactileObject*)newEnvironmentObjectWithImageNamed:(NSString*)name{
+    TactileObject  *Tobj = [[TactileObject alloc] initWithNode:[SKSpriteNode spriteNodeWithImageNamed:name]];
     return Tobj;
 }
 @end
