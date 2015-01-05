@@ -15,9 +15,11 @@
 @property Player* player;
 @property SKTexture* backgroundtexture;
 @property SKTexture* groundtexture;
+@property SKNode* groundnode;
+@property float speed;
 
 - (id)initWithPlayer;
-
+- (void)moveNode:(SKNode*)node Repeat:(bool)r;
 - (void)placePlayer;
 - (void)impulseEntityRight:(Entity*)ent multiplier:(int)m;
 - (void)impulseEntityLeft:(Entity*)ent multiplier:(int)m;
