@@ -15,7 +15,7 @@
     /* Setup your scene here */
     
     //self.physicsWorld.gravity = CGVectorMake(0,0);
-    self.physicsBody = [SKPhysicsBody bodyWithEdgeLoopFromRect:self.frame];
+    self.physicsBody = [SKPhysicsBody bodyWithEdgeLoopFromRect:CGRectMake(-100, 0, self.frame.size.width+200, self.frame.size.height)];
     [self.physicsWorld setContactDelegate:self];
     
 }

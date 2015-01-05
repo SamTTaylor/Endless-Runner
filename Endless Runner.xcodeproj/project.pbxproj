@@ -13,6 +13,8 @@
 		683D21C41A2F7CC90081FF3F /* Entity.m in Sources */ = {isa = PBXBuildFile; fileRef = 683D21C31A2F7CC90081FF3F /* Entity.m */; };
 		683D21C71A2F7CD50081FF3F /* Player.m in Sources */ = {isa = PBXBuildFile; fileRef = 683D21C61A2F7CD50081FF3F /* Player.m */; };
 		683D21CA1A2F7F320081FF3F /* LivingEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = 683D21C91A2F7F320081FF3F /* LivingEntity.m */; };
+		684747D11A5AAC730005B80A /* rock.png in Resources */ = {isa = PBXBuildFile; fileRef = 684747D01A5AAC730005B80A /* rock.png */; };
+		684747D41A5AB3740005B80A /* TactileObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 684747D31A5AB3740005B80A /* TactileObject.m */; };
 		6875160E1A24F92600748410 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 6875160D1A24F92600748410 /* main.m */; };
 		687516111A24F92600748410 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 687516101A24F92600748410 /* AppDelegate.m */; };
 		687516141A24F92600748410 /* GameScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 687516131A24F92600748410 /* GameScene.m */; };
@@ -47,6 +49,9 @@
 		683D21C61A2F7CD50081FF3F /* Player.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Player.m; sourceTree = "<group>"; };
 		683D21C81A2F7F320081FF3F /* LivingEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LivingEntity.h; sourceTree = "<group>"; };
 		683D21C91A2F7F320081FF3F /* LivingEntity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LivingEntity.m; sourceTree = "<group>"; };
+		684747D01A5AAC730005B80A /* rock.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = rock.png; path = ../Downloads/rock.png; sourceTree = "<group>"; };
+		684747D21A5AB3740005B80A /* TactileObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TactileObject.h; sourceTree = "<group>"; };
+		684747D31A5AB3740005B80A /* TactileObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TactileObject.m; sourceTree = "<group>"; };
 		687516081A24F92600748410 /* Endless Runner.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Endless Runner.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6875160C1A24F92600748410 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6875160D1A24F92600748410 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -99,6 +104,7 @@
 		682428021A28749800F71A3D /* Characters */ = {
 			isa = PBXGroup;
 			children = (
+				684747D01A5AAC730005B80A /* rock.png */,
 				6824280A1A287FA800F71A3D /* avatar.png */,
 			);
 			name = Characters;
@@ -117,6 +123,8 @@
 			children = (
 				683D21C21A2F7CC90081FF3F /* Entity.h */,
 				683D21C31A2F7CC90081FF3F /* Entity.m */,
+				684747D21A5AB3740005B80A /* TactileObject.h */,
+				684747D31A5AB3740005B80A /* TactileObject.m */,
 				683D21C81A2F7F320081FF3F /* LivingEntity.h */,
 				683D21C91A2F7F320081FF3F /* LivingEntity.m */,
 				683D21C51A2F7CD50081FF3F /* Player.h */,
@@ -279,6 +287,7 @@
 				687516211A24F92600748410 /* LaunchScreen.xib in Resources */,
 				682428091A287ED000F71A3D /* bgforest.png in Resources */,
 				6824280B1A287FA800F71A3D /* avatar.png in Resources */,
+				684747D11A5AAC730005B80A /* rock.png in Resources */,
 				6875161E1A24F92600748410 /* Images.xcassets in Resources */,
 				687516161A24F92600748410 /* GameScene.sks in Resources */,
 				6875161C1A24F92600748410 /* Main.storyboard in Resources */,
@@ -308,6 +317,7 @@
 				687516141A24F92600748410 /* GameScene.m in Sources */,
 				683D21C71A2F7CD50081FF3F /* Player.m in Sources */,
 				6875160E1A24F92600748410 /* main.m in Sources */,
+				684747D41A5AB3740005B80A /* TactileObject.m in Sources */,
 				683D21CA1A2F7F320081FF3F /* LivingEntity.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

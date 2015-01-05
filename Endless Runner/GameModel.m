@@ -20,13 +20,6 @@
     return self;
 }
 
--(void)rotatePlayer{
-    
-    SKAction *action = [SKAction rotateByAngle:M_PI duration:1];
-    
-    [self.player.node runAction:[SKAction repeatActionForever:action]];
-}
-
 -(void)impulseEntityRight:(Entity*)ent multiplier:(int)m{
     CGFloat impulseX = m*50.0f;
     CGFloat impulseY = 0.0f;
@@ -44,5 +37,20 @@
     CGFloat impulseY = m * 50.0f;
     [ent.node.physicsBody applyImpulse:CGVectorMake(impulseX, impulseY) atPoint:ent.node.position];
     
+}
+
+-(void)placePlayer{
+    //Bottom left
+    self.player.node.yScale = 0.5;
+    self.player.node.xScale = -0.5;
+    [self.player.node setPosition:CGPointMake(self.player.node.frame.size.width/2, self.player.node.frame.size.height)];
+}
+-(TactileObject*)newEnvironmentObjectWithX:(int)x WithY:(int)y{
+    TactileObject  *Tobj = [[TactileObject alloc] initWithNode:[SKSpriteNode spriteNodeWithImageNamed:@"rock"]];
+    Tobj.node.yScale = 0.5;
+    Tobj.node.xScale = 0.5;
+      [Tobj.node setPosition:CGPointMake(x, y)];
+    
+    return Tobj;
 }
 @end

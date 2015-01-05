@@ -24,6 +24,7 @@
 @property GameModel* model;
 
 @property bool tiltbool;
+@property float updatespeed;
 
 @property (strong) CMMotionManager *motionManager;
 

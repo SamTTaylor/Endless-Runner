@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "Player.h"
+#import "TactileObject.h"
 
 @interface GameModel : NSObject
 
@@ -16,9 +17,11 @@
 
 - (id)initWithPlayer;
 
-- (void)rotatePlayer;
+- (void)placePlayer;
 - (void)impulseEntityRight:(Entity*)ent multiplier:(int)m;
 - (void)impulseEntityLeft:(Entity*)ent multiplier:(int)m;
 - (void)jumpEntity:(Entity*)ent multiplier:(int)m;
+
+-(TactileObject*)newEnvironmentObjectWithX:(int)x WithY:(int)y;
 
 @end

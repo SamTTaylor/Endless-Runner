@@ -13,7 +13,7 @@
                         <viewControllerLayoutGuide type="bottom" id="zSf-Y8-NGX"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="zR5-30-NiK">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="536"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Cb8-9q-qNS">
@@ -48,10 +48,10 @@
                                 <exclude reference="dZU-qR-Oa0"/>
                             </mask>
                             <mask key="constraints">
-                                <exclude reference="U72-ul-Ium"/>
-                                <exclude reference="gyX-8t-Zb6"/>
                                 <exclude reference="SJK-0e-ZXv"/>
                                 <exclude reference="fvz-sm-olJ"/>
+                                <exclude reference="U72-ul-Ium"/>
+                                <exclude reference="gyX-8t-Zb6"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=regular-widthClass=regular">
@@ -60,10 +60,10 @@
                                 <include reference="dZU-qR-Oa0"/>
                             </mask>
                             <mask key="constraints">
-                                <include reference="U72-ul-Ium"/>
-                                <include reference="gyX-8t-Zb6"/>
                                 <include reference="SJK-0e-ZXv"/>
                                 <include reference="fvz-sm-olJ"/>
+                                <include reference="U72-ul-Ium"/>
+                                <include reference="gyX-8t-Zb6"/>
                             </mask>
                         </variation>
                     </view>
@@ -84,6 +84,7 @@
                         <viewControllerLayoutGuide type="bottom" id="4dK-qD-l0n"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="Y8k-wz-r37">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="OgR-G4-H3K">
@@ -231,12 +232,12 @@
                                 <exclude reference="yMe-QW-ccX"/>
                             </mask>
                             <mask key="constraints">
-                                <exclude reference="pkJ-M6-fUe"/>
-                                <exclude reference="qKa-vM-e8t"/>
                                 <exclude reference="Bkf-sH-rxg"/>
                                 <exclude reference="XCs-t7-o0Q"/>
                                 <exclude reference="ZIA-YL-mVc"/>
                                 <exclude reference="mkZ-qD-r5B"/>
+                                <exclude reference="pkJ-M6-fUe"/>
+                                <exclude reference="qKa-vM-e8t"/>
                                 <exclude reference="3Bk-oD-afY"/>
                                 <exclude reference="JgZ-Ir-Fri"/>
                                 <exclude reference="QYh-Te-mvv"/>
@@ -254,12 +255,12 @@
                                 <include reference="yMe-QW-ccX"/>
                             </mask>
                             <mask key="constraints">
-                                <include reference="pkJ-M6-fUe"/>
-                                <include reference="qKa-vM-e8t"/>
                                 <exclude reference="Bkf-sH-rxg"/>
                                 <include reference="XCs-t7-o0Q"/>
                                 <include reference="ZIA-YL-mVc"/>
                                 <exclude reference="mkZ-qD-r5B"/>
+                                <include reference="pkJ-M6-fUe"/>
+                                <include reference="qKa-vM-e8t"/>
                                 <exclude reference="3Bk-oD-afY"/>
                                 <exclude reference="JgZ-Ir-Fri"/>
                                 <include reference="QYh-Te-mvv"/>

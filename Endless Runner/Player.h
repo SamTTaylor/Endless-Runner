@@ -13,6 +13,4 @@
 
 @property int speed;
 
--(void)move;
-
 @end
