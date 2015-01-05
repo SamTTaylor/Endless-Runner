@@ -13,15 +13,17 @@
 @interface GameModel : NSObject
 
 @property Player* player;
-@property SKSpriteNode* backgroundnode;
+@property SKTexture* backgroundtexture;
+@property SKTexture* groundtexture;
 
 - (id)initWithPlayer;
 
 - (void)placePlayer;
 - (void)impulseEntityRight:(Entity*)ent multiplier:(int)m;
 - (void)impulseEntityLeft:(Entity*)ent multiplier:(int)m;
+-(void)placeEntWithLoc:(int)loc Ent:(Entity*)ent;
 - (void)jumpEntity:(Entity*)ent multiplier:(int)m;
 
--(TactileObject*)newEnvironmentObjectWithX:(int)x WithY:(int)y;
+-(TactileObject*)newEnvironmentObject;
 
 @end

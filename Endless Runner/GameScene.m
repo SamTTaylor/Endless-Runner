@@ -15,13 +15,15 @@
     /* Setup your scene here */
     
     //self.physicsWorld.gravity = CGVectorMake(0,0);
-    self.physicsBody = [SKPhysicsBody bodyWithEdgeLoopFromRect:CGRectMake(-100, 0, self.frame.size.width+200, self.frame.size.height)];
+    self.physicsBody = [SKPhysicsBody bodyWithEdgeLoopFromRect:CGRectMake(-300, 0, self.frame.size.width+600, self.frame.size.height)];
     [self.physicsWorld setContactDelegate:self];
-    
+    self.view.showsNodeCount = YES;
+    self.view.showsFPS = YES;
 }
 
 -(void)update:(CFTimeInterval)currentTime {
     /* Called before each frame is rendered */
+    
 }
 
 

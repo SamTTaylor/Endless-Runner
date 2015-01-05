@@ -55,7 +55,8 @@ NSTimer *updatetimer;
     self.gamescene = [GameScene unarchiveFromFile:@"GameScene"];
     self.gamescene.scaleMode = SKSceneScaleModeAspectFill;
     self.model = [[GameModel alloc] initWithPlayer];
-    [self setGameBackground:self.model.backgroundnode];
+    [self setGameBackground:self.model.backgroundtexture];
+    [self setGameGround:self.model.groundtexture];
     [self placePlayer];
     // Present the scene.
     [skView presentScene:self.gamescene];
@@ -92,14 +93,35 @@ NSTimer *updatetimer;
     }
 }
 
-- (void)setGameBackground:(SKSpriteNode*) bgImage{
-    self.gamescene.currentBackgroundImage = bgImage;
-    bgImage.position = CGPointMake(CGRectGetMidX(self.gamescene.frame), CGRectGetMidY(self.gamescene.frame));
-    bgImage.name = @"BACKGROUND";
-    bgImage.xScale = 0.5;
-    bgImage.yScale = 0.5;
-    [self.gamescene addChild:bgImage];
+- (void)setGameBackground:(SKTexture*) bgImage{
+    SKAction* moveBg = [SKAction moveByX:-self.model.backgroundtexture.size.width*2 y:0 duration:0.008 * self.model.backgroundtexture.size.width*2];
+    SKAction* resetBg = [SKAction moveByX:self.model.backgroundtexture.size.width*2 y:0 duration:0];
+    SKAction* loopBgMovement = [SKAction repeatActionForever:[SKAction sequence:@[moveBg, resetBg]]];
     
+    
+    for( int i = 0; i < 2 + self.gamescene.frame.size.width; ++i ) {
+        SKSpriteNode* sprite = [SKSpriteNode spriteNodeWithTexture:bgImage];
+        [sprite setScale:0.5];
+        sprite.position = CGPointMake(i * sprite.size.width, sprite.size.height/2);
+        [sprite runAction:loopBgMovement];
+        [self.gamescene addChild:sprite];
+    }
+}
+
+- (void)setGameGround:(SKTexture*) groundtexture{
+    
+    SKAction* moveGround = [SKAction moveByX:-self.model.groundtexture.size.width*2 y:0 duration:0.001 * self.model.groundtexture.size.width*2];
+    SKAction* resetGround = [SKAction moveByX:self.model.groundtexture.size.width*2 y:0 duration:0];
+    SKAction* loopGroundMovement = [SKAction repeatActionForever:[SKAction sequence:@[moveGround, resetGround]]];
+    
+    for( int i = 0; i < 2 + self.gamescene.frame.size.width / ( self.model.groundtexture.size.width * 2 ); ++i ) {
+        // Create the sprite
+        SKSpriteNode* sprite = [SKSpriteNode spriteNodeWithTexture:self.model.groundtexture];
+        sprite.yScale = 0.1;
+        sprite.position = CGPointMake(i * sprite.size.width,sprite.size.height/2);
+        [sprite runAction:loopGroundMovement];
+        [self.gamescene addChild:sprite];
+    }
 }
 
 -(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
@@ -116,6 +138,7 @@ NSTimer *updatetimer;
     [self.gamescene addChild:self.model.player.node];
 }
 
+
 //Initialises and Fires updater timer in one go
 - (void)updaterfire{
     updatetimer = [NSTimer scheduledTimerWithTimeInterval:self.updatespeed target:self selector:@selector(updaterFireMethod:) userInfo:nil repeats:YES];
@@ -123,8 +146,9 @@ NSTimer *updatetimer;
 }
 
 - (void)updaterFireMethod:(NSTimer *)updatetimer{
-    TactileObject *Tobj = [self.model newEnvironmentObjectWithX:self.gamescene.frame.size.width WithY:10];
-    [self.gamescene addChild:Tobj.node];    
+   // TactileObject *Tobj = [self.model newEnvironmentObject];
+   // [self.model placeEntWithLoc:0 Ent:Tobj];
+   // [self.gamescene addChild:Tobj.node];
 }
 
 - (BOOL)shouldAutorotate

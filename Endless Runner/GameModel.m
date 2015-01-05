@@ -15,7 +15,8 @@
     if (self) {
         //Initialization code
         self.player = [[Player alloc] initWithNode:[SKSpriteNode spriteNodeWithImageNamed:@"avatar"]];
-        self.backgroundnode = [SKSpriteNode spriteNodeWithImageNamed:@"bgforest"];
+        self.backgroundtexture = [SKTexture textureWithImageNamed:@"bgforest"];
+        self.groundtexture = [SKTexture textureWithImageNamed:@"grass"];
     }
     return self;
 }
@@ -43,14 +44,30 @@
     //Bottom left
     self.player.node.yScale = 0.5;
     self.player.node.xScale = -0.5;
-    [self.player.node setPosition:CGPointMake(self.player.node.frame.size.width/2, self.player.node.frame.size.height)];
+    [self placeEntWithLoc:1 Ent:self.player];
 }
--(TactileObject*)newEnvironmentObjectWithX:(int)x WithY:(int)y{
+
+-(void)placeEntWithLoc:(int)loc Ent:(Entity*)ent{
+    CGFloat screenwidth = [UIScreen mainScreen].bounds.size.width;
+    CGFloat screenheight = [UIScreen mainScreen].bounds.size.height;
+    switch (loc) {
+        case 0://Bottom Right
+            [ent.node setPosition:CGPointMake(screenwidth-(ent.node.frame.size.width/2) , screenheight/2)];
+            break;
+        case 1://Bottom Left
+            [ent.node setPosition:CGPointMake(ent.node.frame.size.width/2,screenheight/2)];
+            break;
+        
+            
+        default:
+            break;
+    }
+}
+
+-(TactileObject*)newEnvironmentObject{
     TactileObject  *Tobj = [[TactileObject alloc] initWithNode:[SKSpriteNode spriteNodeWithImageNamed:@"rock"]];
     Tobj.node.yScale = 0.5;
     Tobj.node.xScale = 0.5;
-      [Tobj.node setPosition:CGPointMake(x, y)];
-    
     return Tobj;
 }
 @end
