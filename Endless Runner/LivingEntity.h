@@ -7,13 +7,18 @@
 //
 
 #import "Entity.h"
+#import "TactileObject.h"
 
-@interface LivingEntity : Entity
+@interface LivingEntity : TactileObject
 
 @property int health;
 @property bool flying; 
-
+@property int speed;
 
 - (id)initWithNode:(SKSpriteNode*)node;
+
+-(void)impulseEntityRight;
+-(void)impulseEntityLeft;
+-(void)jumpEntity;
 
 @end

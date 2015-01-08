@@ -20,4 +20,22 @@
     return self;
 }
 
+-(void)moveEntityRight{
+    SKAction* move = [SKAction moveByX:20 y:0 duration:0.1];
+    SKAction* loopMovement = [SKAction repeatActionForever:move];
+    [self.node runAction:loopMovement withKey:@"MovingRight"];
+
+}
+
+-(void)moveEntityLeft{
+    SKAction* move = [SKAction moveByX:-20 y:0 duration:0.1];
+    SKAction* loopMovement = [SKAction repeatActionForever:move];
+    [self.node runAction:loopMovement withKey:@"MovingLeft"];
+}
+
+-(void)stopMovementActions{
+    [self.node removeActionForKey:@"MovingLeft"];
+    [self.node removeActionForKey:@"MovingRight"];
+}
+
 @end

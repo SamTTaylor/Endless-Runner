@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Endless Runner/GameModel.m"
-            timestampString = "442169685.240951"
+            timestampString = "442433585.205105"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "73"
-            endingLineNumber = "73"
+            startingLineNumber = "96"
+            endingLineNumber = "96"
             landmarkName = "-placeEntWithLoc:Ent:"
             landmarkType = "5">
          </BreakpointContent>
@@ -31,7 +31,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "30"
             endingLineNumber = "30"
-            landmarkName = "-moveNode:Repeat:"
+            landmarkName = "-moveNodeWithGround:Repeat:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

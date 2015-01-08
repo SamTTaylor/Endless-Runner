@@ -11,6 +11,6 @@
 
 @interface Player : LivingEntity
 
-@property int speed;
+
 
 @end

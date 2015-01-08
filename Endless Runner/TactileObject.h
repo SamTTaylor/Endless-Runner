@@ -10,4 +10,7 @@
 
 @interface TactileObject : Entity
 
+-(void)moveEntityLeft;
+-(void)moveEntityRight;
+-(void)stopMovementActions;
 @end

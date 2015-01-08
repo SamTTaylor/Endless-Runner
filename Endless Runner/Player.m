@@ -15,8 +15,7 @@
     self = [super initWithNode:node];
     if (self) {
         //Initialization code
-        node.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:node.frame.size];
-        self.speed = 50;
+        
         node.physicsBody.allowsRotation = false;
     }
     return self;

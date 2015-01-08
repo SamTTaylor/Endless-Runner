@@ -19,12 +19,18 @@
 @property float speed;
 
 - (id)initWithPlayer;
-- (void)moveNode:(SKNode*)node Repeat:(bool)r;
+- (void)moveNodeWithGround:(SKNode*)node Repeat:(bool)r;
 - (void)placePlayer;
-- (void)impulseEntityRight:(Entity*)ent multiplier:(int)m;
-- (void)impulseEntityLeft:(Entity*)ent multiplier:(int)m;
+
 - (void)placeEntWithLoc:(int)loc Ent:(Entity*)ent;
-- (void)jumpEntity:(Entity*)ent multiplier:(int)m;
+
+
+-(void)stopTactileObjectMovement:(TactileObject*)Tobj;
+- (void)moveTactileObjectRight:(TactileObject*)Tobj;
+- (void)moveTactileObjectLeft:(TactileObject*)Tobj;
+- (void)impulseEntityRight:(LivingEntity*)Lent;
+- (void)impulseEntityLeft:(LivingEntity*)Lent;
+- (void)jumpEntity:(LivingEntity*)Lent;
 
 -(TactileObject*)newEnvironmentObjectWithImageNamed:(NSString*)name;
 

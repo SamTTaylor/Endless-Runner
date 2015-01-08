@@ -43,6 +43,7 @@ NSTimer *updatetimer;
     //Lets get going
     self.updatespeed = 1;
     [self updaterfire];
+    [self addListenersToButtons];
 }
 
 
@@ -115,7 +116,7 @@ NSTimer *updatetimer;
         SKSpriteNode* sprite = [SKSpriteNode spriteNodeWithTexture:self.model.groundtexture];
         sprite.yScale = 0.1;
         sprite.position = CGPointMake(i * sprite.size.width,sprite.size.height/2);
-        [self.model moveNode:sprite Repeat:true];
+        [self.model moveNodeWithGround:sprite Repeat:true];
         [self.gamescene addChild:sprite];
     }
     
@@ -176,17 +177,56 @@ NSTimer *updatetimer;
 }
 
 
+-(void)addListenersToButtons{
+    [self.left addTarget:self action:@selector(holdLeft) forControlEvents:UIControlEventTouchDown];
+    [self.right addTarget:self action:@selector(holdRight) forControlEvents:UIControlEventTouchDown];
+    [self.jump addTarget:self action:@selector(holdJump) forControlEvents:UIControlEventTouchDown];
+    [self.left addTarget:self action:@selector(releaseLeft) forControlEvents:UIControlEventTouchUpInside];
+    [self.right addTarget:self action:@selector(releaseRight) forControlEvents:UIControlEventTouchUpInside];
+    [self.jump addTarget:self action:@selector(releaseJump) forControlEvents:UIControlEventTouchUpInside];
+}
+
+-(void)holdLeft
+{
+    [self.model moveTactileObjectLeft:self.model.player];
+}
+
+-(void)holdRight
+{
+    [self.model moveTactileObjectRight:self.model.player];
+}
+
+-(void)holdJump
+{
+    [self.model jumpEntity:self.model.player];
+}
+
+-(void)releaseLeft
+{
+    [self.model stopTactileObjectMovement:self.model.player];
+}
+
+-(void)releaseRight
+{
+    [self.model stopTactileObjectMovement:self.model.player];
+}
+
+-(void)releaseJump
+{
+    //Could be used later for something cool
+}
+
 -(IBAction)leftPressed:(UIButton*)sender{
-    [self.model impulseEntityLeft:self.model.player multiplier:self.model.player.speed];
+    
 }
 -(IBAction)rightPressed:(UIButton*)sender{
-    [self.model impulseEntityRight:self.model.player multiplier:self.model.player.speed];
+    
 }
 -(IBAction)quitPressed:(UIButton*)sender{
     [[self presentingViewController] dismissViewControllerAnimated:YES completion:nil];
 }
 -(IBAction)jumpPressed:(UIButton*)sender{
-    [self.model jumpEntity:self.model.player multiplier:self.model.player.speed*2];
+    
 }
 
 
