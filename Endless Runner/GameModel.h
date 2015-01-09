@@ -33,6 +33,6 @@
 - (void)impulseEntityLeft:(LivingEntity*)Lent;
 - (void)jumpEntity:(LivingEntity*)Lent;
 
--(TactileObject*)newEnvironmentObjectWithImageNamed:(NSString*)name;
+-(TactileObject*)newEnvironmentObjectWithImageNamed:(NSString*)name scale:(float)scale;
 
 @end

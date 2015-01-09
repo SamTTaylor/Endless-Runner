@@ -42,7 +42,11 @@ NSTimer *updatetimer;
     
     [ToastView showToastInParentView:self.view withText:@"Start moving to begin!" withDuaration:5.0];
     self.gamestarted = false;
+    self.startedbytilt = false;
     [self addListenersToButtons];
+    if (self.tiltbool == true){
+        [self startGame];
+    }
 }
 
 
@@ -65,9 +69,9 @@ NSTimer *updatetimer;
 - (void)startGame{
     //Lets get going
     if (self.gamestarted == false) {
+        self.gamestarted = true;
         self.updatespeed = 1;
         [self updaterfire];
-        self.gamestarted = true;
     }
 }
 
@@ -79,13 +83,15 @@ NSTimer *updatetimer;
         [self.motionManager startAccelerometerUpdates];
         
         self.accelerometerHandler = ^(CMAccelerometerData *accData, NSError *error) {
-            [self startGame];
+           
             self.yRotation = accData.acceleration.y;
             if (self.yRotation > self.model.tiltsensitivity){
                 [self.model moveTactileObjectLeft:self.model.player speed:0];
+                self.startedbytilt = true;
             }
             if (self.yRotation < -self.model.tiltsensitivity){
                 [self.model moveTactileObjectRight:self.model.player speed:0];
+                self.startedbytilt = true;
             }
             if (self.yRotation < self.model.tiltsensitivity && self.yRotation > -self.model.tiltsensitivity){
                 [self.model stopTactileObjectMovement:self.model.player Direction:0];
@@ -168,12 +174,14 @@ NSTimer *updatetimer;
 }
 
 - (void)updaterFireMethod:(NSTimer *)updatetimer{
-    TactileObject *Tobj = [self.model newEnvironmentObjectWithImageNamed:@"rock"];
-    [Tobj.node.physicsBody setMass:500];
-    [self.model placeEntWithLoc:0 Ent:Tobj];
-    [Tobj.node setScale:0.4];
-    [self.gamescene addChild:Tobj.node];
+    if (self.startedbytilt == true) {
+        TactileObject *Tobj = [self.model newEnvironmentObjectWithImageNamed:@"rock" scale:0.2];
+        [Tobj.node.physicsBody setMass:500];
+        [self.model placeEntWithLoc:0 Ent:Tobj];
+        [self.gamescene addChild:Tobj.node];
+    }
 }
+
 
 - (BOOL)shouldAutorotate
 {

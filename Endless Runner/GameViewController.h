@@ -25,6 +25,7 @@
 
 @property bool tiltbool;
 @property bool gamestarted;
+@property bool startedbytilt;
 @property double yRotation;
 @property float updatespeed;
 

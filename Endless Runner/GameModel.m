@@ -84,8 +84,8 @@
 
 -(void)placePlayer{
     //Bottom left
-    self.player.node.yScale = 0.5;
-    self.player.node.xScale = 0.5;
+    self.player.node.yScale = 0.2;
+    self.player.node.xScale = 0.2;
     [self placeEntWithLoc:1 Ent:self.player];
 }
 
@@ -105,9 +105,9 @@
     }
 }
 
--(TactileObject*)newEnvironmentObjectWithImageNamed:(NSString*)name{
+-(TactileObject*)newEnvironmentObjectWithImageNamed:(NSString*)name scale:(float)scale{
     TactileObject  *Tobj = [[TactileObject alloc] initWithNode:[SKSpriteNode spriteNodeWithImageNamed:name]];
-    
+    [Tobj.node setScale:scale];
     return Tobj;
 }
 @end
