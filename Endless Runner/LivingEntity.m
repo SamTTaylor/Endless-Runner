@@ -49,5 +49,28 @@
 }
 
 
+- (void) setFlying:(bool)f flappingfrequency:(double)flap{
+    if (f == true) {
+        self.flying = true;
+        self.node.physicsBody.density = 0.9;
+        NSTimer* flighttimer = [NSTimer scheduledTimerWithTimeInterval:flap target:self selector:@selector(flighttimerFireMethod:) userInfo:nil repeats:YES];
+        [flighttimer fire];
+    } else {
+        self.flying = false;
+    }
+}
+
+- (void)flighttimerFireMethod:(NSTimer *)flighttimer{
+    if(self.flying == true){
+        double prevspeed = self.speed;
+        if (self.node.physicsBody.velocity.dy < 0){
+          self.speed = -(self.node.physicsBody.velocity.dy/7.5);
+          [self jumpEntity];
+        }
+        self.speed = prevspeed;
+    } else {
+        [flighttimer invalidate];
+    }
+}
 
 @end

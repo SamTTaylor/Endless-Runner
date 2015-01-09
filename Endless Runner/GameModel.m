@@ -10,6 +10,10 @@
 
 @implementation GameModel
 
+static const uint32_t playerCategory = 1 << 0;
+static const uint32_t environmentCategory = 1 << 1;
+static const uint32_t enemyCategory = 1 << 2;
+
 - (id)initWithPlayer{
     self = [super init];
     if (self) {
@@ -19,6 +23,7 @@
         self.groundtexture = [SKTexture textureWithImageNamed:@"grass"];
         self.speed = 0.005;
         self.tiltsensitivity = 0.1;
+        
     }
     return self;
 }
@@ -40,22 +45,6 @@
     
 }
 
--(void)moveNodeLeft:(SKNode*)node Repeat:(bool)r{
-    //Sets up the ground sprites, makes them scroll passed in a loop
-    if (r == true){
-        SKAction* move = [SKAction moveByX:-self.groundtexture.size.width*2 y:0 duration:self.speed * self.groundtexture.size.width*2];
-        SKAction* reset = [SKAction moveByX:self.groundtexture.size.width*2 y:0 duration:0];
-        SKAction* loopMovement = [SKAction repeatActionForever:[SKAction sequence:@[move, reset]]];
-        [node runAction:loopMovement];
-    } else {
-        CGFloat distance =  [UIScreen mainScreen].bounds.size.width + node.frame.size.width;
-        SKAction* move = [SKAction moveByX:-distance y:0 duration:self.speed * distance];
-        SKAction* remove = [SKAction removeFromParent];
-        SKAction* Movement = [SKAction sequence:@[move, remove]];
-        [node runAction:Movement];
-    }
-    
-}
 
 -(void)stopTactileObjectMovement:(TactileObject*)Tobj Direction:(int)d{
     [Tobj stopMovementActionsWithDirection:d];
@@ -82,6 +71,10 @@
     [Lent jumpEntity];
 }
 
+- (void)setFlying:(bool)f flappingfrequenct:(double)freq LivingEntity:(LivingEntity*)Lent{
+    [Lent setFlying:f flappingfrequency:freq];
+}
+
 -(void)placePlayer{
     //Bottom left
     self.player.node.yScale = 0.2;
@@ -99,6 +92,10 @@
             break;
         case 1://Bottom Left
             [ent.node setPosition:CGPointMake(ent.node.frame.size.width/2,self.groundnode.frame.size.height+ent.node.frame.size.height/2)];
+            break;
+        case 2:
+            [ent.node setPosition:CGPointMake(screenwidth+ent.node.frame.size.width/2,screenheight/2)];
+            [self moveNodeWithGround:ent.node Repeat:NO];
             break;
         default:
             break;

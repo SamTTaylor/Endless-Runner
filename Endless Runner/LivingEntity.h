@@ -20,5 +20,5 @@
 -(void)impulseEntityRight;
 -(void)impulseEntityLeft;
 -(void)jumpEntity;
-
+-(void) setFlying:(bool)f flappingfrequency:(double)flap;
 @end

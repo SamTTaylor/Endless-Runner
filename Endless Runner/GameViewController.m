@@ -37,10 +37,9 @@ NSTimer *updatetimer;
 {
     [super viewDidLoad];
     //Load new game
+    [self.gamescene.physicsWorld setContactDelegate:self.model];
     [self initialiseGameScene];
     [self checkTiltBool];
-    
-    [ToastView showToastInParentView:self.view withText:@"Start moving to begin!" withDuaration:5.0];
     self.gamestarted = false;
     self.startedbytilt = false;
     [self addListenersToButtons];
@@ -112,7 +111,9 @@ NSTimer *updatetimer;
         self.left.hidden = true;
         self.right.hidden = true;
         [self instantiateAccelerometer];
+        [ToastView showToastInParentView:self.view withText:@"Tilt to begin!" withDuaration:5.0];
     } else {
+        [ToastView showToastInParentView:self.view withText:@"Press movement buttons to begin!!" withDuaration:5.0];
         self.left.hidden = false;
         self.right.hidden = false;
     }
@@ -167,22 +168,39 @@ NSTimer *updatetimer;
 }
 
 
-//Initialises and Fires updater timer in one go
+
+
+
+
+
+
+
+
+//TIMERS
 - (void)updaterfire{
     updatetimer = [NSTimer scheduledTimerWithTimeInterval:self.updatespeed target:self selector:@selector(updaterFireMethod:) userInfo:nil repeats:YES];
     [updatetimer fire];
 }
 
 - (void)updaterFireMethod:(NSTimer *)updatetimer{
-    if (self.startedbytilt == true) {
+    if (self.startedbytilt == true || self.tiltbool == false) {
         TactileObject *Tobj = [self.model newEnvironmentObjectWithImageNamed:@"rock" scale:0.2];
-        [Tobj.node.physicsBody setMass:500];
         [self.model placeEntWithLoc:0 Ent:Tobj];
         [self.gamescene addChild:Tobj.node];
+    
+        LivingEntity* enemy = [[LivingEntity alloc] initWithNode:[SKSpriteNode spriteNodeWithImageNamed:@"rock"]];
+        [self.model placeEntWithLoc:2 Ent:enemy];
+        [self.model setFlying:true flappingfrequenct:0.5 LivingEntity:enemy];
+        [enemy.node setScale:0.2];
+        [self.gamescene addChild:enemy.node];
     }
 }
 
 
+
+
+
+//STUFF
 - (BOOL)shouldAutorotate
 {
     return YES;
@@ -203,6 +221,23 @@ NSTimer *updatetimer;
 }
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//UI ELEMENTS
 -(void)addListenersToButtons{
     [self.left addTarget:self action:@selector(holdLeft) forControlEvents:UIControlEventTouchDown];
     [self.right addTarget:self action:@selector(holdRight) forControlEvents:UIControlEventTouchDown];

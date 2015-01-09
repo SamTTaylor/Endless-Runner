@@ -17,6 +17,7 @@
         //Initialization code
         self.node = node;
         self.direction = 1;
+        
     }
     return self;
 }

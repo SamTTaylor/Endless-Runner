@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 #import <SpriteKit/SpriteKit.h>
 
+
 @interface Entity : NSObject
 
 @property SKSpriteNode* node;

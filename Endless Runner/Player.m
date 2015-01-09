@@ -15,7 +15,7 @@
     self = [super initWithNode:node];
     if (self) {
         //Initialization code
-        
+        node.physicsBody.collisionBitMask = 1 << 0;//player
         node.physicsBody.allowsRotation = false;
     }
     return self;

@@ -16,6 +16,7 @@
     if (self) {
         //Initialization code
         node.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:node.frame.size];
+        node.physicsBody.collisionBitMask = 1 << 1;
     }
     return self;
 }

@@ -10,4 +10,15 @@
 
 @implementation Enemy
 
+- (id)initWithNode:(SKSpriteNode*)node
+{
+    self = [super initWithNode:node];
+    if (self) {
+        //Initialization code
+        node.physicsBody.collisionBitMask = 1 << 2;//enemy
+    }
+    return self;
+}
+
+
 @end
