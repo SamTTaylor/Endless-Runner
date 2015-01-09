@@ -27,8 +27,8 @@
 
 
 - (void)stopTactileObjectMovement:(TactileObject*)Tobj Direction:(int)d;
-- (void)moveTactileObjectRight:(TactileObject*)Tobj;
-- (void)moveTactileObjectLeft:(TactileObject*)Tobj;
+- (void)moveTactileObjectRight:(TactileObject*)Tobj speed:(int)s;
+- (void)moveTactileObjectLeft:(TactileObject*)Tobj speed:(int)s;
 - (void)impulseEntityRight:(LivingEntity*)Lent;
 - (void)impulseEntityLeft:(LivingEntity*)Lent;
 - (void)jumpEntity:(LivingEntity*)Lent;

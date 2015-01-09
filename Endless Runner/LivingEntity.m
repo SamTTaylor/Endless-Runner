@@ -22,21 +22,11 @@
 }
 
 -(void)moveEntityRight:(int)speed{
-    if ([self.node actionForKey:@"MovingRight"] == false) {
-        SKAction* move = [SKAction moveByX:self.speed y:0 duration:0.1];
-        SKAction* loopMovement = [SKAction repeatActionForever:move];
-        [self.node runAction:loopMovement withKey:@"MovingRight"];
-        [super moveEntityRight:0];
-    }
+        [super moveEntityRight:self.speed];
 }
 
 -(void)moveEntityLeft:(int)speed{
-    if ([self.node actionForKey:@"MovingLeft"]== false) {
-        SKAction* move = [SKAction moveByX:-self.speed y:0 duration:0.1];
-        SKAction* loopMovement = [SKAction repeatActionForever:move];
-        [self.node runAction:loopMovement withKey:@"MovingLeft"];
-        [super moveEntityLeft:0];
-    }
+        [super moveEntityLeft:self.speed];
 }
 
 -(void)impulseEntityRight{

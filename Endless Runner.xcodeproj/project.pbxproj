@@ -11,6 +11,7 @@
 		6816081F1A5FE3970090CB96 /* grass.png in Resources */ = {isa = PBXBuildFile; fileRef = 6816081E1A5FE3970090CB96 /* grass.png */; };
 		681608241A5FE4180090CB96 /* avatarbase.png in Resources */ = {isa = PBXBuildFile; fileRef = 681608221A5FE4180090CB96 /* avatarbase.png */; };
 		681608251A5FE4180090CB96 /* avatarwalk.gif in Resources */ = {isa = PBXBuildFile; fileRef = 681608231A5FE4180090CB96 /* avatarwalk.gif */; };
+		681608281A6010410090CB96 /* ToastView.m in Sources */ = {isa = PBXBuildFile; fileRef = 681608271A6010410090CB96 /* ToastView.m */; };
 		682428001A28740B00F71A3D /* GameModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 682427FF1A28740B00F71A3D /* GameModel.m */; };
 		682428091A287ED000F71A3D /* bgforest.png in Resources */ = {isa = PBXBuildFile; fileRef = 682428081A287ED000F71A3D /* bgforest.png */; };
 		683D21C41A2F7CC90081FF3F /* Entity.m in Sources */ = {isa = PBXBuildFile; fileRef = 683D21C31A2F7CC90081FF3F /* Entity.m */; };
@@ -45,6 +46,8 @@
 		6816081E1A5FE3970090CB96 /* grass.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = grass.png; path = "Endless Runner/Images/grass.png"; sourceTree = "<group>"; };
 		681608221A5FE4180090CB96 /* avatarbase.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = avatarbase.png; path = "Endless Runner/Characters/avatarbase.png"; sourceTree = "<group>"; };
 		681608231A5FE4180090CB96 /* avatarwalk.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; name = avatarwalk.gif; path = "Endless Runner/Characters/avatarwalk.gif"; sourceTree = "<group>"; };
+		681608261A6010410090CB96 /* ToastView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ToastView.h; sourceTree = "<group>"; };
+		681608271A6010410090CB96 /* ToastView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ToastView.m; sourceTree = "<group>"; };
 		682427FE1A28740B00F71A3D /* GameModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameModel.h; sourceTree = "<group>"; };
 		682427FF1A28740B00F71A3D /* GameModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameModel.m; sourceTree = "<group>"; };
 		682428081A287ED000F71A3D /* bgforest.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = bgforest.png; path = "Endless Runner/Images/bgforest.png"; sourceTree = "<group>"; };
@@ -179,6 +182,8 @@
 				6875161F1A24F92600748410 /* LaunchScreen.xib */,
 				683D21CB1A2F7F390081FF3F /* Entities */,
 				6875160B1A24F92600748410 /* Supporting Files */,
+				681608261A6010410090CB96 /* ToastView.h */,
+				681608271A6010410090CB96 /* ToastView.m */,
 			);
 			path = "Endless Runner";
 			sourceTree = "<group>";
@@ -319,6 +324,7 @@
 				687516191A24F92600748410 /* GameViewController.m in Sources */,
 				687516111A24F92600748410 /* AppDelegate.m in Sources */,
 				68AA902A1A56BE430056E5A2 /* SettingsViewController.m in Sources */,
+				681608281A6010410090CB96 /* ToastView.m in Sources */,
 				68AA902D1A56C4700056E5A2 /* MainMenuViewController.m in Sources */,
 				682428001A28740B00F71A3D /* GameModel.m in Sources */,
 				687516141A24F92600748410 /* GameScene.m in Sources */,

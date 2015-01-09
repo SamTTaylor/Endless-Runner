@@ -61,12 +61,12 @@
     [Tobj stopMovementActionsWithDirection:d];
 }
 
--(void)moveTactileObjectRight:(TactileObject*)Tobj{
-    [Tobj moveEntityRight:20];
+-(void)moveTactileObjectRight:(TactileObject*)Tobj speed:(int)s{
+    [Tobj moveEntityRight:s];
 }
 
--(void)moveTactileObjectLeft:(TactileObject*)Tobj{
-    [Tobj moveEntityLeft:20];
+-(void)moveTactileObjectLeft:(TactileObject*)Tobj speed:(int)s{
+    [Tobj moveEntityLeft:s];
 }
 
 -(void)impulseEntityRight:(LivingEntity*)Lent{

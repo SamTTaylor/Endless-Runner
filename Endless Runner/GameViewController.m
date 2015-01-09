@@ -8,6 +8,7 @@
 
 #import "GameViewController.h"
 #import "GameScene.h"
+#import "ToastView.h"
 
 @implementation SKScene (Unarchive)
 
@@ -39,9 +40,8 @@ NSTimer *updatetimer;
     [self initialiseGameScene];
     [self checkTiltBool];
     
-    //Lets get going
-    self.updatespeed = 1;
-    [self updaterfire];
+    [ToastView showToastInParentView:self.view withText:@"Start moving to begin!" withDuaration:5.0];
+    self.gamestarted = false;
     [self addListenersToButtons];
 }
 
@@ -62,6 +62,15 @@ NSTimer *updatetimer;
     [skView presentScene:self.gamescene];
 }
 
+- (void)startGame{
+    //Lets get going
+    if (self.gamestarted == false) {
+        self.updatespeed = 1;
+        [self updaterfire];
+        self.gamestarted = true;
+    }
+}
+
 - (void)instantiateAccelerometer{
     //Prepare the Accelerometer
     self.motionManager = [[CMMotionManager alloc]init];
@@ -70,12 +79,13 @@ NSTimer *updatetimer;
         [self.motionManager startAccelerometerUpdates];
         
         self.accelerometerHandler = ^(CMAccelerometerData *accData, NSError *error) {
+            [self startGame];
             self.yRotation = accData.acceleration.y;
             if (self.yRotation > self.model.tiltsensitivity){
-                [self.model moveTactileObjectLeft:self.model.player];
+                [self.model moveTactileObjectLeft:self.model.player speed:0];
             }
             if (self.yRotation < -self.model.tiltsensitivity){
-                [self.model moveTactileObjectRight:self.model.player];
+                [self.model moveTactileObjectRight:self.model.player speed:0];
             }
             if (self.yRotation < self.model.tiltsensitivity && self.yRotation > -self.model.tiltsensitivity){
                 [self.model stopTactileObjectMovement:self.model.player Direction:0];
@@ -196,12 +206,14 @@ NSTimer *updatetimer;
 
 -(void)holdLeft
 {
-    [self.model moveTactileObjectLeft:self.model.player];
+    [self startGame];
+    [self.model moveTactileObjectLeft:self.model.player speed:(int)0];
 }
 
 -(void)holdRight
 {
-    [self.model moveTactileObjectRight:self.model.player];
+    [self startGame];
+    [self.model moveTactileObjectRight:self.model.player speed:(int)0];
 }
 
 -(void)holdJump
