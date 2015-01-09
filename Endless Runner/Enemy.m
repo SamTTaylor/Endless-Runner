@@ -15,7 +15,9 @@
     self = [super initWithNode:node];
     if (self) {
         //Initialization code
-        node.physicsBody.collisionBitMask = 1 << 2;//enemy
+        node.physicsBody.contactTestBitMask = 0;
+        node.physicsBody.categoryBitMask = 2;//enemy
+        node.physicsBody.collisionBitMask = 0;
     }
     return self;
 }

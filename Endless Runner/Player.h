@@ -11,5 +11,6 @@
 
 @interface Player : LivingEntity
 
+- (void)collidedWithEntity;
 
 @end

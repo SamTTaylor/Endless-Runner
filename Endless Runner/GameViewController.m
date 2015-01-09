@@ -37,8 +37,8 @@ NSTimer *updatetimer;
 {
     [super viewDidLoad];
     //Load new game
-    [self.gamescene.physicsWorld setContactDelegate:self.model];
     [self initialiseGameScene];
+    [self.gamescene.physicsWorld setContactDelegate:self.model];
     [self checkTiltBool];
     self.gamestarted = false;
     self.startedbytilt = false;
@@ -188,7 +188,7 @@ NSTimer *updatetimer;
         [self.model placeEntWithLoc:0 Ent:Tobj];
         [self.gamescene addChild:Tobj.node];
     
-        LivingEntity* enemy = [[LivingEntity alloc] initWithNode:[SKSpriteNode spriteNodeWithImageNamed:@"rock"]];
+        Enemy* enemy = [[Enemy alloc] initWithNode:[SKSpriteNode spriteNodeWithImageNamed:@"rock"]];
         [self.model placeEntWithLoc:2 Ent:enemy];
         [self.model setFlying:true flappingfrequenct:0.5 LivingEntity:enemy];
         [enemy.node setScale:0.2];

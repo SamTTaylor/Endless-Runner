@@ -15,10 +15,21 @@
     self = [super initWithNode:node];
     if (self) {
         //Initialization code
-        node.physicsBody.collisionBitMask = 1 << 0;//player
+        node.physicsBody.contactTestBitMask = 2;
+        node.physicsBody.categoryBitMask = 0;//player
+        node.physicsBody.collisionBitMask = 2;
         node.physicsBody.allowsRotation = false;
     }
     return self;
+}
+
+- (void)collidedWithEntity{
+    [self.node removeActionForKey:@"flash"];
+    [self.node runAction:[SKAction sequence:@[[SKAction repeatAction:[SKAction sequence:@[[SKAction runBlock:^{
+        self.node.color = [SKColor redColor];
+    }], [SKAction waitForDuration:0.05], [SKAction runBlock:^{
+        self.node.color = [SKColor blueColor];
+    }], [SKAction waitForDuration:0.05]]] count:4]]] withKey:@"flash"];
 }
 
 @end

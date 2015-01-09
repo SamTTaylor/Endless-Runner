@@ -10,9 +10,9 @@
 
 @implementation GameModel
 
-static const uint32_t playerCategory = 1 << 0;
-static const uint32_t environmentCategory = 1 << 1;
-static const uint32_t enemyCategory = 1 << 2;
+static const int playerCategory = 0;
+static const int environmentCategory = 1;
+static const int enemyCategory = 2;
 
 - (id)initWithPlayer{
     self = [super init];
@@ -107,4 +107,18 @@ static const uint32_t enemyCategory = 1 << 2;
     [Tobj.node setScale:scale];
     return Tobj;
 }
+
+
+- (void)didBeginContact:(SKPhysicsContact *)contact {
+    SKSpriteNode *firstNode, *secondNode;
+    firstNode = (SKSpriteNode *)contact.bodyA.node;
+    secondNode = (SKSpriteNode *) contact.bodyB.node;
+    
+    if ((contact.bodyA.categoryBitMask == playerCategory && contact.bodyB.categoryBitMask == enemyCategory) || (contact.bodyB.categoryBitMask == playerCategory && contact.bodyA.categoryBitMask == enemyCategory) ){
+        [self.player impulseEntityLeft];
+        [self.player collidedWithEntity];
+    }
+}
+
+
 @end

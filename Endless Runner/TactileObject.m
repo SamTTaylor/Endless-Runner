@@ -16,7 +16,7 @@
     if (self) {
         //Initialization code
         node.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:node.frame.size];
-        node.physicsBody.collisionBitMask = 1 << 1;
+        self.node.physicsBody.dynamic = false;
     }
     return self;
 }

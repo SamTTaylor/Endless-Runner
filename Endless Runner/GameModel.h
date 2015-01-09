@@ -11,10 +11,7 @@
 #import "Enemy.h"
 #import "TactileObject.h"
 
-@interface GameModel : NSObject <SKPhysicsContactDelegate> {
-    
-    SKSpriteNode* _Enemy;
-}
+@interface GameModel : NSObject <SKPhysicsContactDelegate>
 
 @property Player* player;
 @property SKTexture* backgroundtexture;
