@@ -14,10 +14,11 @@
     self = [super init];
     if (self) {
         //Initialization code
-        self.player = [[Player alloc] initWithNode:[SKSpriteNode spriteNodeWithImageNamed:@"avatar"]];
+        self.player = [[Player alloc] initWithNode:[SKSpriteNode spriteNodeWithImageNamed:@"avatarbase"]];
         self.backgroundtexture = [SKTexture textureWithImageNamed:@"bgforest"];
         self.groundtexture = [SKTexture textureWithImageNamed:@"grass"];
         self.speed = 0.005;
+        self.tiltsensitivity = 0.1;
     }
     return self;
 }
@@ -56,8 +57,8 @@
     
 }
 
--(void)stopTactileObjectMovement:(TactileObject*)Tobj{
-    [Tobj stopMovementActions];
+-(void)stopTactileObjectMovement:(TactileObject*)Tobj Direction:(int)d{
+    [Tobj stopMovementActionsWithDirection:d];
 }
 
 -(void)moveTactileObjectRight:(TactileObject*)Tobj{
@@ -84,7 +85,7 @@
 -(void)placePlayer{
     //Bottom left
     self.player.node.yScale = 0.5;
-    self.player.node.xScale = -0.5;
+    self.player.node.xScale = 0.5;
     [self placeEntWithLoc:1 Ent:self.player];
 }
 

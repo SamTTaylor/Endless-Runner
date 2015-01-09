@@ -7,15 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6816081D1A5FE3840090CB96 /* rock.png in Resources */ = {isa = PBXBuildFile; fileRef = 6816081B1A5FE3840090CB96 /* rock.png */; };
+		6816081F1A5FE3970090CB96 /* grass.png in Resources */ = {isa = PBXBuildFile; fileRef = 6816081E1A5FE3970090CB96 /* grass.png */; };
+		681608241A5FE4180090CB96 /* avatarbase.png in Resources */ = {isa = PBXBuildFile; fileRef = 681608221A5FE4180090CB96 /* avatarbase.png */; };
+		681608251A5FE4180090CB96 /* avatarwalk.gif in Resources */ = {isa = PBXBuildFile; fileRef = 681608231A5FE4180090CB96 /* avatarwalk.gif */; };
 		682428001A28740B00F71A3D /* GameModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 682427FF1A28740B00F71A3D /* GameModel.m */; };
 		682428091A287ED000F71A3D /* bgforest.png in Resources */ = {isa = PBXBuildFile; fileRef = 682428081A287ED000F71A3D /* bgforest.png */; };
-		6824280B1A287FA800F71A3D /* avatar.png in Resources */ = {isa = PBXBuildFile; fileRef = 6824280A1A287FA800F71A3D /* avatar.png */; };
 		683D21C41A2F7CC90081FF3F /* Entity.m in Sources */ = {isa = PBXBuildFile; fileRef = 683D21C31A2F7CC90081FF3F /* Entity.m */; };
 		683D21C71A2F7CD50081FF3F /* Player.m in Sources */ = {isa = PBXBuildFile; fileRef = 683D21C61A2F7CD50081FF3F /* Player.m */; };
 		683D21CA1A2F7F320081FF3F /* LivingEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = 683D21C91A2F7F320081FF3F /* LivingEntity.m */; };
-		684747D11A5AAC730005B80A /* rock.png in Resources */ = {isa = PBXBuildFile; fileRef = 684747D01A5AAC730005B80A /* rock.png */; };
 		684747D41A5AB3740005B80A /* TactileObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 684747D31A5AB3740005B80A /* TactileObject.m */; };
-		684747D61A5ABCBF0005B80A /* grass.png in Resources */ = {isa = PBXBuildFile; fileRef = 684747D51A5ABCBF0005B80A /* grass.png */; };
 		6875160E1A24F92600748410 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 6875160D1A24F92600748410 /* main.m */; };
 		687516111A24F92600748410 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 687516101A24F92600748410 /* AppDelegate.m */; };
 		687516141A24F92600748410 /* GameScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 687516131A24F92600748410 /* GameScene.m */; };
@@ -40,20 +41,21 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		6816081B1A5FE3840090CB96 /* rock.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = rock.png; path = "Endless Runner/Characters/rock.png"; sourceTree = "<group>"; };
+		6816081E1A5FE3970090CB96 /* grass.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = grass.png; path = "Endless Runner/Images/grass.png"; sourceTree = "<group>"; };
+		681608221A5FE4180090CB96 /* avatarbase.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = avatarbase.png; path = "Endless Runner/Characters/avatarbase.png"; sourceTree = "<group>"; };
+		681608231A5FE4180090CB96 /* avatarwalk.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; name = avatarwalk.gif; path = "Endless Runner/Characters/avatarwalk.gif"; sourceTree = "<group>"; };
 		682427FE1A28740B00F71A3D /* GameModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameModel.h; sourceTree = "<group>"; };
 		682427FF1A28740B00F71A3D /* GameModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameModel.m; sourceTree = "<group>"; };
 		682428081A287ED000F71A3D /* bgforest.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = bgforest.png; path = "Endless Runner/Images/bgforest.png"; sourceTree = "<group>"; };
-		6824280A1A287FA800F71A3D /* avatar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = avatar.png; path = "Endless Runner/Images/avatar.png"; sourceTree = "<group>"; };
 		683D21C21A2F7CC90081FF3F /* Entity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Entity.h; sourceTree = "<group>"; };
 		683D21C31A2F7CC90081FF3F /* Entity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Entity.m; sourceTree = "<group>"; };
 		683D21C51A2F7CD50081FF3F /* Player.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Player.h; sourceTree = "<group>"; };
 		683D21C61A2F7CD50081FF3F /* Player.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Player.m; sourceTree = "<group>"; };
 		683D21C81A2F7F320081FF3F /* LivingEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LivingEntity.h; sourceTree = "<group>"; };
 		683D21C91A2F7F320081FF3F /* LivingEntity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LivingEntity.m; sourceTree = "<group>"; };
-		684747D01A5AAC730005B80A /* rock.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = rock.png; path = ../Downloads/rock.png; sourceTree = "<group>"; };
 		684747D21A5AB3740005B80A /* TactileObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TactileObject.h; sourceTree = "<group>"; };
 		684747D31A5AB3740005B80A /* TactileObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TactileObject.m; sourceTree = "<group>"; };
-		684747D51A5ABCBF0005B80A /* grass.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = grass.png; path = ../Downloads/grass.png; sourceTree = "<group>"; };
 		687516081A24F92600748410 /* Endless Runner.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Endless Runner.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6875160C1A24F92600748410 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6875160D1A24F92600748410 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -106,8 +108,9 @@
 		682428021A28749800F71A3D /* Characters */ = {
 			isa = PBXGroup;
 			children = (
-				684747D01A5AAC730005B80A /* rock.png */,
-				6824280A1A287FA800F71A3D /* avatar.png */,
+				681608221A5FE4180090CB96 /* avatarbase.png */,
+				681608231A5FE4180090CB96 /* avatarwalk.gif */,
+				6816081B1A5FE3840090CB96 /* rock.png */,
 			);
 			name = Characters;
 			sourceTree = "<group>";
@@ -115,7 +118,7 @@
 		682428031A2874A000F71A3D /* Backgrounds */ = {
 			isa = PBXGroup;
 			children = (
-				684747D51A5ABCBF0005B80A /* grass.png */,
+				6816081E1A5FE3970090CB96 /* grass.png */,
 				682428081A287ED000F71A3D /* bgforest.png */,
 			);
 			name = Backgrounds;
@@ -255,7 +258,6 @@
 				TargetAttributes = {
 					687516071A24F92600748410 = {
 						CreatedOnToolsVersion = 6.1;
-						DevelopmentTeam = 6YEH9YEK8B;
 					};
 					687516251A24F92600748410 = {
 						CreatedOnToolsVersion = 6.1;
@@ -289,10 +291,11 @@
 			files = (
 				687516211A24F92600748410 /* LaunchScreen.xib in Resources */,
 				682428091A287ED000F71A3D /* bgforest.png in Resources */,
-				6824280B1A287FA800F71A3D /* avatar.png in Resources */,
-				684747D11A5AAC730005B80A /* rock.png in Resources */,
-				684747D61A5ABCBF0005B80A /* grass.png in Resources */,
+				6816081D1A5FE3840090CB96 /* rock.png in Resources */,
+				681608241A5FE4180090CB96 /* avatarbase.png in Resources */,
+				6816081F1A5FE3970090CB96 /* grass.png in Resources */,
 				6875161E1A24F92600748410 /* Images.xcassets in Resources */,
+				681608251A5FE4180090CB96 /* avatarwalk.gif in Resources */,
 				687516161A24F92600748410 /* GameScene.sks in Resources */,
 				6875161C1A24F92600748410 /* Main.storyboard in Resources */,
 			);
@@ -446,9 +449,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = "Endless Runner/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -456,9 +462,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = "Endless Runner/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};

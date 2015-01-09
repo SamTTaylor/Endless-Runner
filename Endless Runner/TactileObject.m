@@ -21,21 +21,36 @@
 }
 
 -(void)moveEntityRight{
-    SKAction* move = [SKAction moveByX:20 y:0 duration:0.1];
-    SKAction* loopMovement = [SKAction repeatActionForever:move];
-    [self.node runAction:loopMovement withKey:@"MovingRight"];
-
+    if (self.moving == false) {
+        SKAction* move = [SKAction moveByX:20 y:0 duration:0.1];
+        SKAction* loopMovement = [SKAction repeatActionForever:move];
+        [self.node runAction:loopMovement withKey:@"MovingRight"];
+        self.moving = true;
+    }
 }
 
 -(void)moveEntityLeft{
-    SKAction* move = [SKAction moveByX:-20 y:0 duration:0.1];
-    SKAction* loopMovement = [SKAction repeatActionForever:move];
-    [self.node runAction:loopMovement withKey:@"MovingLeft"];
+    if (self.moving == false) {
+        SKAction* move = [SKAction moveByX:-20 y:0 duration:0.1];
+        SKAction* loopMovement = [SKAction repeatActionForever:move];
+        [self.node runAction:loopMovement withKey:@"MovingLeft"];
+        self.moving = true;
+    }
 }
 
--(void)stopMovementActions{
-    [self.node removeActionForKey:@"MovingLeft"];
-    [self.node removeActionForKey:@"MovingRight"];
+-(void)stopMovementActionsWithDirection:(int)d{
+    switch (d) {
+        case 0:
+            [self.node removeActionForKey:@"MovingLeft"];
+            self.moving = false;
+            break;
+        case 1:
+            [self.node removeActionForKey:@"MovingRight"];
+            self.moving = false;
+            break;
+        default:
+            break;
+    }
 }
 
 @end

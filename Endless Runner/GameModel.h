@@ -17,6 +17,7 @@
 @property SKTexture* groundtexture;
 @property SKNode* groundnode;
 @property float speed;
+@property float tiltsensitivity;
 
 - (id)initWithPlayer;
 - (void)moveNodeWithGround:(SKNode*)node Repeat:(bool)r;
@@ -25,7 +26,7 @@
 - (void)placeEntWithLoc:(int)loc Ent:(Entity*)ent;
 
 
--(void)stopTactileObjectMovement:(TactileObject*)Tobj;
+- (void)stopTactileObjectMovement:(TactileObject*)Tobj Direction:(int)d;
 - (void)moveTactileObjectRight:(TactileObject*)Tobj;
 - (void)moveTactileObjectLeft:(TactileObject*)Tobj;
 - (void)impulseEntityRight:(LivingEntity*)Lent;

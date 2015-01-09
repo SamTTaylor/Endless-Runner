@@ -150,7 +150,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <variation key="heightClass=regular-widthClass=regular" ambiguous="YES" misplaced="YES">
-                                    <rect key="frame" x="453" y="662" width="94" height="76"/>
+                                    <rect key="frame" x="703" y="662" width="94" height="76"/>
                                 </variation>
                                 <connections>
                                     <action selector="rightPressed:" destination="BV1-FR-VrT" eventType="touchUpInside" id="YN1-QN-mdx"/>
@@ -163,23 +163,10 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <variation key="heightClass=regular-widthClass=regular" ambiguous="YES" misplaced="YES">
-                                    <rect key="frame" x="257" y="680" width="86" height="41"/>
+                                    <rect key="frame" x="24" y="676" width="86" height="41"/>
                                 </variation>
                                 <connections>
                                     <action selector="leftPressed:" destination="BV1-FR-VrT" eventType="touchUpInside" id="Vmt-6M-ZXe"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fWy-EB-Khq">
-                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
-                                <state key="normal" title="Quit Game">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <variation key="heightClass=regular-widthClass=regular" ambiguous="YES" misplaced="YES">
-                                    <rect key="frame" x="31" y="725" width="139" height="43"/>
-                                </variation>
-                                <connections>
-                                    <action selector="quitPressed:" destination="BV1-FR-VrT" eventType="touchUpInside" id="SUw-kE-GL2"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yMe-QW-ccX">
@@ -195,6 +182,19 @@
                                     <action selector="jumpPressed:" destination="BV1-FR-VrT" eventType="touchUpInside" id="tVo-dE-Jqa"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fWy-EB-Khq">
+                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                <state key="normal" title="Quit Game">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <variation key="heightClass=regular-widthClass=regular" ambiguous="YES" misplaced="YES">
+                                    <rect key="frame" x="16" y="20" width="139" height="43"/>
+                                </variation>
+                                <connections>
+                                    <action selector="quitPressed:" destination="BV1-FR-VrT" eventType="touchUpInside" id="SUw-kE-GL2"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
@@ -208,28 +208,28 @@
                             <constraint firstAttribute="centerY" relation="greaterThanOrEqual" secondItem="elc-Hv-mLz" secondAttribute="centerY" constant="200" id="XCs-t7-o0Q">
                                 <variation key="heightClass=regular-widthClass=regular" constant="-300"/>
                             </constraint>
-                            <constraint firstAttribute="centerX" secondItem="elc-Hv-mLz" secondAttribute="centerX" id="ZIA-YL-mVc">
-                                <variation key="heightClass=regular-widthClass=regular" constant="100"/>
+                            <constraint firstAttribute="centerX" relation="lessThanOrEqual" secondItem="elc-Hv-mLz" secondAttribute="centerX" id="ZIA-YL-mVc">
+                                <variation key="heightClass=regular-widthClass=regular" constant="350"/>
                             </constraint>
                             <constraint firstAttribute="centerX" secondItem="p55-KT-ord" secondAttribute="centerX" constant="-50" id="gzB-A2-F7n"/>
                             <constraint firstAttribute="centerX" secondItem="elc-Hv-mLz" secondAttribute="centerX" constant="50" id="mkZ-qD-r5B"/>
                             <constraint firstAttribute="centerX" relation="greaterThanOrEqual" secondItem="yMe-QW-ccX" secondAttribute="centerX" constant="-350" id="nNM-pg-9XS"/>
-                            <constraint firstAttribute="centerX" secondItem="p55-KT-ord" secondAttribute="centerX" constant="-50" id="nPg-EM-cDt">
-                                <variation key="heightClass=regular-widthClass=regular" constant="-100"/>
-                            </constraint>
-                            <constraint firstAttribute="centerY" relation="greaterThanOrEqual" secondItem="fWy-EB-Khq" secondAttribute="centerY" constant="-200" id="pkJ-M6-fUe">
+                            <constraint firstAttribute="centerX" relation="greaterThanOrEqual" secondItem="p55-KT-ord" secondAttribute="centerX" constant="-50" id="nPg-EM-cDt">
                                 <variation key="heightClass=regular-widthClass=regular" constant="-350"/>
                             </constraint>
+                            <constraint firstAttribute="centerY" relation="lessThanOrEqual" secondItem="fWy-EB-Khq" secondAttribute="centerY" constant="-200" id="pkJ-M6-fUe">
+                                <variation key="heightClass=regular-widthClass=regular" constant="350"/>
+                            </constraint>
                             <constraint firstAttribute="centerX" relation="lessThanOrEqual" secondItem="fWy-EB-Khq" secondAttribute="centerX" constant="-200" id="qKa-vM-e8t">
-                                <variation key="heightClass=regular-widthClass=regular" constant="300"/>
+                                <variation key="heightClass=regular-widthClass=regular" constant="350"/>
                             </constraint>
                         </constraints>
                         <variation key="default">
                             <mask key="subviews">
                                 <exclude reference="p55-KT-ord"/>
                                 <exclude reference="elc-Hv-mLz"/>
-                                <exclude reference="fWy-EB-Khq"/>
                                 <exclude reference="yMe-QW-ccX"/>
+                                <exclude reference="fWy-EB-Khq"/>
                             </mask>
                             <mask key="constraints">
                                 <exclude reference="Bkf-sH-rxg"/>
@@ -251,8 +251,8 @@
                             <mask key="subviews">
                                 <include reference="p55-KT-ord"/>
                                 <include reference="elc-Hv-mLz"/>
-                                <include reference="fWy-EB-Khq"/>
                                 <include reference="yMe-QW-ccX"/>
+                                <include reference="fWy-EB-Khq"/>
                             </mask>
                             <mask key="constraints">
                                 <exclude reference="Bkf-sH-rxg"/>

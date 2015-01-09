@@ -22,22 +22,23 @@
 }
 
 -(void)moveEntityRight{
-    SKAction* move = [SKAction moveByX:self.speed y:0 duration:0.1];
-    SKAction* loopMovement = [SKAction repeatActionForever:move];
-    [self.node runAction:loopMovement withKey:@"MovingRight"];
-    [super moveEntityRight];
+    if (self.moving == false) {
+        SKAction* move = [SKAction moveByX:self.speed y:0 duration:0.1];
+        SKAction* loopMovement = [SKAction repeatActionForever:move];
+        [self.node runAction:loopMovement withKey:@"MovingRight"];
+        self.moving = true;
+        [super moveEntityRight];
+    }
 }
 
 -(void)moveEntityLeft{
-    SKAction* move = [SKAction moveByX:-self.speed y:0 duration:0.1];
-    SKAction* loopMovement = [SKAction repeatActionForever:move];
-    [self.node runAction:loopMovement withKey:@"MovingLeft"];
-    [super moveEntityLeft];
-}
-
--(void)stopMovementActions{
-    [self.node removeActionForKey:@"MovingLeft"];
-    [self.node removeActionForKey:@"MovingRight"];
+    if (self.moving == false) {
+        SKAction* move = [SKAction moveByX:-self.speed y:0 duration:0.1];
+        SKAction* loopMovement = [SKAction repeatActionForever:move];
+        [self.node runAction:loopMovement withKey:@"MovingLeft"];
+        self.moving = true;
+        [super moveEntityLeft];
+    }
 }
 
 -(void)impulseEntityRight{

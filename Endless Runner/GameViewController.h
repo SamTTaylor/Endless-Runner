@@ -19,17 +19,18 @@
 @property (weak) IBOutlet UIButton *jump;
 @property (weak) IBOutlet UIButton *quit;
 
-
 @property GameScene* gamescene;
 @property GameModel* model;
 
 
 @property bool tiltbool;
+@property double yRotation;
 @property float updatespeed;
 
 @property (strong) CMMotionManager *motionManager;
 
 @property (copy) CMGyroHandler gyroHandler;
+@property (copy) CMAccelerometerHandler accelerometerHandler;
 
 
 

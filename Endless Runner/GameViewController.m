@@ -37,7 +37,7 @@ NSTimer *updatetimer;
     [super viewDidLoad];
     //Load new game
     [self initialiseGameScene];
-    [self instantiateGyro];
+    [self instantiateAccelerometer];
     [self checkTiltBool];
     
     //Lets get going
@@ -63,25 +63,33 @@ NSTimer *updatetimer;
     [skView presentScene:self.gamescene];
 }
 
-- (void)instantiateGyro{
-    if (self.motionManager.gyroAvailable) {
-        self.motionManager.gyroUpdateInterval = 0.01; // 100 Hz
-        self.gyroHandler = ^(CMGyroData *gyroData, NSError *error) {
-            CMRotationRate rotate = gyroData.rotationRate;
-            // need to update the user interface on the main thread
-            dispatch_async(dispatch_get_main_queue(),^{
-                NSLog(@"%f", rotate.x);
-            });
+- (void)instantiateAccelerometer{
+    //Prepare the Accelerometer
+    self.motionManager = [[CMMotionManager alloc]init];
+    if (self.motionManager.accelerometerAvailable) {
+        self.motionManager.accelerometerUpdateInterval = 0.01; // 100 Hz
+        [self.motionManager startAccelerometerUpdates];
+        
+        self.accelerometerHandler = ^(CMAccelerometerData *accData, NSError *error) {
+            self.yRotation = accData.acceleration.y;
+            if (self.yRotation > self.model.tiltsensitivity){
+                [self.model moveTactileObjectLeft:self.model.player];
+            }
+            if (self.yRotation < -self.model.tiltsensitivity){
+                [self.model moveTactileObjectRight:self.model.player];
+            }
+            if (self.yRotation < self.model.tiltsensitivity && self.yRotation > -self.model.tiltsensitivity){
+                [self.model stopTactileObjectMovement:self.model.player Direction:0];
+                [self.model stopTactileObjectMovement:self.model.player Direction:1];
+            }
         };
-        [self.motionManager startGyroUpdatesToQueue:[[NSOperationQueue alloc]init] withHandler:self.gyroHandler];
+        // fire off regular animation updates via a timer
+        [self.motionManager startAccelerometerUpdatesToQueue:[[NSOperationQueue alloc]init] withHandler:self.accelerometerHandler];
     }
     else {
-        NSLog(@"No gyroscope on the device");
+        NSLog(@"No accelerometer on the device");
         self.motionManager = nil;
     }
-    
-    //Prepare the Gyro
-    self.motionManager = [[CMMotionManager alloc]init];
 }
 
 - (void)checkTiltBool{
@@ -203,12 +211,12 @@ NSTimer *updatetimer;
 
 -(void)releaseLeft
 {
-    [self.model stopTactileObjectMovement:self.model.player];
+    [self.model stopTactileObjectMovement:self.model.player Direction:0];
 }
 
 -(void)releaseRight
 {
-    [self.model stopTactileObjectMovement:self.model.player];
+    [self.model stopTactileObjectMovement:self.model.player Direction:1];
 }
 
 -(void)releaseJump
@@ -223,6 +231,7 @@ NSTimer *updatetimer;
     
 }
 -(IBAction)quitPressed:(UIButton*)sender{
+    self.motionManager = nil;
     [[self presentingViewController] dismissViewControllerAnimated:YES completion:nil];
 }
 -(IBAction)jumpPressed:(UIButton*)sender{
