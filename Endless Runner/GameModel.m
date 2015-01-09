@@ -62,11 +62,11 @@
 }
 
 -(void)moveTactileObjectRight:(TactileObject*)Tobj{
-    [Tobj moveEntityRight];
+    [Tobj moveEntityRight:20];
 }
 
 -(void)moveTactileObjectLeft:(TactileObject*)Tobj{
-    [Tobj moveEntityLeft];
+    [Tobj moveEntityLeft:20];
 }
 
 -(void)impulseEntityRight:(LivingEntity*)Lent{

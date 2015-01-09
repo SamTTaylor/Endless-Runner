@@ -12,5 +12,4 @@
 @interface Player : LivingEntity
 
 
-
 @end

@@ -10,10 +10,8 @@
 
 @interface TactileObject : Entity
 
-@property bool moving;
-
--(void)moveEntityLeft;
--(void)moveEntityRight;
+-(void)moveEntityLeft:(int)speed;
+-(void)moveEntityRight:(int)speed;
 -(void)stopMovementActionsWithDirection:(int)d;
 
 @end

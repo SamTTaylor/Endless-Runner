@@ -20,21 +20,19 @@
     return self;
 }
 
--(void)moveEntityRight{
-    if (self.moving == false) {
-        SKAction* move = [SKAction moveByX:20 y:0 duration:0.1];
+-(void)moveEntityRight:(int)speed{
+    if ([self.node actionForKey:@"MovingRight"] == false) {
+        SKAction* move = [SKAction moveByX:speed y:0 duration:0.1];
         SKAction* loopMovement = [SKAction repeatActionForever:move];
         [self.node runAction:loopMovement withKey:@"MovingRight"];
-        self.moving = true;
     }
 }
 
--(void)moveEntityLeft{
-    if (self.moving == false) {
-        SKAction* move = [SKAction moveByX:-20 y:0 duration:0.1];
+-(void)moveEntityLeft:(int)speed{
+    if ([self.node actionForKey:@"MovingLeft"] == false) {
+        SKAction* move = [SKAction moveByX:-speed y:0 duration:0.1];
         SKAction* loopMovement = [SKAction repeatActionForever:move];
         [self.node runAction:loopMovement withKey:@"MovingLeft"];
-        self.moving = true;
     }
 }
 
@@ -42,11 +40,9 @@
     switch (d) {
         case 0:
             [self.node removeActionForKey:@"MovingLeft"];
-            self.moving = false;
             break;
         case 1:
             [self.node removeActionForKey:@"MovingRight"];
-            self.moving = false;
             break;
         default:
             break;

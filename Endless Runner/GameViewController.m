@@ -37,7 +37,6 @@ NSTimer *updatetimer;
     [super viewDidLoad];
     //Load new game
     [self initialiseGameScene];
-    [self instantiateAccelerometer];
     [self checkTiltBool];
     
     //Lets get going
@@ -96,6 +95,7 @@ NSTimer *updatetimer;
     if (self.tiltbool == true){
         self.left.hidden = true;
         self.right.hidden = true;
+        [self instantiateAccelerometer];
     } else {
         self.left.hidden = false;
         self.right.hidden = false;

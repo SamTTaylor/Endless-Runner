@@ -21,23 +21,21 @@
     return self;
 }
 
--(void)moveEntityRight{
-    if (self.moving == false) {
+-(void)moveEntityRight:(int)speed{
+    if ([self.node actionForKey:@"MovingRight"] == false) {
         SKAction* move = [SKAction moveByX:self.speed y:0 duration:0.1];
         SKAction* loopMovement = [SKAction repeatActionForever:move];
         [self.node runAction:loopMovement withKey:@"MovingRight"];
-        self.moving = true;
-        [super moveEntityRight];
+        [super moveEntityRight:0];
     }
 }
 
--(void)moveEntityLeft{
-    if (self.moving == false) {
+-(void)moveEntityLeft:(int)speed{
+    if ([self.node actionForKey:@"MovingLeft"]== false) {
         SKAction* move = [SKAction moveByX:-self.speed y:0 duration:0.1];
         SKAction* loopMovement = [SKAction repeatActionForever:move];
         [self.node runAction:loopMovement withKey:@"MovingLeft"];
-        self.moving = true;
-        [super moveEntityLeft];
+        [super moveEntityLeft:0];
     }
 }
 
