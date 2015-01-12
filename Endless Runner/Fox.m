@@ -16,7 +16,8 @@
     if (self) {
         //Initialization code
         [self.node setScale:0.2];
-        [self setSpeed:50];
+        [self setSpeed:20];
+        node.physicsBody.allowsRotation = false;
     }
     return self;
 }
@@ -25,13 +26,13 @@
     [super animateSelf];
     [self.node removeActionForKey:[NSString stringWithFormat:@"animate %@", self.class]];
     [self.node runAction:[SKAction sequence:@[[SKAction repeatAction:[SKAction sequence:@[[SKAction runBlock:^{
-        self.node.xScale = 0.2;
-        [self jumpEntity];
-        [self impulseEntityLeft];
-    }], [SKAction waitForDuration:1], [SKAction runBlock:^{
         self.node.xScale = -0.2;
         [self jumpEntity];
         [self impulseEntityRight];
+    }], [SKAction waitForDuration:1], [SKAction runBlock:^{
+        self.node.xScale = 0.2;
+        [self jumpEntity];
+        [self impulseEntityLeft];
     }], [SKAction waitForDuration:1]]] count:5]]] withKey:[NSString stringWithFormat:@"animate %@", self.class]];
 }
 
