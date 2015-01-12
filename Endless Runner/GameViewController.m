@@ -196,7 +196,7 @@ NSTimer *updatetimer;
         int loc;
         NSString *strClass = NSStringFromClass(en.class);
         Enemy* spawn = [[en.class alloc] initWithNode:[SKSpriteNode spriteNodeWithImageNamed:strClass]];
-        if([strClass  isEqual: @"Bird"]){
+        if([strClass  isEqual: @"Bird" ] || [strClass  isEqual: @"Beehive" ]){
             loc = 2;
         } else {
             loc = 0;
@@ -207,7 +207,7 @@ NSTimer *updatetimer;
     
         [self.model incrementScore:self.model.currentdifficulty * 10];
         [self.model incrementDifficultyScore:1];
-        [self.model updateDifficultyThreshold];
+        [self.model updateDifficulty];
         self.score.text = [NSString stringWithFormat:@"%d", self.model.score];
     }
 }

@@ -34,7 +34,7 @@
 
 - (void) incrementScore:(int)i;
 - (void) incrementDifficultyScore:(int)i;
-- (void) updateDifficultyThreshold;
+- (void) updateDifficulty;
 
 - (void)moveNodeWithGround:(SKNode*)node Repeat:(bool)r;
 - (void)placePlayer;

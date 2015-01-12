@@ -34,8 +34,6 @@
 		68F359051A63C81F0006E4B1 /* ground.png in Resources */ = {isa = PBXBuildFile; fileRef = 68F359031A63C81F0006E4B1 /* ground.png */; };
 		68F3590E1A63C82F0006E4B1 /* avatar.gif in Resources */ = {isa = PBXBuildFile; fileRef = 68F359061A63C82F0006E4B1 /* avatar.gif */; };
 		68F3590F1A63C82F0006E4B1 /* bee.png in Resources */ = {isa = PBXBuildFile; fileRef = 68F359071A63C82F0006E4B1 /* bee.png */; };
-		68F359101A63C82F0006E4B1 /* beehive.png in Resources */ = {isa = PBXBuildFile; fileRef = 68F359081A63C82F0006E4B1 /* beehive.png */; };
-		68F359111A63C82F0006E4B1 /* BeehiveSam.png in Resources */ = {isa = PBXBuildFile; fileRef = 68F359091A63C82F0006E4B1 /* BeehiveSam.png */; };
 		68F359121A63C82F0006E4B1 /* Bird.png in Resources */ = {isa = PBXBuildFile; fileRef = 68F3590A1A63C82F0006E4B1 /* Bird.png */; };
 		68F359131A63C82F0006E4B1 /* Fox.png in Resources */ = {isa = PBXBuildFile; fileRef = 68F3590B1A63C82F0006E4B1 /* Fox.png */; };
 		68F359141A63C82F0006E4B1 /* Frog.png in Resources */ = {isa = PBXBuildFile; fileRef = 68F3590C1A63C82F0006E4B1 /* Frog.png */; };
@@ -45,6 +43,7 @@
 		68F3591F1A63EAD90006E4B1 /* Beehive.m in Sources */ = {isa = PBXBuildFile; fileRef = 68F3591E1A63EAD90006E4B1 /* Beehive.m */; };
 		68F359221A63ECD50006E4B1 /* Frog.m in Sources */ = {isa = PBXBuildFile; fileRef = 68F359211A63ECD50006E4B1 /* Frog.m */; };
 		68F359251A63ECE20006E4B1 /* Wolf.m in Sources */ = {isa = PBXBuildFile; fileRef = 68F359241A63ECE20006E4B1 /* Wolf.m */; };
+		68F359A41A640CD60006E4B1 /* Beehive.png in Resources */ = {isa = PBXBuildFile; fileRef = 68F359A31A640CD60006E4B1 /* Beehive.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -101,8 +100,6 @@
 		68F359031A63C81F0006E4B1 /* ground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ground.png; path = "Endless Runner/Images/Backgrounds/ground.png"; sourceTree = "<group>"; };
 		68F359061A63C82F0006E4B1 /* avatar.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; name = avatar.gif; path = "Endless Runner/Images/Characters/avatar.gif"; sourceTree = "<group>"; };
 		68F359071A63C82F0006E4B1 /* bee.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = bee.png; path = "Endless Runner/Images/Characters/bee.png"; sourceTree = "<group>"; };
-		68F359081A63C82F0006E4B1 /* beehive.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = beehive.png; path = "Endless Runner/Images/Characters/beehive.png"; sourceTree = "<group>"; };
-		68F359091A63C82F0006E4B1 /* BeehiveSam.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = BeehiveSam.png; path = "Endless Runner/Images/Characters/BeehiveSam.png"; sourceTree = "<group>"; };
 		68F3590A1A63C82F0006E4B1 /* Bird.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Bird.png; path = "Endless Runner/Images/Characters/Bird.png"; sourceTree = "<group>"; };
 		68F3590B1A63C82F0006E4B1 /* Fox.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Fox.png; path = "Endless Runner/Images/Characters/Fox.png"; sourceTree = "<group>"; };
 		68F3590C1A63C82F0006E4B1 /* Frog.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Frog.png; path = "Endless Runner/Images/Characters/Frog.png"; sourceTree = "<group>"; };
@@ -117,6 +114,7 @@
 		68F359211A63ECD50006E4B1 /* Frog.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Frog.m; sourceTree = "<group>"; };
 		68F359231A63ECE20006E4B1 /* Wolf.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Wolf.h; sourceTree = "<group>"; };
 		68F359241A63ECE20006E4B1 /* Wolf.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Wolf.m; sourceTree = "<group>"; };
+		68F359A31A640CD60006E4B1 /* Beehive.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Beehive.png; path = "Endless Runner/Images/Characters/Beehive.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -150,10 +148,9 @@
 		682428021A28749800F71A3D /* Characters */ = {
 			isa = PBXGroup;
 			children = (
+				68F359A31A640CD60006E4B1 /* Beehive.png */,
 				68F359061A63C82F0006E4B1 /* avatar.gif */,
 				68F359071A63C82F0006E4B1 /* bee.png */,
-				68F359081A63C82F0006E4B1 /* beehive.png */,
-				68F359091A63C82F0006E4B1 /* BeehiveSam.png */,
 				68F3590A1A63C82F0006E4B1 /* Bird.png */,
 				68F3590B1A63C82F0006E4B1 /* Fox.png */,
 				68F3590C1A63C82F0006E4B1 /* Frog.png */,
@@ -370,15 +367,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				68F359A41A640CD60006E4B1 /* Beehive.png in Resources */,
 				687516211A24F92600748410 /* LaunchScreen.xib in Resources */,
 				68F359041A63C81F0006E4B1 /* background.png in Resources */,
-				68F359111A63C82F0006E4B1 /* BeehiveSam.png in Resources */,
 				68F358FF1A63C80E0006E4B1 /* Mushroom.png in Resources */,
 				68F359131A63C82F0006E4B1 /* Fox.png in Resources */,
 				6875161E1A24F92600748410 /* Images.xcassets in Resources */,
 				68F3590F1A63C82F0006E4B1 /* bee.png in Resources */,
 				68F359051A63C81F0006E4B1 /* ground.png in Resources */,
-				68F359101A63C82F0006E4B1 /* beehive.png in Resources */,
 				68F359141A63C82F0006E4B1 /* Frog.png in Resources */,
 				68F359151A63C82F0006E4B1 /* Wolf.png in Resources */,
 				68F3590E1A63C82F0006E4B1 /* avatar.gif in Resources */,

@@ -38,18 +38,17 @@ static const int enemyCategory = 2;
 }
 
 - (void) incrementDifficultyScore:(int)i{
-    self.score += i;
+    self.difficultyscore += i;
 }
 
-- (void) updateDifficultyThreshold{
-    NSLog(@"%d", self.difficultyscore);
+- (void) updateDifficulty{
     if(self.difficultyscore <= self.difficultythreshold){
         [self setCurrentdifficulty:1];
     } else if(self.difficultyscore <= self.difficultythreshold*2){
         [self setCurrentdifficulty:2];
-    } else if(self.difficultyscore<= self.difficultythreshold*3){
+    } else if(self.difficultyscore <= self.difficultythreshold*3){
         [self setCurrentdifficulty:3];
-    } else if(self.difficultyscore<= self.difficultythreshold*4){
+    } else if(self.difficultyscore <= self.difficultythreshold*4){
         [self setCurrentdifficulty:4];
     } else{
         [self setCurrentdifficulty:5];
@@ -68,7 +67,6 @@ static const int enemyCategory = 2;
     [self.enemies addObject:en];
     en = [[Wolf alloc] initWithNode:[SKSpriteNode spriteNodeWithImageNamed:@"Wolf"]];
     [self.enemies addObject:en];
-    NSLog(@"%@", self.enemies[0]);
 
 }
 
