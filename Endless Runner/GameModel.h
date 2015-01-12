@@ -15,6 +15,11 @@
 #import "Frog.h"
 #import "Wolf.h"
 #import "TactileObject.h"
+#import "Stump.h"
+#import "Bog.h"
+#import "Spikes.h"
+#import "Mushroom.h"
+#import "Bush.h"
 
 @interface GameModel : NSObject <SKPhysicsContactDelegate>
 
@@ -25,6 +30,7 @@
 @property float speed;
 @property float tiltsensitivity;
 @property NSMutableArray *enemies;
+@property NSMutableArray *obstacles;
 @property int score;
 @property int difficultyscore;
 @property int difficultythreshold;

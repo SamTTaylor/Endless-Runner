@@ -150,9 +150,9 @@ NSTimer *updatetimer;
     self.model.groundnode.position = CGPointMake(0, 20);
     self.model.groundnode.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:CGSizeMake(self.gamescene.size.width*4, 50)];
     self.model.groundnode.physicsBody.dynamic = NO;
-    self.model.groundnode.physicsBody.categoryBitMask = 3;
-    self.model.groundnode.physicsBody.collisionBitMask = 2;
-    self.model.groundnode.physicsBody.contactTestBitMask = 2;
+    self.model.groundnode.physicsBody.categoryBitMask = 0x1 << 3;
+    self.model.groundnode.physicsBody.collisionBitMask = 0x1 << 2;
+    self.model.groundnode.physicsBody.contactTestBitMask = 0x1 << 2;
     [self.gamescene addChild:self.model.groundnode];
 }
 
@@ -188,15 +188,50 @@ NSTimer *updatetimer;
 - (void)updaterFireMethod:(NSTimer *)updatetimer{
     if (self.startedbytilt == true || self.tiltbool == false) {
         
-        [self spawnRandomEnemy];
+        float i = (double)self.model.difficultyscore/(double)self.model.difficultythreshold;
+        if ([self dicerollWithPercentage:i*100] == YES){
+            if ([self dicerollWithPercentage:(50)]==YES){
+                [self spawnRandomObstacle];
+            } else {
+                [self spawnRandomEnemy];
+            }
+        }
+        
         [self incrementScores];
 
-
+        
     
 
     }
 }
 
+- (bool) dicerollWithPercentage:(int)percentage {
+    return arc4random_uniform(100) < percentage;
+}
+
+- (void) spawnRandomObstacle{
+    int i = arc4random()%self.model.currentdifficulty;
+    TactileObject* Tobj = [[TactileObject alloc] init];
+    Tobj = self.model.obstacles[i];
+    int loc;
+    TactileObject* spawn = [[Tobj.class alloc] initWithNode:[SKSpriteNode spriteNodeWithTexture:Tobj.node.texture]];
+        loc = 0;
+    [self.model placeEntWithLoc:loc Ent:spawn];
+    NSString *strClass = NSStringFromClass(spawn.class);
+    if ([strClass  isEqual: @"Stump"]) {
+        [spawn.node setPosition:CGPointMake(spawn.node.position.x, spawn.node.position.y+40)];
+    } else if ([strClass  isEqual: @"Bog"]) {
+        [spawn.node setPosition:CGPointMake(spawn.node.position.x, spawn.node.position.y)];
+    } else if ([strClass  isEqual: @"Spikes"]) {
+        [spawn.node setPosition:CGPointMake(spawn.node.position.x, spawn.node.position.y+40)];
+    } else if ([strClass  isEqual: @"Mushroom"]) {
+        [spawn.node setPosition:CGPointMake(spawn.node.position.x, spawn.node.position.y+40)];
+    } else if ([strClass  isEqual: @"Bush"]) {
+        [spawn.node setPosition:CGPointMake(spawn.node.position.x, spawn.node.position.y+20)];
+    }
+    
+    [self.gamescene addChild:spawn.node];
+}
 
 - (void) spawnRandomEnemy{
     int i = arc4random()%self.model.currentdifficulty;
@@ -204,7 +239,7 @@ NSTimer *updatetimer;
     en = self.model.enemies[i];
     int loc;
     NSString *strClass = NSStringFromClass(en.class);
-    Enemy* spawn = [[en.class alloc] initWithNode:[SKSpriteNode spriteNodeWithImageNamed:strClass]];
+    Enemy* spawn = [[en.class alloc] initWithNode:[SKSpriteNode spriteNodeWithTexture:en.node.texture]];
     if([strClass  isEqual: @"Bird" ]){
         loc = 2;
     } else if([strClass  isEqual: @"Beehive" ]){

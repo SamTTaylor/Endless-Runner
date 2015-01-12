@@ -17,6 +17,9 @@
         //Initialization code
         [self.node setScale:0.2];
         [self setFlying:YES flappingfrequency:0.4];
+        node.physicsBody.contactTestBitMask = 0x1 << 1 | 0x1 << 3;
+        node.physicsBody.categoryBitMask = 0x1 << 2;//enemy
+        node.physicsBody.collisionBitMask = 0x1 << 1 | 0x1 << 3;
     }
     return self;
 }

@@ -10,8 +10,8 @@
 
 @implementation GameModel
 
-static const int playerCategory = 0;
-static const int enemyCategory = 2;
+static const int playerCategory = 0x1 << 1;
+static const int enemyCategory = 0x1 << 2;
 
 - (id)initWithPlayer{
     self = [super init];
@@ -21,6 +21,7 @@ static const int enemyCategory = 2;
         self.backgroundtexture = [SKTexture textureWithImageNamed:@"background"];
         self.groundtexture = [SKTexture textureWithImageNamed:@"ground"];
         [self populateEnemyArray];
+        [self populateObstacleArray];
         [self setCurrentdifficulty:1];
         [self setDifficultyscore:0];
         [self setDifficultythreshold:10];
@@ -49,6 +50,20 @@ static const int enemyCategory = 2;
     if (self.currentdifficulty > 5){
         self.currentdifficulty = 5;
     }
+}
+
+- (void) populateObstacleArray{
+    self.obstacles = [[NSMutableArray alloc] init];
+    TactileObject* Tobj = [[Stump alloc] initWithNode:[SKSpriteNode spriteNodeWithImageNamed:@"Stump"]];
+    [self.obstacles addObject:Tobj];
+    Tobj = [[Bog alloc] initWithNode:[SKSpriteNode spriteNodeWithImageNamed:@"Bog"]];
+    [self.obstacles addObject:Tobj];
+    Tobj = [[Spikes alloc] initWithNode:[SKSpriteNode spriteNodeWithImageNamed:@"Spikes"]];
+    [self.obstacles addObject:Tobj];
+    Tobj = [[Mushroom alloc] initWithNode:[SKSpriteNode spriteNodeWithImageNamed:@"Mushroom"]];
+    [self.obstacles addObject:Tobj];
+    Tobj = [[Bush alloc] initWithNode:[SKSpriteNode spriteNodeWithImageNamed:@"Bush"]];
+    [self.obstacles addObject:Tobj];
 }
 
 - (void) populateEnemyArray{

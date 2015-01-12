@@ -1,26 +1,22 @@
 //
-//  Frog.m
+//  Bush.m
 //  Endless Runner
 //
 //  Created by acp14stt on 12/01/2015.
 //  Copyright (c) 2015 sheffield. All rights reserved.
 //
 
-#import "Frog.h"
+#import "Bush.h"
 
-@implementation Frog
+@implementation Bush
 
 - (id)initWithNode:(SKSpriteNode*)node
 {
     self = [super initWithNode:node];
     if (self) {
         //Initialization code
-        [self.node setScale:0.2];
-        [self.node setXScale:-0.2];
-        node.physicsBody.allowsRotation = false;
-        node.physicsBody.contactTestBitMask = 0x1 << 1 | 0x1 << 3;
-        node.physicsBody.categoryBitMask = 0x1 << 2;//enemy
-        node.physicsBody.collisionBitMask = 0x1 << 1 | 0x1 << 3;
+        [self.node setScale:0.6];
+        node.physicsBody.categoryBitMask = 0x1 << 4;
     }
     return self;
 }
@@ -29,9 +25,20 @@
     [super animateSelf];
     [self.node removeActionForKey:[NSString stringWithFormat:@"animate %@", self.class]];
     [self.node runAction:[SKAction sequence:@[[SKAction repeatAction:[SKAction sequence:@[[SKAction runBlock:^{
-        //Tongue attack
+        //Add Shrink
     }], [SKAction waitForDuration:1], [SKAction runBlock:^{
-        //Tongue attack
+        //Add Shrinks
     }], [SKAction waitForDuration:1]]] count:5]]] withKey:[NSString stringWithFormat:@"animate %@", self.class]];
 }
+
+- (void) deathAnimation{
+    [super deathAnimation];
+    [self.node removeActionForKey:[NSString stringWithFormat:@"animate %@", self.class]];
+    [self.node runAction:[SKAction sequence:@[[SKAction repeatAction:[SKAction sequence:@[[SKAction runBlock:^{
+        //Add cut
+    }], [SKAction waitForDuration:1], [SKAction runBlock:^{
+        //Add cut
+    }], [SKAction waitForDuration:1]]] count:5]]] withKey:[NSString stringWithFormat:@"animate %@", self.class]];
+}
+
 @end

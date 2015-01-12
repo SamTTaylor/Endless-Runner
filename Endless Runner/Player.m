@@ -15,9 +15,9 @@
     self = [super initWithNode:node];
     if (self) {
         //Initialization code
-        node.physicsBody.contactTestBitMask = 2;
-        node.physicsBody.categoryBitMask = 0;//player
-        node.physicsBody.collisionBitMask = 2;
+        node.physicsBody.contactTestBitMask = 0x1 << 2 | 0x1 << 4 | 0x1 << 6 | 0x1 << 5;
+        node.physicsBody.categoryBitMask = 0x1 << 1;//player
+        node.physicsBody.collisionBitMask = 0x1 << 2 | 0x1 << 4 | 0x1 << 3;
         node.physicsBody.allowsRotation = false;
     }
     return self;

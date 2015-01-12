@@ -16,7 +16,8 @@
     if (self) {
         //Initialization code
         node.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:node.frame.size];
-        self.node.physicsBody.dynamic = false;
+        node.physicsBody.allowsRotation = false;
+        [node.physicsBody setDynamic:false];
     }
     return self;
 }
@@ -48,6 +49,10 @@
         default:
             break;
     }
+}
+
+- (void) animateSelf{
+    
 }
 
 @end

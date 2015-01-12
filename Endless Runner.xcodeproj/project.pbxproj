@@ -44,6 +44,11 @@
 		68F359221A63ECD50006E4B1 /* Frog.m in Sources */ = {isa = PBXBuildFile; fileRef = 68F359211A63ECD50006E4B1 /* Frog.m */; };
 		68F359251A63ECE20006E4B1 /* Wolf.m in Sources */ = {isa = PBXBuildFile; fileRef = 68F359241A63ECE20006E4B1 /* Wolf.m */; };
 		68F359A41A640CD60006E4B1 /* Beehive.png in Resources */ = {isa = PBXBuildFile; fileRef = 68F359A31A640CD60006E4B1 /* Beehive.png */; };
+		68F359A81A6421EE0006E4B1 /* Stump.m in Sources */ = {isa = PBXBuildFile; fileRef = 68F359A71A6421EE0006E4B1 /* Stump.m */; };
+		68F359AB1A6421F90006E4B1 /* Bog.m in Sources */ = {isa = PBXBuildFile; fileRef = 68F359AA1A6421F90006E4B1 /* Bog.m */; };
+		68F359AE1A6422050006E4B1 /* Spikes.m in Sources */ = {isa = PBXBuildFile; fileRef = 68F359AD1A6422050006E4B1 /* Spikes.m */; };
+		68F359B11A6422110006E4B1 /* Mushroom.m in Sources */ = {isa = PBXBuildFile; fileRef = 68F359B01A6422110006E4B1 /* Mushroom.m */; };
+		68F359B41A64221F0006E4B1 /* Bush.m in Sources */ = {isa = PBXBuildFile; fileRef = 68F359B31A64221F0006E4B1 /* Bush.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -115,6 +120,16 @@
 		68F359231A63ECE20006E4B1 /* Wolf.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Wolf.h; sourceTree = "<group>"; };
 		68F359241A63ECE20006E4B1 /* Wolf.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Wolf.m; sourceTree = "<group>"; };
 		68F359A31A640CD60006E4B1 /* Beehive.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Beehive.png; path = "Endless Runner/Images/Characters/Beehive.png"; sourceTree = "<group>"; };
+		68F359A61A6421EE0006E4B1 /* Stump.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Stump.h; sourceTree = "<group>"; };
+		68F359A71A6421EE0006E4B1 /* Stump.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Stump.m; sourceTree = "<group>"; };
+		68F359A91A6421F90006E4B1 /* Bog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Bog.h; sourceTree = "<group>"; };
+		68F359AA1A6421F90006E4B1 /* Bog.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Bog.m; sourceTree = "<group>"; };
+		68F359AC1A6422050006E4B1 /* Spikes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Spikes.h; sourceTree = "<group>"; };
+		68F359AD1A6422050006E4B1 /* Spikes.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Spikes.m; sourceTree = "<group>"; };
+		68F359AF1A6422110006E4B1 /* Mushroom.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Mushroom.h; sourceTree = "<group>"; };
+		68F359B01A6422110006E4B1 /* Mushroom.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Mushroom.m; sourceTree = "<group>"; };
+		68F359B21A64221F0006E4B1 /* Bush.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Bush.h; sourceTree = "<group>"; };
+		68F359B31A64221F0006E4B1 /* Bush.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Bush.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -171,11 +186,10 @@
 		683D21CB1A2F7F390081FF3F /* Entities */ = {
 			isa = PBXGroup;
 			children = (
+				68F359A51A6421CD0006E4B1 /* Obstacles */,
 				68F3591C1A63E9730006E4B1 /* Enemies */,
 				683D21C21A2F7CC90081FF3F /* Entity.h */,
 				683D21C31A2F7CC90081FF3F /* Entity.m */,
-				684747D21A5AB3740005B80A /* TactileObject.h */,
-				684747D31A5AB3740005B80A /* TactileObject.m */,
 				683D21C81A2F7F320081FF3F /* LivingEntity.h */,
 				683D21C91A2F7F320081FF3F /* LivingEntity.m */,
 				683D21C51A2F7CD50081FF3F /* Player.h */,
@@ -285,6 +299,25 @@
 				68F359241A63ECE20006E4B1 /* Wolf.m */,
 			);
 			name = Enemies;
+			sourceTree = "<group>";
+		};
+		68F359A51A6421CD0006E4B1 /* Obstacles */ = {
+			isa = PBXGroup;
+			children = (
+				684747D21A5AB3740005B80A /* TactileObject.h */,
+				684747D31A5AB3740005B80A /* TactileObject.m */,
+				68F359A61A6421EE0006E4B1 /* Stump.h */,
+				68F359A71A6421EE0006E4B1 /* Stump.m */,
+				68F359A91A6421F90006E4B1 /* Bog.h */,
+				68F359AA1A6421F90006E4B1 /* Bog.m */,
+				68F359AC1A6422050006E4B1 /* Spikes.h */,
+				68F359AD1A6422050006E4B1 /* Spikes.m */,
+				68F359AF1A6422110006E4B1 /* Mushroom.h */,
+				68F359B01A6422110006E4B1 /* Mushroom.m */,
+				68F359B21A64221F0006E4B1 /* Bush.h */,
+				68F359B31A64221F0006E4B1 /* Bush.m */,
+			);
+			name = Obstacles;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -405,18 +438,23 @@
 				683D21C41A2F7CC90081FF3F /* Entity.m in Sources */,
 				687516191A24F92600748410 /* GameViewController.m in Sources */,
 				6816082B1A60172C0090CB96 /* Enemy.m in Sources */,
+				68F359B41A64221F0006E4B1 /* Bush.m in Sources */,
 				68F359251A63ECE20006E4B1 /* Wolf.m in Sources */,
 				687516111A24F92600748410 /* AppDelegate.m in Sources */,
 				68AA902A1A56BE430056E5A2 /* SettingsViewController.m in Sources */,
+				68F359AE1A6422050006E4B1 /* Spikes.m in Sources */,
 				68F3591B1A63E96C0006E4B1 /* Bird.m in Sources */,
 				681608281A6010410090CB96 /* ToastView.m in Sources */,
 				68F359221A63ECD50006E4B1 /* Frog.m in Sources */,
 				68AA902D1A56C4700056E5A2 /* MainMenuViewController.m in Sources */,
+				68F359B11A6422110006E4B1 /* Mushroom.m in Sources */,
 				68F359181A63DB540006E4B1 /* Fox.m in Sources */,
 				682428001A28740B00F71A3D /* GameModel.m in Sources */,
 				687516141A24F92600748410 /* GameScene.m in Sources */,
+				68F359A81A6421EE0006E4B1 /* Stump.m in Sources */,
 				683D21C71A2F7CD50081FF3F /* Player.m in Sources */,
 				68F3591F1A63EAD90006E4B1 /* Beehive.m in Sources */,
+				68F359AB1A6421F90006E4B1 /* Bog.m in Sources */,
 				6875160E1A24F92600748410 /* main.m in Sources */,
 				684747D41A5AB3740005B80A /* TactileObject.m in Sources */,
 				683D21CA1A2F7F320081FF3F /* LivingEntity.m in Sources */,

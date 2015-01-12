@@ -15,8 +15,8 @@
     if (self) {
         //Initialization code
         [self.node setScale:0.3];
-        [self.node.physicsBody setDynamic:NO];
-        node.physicsBody.allowsRotation = false;
+        [node.physicsBody setDynamic:false];
+        node.physicsBody.categoryBitMask = 0x1 << 6;
     }
     return self;
 }
