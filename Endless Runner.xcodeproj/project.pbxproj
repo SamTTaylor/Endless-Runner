@@ -43,6 +43,8 @@
 		68F359181A63DB540006E4B1 /* Fox.m in Sources */ = {isa = PBXBuildFile; fileRef = 68F359171A63DB540006E4B1 /* Fox.m */; };
 		68F3591B1A63E96C0006E4B1 /* Bird.m in Sources */ = {isa = PBXBuildFile; fileRef = 68F3591A1A63E96C0006E4B1 /* Bird.m */; };
 		68F3591F1A63EAD90006E4B1 /* Beehive.m in Sources */ = {isa = PBXBuildFile; fileRef = 68F3591E1A63EAD90006E4B1 /* Beehive.m */; };
+		68F359221A63ECD50006E4B1 /* Frog.m in Sources */ = {isa = PBXBuildFile; fileRef = 68F359211A63ECD50006E4B1 /* Frog.m */; };
+		68F359251A63ECE20006E4B1 /* Wolf.m in Sources */ = {isa = PBXBuildFile; fileRef = 68F359241A63ECE20006E4B1 /* Wolf.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -111,6 +113,10 @@
 		68F3591A1A63E96C0006E4B1 /* Bird.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Bird.m; sourceTree = "<group>"; };
 		68F3591D1A63EAD90006E4B1 /* Beehive.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Beehive.h; sourceTree = "<group>"; };
 		68F3591E1A63EAD90006E4B1 /* Beehive.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Beehive.m; sourceTree = "<group>"; };
+		68F359201A63ECD50006E4B1 /* Frog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Frog.h; sourceTree = "<group>"; };
+		68F359211A63ECD50006E4B1 /* Frog.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Frog.m; sourceTree = "<group>"; };
+		68F359231A63ECE20006E4B1 /* Wolf.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Wolf.h; sourceTree = "<group>"; };
+		68F359241A63ECE20006E4B1 /* Wolf.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Wolf.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -276,6 +282,10 @@
 				68F3591A1A63E96C0006E4B1 /* Bird.m */,
 				68F3591D1A63EAD90006E4B1 /* Beehive.h */,
 				68F3591E1A63EAD90006E4B1 /* Beehive.m */,
+				68F359201A63ECD50006E4B1 /* Frog.h */,
+				68F359211A63ECD50006E4B1 /* Frog.m */,
+				68F359231A63ECE20006E4B1 /* Wolf.h */,
+				68F359241A63ECE20006E4B1 /* Wolf.m */,
 			);
 			name = Enemies;
 			sourceTree = "<group>";
@@ -399,10 +409,12 @@
 				683D21C41A2F7CC90081FF3F /* Entity.m in Sources */,
 				687516191A24F92600748410 /* GameViewController.m in Sources */,
 				6816082B1A60172C0090CB96 /* Enemy.m in Sources */,
+				68F359251A63ECE20006E4B1 /* Wolf.m in Sources */,
 				687516111A24F92600748410 /* AppDelegate.m in Sources */,
 				68AA902A1A56BE430056E5A2 /* SettingsViewController.m in Sources */,
 				68F3591B1A63E96C0006E4B1 /* Bird.m in Sources */,
 				681608281A6010410090CB96 /* ToastView.m in Sources */,
+				68F359221A63ECD50006E4B1 /* Frog.m in Sources */,
 				68AA902D1A56C4700056E5A2 /* MainMenuViewController.m in Sources */,
 				68F359181A63DB540006E4B1 /* Fox.m in Sources */,
 				682428001A28740B00F71A3D /* GameModel.m in Sources */,

@@ -188,12 +188,16 @@ NSTimer *updatetimer;
 - (void)updaterFireMethod:(NSTimer *)updatetimer{
     if (self.startedbytilt == true || self.tiltbool == false) {
         
+        Enemy* beehive = [[Beehive alloc] initWithNode:[SKSpriteNode spriteNodeWithImageNamed:@"BeehiveSam"]];
+        [self.model placeEntWithLoc:2 Ent:beehive];
+        [self.gamescene addChild:beehive.node];
+        
         Enemy* bird = [[Bird alloc] initWithNode:[SKSpriteNode spriteNodeWithImageNamed:@"Bird"]];
         [self.model placeEntWithLoc:2 Ent:bird];
         [self.gamescene addChild:bird.node];
 
         
-        Enemy* fox = [[Fox alloc] initWithNode:[SKSpriteNode spriteNodeWithImageNamed:@"Fox"]];
+        Enemy* fox = [[Wolf alloc] initWithNode:[SKSpriteNode spriteNodeWithImageNamed:@"Wolf"]];
         [self.model placeEntWithLoc:0 Ent:fox];
         [self.gamescene addChild:fox.node];
         [fox animateSelf];
