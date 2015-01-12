@@ -10,6 +10,7 @@
 #import "Player.h"
 #import "Enemy.h"
 #import "Fox.h"
+#import "Bird.h"
 #import "TactileObject.h"
 
 @interface GameModel : NSObject <SKPhysicsContactDelegate>

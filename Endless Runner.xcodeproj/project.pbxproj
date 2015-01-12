@@ -41,6 +41,8 @@
 		68F359141A63C82F0006E4B1 /* Frog.png in Resources */ = {isa = PBXBuildFile; fileRef = 68F3590C1A63C82F0006E4B1 /* Frog.png */; };
 		68F359151A63C82F0006E4B1 /* Wolf.png in Resources */ = {isa = PBXBuildFile; fileRef = 68F3590D1A63C82F0006E4B1 /* Wolf.png */; };
 		68F359181A63DB540006E4B1 /* Fox.m in Sources */ = {isa = PBXBuildFile; fileRef = 68F359171A63DB540006E4B1 /* Fox.m */; };
+		68F3591B1A63E96C0006E4B1 /* Bird.m in Sources */ = {isa = PBXBuildFile; fileRef = 68F3591A1A63E96C0006E4B1 /* Bird.m */; };
+		68F3591F1A63EAD90006E4B1 /* Beehive.m in Sources */ = {isa = PBXBuildFile; fileRef = 68F3591E1A63EAD90006E4B1 /* Beehive.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -105,6 +107,10 @@
 		68F3590D1A63C82F0006E4B1 /* Wolf.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Wolf.png; path = "Endless Runner/Images/Characters/Wolf.png"; sourceTree = "<group>"; };
 		68F359161A63DB540006E4B1 /* Fox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Fox.h; sourceTree = "<group>"; };
 		68F359171A63DB540006E4B1 /* Fox.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Fox.m; sourceTree = "<group>"; };
+		68F359191A63E96C0006E4B1 /* Bird.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Bird.h; sourceTree = "<group>"; };
+		68F3591A1A63E96C0006E4B1 /* Bird.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Bird.m; sourceTree = "<group>"; };
+		68F3591D1A63EAD90006E4B1 /* Beehive.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Beehive.h; sourceTree = "<group>"; };
+		68F3591E1A63EAD90006E4B1 /* Beehive.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Beehive.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -162,6 +168,7 @@
 		683D21CB1A2F7F390081FF3F /* Entities */ = {
 			isa = PBXGroup;
 			children = (
+				68F3591C1A63E9730006E4B1 /* Enemies */,
 				683D21C21A2F7CC90081FF3F /* Entity.h */,
 				683D21C31A2F7CC90081FF3F /* Entity.m */,
 				684747D21A5AB3740005B80A /* TactileObject.h */,
@@ -170,10 +177,6 @@
 				683D21C91A2F7F320081FF3F /* LivingEntity.m */,
 				683D21C51A2F7CD50081FF3F /* Player.h */,
 				683D21C61A2F7CD50081FF3F /* Player.m */,
-				681608291A60172C0090CB96 /* Enemy.h */,
-				6816082A1A60172C0090CB96 /* Enemy.m */,
-				68F359161A63DB540006E4B1 /* Fox.h */,
-				68F359171A63DB540006E4B1 /* Fox.m */,
 			);
 			name = Entities;
 			sourceTree = "<group>";
@@ -260,6 +263,21 @@
 				68F358FC1A63C80E0006E4B1 /* Stump.png */,
 			);
 			name = Obstacles;
+			sourceTree = "<group>";
+		};
+		68F3591C1A63E9730006E4B1 /* Enemies */ = {
+			isa = PBXGroup;
+			children = (
+				681608291A60172C0090CB96 /* Enemy.h */,
+				6816082A1A60172C0090CB96 /* Enemy.m */,
+				68F359161A63DB540006E4B1 /* Fox.h */,
+				68F359171A63DB540006E4B1 /* Fox.m */,
+				68F359191A63E96C0006E4B1 /* Bird.h */,
+				68F3591A1A63E96C0006E4B1 /* Bird.m */,
+				68F3591D1A63EAD90006E4B1 /* Beehive.h */,
+				68F3591E1A63EAD90006E4B1 /* Beehive.m */,
+			);
+			name = Enemies;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -383,12 +401,14 @@
 				6816082B1A60172C0090CB96 /* Enemy.m in Sources */,
 				687516111A24F92600748410 /* AppDelegate.m in Sources */,
 				68AA902A1A56BE430056E5A2 /* SettingsViewController.m in Sources */,
+				68F3591B1A63E96C0006E4B1 /* Bird.m in Sources */,
 				681608281A6010410090CB96 /* ToastView.m in Sources */,
 				68AA902D1A56C4700056E5A2 /* MainMenuViewController.m in Sources */,
 				68F359181A63DB540006E4B1 /* Fox.m in Sources */,
 				682428001A28740B00F71A3D /* GameModel.m in Sources */,
 				687516141A24F92600748410 /* GameScene.m in Sources */,
 				683D21C71A2F7CD50081FF3F /* Player.m in Sources */,
+				68F3591F1A63EAD90006E4B1 /* Beehive.m in Sources */,
 				6875160E1A24F92600748410 /* main.m in Sources */,
 				684747D41A5AB3740005B80A /* TactileObject.m in Sources */,
 				683D21CA1A2F7F320081FF3F /* LivingEntity.m in Sources */,
