@@ -21,7 +21,8 @@
 #import "Mushroom.h"
 #import "Bush.h"
 
-@interface GameModel : NSObject <SKPhysicsContactDelegate>
+
+@interface GameModel : NSObject 
 
 @property Player* player;
 @property SKTexture* backgroundtexture;

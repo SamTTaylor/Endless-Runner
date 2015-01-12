@@ -10,11 +10,6 @@
 
 @implementation GameModel
 
-static const int playerCategory = 0x1 << 1;
-static const int enemyCategory = 0x1 << 2;
-static const int beehiveCategory = 0x1 << 6;
-static const int bogCategory = 0x1 << 5;
-
 - (id)initWithPlayer{
     self = [super init];
     if (self) {
@@ -30,7 +25,6 @@ static const int bogCategory = 0x1 << 5;
         [self setScore:0];
         self.speed = 0.004;
         self.tiltsensitivity = 0.1;
-        
     }
     return self;
 }
@@ -163,26 +157,6 @@ static const int bogCategory = 0x1 << 5;
     TactileObject  *Tobj = [[TactileObject alloc] initWithNode:[SKSpriteNode spriteNodeWithImageNamed:name]];
     [Tobj.node setScale:scale];
     return Tobj;
-}
-
-
-- (void)didBeginContact:(SKPhysicsContact *)contact {
-    SKSpriteNode *firstNode, *secondNode;
-    firstNode = (SKSpriteNode *)contact.bodyA.node;
-    secondNode = (SKSpriteNode *) contact.bodyB.node;
-    
-    if ((contact.bodyA.categoryBitMask == playerCategory && contact.bodyB.categoryBitMask == enemyCategory) || (contact.bodyB.categoryBitMask == playerCategory && contact.bodyA.categoryBitMask == enemyCategory) ){
-        //Player collided with enemy
-    }
-    if ((contact.bodyA.categoryBitMask == playerCategory && contact.bodyB.categoryBitMask == enemyCategory) || (contact.bodyB.categoryBitMask == playerCategory && contact.bodyA.categoryBitMask == enemyCategory) ){
-        //Player collided with beehive
-    }
-    if ((contact.bodyA.categoryBitMask == playerCategory && contact.bodyB.categoryBitMask == enemyCategory) || (contact.bodyB.categoryBitMask == playerCategory && contact.bodyA.categoryBitMask == enemyCategory) ){
-        //Player collided with bog
-    }
-    if ((contact.bodyA.categoryBitMask == playerCategory && contact.bodyB.categoryBitMask == enemyCategory) || (contact.bodyB.categoryBitMask == playerCategory && contact.bodyA.categoryBitMask == enemyCategory) ){
-        //Player collided with mushroom
-    }
 }
 
 

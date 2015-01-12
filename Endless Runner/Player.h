@@ -11,6 +11,12 @@
 
 @interface Player : LivingEntity
 
-- (void)collidedWithEntity;
+@property bool inmushroom;
+@property bool inbog;
+@property int lives;
+
+- (void)collidedWithBog;
+- (void)collidedWithMushroom;
+- (void)collidedWithEnemy;
 
 @end

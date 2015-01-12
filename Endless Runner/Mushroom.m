@@ -16,7 +16,7 @@
     if (self) {
         //Initialization code
         [self.node setScale:0.2];
-        node.physicsBody.categoryBitMask = 0x1 << 4;
+        node.physicsBody.categoryBitMask = 0x1 << 7;
     }
     return self;
 }

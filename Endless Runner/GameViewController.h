@@ -12,7 +12,7 @@
 #import "GameScene.h"
 #import "GameModel.h"
 
-@interface GameViewController : UIViewController
+@interface GameViewController : UIViewController <SKPhysicsContactDelegate>
 
 @property (weak) IBOutlet UIButton *left;
 @property (weak) IBOutlet UIButton *right;
@@ -35,6 +35,6 @@
 @property (copy) CMGyroHandler gyroHandler;
 @property (copy) CMAccelerometerHandler accelerometerHandler;
 
-
+- (void) quitSelf;
 
 @end

@@ -31,6 +31,13 @@
 
 @implementation GameViewController
 
+static const int playerCategory = 0x1 << 1;
+static const int enemyCategory = 0x1 << 2;
+static const int bogCategory = 0x1 << 5;
+static const int lethalpassableCategory = 0x1 << 6;
+static const int mushroomCategory = 0x1 << 7;
+static const int lethalimpassableCategory = 0x1 << 8;
+
 NSTimer *updatetimer;
 
 - (void)viewDidLoad
@@ -39,7 +46,7 @@ NSTimer *updatetimer;
     //Load new game
     NSLog(@"Loaded game");
     [self initialiseGameScene];
-    [self.gamescene.physicsWorld setContactDelegate:self.model];
+    [self.gamescene.physicsWorld setContactDelegate:self];
     [self checkTiltBool];
     self.gamestarted = false;
     self.startedbytilt = false;
@@ -86,11 +93,11 @@ NSTimer *updatetimer;
            
             self.yRotation = accData.acceleration.y;
             if (self.yRotation > self.model.tiltsensitivity){
-                [self.model moveTactileObjectLeft:self.model.player speed:0];
+                [self movePlayerLeft];
                 self.startedbytilt = true;
             }
             if (self.yRotation < -self.model.tiltsensitivity){
-                [self.model moveTactileObjectRight:self.model.player speed:0];
+                [self movePlayerRight];
                 self.startedbytilt = true;
             }
             if (self.yRotation < self.model.tiltsensitivity && self.yRotation > -self.model.tiltsensitivity){
@@ -261,6 +268,30 @@ NSTimer *updatetimer;
     self.score.text = [NSString stringWithFormat:@"%d", self.model.score];
 }
 
+- (void) quitSelf{
+    self.motionManager = nil;
+    self.closing = true;
+    self.model = nil;
+    self.gamescene = nil;
+    [self.updatetimer invalidate];
+    [[self presentingViewController] dismissViewControllerAnimated:YES completion:nil];
+}
+
+- (void) checkLives{
+    [self.model.player setLives:self.model.player.lives-1];
+    if(self.model.player.lives<=0){
+        [self quitSelf];
+    };
+}
+
+- (void)movePlayerLeft{
+    [self.model moveTactileObjectLeft:self.model.player speed:(int)0];
+}
+
+-(void)movePlayerRight{
+    [self.model moveTactileObjectRight:self.model.player speed:(int)0];
+}
+
 //STUFF
 - (BOOL)shouldAutorotate
 {
@@ -281,6 +312,29 @@ NSTimer *updatetimer;
     return YES;
 }
 
+
+//Contact handling
+- (void)didBeginContact:(SKPhysicsContact *)contact {
+    SKSpriteNode *firstNode, *secondNode;
+    firstNode = (SKSpriteNode *)contact.bodyA.node;
+    secondNode = (SKSpriteNode *) contact.bodyB.node;
+    
+    if (contact.bodyA.categoryBitMask == playerCategory && contact.bodyB.categoryBitMask == enemyCategory){
+        [self checkLives];
+    }
+    if (contact.bodyA.categoryBitMask == playerCategory && contact.bodyB.categoryBitMask == lethalpassableCategory){
+        [self checkLives];
+    }
+    if (contact.bodyA.categoryBitMask == playerCategory && contact.bodyB.categoryBitMask == lethalimpassableCategory){
+        [self checkLives];
+    }
+    if (contact.bodyA.categoryBitMask == playerCategory && contact.bodyB.categoryBitMask == bogCategory){
+        [self.model.player collidedWithBog];
+    }
+    if (contact.bodyA.categoryBitMask == playerCategory && contact.bodyB.categoryBitMask == mushroomCategory){
+        [self.model.player collidedWithMushroom];
+    }
+}
 
 
 
@@ -309,13 +363,13 @@ NSTimer *updatetimer;
 -(void)holdLeft
 {
     [self startGame];
-    [self.model moveTactileObjectLeft:self.model.player speed:(int)0];
+    [self movePlayerLeft];
 }
 
 -(void)holdRight
 {
     [self startGame];
-    [self.model moveTactileObjectRight:self.model.player speed:(int)0];
+    [self movePlayerRight];
 }
 
 -(void)releaseLeft
@@ -335,12 +389,7 @@ NSTimer *updatetimer;
     
 }
 -(IBAction)quitPressed:(UIButton*)sender{
-    self.motionManager = nil;
-    self.closing = true;
-    self.model = nil;
-    self.gamescene = nil;
-    [self.updatetimer invalidate];
-    [[self presentingViewController] dismissViewControllerAnimated:YES completion:nil];
+    [self quitSelf];
 }
 
 
