@@ -18,10 +18,10 @@ static const int enemyCategory = 2;
     self = [super init];
     if (self) {
         //Initialization code
-        self.player = [[Player alloc] initWithNode:[SKSpriteNode spriteNodeWithImageNamed:@"avatarbase"]];
-        self.backgroundtexture = [SKTexture textureWithImageNamed:@"bgforest"];
-        self.groundtexture = [SKTexture textureWithImageNamed:@"grass"];
-        self.speed = 0.005;
+        self.player = [[Player alloc] initWithNode:[SKSpriteNode spriteNodeWithImageNamed:@"avatar.gif"]];
+        self.backgroundtexture = [SKTexture textureWithImageNamed:@"background"];
+        self.groundtexture = [SKTexture textureWithImageNamed:@"ground"];
+        self.speed = 0.004;
         self.tiltsensitivity = 0.1;
         
     }
@@ -87,7 +87,7 @@ static const int enemyCategory = 2;
     CGFloat screenheight = [UIScreen mainScreen].bounds.size.height;
     switch (loc) {
         case 0://Bottom Right
-            [ent.node setPosition:CGPointMake(screenwidth+ent.node.frame.size.width/2, self.groundnode.frame.size.height+ent.node.frame.size.height/2)];
+            [ent.node setPosition:CGPointMake(screenwidth+ent.node.frame.size.width/2, ent.node.frame.size.height)];
             [self moveNodeWithGround:ent.node Repeat:NO];
             break;
         case 1://Bottom Left

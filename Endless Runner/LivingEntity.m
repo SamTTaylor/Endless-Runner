@@ -63,8 +63,8 @@
 - (void)flighttimerFireMethod:(NSTimer *)flighttimer{
     if(self.flying == true){
         double prevspeed = self.speed;
-        if (self.node.physicsBody.velocity.dy < 0){
-          self.speed = -(self.node.physicsBody.velocity.dy/7.5);
+        if (self.node.physicsBody.velocity.dy < 0 && self.node.position.y < [UIScreen mainScreen].bounds.size.height/2){
+          self.speed = -(self.node.physicsBody.velocity.dy/10);
           [self jumpEntity];
         }
         self.speed = prevspeed;

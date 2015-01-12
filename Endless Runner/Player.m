@@ -23,7 +23,7 @@
     return self;
 }
 
-- (void)collidedWithEntity{
+- (void)collidedWithEntity{//Use for block animation later
     [self.node removeActionForKey:@"flash"];
     [self.node runAction:[SKAction sequence:@[[SKAction repeatAction:[SKAction sequence:@[[SKAction runBlock:^{
         self.node.color = [SKColor redColor];

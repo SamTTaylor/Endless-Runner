@@ -120,7 +120,7 @@ NSTimer *updatetimer;
 }
 
 - (void)setGameBackground:(SKTexture*) bgImage{
-    SKAction* moveBg = [SKAction moveByX:-self.model.backgroundtexture.size.width*2 y:0 duration:0.008 * self.model.backgroundtexture.size.width*2];
+    SKAction* moveBg = [SKAction moveByX:-self.model.backgroundtexture.size.width*2 y:0 duration:0.015 * self.model.backgroundtexture.size.width*2];
     SKAction* resetBg = [SKAction moveByX:self.model.backgroundtexture.size.width*2 y:0 duration:0];
     SKAction* loopBgMovement = [SKAction repeatActionForever:[SKAction sequence:@[moveBg, resetBg]]];
     
@@ -139,7 +139,7 @@ NSTimer *updatetimer;
     for( int i = 0; i < 2 + self.gamescene.frame.size.width / ( self.model.groundtexture.size.width * 2 ); ++i ) {
         // Create the sprite
         SKSpriteNode* sprite = [SKSpriteNode spriteNodeWithTexture:self.model.groundtexture];
-        sprite.yScale = 0.1;
+        sprite.yScale = 0.4;
         sprite.position = CGPointMake(i * sprite.size.width,sprite.size.height/2);
         [self.model moveNodeWithGround:sprite Repeat:true];
         [self.gamescene addChild:sprite];
@@ -184,13 +184,13 @@ NSTimer *updatetimer;
 
 - (void)updaterFireMethod:(NSTimer *)updatetimer{
     if (self.startedbytilt == true || self.tiltbool == false) {
-        TactileObject *Tobj = [self.model newEnvironmentObjectWithImageNamed:@"rock" scale:0.2];
+        TactileObject *Tobj = [self.model newEnvironmentObjectWithImageNamed:@"Stump" scale:0.2];
         [self.model placeEntWithLoc:0 Ent:Tobj];
         [self.gamescene addChild:Tobj.node];
     
-        Enemy* enemy = [[Enemy alloc] initWithNode:[SKSpriteNode spriteNodeWithImageNamed:@"rock"]];
+        Enemy* enemy = [[Enemy alloc] initWithNode:[SKSpriteNode spriteNodeWithImageNamed:@"Bird"]];
         [self.model placeEntWithLoc:2 Ent:enemy];
-        [self.model setFlying:true flappingfrequenct:0.5 LivingEntity:enemy];
+        [self.model setFlying:true flappingfrequenct:0.4 LivingEntity:enemy];
         [enemy.node setScale:0.2];
         [self.gamescene addChild:enemy.node];
     }
