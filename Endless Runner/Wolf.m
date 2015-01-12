@@ -32,7 +32,7 @@
         [self impulseEntityLeft];
         [self moveEntityLeft:0];
         //Add pounce animation
-    }], [SKAction waitForDuration:1]]] count:5]]] withKey:[NSString stringWithFormat:@"animate %@", self.class]];
+    }], [SKAction waitForDuration:0.5]]] count:5]]] withKey:[NSString stringWithFormat:@"animate %@", self.class]];
 }
 
 @end

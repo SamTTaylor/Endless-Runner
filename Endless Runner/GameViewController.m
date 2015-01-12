@@ -205,8 +205,10 @@ NSTimer *updatetimer;
     int loc;
     NSString *strClass = NSStringFromClass(en.class);
     Enemy* spawn = [[en.class alloc] initWithNode:[SKSpriteNode spriteNodeWithImageNamed:strClass]];
-    if([strClass  isEqual: @"Bird" ] || [strClass  isEqual: @"Beehive" ]){
+    if([strClass  isEqual: @"Bird" ]){
         loc = 2;
+    } else if([strClass  isEqual: @"Beehive" ]){
+        loc = 3;
     } else {
         loc = 0;
     }

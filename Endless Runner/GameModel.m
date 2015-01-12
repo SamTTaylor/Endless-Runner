@@ -42,16 +42,12 @@ static const int enemyCategory = 2;
 }
 
 - (void) updateDifficulty{
-    if(self.difficultyscore <= self.difficultythreshold){
-        [self setCurrentdifficulty:1];
-    } else if(self.difficultyscore <= self.difficultythreshold*2){
-        [self setCurrentdifficulty:2];
-    } else if(self.difficultyscore <= self.difficultythreshold*3){
-        [self setCurrentdifficulty:3];
-    } else if(self.difficultyscore <= self.difficultythreshold*4){
-        [self setCurrentdifficulty:4];
-    } else{
-        [self setCurrentdifficulty:5];
+    if(self.difficultyscore > self.difficultythreshold){
+        self.currentdifficulty++;
+        [self setDifficultyscore:0];
+    }
+    if (self.currentdifficulty > 5){
+        self.currentdifficulty = 5;
     }
 }
 
@@ -138,6 +134,10 @@ static const int enemyCategory = 2;
             break;
         case 2:
             [ent.node setPosition:CGPointMake(screenwidth+ent.node.frame.size.width/2,screenheight/2)];
+            [self moveNodeWithGround:ent.node Repeat:NO];
+            break;
+        case 3:
+            [ent.node setPosition:CGPointMake(screenwidth+ent.node.frame.size.width/2,screenheight/4)];
             [self moveNodeWithGround:ent.node Repeat:NO];
             break;
         default:
