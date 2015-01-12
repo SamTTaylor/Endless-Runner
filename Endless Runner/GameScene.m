@@ -13,7 +13,9 @@
 
 -(void)didMoveToView:(SKView *)view {
     /* Setup your scene here */
-    self.physicsBody = [SKPhysicsBody bodyWithEdgeLoopFromRect:CGRectMake(-600, 0, self.frame.size.width+1200, self.frame.size.height)];
+    CGFloat screenwidth = [UIScreen mainScreen].bounds.size.width;
+    CGFloat screenheight = [UIScreen mainScreen].bounds.size.height;
+    self.physicsBody = [SKPhysicsBody bodyWithEdgeLoopFromRect:CGRectMake(-600, 0, screenwidth+1200, screenheight)];
     self.physicsWorld.gravity = CGVectorMake(0.0, -10.0);
     self.view.showsNodeCount = YES;
     self.view.showsFPS = YES;

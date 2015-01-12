@@ -14,7 +14,7 @@
 
 @property bool tiltbool;
 
-@property SettingsViewController *svc;
-@property GameViewController *gvc;
+@property (weak) SettingsViewController *svc;
+@property (weak) GameViewController *gvc;
 
 @end

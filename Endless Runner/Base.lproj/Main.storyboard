@@ -7,6 +7,7 @@
         <!--Main Menu View Controller-->
         <scene sceneID="vIE-LY-yET">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dnL-lB-C0F" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="5VM-Tk-vgp" customClass="MainMenuViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="emr-5g-PhJ"/>
@@ -87,7 +88,6 @@
                     <navigationItem key="navigationItem" id="rWK-Sv-7Le"/>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dnL-lB-C0F" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-565.5" y="778.5"/>
         </scene>

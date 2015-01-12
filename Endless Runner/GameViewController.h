@@ -22,12 +22,13 @@
 @property GameScene* gamescene;
 @property GameModel* model;
 
-
+@property bool closing;
 @property bool tiltbool;
 @property bool gamestarted;
 @property bool startedbytilt;
 @property double yRotation;
 @property float updatespeed;
+@property NSTimer* updatetimer;
 
 @property (strong) CMMotionManager *motionManager;
 

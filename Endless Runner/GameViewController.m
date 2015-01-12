@@ -37,6 +37,7 @@ NSTimer *updatetimer;
 {
     [super viewDidLoad];
     //Load new game
+    NSLog(@"Loaded game");
     [self initialiseGameScene];
     [self.gamescene.physicsWorld setContactDelegate:self.model];
     [self checkTiltBool];
@@ -181,7 +182,7 @@ NSTimer *updatetimer;
 
 //TIMERS
 - (void)updaterfire{
-    updatetimer = [NSTimer scheduledTimerWithTimeInterval:self.updatespeed target:self selector:@selector(updaterFireMethod:) userInfo:nil repeats:YES];
+    self.updatetimer = [NSTimer scheduledTimerWithTimeInterval:self.updatespeed target:self selector:@selector(updaterFireMethod:) userInfo:nil repeats:YES];
     [updatetimer fire];
 }
 
@@ -189,7 +190,7 @@ NSTimer *updatetimer;
     if (self.startedbytilt == true || self.tiltbool == false) {
         
         float i = (double)self.model.difficultyscore/(double)self.model.difficultythreshold;
-        if ([self dicerollWithPercentage:i*100] == YES){
+        if ([self dicerollWithPercentage:(i*100+20)] == YES){
             if ([self dicerollWithPercentage:(50)]==YES){
                 [self spawnRandomObstacle];
             } else {
@@ -335,8 +336,10 @@ NSTimer *updatetimer;
 }
 -(IBAction)quitPressed:(UIButton*)sender{
     self.motionManager = nil;
+    self.closing = true;
     self.model = nil;
     self.gamescene = nil;
+    [self.updatetimer invalidate];
     [[self presentingViewController] dismissViewControllerAnimated:YES completion:nil];
 }
 

@@ -18,6 +18,8 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.tiltbool = false;
+    self.svc = nil;
+    self.gvc = nil;
 }
 
 - (void)didReceiveMemoryWarning {

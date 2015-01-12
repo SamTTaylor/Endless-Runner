@@ -12,6 +12,8 @@
 
 static const int playerCategory = 0x1 << 1;
 static const int enemyCategory = 0x1 << 2;
+static const int beehiveCategory = 0x1 << 6;
+static const int bogCategory = 0x1 << 5;
 
 - (id)initWithPlayer{
     self = [super init];
@@ -24,7 +26,7 @@ static const int enemyCategory = 0x1 << 2;
         [self populateObstacleArray];
         [self setCurrentdifficulty:1];
         [self setDifficultyscore:0];
-        [self setDifficultythreshold:10];
+        [self setDifficultythreshold:50];
         [self setScore:0];
         self.speed = 0.004;
         self.tiltsensitivity = 0.1;
@@ -43,12 +45,9 @@ static const int enemyCategory = 0x1 << 2;
 }
 
 - (void) updateDifficulty{
-    if(self.difficultyscore > self.difficultythreshold){
+    if(self.difficultyscore > self.difficultythreshold && self.currentdifficulty <= 4){
         self.currentdifficulty++;
         [self setDifficultyscore:0];
-    }
-    if (self.currentdifficulty > 5){
-        self.currentdifficulty = 5;
     }
 }
 
@@ -173,7 +172,16 @@ static const int enemyCategory = 0x1 << 2;
     secondNode = (SKSpriteNode *) contact.bodyB.node;
     
     if ((contact.bodyA.categoryBitMask == playerCategory && contact.bodyB.categoryBitMask == enemyCategory) || (contact.bodyB.categoryBitMask == playerCategory && contact.bodyA.categoryBitMask == enemyCategory) ){
-        [self.player collidedWithEntity];
+        //Player collided with enemy
+    }
+    if ((contact.bodyA.categoryBitMask == playerCategory && contact.bodyB.categoryBitMask == enemyCategory) || (contact.bodyB.categoryBitMask == playerCategory && contact.bodyA.categoryBitMask == enemyCategory) ){
+        //Player collided with beehive
+    }
+    if ((contact.bodyA.categoryBitMask == playerCategory && contact.bodyB.categoryBitMask == enemyCategory) || (contact.bodyB.categoryBitMask == playerCategory && contact.bodyA.categoryBitMask == enemyCategory) ){
+        //Player collided with bog
+    }
+    if ((contact.bodyA.categoryBitMask == playerCategory && contact.bodyB.categoryBitMask == enemyCategory) || (contact.bodyB.categoryBitMask == playerCategory && contact.bodyA.categoryBitMask == enemyCategory) ){
+        //Player collided with mushroom
     }
 }
 
