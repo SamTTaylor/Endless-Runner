@@ -80,7 +80,7 @@ static const int enemyCategory = 2;
         SKAction* loopMovement = [SKAction repeatActionForever:[SKAction sequence:@[move, reset]]];
         [node runAction:loopMovement];
     } else {
-        CGFloat distance =  [UIScreen mainScreen].bounds.size.width + node.frame.size.width;
+        CGFloat distance =  [UIScreen mainScreen].bounds.size.width*1.5;
         SKAction* move = [SKAction moveByX:-distance y:0 duration:self.speed * distance];
         SKAction* remove = [SKAction removeFromParent];
         SKAction* Movement = [SKAction sequence:@[move, remove]];

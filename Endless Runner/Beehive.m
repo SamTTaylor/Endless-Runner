@@ -14,7 +14,7 @@
     self = [super initWithNode:node];
     if (self) {
         //Initialization code
-        [self.node setScale:0.2];
+        [self.node setScale:0.3];
         [self.node.physicsBody setDynamic:NO];
         node.physicsBody.allowsRotation = false;
     }
