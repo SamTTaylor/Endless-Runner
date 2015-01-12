@@ -182,16 +182,29 @@
                                     <action selector="quitPressed:" destination="BV1-FR-VrT" eventType="touchUpInside" id="SUw-kE-GL2"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8QD-9I-P1f">
+                                <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                                <variation key="heightClass=regular-widthClass=regular" ambiguous="YES" misplaced="YES">
+                                    <rect key="frame" x="720" y="20" width="10" height="21"/>
+                                </variation>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="centerX" secondItem="p55-KT-ord" secondAttribute="centerX" constant="-50" id="3Bk-oD-afY"/>
+                            <constraint firstAttribute="centerY" relation="lessThanOrEqual" secondItem="8QD-9I-P1f" secondAttribute="centerY" id="A3Y-U4-nrN">
+                                <variation key="heightClass=regular-widthClass=regular" constant="350"/>
+                            </constraint>
                             <constraint firstAttribute="centerX" secondItem="elc-Hv-mLz" secondAttribute="centerX" id="Bkf-sH-rxg"/>
                             <constraint firstAttribute="centerY" secondItem="p55-KT-ord" secondAttribute="centerY" constant="-50" id="JgZ-Ir-Fri"/>
                             <constraint firstAttribute="centerY" relation="greaterThanOrEqual" secondItem="p55-KT-ord" secondAttribute="centerY" constant="-300" id="QYh-Te-mvv"/>
                             <constraint firstAttribute="centerY" relation="greaterThanOrEqual" secondItem="elc-Hv-mLz" secondAttribute="centerY" constant="200" id="XCs-t7-o0Q">
                                 <variation key="heightClass=regular-widthClass=regular" constant="-300"/>
                             </constraint>
+                            <constraint firstAttribute="centerX" secondItem="8QD-9I-P1f" secondAttribute="centerX" constant="-350" id="Xls-iO-7qd"/>
                             <constraint firstAttribute="centerX" relation="lessThanOrEqual" secondItem="elc-Hv-mLz" secondAttribute="centerX" id="ZIA-YL-mVc">
                                 <variation key="heightClass=regular-widthClass=regular" constant="350"/>
                             </constraint>
@@ -212,14 +225,17 @@
                                 <exclude reference="p55-KT-ord"/>
                                 <exclude reference="elc-Hv-mLz"/>
                                 <exclude reference="fWy-EB-Khq"/>
+                                <exclude reference="8QD-9I-P1f"/>
                             </mask>
                             <mask key="constraints">
+                                <exclude reference="pkJ-M6-fUe"/>
+                                <exclude reference="qKa-vM-e8t"/>
                                 <exclude reference="Bkf-sH-rxg"/>
                                 <exclude reference="XCs-t7-o0Q"/>
                                 <exclude reference="ZIA-YL-mVc"/>
                                 <exclude reference="mkZ-qD-r5B"/>
-                                <exclude reference="pkJ-M6-fUe"/>
-                                <exclude reference="qKa-vM-e8t"/>
+                                <exclude reference="A3Y-U4-nrN"/>
+                                <exclude reference="Xls-iO-7qd"/>
                                 <exclude reference="3Bk-oD-afY"/>
                                 <exclude reference="JgZ-Ir-Fri"/>
                                 <exclude reference="QYh-Te-mvv"/>
@@ -232,14 +248,17 @@
                                 <include reference="p55-KT-ord"/>
                                 <include reference="elc-Hv-mLz"/>
                                 <include reference="fWy-EB-Khq"/>
+                                <include reference="8QD-9I-P1f"/>
                             </mask>
                             <mask key="constraints">
+                                <include reference="pkJ-M6-fUe"/>
+                                <include reference="qKa-vM-e8t"/>
                                 <exclude reference="Bkf-sH-rxg"/>
                                 <include reference="XCs-t7-o0Q"/>
                                 <include reference="ZIA-YL-mVc"/>
                                 <exclude reference="mkZ-qD-r5B"/>
-                                <include reference="pkJ-M6-fUe"/>
-                                <include reference="qKa-vM-e8t"/>
+                                <include reference="A3Y-U4-nrN"/>
+                                <include reference="Xls-iO-7qd"/>
                                 <exclude reference="3Bk-oD-afY"/>
                                 <exclude reference="JgZ-Ir-Fri"/>
                                 <include reference="QYh-Te-mvv"/>
@@ -253,6 +272,7 @@
                         <outlet property="left" destination="elc-Hv-mLz" id="g7g-dH-6lS"/>
                         <outlet property="quit" destination="fWy-EB-Khq" id="zI9-L1-e0m"/>
                         <outlet property="right" destination="p55-KT-ord" id="BcD-xx-Do5"/>
+                        <outlet property="score" destination="8QD-9I-P1f" id="ZLV-qo-b2C"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SZV-WD-TEh" sceneMemberID="firstResponder"/>

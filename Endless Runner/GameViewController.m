@@ -188,24 +188,27 @@ NSTimer *updatetimer;
 - (void)updaterFireMethod:(NSTimer *)updatetimer{
     if (self.startedbytilt == true || self.tiltbool == false) {
         
-        Enemy* beehive = [[Beehive alloc] initWithNode:[SKSpriteNode spriteNodeWithImageNamed:@"BeehiveSam"]];
-        [self.model placeEntWithLoc:2 Ent:beehive];
-        [self.gamescene addChild:beehive.node];
-        
-        Enemy* bird = [[Bird alloc] initWithNode:[SKSpriteNode spriteNodeWithImageNamed:@"Bird"]];
-        [self.model placeEntWithLoc:2 Ent:bird];
-        [self.gamescene addChild:bird.node];
 
-        
-        Enemy* fox = [[Wolf alloc] initWithNode:[SKSpriteNode spriteNodeWithImageNamed:@"Wolf"]];
-        [self.model placeEntWithLoc:0 Ent:fox];
-        [self.gamescene addChild:fox.node];
-        [fox animateSelf];
-        
-        /*TactileObject *Tobj = [self.model newEnvironmentObjectWithImageNamed:@"Stump" scale:0.2];
-        [self.model placeEntWithLoc:0 Ent:Tobj];
-        [self.gamescene addChild:Tobj.node];*/
+
+        int i = arc4random()%self.model.currentdifficulty;
+        Enemy* en = [[Enemy alloc] init];
+        en = self.model.enemies[i];
+        int loc;
+        NSString *strClass = NSStringFromClass(en.class);
+        Enemy* spawn = [[en.class alloc] initWithNode:[SKSpriteNode spriteNodeWithImageNamed:strClass]];
+        if([strClass  isEqual: @"Bird"]){
+            loc = 2;
+        } else {
+            loc = 0;
+        }
+        [self.model placeEntWithLoc:loc Ent:spawn];
+        [self.gamescene addChild:spawn.node];
+        [spawn animateSelf];
     
+        [self.model incrementScore:self.model.currentdifficulty * 10];
+        [self.model incrementDifficultyScore:1];
+        [self.model updateDifficultyThreshold];
+        self.score.text = [NSString stringWithFormat:@"%d", self.model.score];
     }
 }
 

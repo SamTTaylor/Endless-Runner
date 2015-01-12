@@ -27,8 +27,15 @@
 @property NSMutableArray *enemies;
 @property int score;
 @property int difficultyscore;
+@property int difficultythreshold;
+@property int currentdifficulty;
 
 - (id)initWithPlayer;
+
+- (void) incrementScore:(int)i;
+- (void) incrementDifficultyScore:(int)i;
+- (void) updateDifficultyThreshold;
+
 - (void)moveNodeWithGround:(SKNode*)node Repeat:(bool)r;
 - (void)placePlayer;
 

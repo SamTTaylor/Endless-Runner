@@ -11,7 +11,6 @@
 @implementation GameModel
 
 static const int playerCategory = 0;
-static const int environmentCategory = 1;
 static const int enemyCategory = 2;
 
 - (id)initWithPlayer{
@@ -21,12 +20,59 @@ static const int enemyCategory = 2;
         self.player = [[Player alloc] initWithNode:[SKSpriteNode spriteNodeWithImageNamed:@"avatar.gif"]];
         self.backgroundtexture = [SKTexture textureWithImageNamed:@"background"];
         self.groundtexture = [SKTexture textureWithImageNamed:@"ground"];
+        [self populateEnemyArray];
+        [self setCurrentdifficulty:1];
+        [self setDifficultyscore:0];
+        [self setDifficultythreshold:10];
+        [self setScore:0];
         self.speed = 0.004;
         self.tiltsensitivity = 0.1;
         
     }
     return self;
 }
+
+
+- (void) incrementScore:(int)i{
+    self.score += i;
+}
+
+- (void) incrementDifficultyScore:(int)i{
+    self.score += i;
+}
+
+- (void) updateDifficultyThreshold{
+    NSLog(@"%d", self.difficultyscore);
+    if(self.difficultyscore <= self.difficultythreshold){
+        [self setCurrentdifficulty:1];
+    } else if(self.difficultyscore <= self.difficultythreshold*2){
+        [self setCurrentdifficulty:2];
+    } else if(self.difficultyscore<= self.difficultythreshold*3){
+        [self setCurrentdifficulty:3];
+    } else if(self.difficultyscore<= self.difficultythreshold*4){
+        [self setCurrentdifficulty:4];
+    } else{
+        [self setCurrentdifficulty:5];
+    }
+}
+
+- (void) populateEnemyArray{
+    self.enemies = [[NSMutableArray alloc] init];
+    Enemy* en = [[Fox alloc] initWithNode:[SKSpriteNode spriteNodeWithImageNamed:@"Fox"]];
+    [self.enemies addObject:en];
+    en = [[Bird alloc] initWithNode:[SKSpriteNode spriteNodeWithImageNamed:@"Bird"]];
+    [self.enemies addObject:en];
+    en = [[Beehive alloc] initWithNode:[SKSpriteNode spriteNodeWithImageNamed:@"Beehive"]];
+    [self.enemies addObject:en];
+    en = [[Frog alloc] initWithNode:[SKSpriteNode spriteNodeWithImageNamed:@"Frog"]];
+    [self.enemies addObject:en];
+    en = [[Wolf alloc] initWithNode:[SKSpriteNode spriteNodeWithImageNamed:@"Wolf"]];
+    [self.enemies addObject:en];
+    NSLog(@"%@", self.enemies[0]);
+
+}
+
+
 
 -(void)moveNodeWithGround:(SKNode*)node Repeat:(bool)r{
     //Sets up the ground sprites, makes them scroll passed in a loop
