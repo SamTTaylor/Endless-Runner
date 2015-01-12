@@ -16,6 +16,7 @@
     if (self) {
         //Initialization code
         [self.node setScale:0.2];
+        [self.node setXScale:-0.2];
         node.physicsBody.allowsRotation = false;
     }
     return self;

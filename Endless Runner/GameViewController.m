@@ -127,8 +127,8 @@ NSTimer *updatetimer;
     
     for( int i = 0; i < 2 + self.gamescene.frame.size.width; ++i ) {
         SKSpriteNode* sprite = [SKSpriteNode spriteNodeWithTexture:bgImage];
-        [sprite setScale:0.5];
-        sprite.position = CGPointMake(i * sprite.size.width, sprite.size.height/2);
+        [sprite setScale:0.55];
+        sprite.position = CGPointMake(i * sprite.size.width-(5*i), sprite.size.height/2);
         [sprite runAction:loopBgMovement];
         [self.gamescene addChild:sprite];
     }
@@ -140,7 +140,7 @@ NSTimer *updatetimer;
         // Create the sprite
         SKSpriteNode* sprite = [SKSpriteNode spriteNodeWithTexture:self.model.groundtexture];
         sprite.yScale = 0.4;
-        sprite.position = CGPointMake(i * sprite.size.width,sprite.size.height/2);
+        sprite.position = CGPointMake(i * sprite.size.width-(30*i),sprite.size.height/2);
         [self.model moveNodeWithGround:sprite Repeat:true];
         [self.gamescene addChild:sprite];
     }
@@ -188,33 +188,40 @@ NSTimer *updatetimer;
 - (void)updaterFireMethod:(NSTimer *)updatetimer{
     if (self.startedbytilt == true || self.tiltbool == false) {
         
+        [self spawnRandomEnemy];
+        [self incrementScores];
 
 
-        int i = arc4random()%self.model.currentdifficulty;
-        Enemy* en = [[Enemy alloc] init];
-        en = self.model.enemies[i];
-        int loc;
-        NSString *strClass = NSStringFromClass(en.class);
-        Enemy* spawn = [[en.class alloc] initWithNode:[SKSpriteNode spriteNodeWithImageNamed:strClass]];
-        if([strClass  isEqual: @"Bird" ] || [strClass  isEqual: @"Beehive" ]){
-            loc = 2;
-        } else {
-            loc = 0;
-        }
-        [self.model placeEntWithLoc:loc Ent:spawn];
-        [self.gamescene addChild:spawn.node];
-        [spawn animateSelf];
     
-        [self.model incrementScore:self.model.currentdifficulty * 10];
-        [self.model incrementDifficultyScore:1];
-        [self.model updateDifficulty];
-        self.score.text = [NSString stringWithFormat:@"%d", self.model.score];
+
     }
 }
 
 
+- (void) spawnRandomEnemy{
+    int i = arc4random()%self.model.currentdifficulty;
+    Enemy* en = [[Enemy alloc] init];
+    en = self.model.enemies[i];
+    int loc;
+    NSString *strClass = NSStringFromClass(en.class);
+    Enemy* spawn = [[en.class alloc] initWithNode:[SKSpriteNode spriteNodeWithImageNamed:strClass]];
+    if([strClass  isEqual: @"Bird" ] || [strClass  isEqual: @"Beehive" ]){
+        loc = 2;
+    } else {
+        loc = 0;
+    }
+    [self.model placeEntWithLoc:loc Ent:spawn];
+    [self.gamescene addChild:spawn.node];
+    [spawn animateSelf];
+}
 
 
+- (void) incrementScores{
+    [self.model incrementScore:self.model.currentdifficulty * 10];
+    [self.model incrementDifficultyScore:1];
+    [self.model updateDifficulty];
+    self.score.text = [NSString stringWithFormat:@"%d", self.model.score];
+}
 
 //STUFF
 - (BOOL)shouldAutorotate

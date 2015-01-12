@@ -37,8 +37,16 @@
                         </subviews>
                         <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
                         <constraints>
-                            <constraint firstAttribute="centerY" secondItem="Cb8-9q-qNS" secondAttribute="centerY" constant="100" id="SJK-0e-ZXv"/>
+                            <constraint firstAttribute="centerY" secondItem="dZU-qR-Oa0" secondAttribute="centerY" id="39B-l6-zRe"/>
+                            <constraint firstAttribute="centerY" secondItem="Cb8-9q-qNS" secondAttribute="centerY" id="9af-bq-zkn"/>
+                            <constraint firstAttribute="centerY" secondItem="Cb8-9q-qNS" secondAttribute="centerY" constant="100" id="SJK-0e-ZXv">
+                                <variation key="heightClass=regular-widthClass=regular" constant="-100"/>
+                            </constraint>
                             <constraint firstAttribute="centerX" secondItem="dZU-qR-Oa0" secondAttribute="centerX" id="U72-ul-Ium"/>
+                            <constraint firstAttribute="centerX" secondItem="Cb8-9q-qNS" secondAttribute="centerX" constant="50" id="ZyB-Ks-rcL">
+                                <variation key="heightClass=regular-widthClass=regular" constant="0.0"/>
+                            </constraint>
+                            <constraint firstAttribute="centerX" secondItem="dZU-qR-Oa0" secondAttribute="centerX" id="bc3-Qx-CPH"/>
                             <constraint firstAttribute="centerX" secondItem="Cb8-9q-qNS" secondAttribute="centerX" id="fvz-sm-olJ"/>
                             <constraint firstAttribute="centerY" secondItem="dZU-qR-Oa0" secondAttribute="centerY" constant="200" id="gyX-8t-Zb6"/>
                         </constraints>
@@ -48,9 +56,13 @@
                                 <exclude reference="dZU-qR-Oa0"/>
                             </mask>
                             <mask key="constraints">
+                                <exclude reference="9af-bq-zkn"/>
                                 <exclude reference="SJK-0e-ZXv"/>
+                                <exclude reference="ZyB-Ks-rcL"/>
                                 <exclude reference="fvz-sm-olJ"/>
+                                <exclude reference="39B-l6-zRe"/>
                                 <exclude reference="U72-ul-Ium"/>
+                                <exclude reference="bc3-Qx-CPH"/>
                                 <exclude reference="gyX-8t-Zb6"/>
                             </mask>
                         </variation>
@@ -60,9 +72,13 @@
                                 <include reference="dZU-qR-Oa0"/>
                             </mask>
                             <mask key="constraints">
+                                <exclude reference="9af-bq-zkn"/>
                                 <include reference="SJK-0e-ZXv"/>
-                                <include reference="fvz-sm-olJ"/>
-                                <include reference="U72-ul-Ium"/>
+                                <include reference="ZyB-Ks-rcL"/>
+                                <exclude reference="fvz-sm-olJ"/>
+                                <exclude reference="39B-l6-zRe"/>
+                                <exclude reference="U72-ul-Ium"/>
+                                <include reference="bc3-Qx-CPH"/>
                                 <include reference="gyX-8t-Zb6"/>
                             </mask>
                         </variation>
@@ -129,7 +145,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GWy-SA-426" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-561" y="1492.5"/>
+            <point key="canvasLocation" x="-577" y="1716"/>
         </scene>
         <!--Game View Controller-->
         <scene sceneID="tXr-a1-R10">
@@ -156,19 +172,6 @@
                                     <action selector="rightPressed:" destination="BV1-FR-VrT" eventType="touchUpInside" id="YN1-QN-mdx"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="elc-Hv-mLz">
-                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="33"/>
-                                <state key="normal" title="Left">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <variation key="heightClass=regular-widthClass=regular" ambiguous="YES" misplaced="YES">
-                                    <rect key="frame" x="24" y="676" width="86" height="41"/>
-                                </variation>
-                                <connections>
-                                    <action selector="leftPressed:" destination="BV1-FR-VrT" eventType="touchUpInside" id="Vmt-6M-ZXe"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fWy-EB-Khq">
                                 <rect key="frame" x="-23" y="-15" width="46" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
@@ -188,9 +191,22 @@
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                                 <variation key="heightClass=regular-widthClass=regular" ambiguous="YES" misplaced="YES">
-                                    <rect key="frame" x="720" y="20" width="10" height="21"/>
+                                    <rect key="frame" x="745" y="34" width="10" height="21"/>
                                 </variation>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="elc-Hv-mLz">
+                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="33"/>
+                                <state key="normal" title="Left">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <variation key="heightClass=regular-widthClass=regular" ambiguous="YES" misplaced="YES">
+                                    <rect key="frame" x="16" y="680" width="86" height="41"/>
+                                </variation>
+                                <connections>
+                                    <action selector="leftPressed:" destination="BV1-FR-VrT" eventType="touchUpInside" id="Vmt-6M-ZXe"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
@@ -223,9 +239,9 @@
                         <variation key="default">
                             <mask key="subviews">
                                 <exclude reference="p55-KT-ord"/>
-                                <exclude reference="elc-Hv-mLz"/>
                                 <exclude reference="fWy-EB-Khq"/>
                                 <exclude reference="8QD-9I-P1f"/>
+                                <exclude reference="elc-Hv-mLz"/>
                             </mask>
                             <mask key="constraints">
                                 <exclude reference="A3Y-U4-nrN"/>
@@ -246,9 +262,9 @@
                         <variation key="heightClass=regular-widthClass=regular">
                             <mask key="subviews">
                                 <include reference="p55-KT-ord"/>
-                                <include reference="elc-Hv-mLz"/>
                                 <include reference="fWy-EB-Khq"/>
                                 <include reference="8QD-9I-P1f"/>
+                                <include reference="elc-Hv-mLz"/>
                             </mask>
                             <mask key="constraints">
                                 <include reference="A3Y-U4-nrN"/>
@@ -277,7 +293,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SZV-WD-TEh" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="106.5" y="778.5"/>
+            <point key="canvasLocation" x="346" y="778"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="qqw-Gj-P5D">
@@ -293,7 +309,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hFM-0o-gSV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1291.5" y="778.5"/>
+            <point key="canvasLocation" x="-1564" y="778"/>
         </scene>
     </scenes>
 </document>

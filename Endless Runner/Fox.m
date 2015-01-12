@@ -28,11 +28,15 @@
     [self.node runAction:[SKAction sequence:@[[SKAction repeatAction:[SKAction sequence:@[[SKAction runBlock:^{
         self.node.xScale = -0.2;
         [self jumpEntity];
+        [self setSpeed:40];
         [self impulseEntityRight];
+        [self setSpeed:20];
     }], [SKAction waitForDuration:1], [SKAction runBlock:^{
         self.node.xScale = 0.2;
         [self jumpEntity];
+        [self setSpeed:40];
         [self impulseEntityLeft];
+        [self setSpeed:20];
     }], [SKAction waitForDuration:1]]] count:5]]] withKey:[NSString stringWithFormat:@"animate %@", self.class]];
 }
 
