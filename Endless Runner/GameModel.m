@@ -77,8 +77,7 @@ static const int enemyCategory = 2;
 
 -(void)placePlayer{
     //Bottom left
-    self.player.node.yScale = 0.2;
-    self.player.node.xScale = 0.2;
+    [self.player.node setScale:0.2];
     [self placeEntWithLoc:1 Ent:self.player];
 }
 
@@ -87,7 +86,7 @@ static const int enemyCategory = 2;
     CGFloat screenheight = [UIScreen mainScreen].bounds.size.height;
     switch (loc) {
         case 0://Bottom Right
-            [ent.node setPosition:CGPointMake(screenwidth+ent.node.frame.size.width/2, ent.node.frame.size.height)];
+            [ent.node setPosition:CGPointMake(screenwidth+ent.node.frame.size.width/2, self.groundnode.frame.size.height+ent.node.frame.size.height/2)];
             [self moveNodeWithGround:ent.node Repeat:NO];
             break;
         case 1://Bottom Left
@@ -115,7 +114,6 @@ static const int enemyCategory = 2;
     secondNode = (SKSpriteNode *) contact.bodyB.node;
     
     if ((contact.bodyA.categoryBitMask == playerCategory && contact.bodyB.categoryBitMask == enemyCategory) || (contact.bodyB.categoryBitMask == playerCategory && contact.bodyA.categoryBitMask == enemyCategory) ){
-        [self.player impulseEntityLeft];
         [self.player collidedWithEntity];
     }
 }

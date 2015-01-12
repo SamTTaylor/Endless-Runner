@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "Player.h"
 #import "Enemy.h"
+#import "Fox.h"
 #import "TactileObject.h"
 
 @interface GameModel : NSObject <SKPhysicsContactDelegate>
@@ -19,6 +20,9 @@
 @property SKNode* groundnode;
 @property float speed;
 @property float tiltsensitivity;
+@property NSMutableArray *enemies;
+@property int score;
+@property int difficultyscore;
 
 - (id)initWithPlayer;
 - (void)moveNodeWithGround:(SKNode*)node Repeat:(bool)r;

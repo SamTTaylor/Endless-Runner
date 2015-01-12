@@ -26,9 +26,9 @@
 - (void)collidedWithEntity{//Use for block animation later
     [self.node removeActionForKey:@"flash"];
     [self.node runAction:[SKAction sequence:@[[SKAction repeatAction:[SKAction sequence:@[[SKAction runBlock:^{
-        self.node.color = [SKColor redColor];
+        [self jumpEntity];
     }], [SKAction waitForDuration:0.05], [SKAction runBlock:^{
-        self.node.color = [SKColor blueColor];
+        [self jumpEntity];
     }], [SKAction waitForDuration:0.05]]] count:4]]] withKey:@"flash"];
 }
 

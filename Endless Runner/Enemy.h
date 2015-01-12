@@ -10,6 +10,6 @@
 
 @interface Enemy : LivingEntity
 
-
+- (void) animateSelf;
 
 @end

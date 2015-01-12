@@ -111,9 +111,9 @@ NSTimer *updatetimer;
         self.left.hidden = true;
         self.right.hidden = true;
         [self instantiateAccelerometer];
-        [ToastView showToastInParentView:self.view withText:@"Tilt to begin!" withDuaration:5.0];
+        [ToastView showToastInParentView:self.view withText:@"Tilt to begin, tap to jump!" withDuaration:5.0];
     } else {
-        [ToastView showToastInParentView:self.view withText:@"Press movement buttons to begin!!" withDuaration:5.0];
+        [ToastView showToastInParentView:self.view withText:@"Press movement buttons to begin, tap to jump!" withDuaration:5.0];
         self.left.hidden = false;
         self.right.hidden = false;
     }
@@ -150,14 +150,17 @@ NSTimer *updatetimer;
     self.model.groundnode.position = CGPointMake(0, 20);
     self.model.groundnode.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:CGSizeMake(self.gamescene.size.width*4, 50)];
     self.model.groundnode.physicsBody.dynamic = NO;
+    self.model.groundnode.physicsBody.categoryBitMask = 3;
+    self.model.groundnode.physicsBody.collisionBitMask = 2;
+    self.model.groundnode.physicsBody.contactTestBitMask = 2;
     [self.gamescene addChild:self.model.groundnode];
 }
 
 -(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
     /* Called when a touch begins */
-    
+    [self.model jumpEntity:self.model.player];
     for (UITouch *touch in touches) {
-
+        
 
     }
 }
@@ -184,15 +187,21 @@ NSTimer *updatetimer;
 
 - (void)updaterFireMethod:(NSTimer *)updatetimer{
     if (self.startedbytilt == true || self.tiltbool == false) {
-        TactileObject *Tobj = [self.model newEnvironmentObjectWithImageNamed:@"Stump" scale:0.2];
+        
+        Enemy* fox = [[Fox alloc] initWithNode:[SKSpriteNode spriteNodeWithImageNamed:@"Fox"]];
+        [self.model placeEntWithLoc:0 Ent:fox];
+        [self.gamescene addChild:fox.node];
+        [fox animateSelf];
+        
+        /*TactileObject *Tobj = [self.model newEnvironmentObjectWithImageNamed:@"Stump" scale:0.2];
         [self.model placeEntWithLoc:0 Ent:Tobj];
-        [self.gamescene addChild:Tobj.node];
+        [self.gamescene addChild:Tobj.node];*/
     
-        Enemy* enemy = [[Enemy alloc] initWithNode:[SKSpriteNode spriteNodeWithImageNamed:@"Bird"]];
+        /*Enemy* enemy = [[Enemy alloc] initWithNode:[SKSpriteNode spriteNodeWithImageNamed:@"Bird"]];
         [self.model placeEntWithLoc:2 Ent:enemy];
         [self.model setFlying:true flappingfrequenct:0.4 LivingEntity:enemy];
         [enemy.node setScale:0.2];
-        [self.gamescene addChild:enemy.node];
+        [self.gamescene addChild:enemy.node];*/
     }
 }
 
@@ -241,10 +250,8 @@ NSTimer *updatetimer;
 -(void)addListenersToButtons{
     [self.left addTarget:self action:@selector(holdLeft) forControlEvents:UIControlEventTouchDown];
     [self.right addTarget:self action:@selector(holdRight) forControlEvents:UIControlEventTouchDown];
-    [self.jump addTarget:self action:@selector(holdJump) forControlEvents:UIControlEventTouchDown];
     [self.left addTarget:self action:@selector(releaseLeft) forControlEvents:UIControlEventTouchUpInside];
     [self.right addTarget:self action:@selector(releaseRight) forControlEvents:UIControlEventTouchUpInside];
-    [self.jump addTarget:self action:@selector(releaseJump) forControlEvents:UIControlEventTouchUpInside];
 }
 
 -(void)holdLeft
@@ -259,11 +266,6 @@ NSTimer *updatetimer;
     [self.model moveTactileObjectRight:self.model.player speed:(int)0];
 }
 
--(void)holdJump
-{
-    [self.model jumpEntity:self.model.player];
-}
-
 -(void)releaseLeft
 {
     [self.model stopTactileObjectMovement:self.model.player Direction:0];
@@ -274,11 +276,6 @@ NSTimer *updatetimer;
     [self.model stopTactileObjectMovement:self.model.player Direction:1];
 }
 
--(void)releaseJump
-{
-    //Could be used later for something cool
-}
-
 -(IBAction)leftPressed:(UIButton*)sender{
     
 }
@@ -287,10 +284,9 @@ NSTimer *updatetimer;
 }
 -(IBAction)quitPressed:(UIButton*)sender{
     self.motionManager = nil;
+    self.model = nil;
+    self.gamescene = nil;
     [[self presentingViewController] dismissViewControllerAnimated:YES completion:nil];
-}
--(IBAction)jumpPressed:(UIButton*)sender{
-    
 }
 
 

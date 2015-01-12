@@ -13,7 +13,7 @@
 
 @property int health;
 @property bool flying; 
-@property int speed;
+@property float speed;
 
 - (id)initWithNode:(SKSpriteNode*)node;
 

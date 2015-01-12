@@ -15,12 +15,14 @@
     self = [super initWithNode:node];
     if (self) {
         //Initialization code
-        node.physicsBody.contactTestBitMask = 0;
+        node.physicsBody.contactTestBitMask = 0 | 3;
         node.physicsBody.categoryBitMask = 2;//enemy
-        node.physicsBody.collisionBitMask = 0;
+        node.physicsBody.collisionBitMask = 0 | 3;
     }
     return self;
 }
 
-
+- (void) animateSelf{
+    
+}
 @end
