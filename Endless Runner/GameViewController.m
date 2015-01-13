@@ -44,7 +44,6 @@ NSTimer *updatetimer;
 {
     [super viewDidLoad];
     //Load new game
-    NSLog(@"Loaded game");
     [self initialiseGameScene];
     [self.gamescene.physicsWorld setContactDelegate:self];
     [self checkTiltBool];
@@ -54,6 +53,7 @@ NSTimer *updatetimer;
     if (self.tiltbool == true){
         [self startGame];
     }
+    [self updateLifeIcons];
 }
 
 
@@ -279,9 +279,18 @@ NSTimer *updatetimer;
 
 - (void) checkLives{
     [self.model.player takeLife];
+    [self.gamescene removeChildrenInArray:self.model.lives];
+    [self updateLifeIcons];
     if(self.model.player.lives<=0){
         [self quitSelf];
     };
+}
+
+- (void) updateLifeIcons{
+    [self.model updateLives];
+    for (int i=0; i<self.model.lives.count; i++) {
+        [self.gamescene addChild:self.model.lives[i]];
+    }
 }
 
 - (void)movePlayerLeft{

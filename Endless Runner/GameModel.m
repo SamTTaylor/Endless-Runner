@@ -19,6 +19,7 @@
         self.groundtexture = [SKTexture textureWithImageNamed:@"ground"];
         [self populateEnemyArray];
         [self populateObstacleArray];
+        [self populateLivesArray];
         [self setCurrentdifficulty:4];
         [self setDifficultyscore:0];
         [self setDifficultythreshold:50];
@@ -28,7 +29,6 @@
     }
     return self;
 }
-
 
 - (void) incrementScore:(int)i{
     self.score += i;
@@ -43,6 +43,33 @@
         self.currentdifficulty++;
         [self setDifficultyscore:0];
     }
+}
+
+- (void) populateLivesArray{
+    self.lives = [[NSMutableArray alloc] init];
+    for (int i=0; i<self.player.lives; i++) {
+        [self addLife];
+    }
+}
+
+- (void) updateLives{
+    if (self.lives.count > self.player.lives){
+        [self removeLife];
+    } else if (self.lives.count < self.player.lives){
+       [self addLife];
+    }
+}
+
+- (void) removeLife{
+    SKSpriteNode *life = self.lives.lastObject;
+    life = nil;
+    [self.lives removeLastObject];
+}
+- (void) addLife{
+    SKSpriteNode *life = [[SKSpriteNode alloc] initWithImageNamed:@"kopf-animation"];
+    [life setScale:0.2];
+    life.position = CGPointMake(([UIScreen mainScreen].bounds.size.width/2 - (self.player.lives/2)*life.frame.size.width) + self.lives.count*life.frame.size.width, [UIScreen mainScreen].bounds.size.height - life.frame.size.height);
+    [self.lives addObject:(life)];
 }
 
 - (void) populateObstacleArray{
@@ -140,11 +167,11 @@
         case 1://Bottom Left
             [ent.node setPosition:CGPointMake(ent.node.frame.size.width/2,self.groundnode.frame.size.height+ent.node.frame.size.height/2)];
             break;
-        case 2:
+        case 2://Middle right
             [ent.node setPosition:CGPointMake(screenwidth+ent.node.frame.size.width/2,screenheight/2)];
             [self moveNodeWithGround:ent.node Repeat:NO];
             break;
-        case 3:
+        case 3://75% right
             [ent.node setPosition:CGPointMake(screenwidth+ent.node.frame.size.width/2,screenheight/4)];
             [self moveNodeWithGround:ent.node Repeat:NO];
             break;

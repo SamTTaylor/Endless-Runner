@@ -14,6 +14,7 @@
 		683D21C71A2F7CD50081FF3F /* Player.m in Sources */ = {isa = PBXBuildFile; fileRef = 683D21C61A2F7CD50081FF3F /* Player.m */; };
 		683D21CA1A2F7F320081FF3F /* LivingEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = 683D21C91A2F7F320081FF3F /* LivingEntity.m */; };
 		684747D41A5AB3740005B80A /* TactileObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 684747D31A5AB3740005B80A /* TactileObject.m */; };
+		6851ECAD1A6526FB00C661D2 /* kopf-animation.png in Resources */ = {isa = PBXBuildFile; fileRef = 6851ECAC1A6526FB00C661D2 /* kopf-animation.png */; };
 		6875160E1A24F92600748410 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 6875160D1A24F92600748410 /* main.m */; };
 		687516111A24F92600748410 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 687516101A24F92600748410 /* AppDelegate.m */; };
 		687516141A24F92600748410 /* GameScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 687516131A24F92600748410 /* GameScene.m */; };
@@ -76,6 +77,7 @@
 		683D21C91A2F7F320081FF3F /* LivingEntity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LivingEntity.m; sourceTree = "<group>"; };
 		684747D21A5AB3740005B80A /* TactileObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TactileObject.h; sourceTree = "<group>"; };
 		684747D31A5AB3740005B80A /* TactileObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TactileObject.m; sourceTree = "<group>"; };
+		6851ECAC1A6526FB00C661D2 /* kopf-animation.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "kopf-animation.png"; path = "Endless Runner/Images/Characters/kopf-animation.png"; sourceTree = "<group>"; };
 		687516081A24F92600748410 /* Endless Runner.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Endless Runner.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6875160C1A24F92600748410 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6875160D1A24F92600748410 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -163,6 +165,7 @@
 		682428021A28749800F71A3D /* Characters */ = {
 			isa = PBXGroup;
 			children = (
+				6851ECAC1A6526FB00C661D2 /* kopf-animation.png */,
 				68F359A31A640CD60006E4B1 /* Beehive.png */,
 				68F359061A63C82F0006E4B1 /* avatar.gif */,
 				68F359071A63C82F0006E4B1 /* bee.png */,
@@ -410,6 +413,7 @@
 				68F359051A63C81F0006E4B1 /* ground.png in Resources */,
 				68F359141A63C82F0006E4B1 /* Frog.png in Resources */,
 				68F359151A63C82F0006E4B1 /* Wolf.png in Resources */,
+				6851ECAD1A6526FB00C661D2 /* kopf-animation.png in Resources */,
 				68F3590E1A63C82F0006E4B1 /* avatar.gif in Resources */,
 				68F358FD1A63C80E0006E4B1 /* Bog.png in Resources */,
 				68F359001A63C80E0006E4B1 /* Spikes.png in Resources */,

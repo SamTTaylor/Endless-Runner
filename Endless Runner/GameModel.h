@@ -32,6 +32,7 @@
 @property float tiltsensitivity;
 @property NSMutableArray *enemies;
 @property NSMutableArray *obstacles;
+@property NSMutableArray *lives;
 @property int score;
 @property int difficultyscore;
 @property int difficultythreshold;
@@ -42,6 +43,10 @@
 - (void) incrementScore:(int)i;
 - (void) incrementDifficultyScore:(int)i;
 - (void) updateDifficulty;
+
+- (void)addLife;
+- (void)updateLives;
+- (void)removeLife;
 
 - (void)moveNodeWithGround:(SKNode*)node Repeat:(bool)r;
 - (void)placePlayer;
