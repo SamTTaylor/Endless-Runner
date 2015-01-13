@@ -20,7 +20,7 @@
         [self populateEnemyArray];
         [self populateObstacleArray];
         [self populateLivesArray];
-        [self setCurrentdifficulty:4];
+        [self setCurrentdifficulty:1];
         [self setDifficultyscore:0];
         [self setDifficultythreshold:50];
         [self setScore:0];
@@ -62,6 +62,7 @@
 
 - (void) removeLife{
     SKSpriteNode *life = self.lives.lastObject;
+    [life removeFromParent];
     life = nil;
     [self.lives removeLastObject];
 }

@@ -55,4 +55,8 @@
     
 }
 
+- (void) deathAnimation{
+    [self.node removeFromParent];
+}
+
 @end

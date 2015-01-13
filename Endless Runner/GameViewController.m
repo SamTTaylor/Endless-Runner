@@ -279,7 +279,6 @@ NSTimer *updatetimer;
 
 - (void) checkLives{
     [self.model.player takeLife];
-    [self.gamescene removeChildrenInArray:self.model.lives];
     [self updateLifeIcons];
     if(self.model.player.lives<=0){
         [self quitSelf];
@@ -289,7 +288,10 @@ NSTimer *updatetimer;
 - (void) updateLifeIcons{
     [self.model updateLives];
     for (int i=0; i<self.model.lives.count; i++) {
-        [self.gamescene addChild:self.model.lives[i]];
+        SKSpriteNode *life = self.model.lives[i];
+        if (life.parent == nil){
+            [self.gamescene addChild:self.model.lives[i]];
+        }
     }
 }
 
