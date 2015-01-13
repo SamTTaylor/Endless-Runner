@@ -38,7 +38,8 @@
         //Add cut
     }], [SKAction waitForDuration:1], [SKAction runBlock:^{
         //Add cut
-    }], [SKAction waitForDuration:1]]] count:5]]] withKey:[NSString stringWithFormat:@"animate %@", self.class]];
+        [self.node removeFromParent];//remove once animation is complete
+    }], [SKAction waitForDuration:1]]] count:1]]] withKey:[NSString stringWithFormat:@"animate %@", self.class]];
 }
 
 @end

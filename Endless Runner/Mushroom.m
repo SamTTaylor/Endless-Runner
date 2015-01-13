@@ -21,14 +21,15 @@
     return self;
 }
 
-- (void) animateSelf{
-    [super animateSelf];
+- (void) deathAnimation{
+    [super deathAnimation];
     [self.node removeActionForKey:[NSString stringWithFormat:@"animate %@", self.class]];
     [self.node runAction:[SKAction sequence:@[[SKAction repeatAction:[SKAction sequence:@[[SKAction runBlock:^{
-        //Add Animation
+        //Add burst
     }], [SKAction waitForDuration:1], [SKAction runBlock:^{
-        //Add Animation
-    }], [SKAction waitForDuration:1]]] count:5]]] withKey:[NSString stringWithFormat:@"animate %@", self.class]];
+        //Add burst
+        [self.node removeFromParent];//remove once animation is complete
+    }], [SKAction waitForDuration:1]]] count:1]]] withKey:[NSString stringWithFormat:@"animate %@", self.class]];
 }
 
 @end
