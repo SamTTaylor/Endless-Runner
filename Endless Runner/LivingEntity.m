@@ -10,17 +10,18 @@
 
 @implementation LivingEntity
 
-- (id)initWithNode:(SKSpriteNode*)node
+
+- (id)initWithTexture:(SKTexture *)nodetexture
 {
-    self = [super initWithNode:node];
+    self = [super initWithTexture:nodetexture];
     if (self) {
         //Initialization code
-        node.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:node.frame.size];
-        self.speed = 50;
+        self.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:self.frame.size];
+        self.speed = 20;
+        
     }
     return self;
 }
-
 -(void)moveEntityRight:(int)speed{
         [super moveEntityRight:self.speed];
 }
@@ -32,19 +33,19 @@
 -(void)impulseEntityRight{
     CGFloat impulseX = self.speed*50.0f;
     CGFloat impulseY = 0.0f;
-    [self.node.physicsBody applyImpulse:CGVectorMake(impulseX, impulseY) atPoint:self.node.position];
+    [self.physicsBody applyImpulse:CGVectorMake(impulseX, impulseY) atPoint:self.position];
 }
 
 -(void)impulseEntityLeft{
     CGFloat impulseX = self.speed*-50.0f;
     CGFloat impulseY = 0.0f;
-    [self.node.physicsBody applyImpulse:CGVectorMake(impulseX, impulseY) atPoint:self.node.position];
+    [self.physicsBody applyImpulse:CGVectorMake(impulseX, impulseY) atPoint:self.position];
 }
 
 -(void)jumpEntity{
     CGFloat impulseX = 0.0f;
     CGFloat impulseY = self.speed * 100.0f;
-    [self.node.physicsBody applyImpulse:CGVectorMake(impulseX, impulseY) atPoint:self.node.position];
+    [self.physicsBody applyImpulse:CGVectorMake(impulseX, impulseY) atPoint:self.position];
     
 }
 
@@ -52,7 +53,7 @@
 - (void) setFlying:(bool)f flappingfrequency:(double)flap{
     if (f == true) {
         self.flying = true;
-        self.node.physicsBody.density = 0.9;
+        self.physicsBody.density = 0.9;
         NSTimer* flighttimer = [NSTimer scheduledTimerWithTimeInterval:flap target:self selector:@selector(flighttimerFireMethod:) userInfo:nil repeats:YES];
         [flighttimer fire];
     } else {
@@ -63,8 +64,8 @@
 - (void)flighttimerFireMethod:(NSTimer *)flighttimer{
     if(self.flying == true){
         float prevspeed = self.speed;
-        if (self.node.physicsBody.velocity.dy < 0 && self.node.position.y < [UIScreen mainScreen].bounds.size.height/2){
-          self.speed = -(self.node.physicsBody.velocity.dy/10);
+        if (self.physicsBody.velocity.dy < 0 && self.position.y < [UIScreen mainScreen].bounds.size.height/2){
+          self.speed = -(self.physicsBody.velocity.dy/10);
           [self jumpEntity];
         }
         self.speed = prevspeed;

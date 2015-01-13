@@ -10,37 +10,37 @@
 
 @implementation Fox
 
-- (id)initWithNode:(SKSpriteNode*)node
+- (id)initWithTexture:(SKTexture *)nodetexture
 {
-    self = [super initWithNode:node];
+    self = [super initWithTexture:nodetexture];
     if (self) {
         //Initialization code
-        [self.node setScale:0.2];
+        [self setScale:0.2];
         [self setSpeed:20];
-        node.physicsBody.allowsRotation = false;
-        node.physicsBody.contactTestBitMask = 0x1 << 1 | 0x1 << 3;
-        node.physicsBody.categoryBitMask = 0x1 << 2;//enemy
-        node.physicsBody.collisionBitMask = 0x1 << 1 | 0x1 << 3;
+        self.physicsBody.allowsRotation = false;
+        self.physicsBody.contactTestBitMask = 0x1 << 1 | 0x1 << 3;
+        self.physicsBody.categoryBitMask = 0x1 << 2;//enemy
+        self.physicsBody.collisionBitMask = 0x1 << 1 | 0x1 << 3;
     }
     return self;
 }
 
 - (void) animateSelf{
     [super animateSelf];
-    [self.node removeActionForKey:[NSString stringWithFormat:@"animate %@", self.class]];
-    [self.node runAction:[SKAction sequence:@[[SKAction repeatAction:[SKAction sequence:@[[SKAction runBlock:^{
-        self.node.xScale = -0.2;
+    [self removeActionForKey:[NSString stringWithFormat:@"animate %@", self.class]];
+    [self runAction:[SKAction sequence:@[[SKAction repeatAction:[SKAction sequence:@[[SKAction runBlock:^{
+        self.xScale = -0.2;
         [self jumpEntity];
         [self setSpeed:40];
         [self impulseEntityRight];
         [self setSpeed:20];
-    }], [SKAction waitForDuration:1], [SKAction runBlock:^{
-        self.node.xScale = 0.2;
+    }], [SKAction waitForDuration:20], [SKAction runBlock:^{
+        self.xScale = 0.2;
         [self jumpEntity];
         [self setSpeed:40];
         [self impulseEntityLeft];
         [self setSpeed:20];
-    }], [SKAction waitForDuration:1]]] count:5]]] withKey:[NSString stringWithFormat:@"animate %@", self.class]];
+    }], [SKAction waitForDuration:20]]] count:5]]] withKey:[NSString stringWithFormat:@"animate %@", self.class]];
 }
 
 @end

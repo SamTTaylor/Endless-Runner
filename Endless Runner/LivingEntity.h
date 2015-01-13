@@ -15,8 +15,6 @@
 @property bool flying; 
 @property float speed;
 
-- (id)initWithNode:(SKSpriteNode*)node;
-
 -(void)impulseEntityRight;
 -(void)impulseEntityLeft;
 -(void)jumpEntity;

@@ -10,13 +10,12 @@
 #import <SpriteKit/SpriteKit.h>
 
 
-@interface Entity : NSObject
+@interface Entity : SKSpriteNode
 
-@property SKSpriteNode* node;
-@property int direction;
+@property SKTexture* nodetexture;
 
 
-- (id)initWithNode:(SKSpriteNode*)node;
+- (id)initWithTexture:(SKTexture *)nodetexture;
 - (CGRect)collisionBoundingBox;
 
 @end

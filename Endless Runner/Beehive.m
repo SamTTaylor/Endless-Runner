@@ -9,22 +9,24 @@
 #import "Beehive.h"
 
 @implementation Beehive
-- (id)initWithNode:(SKSpriteNode*)node
+
+- (id)initWithTexture:(SKTexture *)nodetexture
 {
-    self = [super initWithNode:node];
+    self = [super initWithTexture:nodetexture];
     if (self) {
         //Initialization code
-        [self.node setScale:0.3];
-        [node.physicsBody setDynamic:false];
-        node.physicsBody.categoryBitMask = 0x1 << 6;
+        [self setScale:0.3];
+        [self.physicsBody setDynamic:false];
+        self.physicsBody.categoryBitMask = 0x1 << 6;
     }
     return self;
 }
 
+
 - (void) animateSelf{
     [super animateSelf];
-    [self.node removeActionForKey:[NSString stringWithFormat:@"animate %@", self.class]];
-    [self.node runAction:[SKAction sequence:@[[SKAction repeatAction:[SKAction sequence:@[[SKAction runBlock:^{
+    [self removeActionForKey:[NSString stringWithFormat:@"animate %@", self.class]];
+    [self runAction:[SKAction sequence:@[[SKAction repeatAction:[SKAction sequence:@[[SKAction runBlock:^{
         //Add Shrink
     }], [SKAction waitForDuration:1], [SKAction runBlock:^{
         //Add Shrink
@@ -33,12 +35,12 @@
 
 - (void) deathAnimation{
     [super deathAnimation];
-    [self.node removeActionForKey:[NSString stringWithFormat:@"animate %@", self.class]];
-    [self.node runAction:[SKAction sequence:@[[SKAction repeatAction:[SKAction sequence:@[[SKAction runBlock:^{
+    [self removeActionForKey:[NSString stringWithFormat:@"animate %@", self.class]];
+    [self runAction:[SKAction sequence:@[[SKAction repeatAction:[SKAction sequence:@[[SKAction runBlock:^{
         //Add cut
     }], [SKAction waitForDuration:1], [SKAction runBlock:^{
         //Add cut
-        [self.node removeFromParent];//remove once animation is complete
+        [self removeFromParent];//remove once animation is complete
     }], [SKAction waitForDuration:1]]] count:1]]] withKey:[NSString stringWithFormat:@"animate %@", self.class]];
 }
 

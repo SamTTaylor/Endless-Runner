@@ -10,26 +10,28 @@
 
 @implementation Player
 
-- (id)initWithNode:(SKSpriteNode*)node
+- (id)initWithTexture:(SKTexture *)nodetexture
 {
-    self = [super initWithNode:node];
+    self = [super initWithTexture:nodetexture];
     if (self) {
         //Initialization code
-        node.physicsBody.contactTestBitMask = 0x1 << 2 | 0x1 << 4 | 0x1 << 6 | 0x1 << 5 | 0x1 << 8 | 0x1 << 7;
-        node.physicsBody.categoryBitMask = 0x1 << 1;//player
-        node.physicsBody.collisionBitMask = 0x1 << 2 | 0x1 << 4 | 0x1 << 3 | 0x1 << 8 | 0x1 << 7;
-        node.physicsBody.allowsRotation = false;
+        self.physicsBody.contactTestBitMask = 0x1 << 2 | 0x1 << 4 | 0x1 << 6 | 0x1 << 5 | 0x1 << 8 | 0x1 << 7;
+        self.physicsBody.categoryBitMask = 0x1 << 1;//player
+        self.physicsBody.collisionBitMask = 0x1 << 2 | 0x1 << 4 | 0x1 << 3 | 0x1 << 8 | 0x1 << 7;
+        self.physicsBody.allowsRotation = false;
         self.lives = 3;
         [self setInvulnerable:false];
+        [self setSpeed:50];
     }
     return self;
 }
+
 
 -(void)jumpEntity{
     if (self.inbog == false) {
         CGFloat impulseX = 0.0f;
         CGFloat impulseY = self.speed * 100.0f;
-        [self.node.physicsBody applyImpulse:CGVectorMake(impulseX, impulseY) atPoint:self.node.position];
+        [self.physicsBody applyImpulse:CGVectorMake(impulseX, impulseY) atPoint:self.position];
     }
     
 }
@@ -38,9 +40,9 @@
     if (self.invulnerable == false){
         self.lives--;
         self.invulnerable = true;
-        [self.node runAction:
+        [self runAction:
             [SKAction sequence:@[
-            [SKAction waitForDuration:2],
+            [SKAction waitForDuration:40],
             [SKAction runBlock:^{
                 [self setInvulnerable:false];
             }]]]];
@@ -48,10 +50,10 @@
 }
 
 - (void)collidedWithBog{
-    [self.node removeActionForKey:@"bogcollision"];
-    [self.node runAction:[SKAction sequence:@[[SKAction repeatAction:[SKAction sequence:@[[SKAction runBlock:^{
+    [self removeActionForKey:@"bogcollision"];
+    [self runAction:[SKAction sequence:@[[SKAction repeatAction:[SKAction sequence:@[[SKAction runBlock:^{
         [self setInbog:true];
-    }], [SKAction waitForDuration:1], [SKAction runBlock:^{
+    }], [SKAction waitForDuration:20], [SKAction runBlock:^{
         [self setInbog:false];
     }], [SKAction waitForDuration:0.05]]] count:1]]] withKey:@"bogcollision"];
 }
@@ -63,21 +65,21 @@
     } else {
         [self setInmushroom:true];
     }
-    [self.node removeActionForKey:@"mushroomcollision"];
-    [self.node runAction:[SKAction sequence:@[[SKAction repeatAction:[SKAction sequence:@[[SKAction runBlock:^{
+    [self removeActionForKey:@"mushroomcollision"];
+    [self runAction:[SKAction sequence:@[[SKAction repeatAction:[SKAction sequence:@[[SKAction runBlock:^{
         //Add animation
-    }], [SKAction waitForDuration:1], [SKAction runBlock:^{
+    }], [SKAction waitForDuration:20], [SKAction runBlock:^{
         //Add animation
     }], [SKAction waitForDuration:0.05]]] count:1]]] withKey:@"mushroomcollision"];
 }
 
 - (void)collidedWithEnemy{//Use for block animation later
-    [self.node removeActionForKey:@"enemycollision"];
-    [self.node runAction:[SKAction sequence:@[[SKAction repeatAction:[SKAction sequence:@[[SKAction runBlock:^{
-        [self jumpEntity];
-    }], [SKAction waitForDuration:0.05], [SKAction runBlock:^{
-        [self jumpEntity];
-    }], [SKAction waitForDuration:0.05]]] count:4]]] withKey:@"enemycollision"];
+    [self removeActionForKey:@"enemycollision"];
+    [self runAction:[SKAction sequence:@[[SKAction repeatAction:[SKAction sequence:@[[SKAction runBlock:^{
+        
+    }], [SKAction waitForDuration:0.20], [SKAction runBlock:^{
+        
+    }], [SKAction waitForDuration:0.05]]] count:1]]] withKey:@"enemycollision"];
 }
 
 @end

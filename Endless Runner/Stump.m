@@ -10,16 +10,15 @@
 
 @implementation Stump
 
-- (id)initWithNode:(SKSpriteNode*)node
+- (id)initWithTexture:(SKTexture *)nodetexture
 {
-    self = [super initWithNode:node];
+    self = [super initWithTexture:nodetexture];
     if (self) {
         //Initialization code
-        [self.node setScale:0.3];
-        node.physicsBody.categoryBitMask = 0x1 << 4;
+        [self setScale:0.3];
+        self.physicsBody.categoryBitMask = 0x1 << 4;
     }
     return self;
 }
-
 
 @end

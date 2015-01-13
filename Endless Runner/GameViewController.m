@@ -175,7 +175,7 @@ NSTimer *updatetimer;
 
 - (void)placePlayer{
     [self.model placePlayer];
-    [self.gamescene addChild:self.model.player.node];
+    [self.gamescene addChild:self.model.player];
 }
 
 
@@ -222,23 +222,22 @@ NSTimer *updatetimer;
     TactileObject* Tobj = [[TactileObject alloc] init];
     Tobj = self.model.obstacles[i];
     int loc;
-    TactileObject* spawn = [[Tobj.class alloc] initWithNode:[SKSpriteNode spriteNodeWithTexture:Tobj.node.texture]];
+    TactileObject* spawn = [[Tobj.class alloc] initWithTexture:Tobj.texture];
         loc = 0;
     [self.model placeEntWithLoc:loc Ent:spawn];
     NSString *strClass = NSStringFromClass(spawn.class);
     if ([strClass  isEqual: @"Stump"]) {
-        [spawn.node setPosition:CGPointMake(spawn.node.position.x, spawn.node.position.y+40)];
+        [spawn setPosition:CGPointMake(spawn.position.x, spawn.position.y+40)];
     } else if ([strClass  isEqual: @"Bog"]) {
-        [spawn.node setPosition:CGPointMake(spawn.node.position.x, spawn.node.position.y)];
+        [spawn setPosition:CGPointMake(spawn.position.x, spawn.position.y)];
     } else if ([strClass  isEqual: @"Spikes"]) {
-        [spawn.node setPosition:CGPointMake(spawn.node.position.x, spawn.node.position.y+40)];
+        [spawn setPosition:CGPointMake(spawn.position.x, spawn.position.y+40)];
     } else if ([strClass  isEqual: @"Mushroom"]) {
-        [spawn.node setPosition:CGPointMake(spawn.node.position.x, spawn.node.position.y+40)];
+        [spawn setPosition:CGPointMake(spawn.position.x, spawn.position.y+40)];
     } else if ([strClass  isEqual: @"Bush"]) {
-        [spawn.node setPosition:CGPointMake(spawn.node.position.x, spawn.node.position.y+20)];
+        [spawn setPosition:CGPointMake(spawn.position.x, spawn.position.y+40)];
     }
-    
-    [self.gamescene addChild:spawn.node];
+    [self.gamescene addChild:spawn];
 }
 
 - (void) spawnRandomEnemy{
@@ -247,7 +246,7 @@ NSTimer *updatetimer;
     en = self.model.enemies[i];
     int loc;
     NSString *strClass = NSStringFromClass(en.class);
-    Enemy* spawn = [[en.class alloc] initWithNode:[SKSpriteNode spriteNodeWithTexture:en.node.texture]];
+    Enemy* spawn = [[en.class alloc] initWithTexture:en.texture];
     if([strClass  isEqual: @"Bird" ]){
         loc = 2;
     } else if([strClass  isEqual: @"Beehive" ]){
@@ -256,7 +255,7 @@ NSTimer *updatetimer;
         loc = 0;
     }
     [self.model placeEntWithLoc:loc Ent:spawn];
-    [self.gamescene addChild:spawn.node];
+    [self.gamescene addChild:spawn];
     [spawn animateSelf];
 }
 

@@ -10,41 +10,44 @@
 
 @implementation TactileObject
 
-- (id)initWithNode:(SKSpriteNode*)node
+
+- (id)initWithTexture:(SKTexture *)nodetexture
 {
-    self = [super initWithNode:node];
+    self = [super initWithTexture:nodetexture];
     if (self) {
         //Initialization code
-        node.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:node.frame.size];
-        node.physicsBody.allowsRotation = false;
-        [node.physicsBody setDynamic:false];
+        self.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:self.frame.size];
+        self.physicsBody.allowsRotation = false;
+        [self.physicsBody setDynamic:false];
+        self.speed = 20;
     }
     return self;
 }
 
+
 -(void)moveEntityRight:(int)speed{
-    if ([self.node actionForKey:@"MovingRight"] == false) {
-        SKAction* move = [SKAction moveByX:speed y:0 duration:0.1];
+    if ([self actionForKey:@"MovingRight"] == false) {
+        SKAction* move = [SKAction moveByX:speed/40 y:0 duration:0.1];
         SKAction* loopMovement = [SKAction repeatActionForever:move];
-        [self.node runAction:loopMovement withKey:@"MovingRight"];
+        [self runAction:loopMovement withKey:@"MovingRight"];
     }
 }
 
 -(void)moveEntityLeft:(int)speed{
-    if ([self.node actionForKey:@"MovingLeft"] == false) {
-        SKAction* move = [SKAction moveByX:-speed y:0 duration:0.1];
+    if ([self actionForKey:@"MovingLeft"] == false) {
+        SKAction* move = [SKAction moveByX:-speed/40 y:0 duration:0.1];
         SKAction* loopMovement = [SKAction repeatActionForever:move];
-        [self.node runAction:loopMovement withKey:@"MovingLeft"];
+        [self runAction:loopMovement withKey:@"MovingLeft"];
     }
 }
 
 -(void)stopMovementActionsWithDirection:(int)d{
     switch (d) {
         case 0:
-            [self.node removeActionForKey:@"MovingLeft"];
+            [self removeActionForKey:@"MovingLeft"];
             break;
         case 1:
-            [self.node removeActionForKey:@"MovingRight"];
+            [self removeActionForKey:@"MovingRight"];
             break;
         default:
             break;

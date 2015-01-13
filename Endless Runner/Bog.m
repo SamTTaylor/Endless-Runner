@@ -10,21 +10,21 @@
 
 @implementation Bog
 
-- (id)initWithNode:(SKSpriteNode*)node
+- (id)initWithTexture:(SKTexture *)nodetexture
 {
-    self = [super initWithNode:node];
+    self = [super initWithTexture:nodetexture];
     if (self) {
         //Initialization code
-        [self.node setScale:0.6];
-        node.physicsBody.categoryBitMask = 0x1 << 5;
+        [self setScale:0.6];
+        self.physicsBody.categoryBitMask = 0x1 << 5;
     }
     return self;
 }
 
 - (void) animateSelf{
     [super animateSelf];
-    [self.node removeActionForKey:[NSString stringWithFormat:@"animate %@", self.class]];
-    [self.node runAction:[SKAction sequence:@[[SKAction repeatAction:[SKAction sequence:@[[SKAction runBlock:^{
+    [self removeActionForKey:[NSString stringWithFormat:@"animate %@", self.class]];
+    [self runAction:[SKAction sequence:@[[SKAction repeatAction:[SKAction sequence:@[[SKAction runBlock:^{
         //Add Animation
     }], [SKAction waitForDuration:1], [SKAction runBlock:^{
         //Add Animation

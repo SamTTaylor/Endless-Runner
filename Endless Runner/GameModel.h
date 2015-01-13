@@ -37,6 +37,7 @@
 @property int difficultyscore;
 @property int difficultythreshold;
 @property int currentdifficulty;
+@property int groundspeed;
 
 - (id)initWithPlayer;
 

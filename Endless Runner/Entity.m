@@ -10,21 +10,18 @@
 
 @implementation Entity
 
-- (id)initWithNode:(SKSpriteNode*)node
+- (id)initWithTexture:(SKTexture *)nodetexture
 {
-    self = [super init];
+    self = [super initWithTexture:nodetexture];
     if (self) {
         //Initialization code
-        self.node = node;
-        self.direction = 1;
-        
-        
+      
     }
     return self;
 }
 
 -(CGRect)collisionBoundingBox {
-    return CGRectInset(self.node.frame, 2, 0);
+    return CGRectInset(self.frame, 2, 0);
 }
 
 

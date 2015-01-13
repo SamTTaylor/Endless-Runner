@@ -10,16 +10,16 @@
 
 @implementation Enemy
 
-- (id)initWithNode:(SKSpriteNode*)node
+- (id)initWithTexture:(SKTexture *)nodetexture
 {
-    self = [super initWithNode:node];
+    self = [super initWithTexture:nodetexture];
     if (self) {
         //Initialization code
-
         
     }
     return self;
 }
+
 
 - (void) animateSelf{
     
