@@ -54,12 +54,7 @@
     }
 }
 
-- (void) animateSelf{
-    
-}
-
-- (void) deathAnimation{
-    
-}
+- (void) animateSelf{}
+- (void) deathAnimation{}
 
 @end

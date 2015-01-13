@@ -30,8 +30,9 @@
 @property float updatespeed;
 @property NSTimer* updatetimer;
 
+@property (strong) UITapGestureRecognizer *doubleTapRecognizer;
+@property (strong) UISwipeGestureRecognizer *swipeRecognizer;
 @property (strong) CMMotionManager *motionManager;
-
 @property (copy) CMGyroHandler gyroHandler;
 @property (copy) CMAccelerometerHandler accelerometerHandler;
 

@@ -50,6 +50,9 @@ NSTimer *updatetimer;
     self.gamestarted = false;
     self.startedbytilt = false;
     [self addListenersToButtons];
+    [self instantiateDoubleTapRecognizer];
+    [self instantiateSwipeRecognizer];
+    [self.doubleTapRecognizer requireGestureRecognizerToFail:self.swipeRecognizer];
     if (self.tiltbool == true){
         [self startGame];
     }
@@ -164,19 +167,61 @@ NSTimer *updatetimer;
     [self.gamescene addChild:self.model.groundnode];
 }
 
--(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
-    /* Called when a touch begins */
-    [self.model jumpEntity:self.model.player];
-    for (UITouch *touch in touches) {
-        
-
-    }
-}
-
 - (void)placePlayer{
     [self.model placePlayer];
     [self.gamescene addChild:self.model.player];
 }
+
+
+
+
+
+
+//Touch & Gesture handling
+
+- (void)instantiateDoubleTapRecognizer{
+    self.doubleTapRecognizer =
+    [[UITapGestureRecognizer alloc]initWithTarget:self
+                                           action:@selector(handleDoubleTap)];
+    self.doubleTapRecognizer.numberOfTapsRequired = 2;
+    [self.view addGestureRecognizer:self.doubleTapRecognizer];
+}
+
+-(void)handleDoubleTap {
+    if([self getNodeTouched:(UITouch*)self.doubleTapRecognizer].class == NSClassFromString(@"Beehive")){
+        [(Beehive*)[self getNodeTouched:(UITouch*)self.doubleTapRecognizer] deathAnimation];
+    }
+}
+
+
+- (void)instantiateSwipeRecognizer{
+    self.swipeRecognizer =
+    [[UISwipeGestureRecognizer alloc]initWithTarget:self action:@selector(handleSwipe:)];
+    [self.view addGestureRecognizer:self.swipeRecognizer];
+}
+
+-(void)handleSwipe:(UISwipeGestureRecognizer*)sender{
+    if([self.gamescene nodeAtPoint:CGPointMake([sender locationInView:self.gamescene.view].x, ([sender locationInView:self.gamescene.view].y-self.gamescene.view.frame.size.height)*-1)].class== NSClassFromString(@"Bush")){
+        [(Bush*)[self getNodeTouched:(UITouch*)self.swipeRecognizer] deathAnimation];
+    }
+}
+
+-(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
+    /* Called when a touch begins */
+    for (UITouch *touch in touches) {
+        if ([self getNodeTouched:touch].class != NSClassFromString(@"Beehive")){
+            [self.model jumpEntity:self.model.player];
+        }
+    }
+    
+    
+}
+
+-(SKNode*) getNodeTouched:(UITouch*)touch{
+    return [self.gamescene nodeAtPoint:CGPointMake([touch locationInView:self.gamescene.view].x, ([touch locationInView:self.gamescene.view].y-self.gamescene.view.frame.size.height)*-1)];
+}
+
+
 
 
 
