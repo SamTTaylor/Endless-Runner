@@ -366,7 +366,8 @@ NSTimer *updatetimer;
         [self.model.player collidedWithBog];
     }
     if (contact.bodyA.categoryBitMask == playerCategory && contact.bodyB.categoryBitMask == mushroomCategory){
-        [contact.bodyB setCategoryBitMask:0x1 << 9];
+        Mushroom* ms = (Mushroom*)contact.bodyB.node;
+        [ms deathAnimation];
         [self.model.player collidedWithMushroom];
     }
 }

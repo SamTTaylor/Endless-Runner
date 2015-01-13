@@ -20,7 +20,7 @@
         [self populateEnemyArray];
         [self populateObstacleArray];
         [self populateLivesArray];
-        [self setCurrentdifficulty:1];
+        [self setCurrentdifficulty:4];
         [self setDifficultyscore:0];
         [self setDifficultythreshold:50];
         [self setScore:0];
@@ -115,7 +115,7 @@
         [node runAction:loopMovement];
     } else {
         
-        SKAction* move = [SKAction moveByX:-distance y:0 duration:self.groundspeed*10];
+        SKAction* move = [SKAction moveByX:-distance y:0 duration:self.groundspeed*10.15];
         SKAction* remove = [SKAction removeFromParent];
         SKAction* Movement = [SKAction sequence:@[move, remove]];
         [node runAction:Movement];

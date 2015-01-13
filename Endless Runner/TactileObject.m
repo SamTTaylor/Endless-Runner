@@ -58,4 +58,8 @@
     
 }
 
+- (void) deathAnimation{
+    
+}
+
 @end

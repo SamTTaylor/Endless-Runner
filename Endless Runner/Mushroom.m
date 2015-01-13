@@ -26,7 +26,7 @@
     [self removeActionForKey:[NSString stringWithFormat:@"animate %@", self.class]];
     [self runAction:[SKAction sequence:@[[SKAction repeatAction:[SKAction sequence:@[[SKAction runBlock:^{
         //Add burst
-    }], [SKAction waitForDuration:1], [SKAction runBlock:^{
+    }], [SKAction waitForDuration:20], [SKAction runBlock:^{
         //Add burst
         [self removeFromParent];//remove once animation is complete
     }], [SKAction waitForDuration:1]]] count:1]]] withKey:[NSString stringWithFormat:@"animate %@", self.class]];
