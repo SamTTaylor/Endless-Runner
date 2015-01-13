@@ -11,6 +11,8 @@
 
 @interface TactileObject : Entity
 
+@property int difficultylevel;
+
 -(void)moveEntityLeft:(int)speed;
 -(void)moveEntityRight:(int)speed;
 -(void)stopMovementActionsWithDirection:(int)d;

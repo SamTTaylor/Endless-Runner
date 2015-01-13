@@ -78,28 +78,38 @@
     self.obstacles = [[NSMutableArray alloc] init];
     TactileObject* Tobj = [[Stump alloc] initWithTexture:[SKTexture textureWithImageNamed:@"Stump"]];
     [self.obstacles addObject:Tobj];
+    [Tobj setDifficultylevel:self.obstacles.count];
     Tobj = [[Bog alloc] initWithTexture:[SKTexture textureWithImageNamed:@"Bog"]];
     [self.obstacles addObject:Tobj];
+    [Tobj setDifficultylevel:self.obstacles.count];
     Tobj = [[Spikes alloc] initWithTexture:[SKTexture textureWithImageNamed:@"Spikes"]];
     [self.obstacles addObject:Tobj];
+    [Tobj setDifficultylevel:self.obstacles.count];
     Tobj = [[Mushroom alloc] initWithTexture:[SKTexture textureWithImageNamed:@"Mushroom"]];
     [self.obstacles addObject:Tobj];
+    [Tobj setDifficultylevel:self.obstacles.count];
     Tobj = [[Bush alloc] initWithTexture:[SKTexture textureWithImageNamed:@"Bush"]];
     [self.obstacles addObject:Tobj];
+    [Tobj setDifficultylevel:self.obstacles.count];
 }
 
 - (void) populateEnemyArray{
     self.enemies = [[NSMutableArray alloc] init];
     Enemy* en = [[Fox alloc] initWithTexture:[SKTexture textureWithImageNamed:@"Fox"]];
     [self.enemies addObject:en];
+    [en setDifficultylevel:self.enemies.count];
     en = [[Bird alloc] initWithTexture:[SKTexture textureWithImageNamed:@"Bird"]];
     [self.enemies addObject:en];
+    [en setDifficultylevel:self.enemies.count];
     en = [[Beehive alloc] initWithTexture:[SKTexture textureWithImageNamed:@"Beehive"]];
     [self.enemies addObject:en];
+    [en setDifficultylevel:self.enemies.count];
     en = [[Frog alloc] initWithTexture:[SKTexture textureWithImageNamed:@"Frog"]];
     [self.enemies addObject:en];
+    [en setDifficultylevel:self.enemies.count];
     en = [[Wolf alloc] initWithTexture:[SKTexture textureWithImageNamed:@"Wolf"]];
     [self.enemies addObject:en];
+    [en setDifficultylevel:self.enemies.count];
 
 }
 
@@ -120,7 +130,6 @@
         SKAction* Movement = [SKAction sequence:@[move, remove]];
         [node runAction:Movement];
     }
-    
 }
 
 

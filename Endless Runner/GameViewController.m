@@ -180,6 +180,7 @@ NSTimer *updatetimer;
 
 //Touch & Gesture handling
 
+
 - (void)instantiateDoubleTapRecognizer{
     self.doubleTapRecognizer =
     [[UITapGestureRecognizer alloc]initWithTarget:self
@@ -190,7 +191,10 @@ NSTimer *updatetimer;
 
 -(void)handleDoubleTap {
     if([self getNodeTouched:(UITouch*)self.doubleTapRecognizer].class == NSClassFromString(@"Beehive")){
-        [(Beehive*)[self getNodeTouched:(UITouch*)self.doubleTapRecognizer] deathAnimation];
+            [(Beehive*)[self getNodeTouched:(UITouch*)self.doubleTapRecognizer] deathAnimation];
+            [self.model incrementScore:self.model.currentdifficulty * 10];
+    } else {
+        [self.model jumpEntity:self.model.player];
     }
 }
 
@@ -203,7 +207,8 @@ NSTimer *updatetimer;
 
 -(void)handleSwipe:(UISwipeGestureRecognizer*)sender{
     if([self.gamescene nodeAtPoint:CGPointMake([sender locationInView:self.gamescene.view].x, ([sender locationInView:self.gamescene.view].y-self.gamescene.view.frame.size.height)*-1)].class== NSClassFromString(@"Bush")){
-        [(Bush*)[self getNodeTouched:(UITouch*)self.swipeRecognizer] deathAnimation];
+            [(Bush*)[self getNodeTouched:(UITouch*)self.swipeRecognizer] deathAnimation];
+            [self.model incrementScore:self.model.currentdifficulty * 10];
     }
 }
 
@@ -214,8 +219,6 @@ NSTimer *updatetimer;
             [self.model jumpEntity:self.model.player];
         }
     }
-    
-    
 }
 
 -(SKNode*) getNodeTouched:(UITouch*)touch{
@@ -250,12 +253,7 @@ NSTimer *updatetimer;
                 [self spawnRandomEnemy];
             }
         }
-        
         [self incrementScores];
-
-        
-    
-
     }
 }
 
