@@ -105,8 +105,8 @@ NSTimer *updatetimer;
                 self.startedbytilt = true;
             }
             if (self.yRotation < self.model.tiltsensitivity && self.yRotation > -self.model.tiltsensitivity){
-                [self.model stopTactileObjectMovement:self.model.player Direction:0];
-                [self.model stopTactileObjectMovement:self.model.player Direction:1];
+                [self stopPlayerLeft];
+                [self stopPlayerRight];
             }
         };
         // fire off regular animation updates via a timer
@@ -357,37 +357,6 @@ NSTimer *updatetimer;
     }
 }
 
-- (void)movePlayerLeft{
-    if (self.model.player.inmushroom == false) {
-        [self.model moveTactileObjectLeft:self.model.player speed:(int)0];
-    } else {
-        [self.model moveTactileObjectRight:self.model.player speed:(int)0];
-    }
-}
-
--(void)movePlayerRight{
-    if (self.model.player.inmushroom == false) {
-        [self.model moveTactileObjectRight:self.model.player speed:(int)0];
-    } else {
-        [self.model moveTactileObjectLeft:self.model.player speed:(int)0];
-    }
-}
-
-- (void)stopPlayerLeft{
-    if (self.model.player.inmushroom == false) {
-        [self.model stopTactileObjectMovement:self.model.player Direction:0];
-    } else {
-        [self.model stopTactileObjectMovement:self.model.player Direction:1];
-    }
-}
-
-- (void)stopPlayerRight{
-    if (self.model.player.inmushroom == false) {
-        [self.model stopTactileObjectMovement:self.model.player Direction:1];
-    } else {
-        [self.model stopTactileObjectMovement:self.model.player Direction:0];
-    }
-}
 
 //STUFF
 - (BOOL)shouldAutorotate
@@ -430,6 +399,7 @@ NSTimer *updatetimer;
     }
     if (contact.bodyA.categoryBitMask == playerCategory && contact.bodyB.categoryBitMask == mushroomCategory){
         Mushroom* ms = (Mushroom*)contact.bodyB.node;
+        ms.physicsBody.categoryBitMask = 0x1 << 9;//Stops over collision
         [ms deathAnimation];
         [self.model.player collidedWithMushroom];
     }
@@ -440,6 +410,43 @@ NSTimer *updatetimer;
 
 
 
+
+
+
+//PLAYER MOVEMENT
+
+
+- (void)movePlayerLeft{
+    if (self.model.player.inmushroom == false) {
+        [self.model moveTactileObjectLeft:self.model.player speed:(int)0];
+    } else {
+        [self.model moveTactileObjectRight:self.model.player speed:(int)0];
+    }
+}
+
+-(void)movePlayerRight{
+    if (self.model.player.inmushroom == false) {
+        [self.model moveTactileObjectRight:self.model.player speed:(int)0];
+    } else {
+        [self.model moveTactileObjectLeft:self.model.player speed:(int)0];
+    }
+}
+
+- (void)stopPlayerLeft{
+    if (self.model.player.inmushroom == false) {
+        [self.model stopTactileObjectMovement:self.model.player Direction:0];
+    } else {
+        [self.model stopTactileObjectMovement:self.model.player Direction:1];
+    }
+}
+
+- (void)stopPlayerRight{
+    if (self.model.player.inmushroom == false) {
+        [self.model stopTactileObjectMovement:self.model.player Direction:1];
+    } else {
+        [self.model stopTactileObjectMovement:self.model.player Direction:0];
+    }
+}
 
 
 
@@ -473,12 +480,12 @@ NSTimer *updatetimer;
 
 -(void)releaseLeft
 {
-    [self.model stopTactileObjectMovement:self.model.player Direction:0];
+    [self stopPlayerLeft];
 }
 
 -(void)releaseRight
 {
-    [self.model stopTactileObjectMovement:self.model.player Direction:1];
+    [self stopPlayerRight];
 }
 
 -(IBAction)leftPressed:(UIButton*)sender{
