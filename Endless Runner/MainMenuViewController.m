@@ -17,7 +17,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    self.tiltbool = false;
+    self.tiltbool = true;
     self.svc = nil;
     self.gvc = nil;
 }

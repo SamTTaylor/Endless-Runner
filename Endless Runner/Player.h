@@ -14,7 +14,9 @@
 @property bool inmushroom;
 @property bool inbog;
 @property int lives;
+@property bool invulnerable;
 
+- (void)takeLife;
 - (void)collidedWithBog;
 - (void)collidedWithMushroom;
 - (void)collidedWithEnemy;

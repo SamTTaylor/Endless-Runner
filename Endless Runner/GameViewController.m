@@ -278,7 +278,7 @@ NSTimer *updatetimer;
 }
 
 - (void) checkLives{
-    [self.model.player setLives:self.model.player.lives-1];
+    [self.model.player takeLife];
     if(self.model.player.lives<=0){
         [self quitSelf];
     };
@@ -332,6 +332,7 @@ NSTimer *updatetimer;
         [self.model.player collidedWithBog];
     }
     if (contact.bodyA.categoryBitMask == playerCategory && contact.bodyB.categoryBitMask == mushroomCategory){
+        [contact.bodyB setCategoryBitMask:0x1 << 9];
         [self.model.player collidedWithMushroom];
     }
 }

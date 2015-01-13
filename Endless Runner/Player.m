@@ -20,7 +20,7 @@
         node.physicsBody.collisionBitMask = 0x1 << 2 | 0x1 << 4 | 0x1 << 3 | 0x1 << 8 | 0x1 << 7;
         node.physicsBody.allowsRotation = false;
         self.lives = 3;
-        
+        [self setInvulnerable:false];
     }
     return self;
 }
@@ -30,9 +30,24 @@
         CGFloat impulseX = 0.0f;
         CGFloat impulseY = self.speed * 100.0f;
         [self.node.physicsBody applyImpulse:CGVectorMake(impulseX, impulseY) atPoint:self.node.position];
-        [self setLives:3];
     }
     
+}
+
+-(void) takeLife{
+    if (self.invulnerable == false){
+        self.lives--;
+        NSLog(@"Life Taken");
+        self.invulnerable = true;
+        NSLog(@"Invulnerable");
+        [self.node runAction:
+            [SKAction sequence:@[
+            [SKAction waitForDuration:2],
+            [SKAction runBlock:^{
+                [self setInvulnerable:false];
+                NSLog(@"Vulnerable");
+            }]]]];
+    }
 }
 
 - (void)collidedWithBog{

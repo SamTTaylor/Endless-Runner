@@ -10,4 +10,6 @@
 
 @interface Mushroom : TactileObject
 
+@property bool touched;
+
 @end
