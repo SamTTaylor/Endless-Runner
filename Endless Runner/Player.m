@@ -37,15 +37,12 @@
 -(void) takeLife{
     if (self.invulnerable == false){
         self.lives--;
-        NSLog(@"Life Taken");
         self.invulnerable = true;
-        NSLog(@"Invulnerable");
         [self.node runAction:
             [SKAction sequence:@[
             [SKAction waitForDuration:2],
             [SKAction runBlock:^{
                 [self setInvulnerable:false];
-                NSLog(@"Vulnerable");
             }]]]];
     }
 }
@@ -60,12 +57,17 @@
 }
 
 - (void)collidedWithMushroom{//Use for block animation later
-
+    
+    if (self.inmushroom == true){
+        [self setInmushroom:false];
+    } else {
+        [self setInmushroom:true];
+    }
     [self.node removeActionForKey:@"mushroomcollision"];
     [self.node runAction:[SKAction sequence:@[[SKAction repeatAction:[SKAction sequence:@[[SKAction runBlock:^{
-        [self setInmushroom:true];
+        //Add animation
     }], [SKAction waitForDuration:1], [SKAction runBlock:^{
-        [self setInmushroom:false];
+        //Add animation
     }], [SKAction waitForDuration:0.05]]] count:1]]] withKey:@"mushroomcollision"];
 }
 

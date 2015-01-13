@@ -19,7 +19,7 @@
         self.groundtexture = [SKTexture textureWithImageNamed:@"ground"];
         [self populateEnemyArray];
         [self populateObstacleArray];
-        [self setCurrentdifficulty:1];
+        [self setCurrentdifficulty:4];
         [self setDifficultyscore:0];
         [self setDifficultythreshold:50];
         [self setScore:0];

@@ -285,11 +285,35 @@ NSTimer *updatetimer;
 }
 
 - (void)movePlayerLeft{
-    [self.model moveTactileObjectLeft:self.model.player speed:(int)0];
+    if (self.model.player.inmushroom == false) {
+        [self.model moveTactileObjectLeft:self.model.player speed:(int)0];
+    } else {
+        [self.model moveTactileObjectRight:self.model.player speed:(int)0];
+    }
 }
 
 -(void)movePlayerRight{
-    [self.model moveTactileObjectRight:self.model.player speed:(int)0];
+    if (self.model.player.inmushroom == false) {
+        [self.model moveTactileObjectRight:self.model.player speed:(int)0];
+    } else {
+        [self.model moveTactileObjectLeft:self.model.player speed:(int)0];
+    }
+}
+
+- (void)stopPlayerLeft{
+    if (self.model.player.inmushroom == false) {
+        [self.model stopTactileObjectMovement:self.model.player Direction:0];
+    } else {
+        [self.model stopTactileObjectMovement:self.model.player Direction:1];
+    }
+}
+
+- (void)stopPlayerRight{
+    if (self.model.player.inmushroom == false) {
+        [self.model stopTactileObjectMovement:self.model.player Direction:1];
+    } else {
+        [self.model stopTactileObjectMovement:self.model.player Direction:0];
+    }
 }
 
 //STUFF
