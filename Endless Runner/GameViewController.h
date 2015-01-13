@@ -29,6 +29,7 @@
 @property double yRotation;
 @property float updatespeed;
 @property NSTimer* updatetimer;
+@property NSMutableArray *spawnedobjects;
 
 @property (strong) UITapGestureRecognizer *doubleTapRecognizer;
 @property (strong) UISwipeGestureRecognizer *swipeRecognizer;

@@ -53,7 +53,7 @@
     [self removeActionForKey:@"bogcollision"];
     [self runAction:[SKAction sequence:@[[SKAction repeatAction:[SKAction sequence:@[[SKAction runBlock:^{
         [self setInbog:true];
-    }], [SKAction waitForDuration:20], [SKAction runBlock:^{
+    }], [SKAction waitForDuration:40], [SKAction runBlock:^{
         [self setInbog:false];
     }], [SKAction waitForDuration:0.05]]] count:1]]] withKey:@"bogcollision"];
 }

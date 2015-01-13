@@ -7,6 +7,7 @@
 //
 
 #import "Entity.h"
+#import "ToastView.h"
 
 @interface TactileObject : Entity
 
@@ -16,5 +17,6 @@
 
 - (void) animateSelf;
 - (void) deathAnimation;
+- (void)introduction:(UIView*)inview;
 
 @end

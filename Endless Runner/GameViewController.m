@@ -52,6 +52,7 @@ NSTimer *updatetimer;
     [self addListenersToButtons];
     [self instantiateDoubleTapRecognizer];
     [self instantiateSwipeRecognizer];
+    self.spawnedobjects = [[NSMutableArray alloc] init];
     [self.doubleTapRecognizer requireGestureRecognizerToFail:self.swipeRecognizer];
     if (self.tiltbool == true){
         [self startGame];
@@ -282,7 +283,9 @@ NSTimer *updatetimer;
     } else if ([strClass  isEqual: @"Bush"]) {
         [spawn setPosition:CGPointMake(spawn.position.x, spawn.position.y+40)];
     }
+    [self checkIntroduction:spawn];
     [self.gamescene addChild:spawn];
+    [self.spawnedobjects addObject:spawn];
 }
 
 - (void) spawnRandomEnemy{
@@ -300,10 +303,23 @@ NSTimer *updatetimer;
         loc = 0;
     }
     [self.model placeEntWithLoc:loc Ent:spawn];
+    [self checkIntroduction:spawn];
     [self.gamescene addChild:spawn];
+    [self.spawnedobjects addObject:spawn];
     [spawn animateSelf];
 }
 
+-(void)checkIntroduction:(TactileObject*)Tobj{
+    bool containsobjectofclass = false;
+    for (int i = 0; i < self.spawnedobjects.count; i++) {
+        if ([self.spawnedobjects[i] isKindOfClass:Tobj.class]){
+            containsobjectofclass = true;
+        }
+    }
+    if(containsobjectofclass == false){
+        [Tobj introduction:self.view];
+    }
+}
 
 - (void) incrementScores{
     [self.model incrementScore:self.model.currentdifficulty * 10];
@@ -314,6 +330,8 @@ NSTimer *updatetimer;
 
 - (void) quitSelf{
     self.motionManager = nil;
+    self.swipeRecognizer = nil;
+    self.doubleTapRecognizer = nil;
     self.closing = true;
     self.model = nil;
     self.gamescene = nil;

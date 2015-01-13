@@ -21,6 +21,11 @@
     return self;
 }
 
+-(void)introduction:(UIView*)inview{
+    [super introduction:inview];
+    [ToastView showToastInParentView:inview withText:@"Mushrooms will reverse your movement!" withDuaration:5.0];
+}
+
 - (void) deathAnimation{
     [super deathAnimation];
     [self removeActionForKey:[NSString stringWithFormat:@"animate %@", self.class]];

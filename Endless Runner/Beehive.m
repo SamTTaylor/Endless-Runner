@@ -22,6 +22,10 @@
     return self;
 }
 
+-(void)introduction:(UIView*)inview{
+    [super introduction:inview];
+    [ToastView showToastInParentView:inview withText:@"Double Tap Beehives to break them!" withDuaration:5.0];
+}
 
 - (void) animateSelf{
     [super animateSelf];

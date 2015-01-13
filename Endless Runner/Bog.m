@@ -21,6 +21,11 @@
     return self;
 }
 
+-(void)introduction:(UIView*)inview{
+    [super introduction:inview];
+    [ToastView showToastInParentView:inview withText:@"Bogs will stop you jumping!" withDuaration:5.0];
+}
+
 - (void) animateSelf{
     [super animateSelf];
     [self removeActionForKey:[NSString stringWithFormat:@"animate %@", self.class]];

@@ -56,5 +56,5 @@
 
 - (void) animateSelf{}
 - (void) deathAnimation{}
-
+- (void)introduction:(UIView*)inview{}
 @end

@@ -21,6 +21,10 @@
     return self;
 }
 
+-(void)introduction:(UIView*)inview{
+    [super introduction:inview];
+    [ToastView showToastInParentView:inview withText:@"Swipe bushes from the centre to cut them down!" withDuaration:5.0];
+}
 
 - (void) animateSelf{
     [super animateSelf];
