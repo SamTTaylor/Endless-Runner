@@ -50,8 +50,7 @@ NSTimer *updatetimer;
     self.gamestarted = false;
     self.startedbytilt = false;
     [self addListenersToButtons];
-    [self instantiateDoubleTapRecognizer];
-    [self instantiateSwipeRecognizer];
+    [self instantiateGestureRecognizers];
     self.spawnedobjects = [[NSMutableArray alloc] init];
     [self.doubleTapRecognizer requireGestureRecognizerToFail:self.swipeRecognizer];
     if (self.tiltbool == true){
@@ -182,12 +181,25 @@ NSTimer *updatetimer;
 
 //Touch & Gesture handling
 
+-(void) instantiateGestureRecognizers{
+    [self instantiateDoubleTapRecognizer];
+    [self instantiateSwipeRecognizer];
+}
+
+- (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldReceiveTouch:(UITouch *)touch {
+    
+    if ((touch.view == self.left || touch.view == self.right)) {
+        return NO;
+    }
+    return YES;
+}
 
 - (void)instantiateDoubleTapRecognizer{
     self.doubleTapRecognizer =
     [[UITapGestureRecognizer alloc]initWithTarget:self
                                            action:@selector(handleDoubleTap)];
     self.doubleTapRecognizer.numberOfTapsRequired = 2;
+    [self.doubleTapRecognizer setDelegate:self];
     [self.view addGestureRecognizer:self.doubleTapRecognizer];
 }
 
@@ -204,6 +216,7 @@ NSTimer *updatetimer;
 - (void)instantiateSwipeRecognizer{
     self.swipeRecognizer =
     [[UISwipeGestureRecognizer alloc]initWithTarget:self action:@selector(handleSwipe:)];
+    [self.swipeRecognizer setDelegate:self];
     [self.view addGestureRecognizer:self.swipeRecognizer];
 }
 
@@ -415,6 +428,8 @@ NSTimer *updatetimer;
     if (contact.bodyA.categoryBitMask == playerCategory && contact.bodyB.categoryBitMask == mushroomCategory){
         Mushroom* ms = (Mushroom*)contact.bodyB.node;
         ms.physicsBody.categoryBitMask = 0x1 << 9;//Stops over collision
+        [self stopPlayerLeft];
+        [self stopPlayerRight];
         [ms deathAnimation];
         [self.model.player collidedWithMushroom];
     }
@@ -479,6 +494,8 @@ NSTimer *updatetimer;
     [self.right addTarget:self action:@selector(holdRight) forControlEvents:UIControlEventTouchDown];
     [self.left addTarget:self action:@selector(releaseLeft) forControlEvents:UIControlEventTouchUpInside];
     [self.right addTarget:self action:@selector(releaseRight) forControlEvents:UIControlEventTouchUpInside];
+    [self.left addTarget:self action:@selector(releaseLeft) forControlEvents:UIControlEventTouchUpOutside];
+    [self.right addTarget:self action:@selector(releaseRight) forControlEvents:UIControlEventTouchUpOutside];
 }
 
 -(void)holdLeft

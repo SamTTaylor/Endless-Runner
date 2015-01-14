@@ -22,7 +22,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <variation key="heightClass=regular-widthClass=regular" misplaced="YES">
-                                    <rect key="frame" x="219" y="263" width="363" height="74"/>
+                                    <rect key="frame" x="253" y="263" width="296" height="74"/>
                                 </variation>
                                 <connections>
                                     <segue destination="SVp-U8-3F3" kind="show" identifier="segueToSettings" id="yuM-wc-8Jc"/>
@@ -36,7 +36,6 @@
                                     <color key="titleColor" red="0.9997981448710731" green="1" blue="0.58033339593897271" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
-                                <variation key="heightClass=regular-widthClass=regular"/>
                                 <connections>
                                     <segue destination="BV1-FR-VrT" kind="presentation" identifier="segueToGame" modalTransitionStyle="flipHorizontal" id="QSQ-fe-3LX"/>
                                 </connections>
@@ -81,6 +80,10 @@
                                 <exclude reference="1Ht-XI-grM"/>
                             </mask>
                             <mask key="constraints">
+                                <exclude reference="Mhd-gQ-aye"/>
+                                <exclude reference="TOO-4L-RB3"/>
+                                <exclude reference="faU-Yg-kMs"/>
+                                <exclude reference="uIL-ha-9jC"/>
                                 <exclude reference="9af-bq-zkn"/>
                                 <exclude reference="SJK-0e-ZXv"/>
                                 <exclude reference="ZyB-Ks-rcL"/>
@@ -89,10 +92,6 @@
                                 <exclude reference="U72-ul-Ium"/>
                                 <exclude reference="bc3-Qx-CPH"/>
                                 <exclude reference="gyX-8t-Zb6"/>
-                                <exclude reference="faU-Yg-kMs"/>
-                                <exclude reference="uIL-ha-9jC"/>
-                                <exclude reference="Mhd-gQ-aye"/>
-                                <exclude reference="TOO-4L-RB3"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=regular-widthClass=regular">
@@ -103,6 +102,10 @@
                                 <include reference="1Ht-XI-grM"/>
                             </mask>
                             <mask key="constraints">
+                                <include reference="Mhd-gQ-aye"/>
+                                <include reference="TOO-4L-RB3"/>
+                                <include reference="faU-Yg-kMs"/>
+                                <include reference="uIL-ha-9jC"/>
                                 <exclude reference="9af-bq-zkn"/>
                                 <include reference="SJK-0e-ZXv"/>
                                 <include reference="ZyB-Ks-rcL"/>
@@ -111,10 +114,6 @@
                                 <exclude reference="U72-ul-Ium"/>
                                 <include reference="bc3-Qx-CPH"/>
                                 <include reference="gyX-8t-Zb6"/>
-                                <include reference="faU-Yg-kMs"/>
-                                <include reference="uIL-ha-9jC"/>
-                                <include reference="Mhd-gQ-aye"/>
-                                <include reference="TOO-4L-RB3"/>
                             </mask>
                         </variation>
                     </view>

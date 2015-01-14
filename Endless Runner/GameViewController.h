@@ -12,7 +12,7 @@
 #import "GameScene.h"
 #import "GameModel.h"
 
-@interface GameViewController : UIViewController <SKPhysicsContactDelegate>
+@interface GameViewController : UIViewController <SKPhysicsContactDelegate, UIGestureRecognizerDelegate>
 
 @property (weak) IBOutlet UIButton *left;
 @property (weak) IBOutlet UIButton *right;
@@ -37,6 +37,7 @@
 
 @property (strong) UITapGestureRecognizer *doubleTapRecognizer;
 @property (strong) UISwipeGestureRecognizer *swipeRecognizer;
+@property (strong) UIGestureRecognizer *buttonRecognizer;
 @property (strong) CMMotionManager *motionManager;
 @property (copy) CMGyroHandler gyroHandler;
 @property (copy) CMAccelerometerHandler accelerometerHandler;
