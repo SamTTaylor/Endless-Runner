@@ -351,7 +351,7 @@ NSTimer *updatetimer;
     [self.model incrementScore:self.model.currentdifficulty * 10];
     [self.model incrementDifficultyScore:1];
     [self.model updateDifficulty];
-    self.score.text = [NSString stringWithFormat:@"%d", self.model.score];
+    self.score.text = [NSString stringWithFormat:@"Score: %d", self.model.score];
 }
 
 - (void) quitSelf{
@@ -361,7 +361,6 @@ NSTimer *updatetimer;
     self.closing = true;
     self.model = nil;
     [(SKView*)self.view presentScene:nil];
-    [self.updatetimer invalidate];
     [[self presentingViewController] dismissViewControllerAnimated:YES completion:nil];
 }
 
@@ -369,8 +368,41 @@ NSTimer *updatetimer;
     [self.model.player takeLife];
     [self updateLifeIcons];
     if(self.model.player.lives<=0){
-        [self quitSelf];
+        [self.updatetimer invalidate];
+        [self.model.player setLives:20];
+        UIAlertView *youdied = [[UIAlertView alloc]
+                                initWithTitle:@"Game Over!"
+                                message:[NSString stringWithFormat:@"You've run out lives!\n\n Your Score: %d\n\n Enter your name:", [self.model score] ]
+                                delegate:self
+                                cancelButtonTitle:@"Submit"
+                                otherButtonTitles:nil];
+        youdied.alertViewStyle = UIAlertViewStylePlainTextInput;
+        [youdied show];
     };
+}
+
+//You died alert redirects here: when you click OK quits
+-(void)alertView:(UIAlertView *)youdied clickedButtonAtIndex:(NSInteger)buttonIndex{
+    if (buttonIndex == 0){
+        UITextField *playername = [youdied textFieldAtIndex:0];
+        [self saveScoreWithName:playername.text Score:[self.model score]];
+    }
+    [self quitSelf];
+}
+
+
+- (void)saveScoreWithName:(NSString*)name Score:(int)s{
+    AppDelegate *ad = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+    NSMutableArray* maad = [[NSMutableArray alloc]initWithArray:ad.highscores];
+    for (int i = 0; i < maad.count; i++){
+        if ([[maad objectAtIndex:i] integerValue] <= s){
+            
+            maad[i] = [NSString stringWithFormat:@"%i", s];
+            
+            break;
+        }
+    }
+    ad.highscores = [maad copy];
 }
 
 - (void) updateLifeIcons{

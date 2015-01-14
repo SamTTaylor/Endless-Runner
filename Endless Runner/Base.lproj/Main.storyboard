@@ -353,7 +353,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GWy-SA-426" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-577.5" y="1716"/>
+            <point key="canvasLocation" x="-958.5" y="1486.5"/>
         </scene>
         <!--Game View Controller-->
         <scene sceneID="tXr-a1-R10">
@@ -380,15 +380,6 @@
                                     <action selector="quitPressed:" destination="BV1-FR-VrT" eventType="touchUpInside" id="SUw-kE-GL2"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8QD-9I-P1f">
-                                <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                                <variation key="heightClass=regular-widthClass=regular" ambiguous="YES" misplaced="YES">
-                                    <rect key="frame" x="745" y="34" width="10" height="21"/>
-                                </variation>
-                            </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="elc-Hv-mLz">
                                 <rect key="frame" x="-23" y="-15" width="46" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="33"/>
@@ -396,7 +387,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <variation key="heightClass=regular-widthClass=regular" ambiguous="YES" misplaced="YES">
-                                    <rect key="frame" x="16" y="670" width="102" height="60"/>
+                                    <rect key="frame" x="16" y="718" width="102" height="60"/>
                                 </variation>
                                 <connections>
                                     <action selector="leftPressed:" destination="BV1-FR-VrT" eventType="touchUpInside" id="Vmt-6M-ZXe"/>
@@ -409,12 +400,21 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <variation key="heightClass=regular-widthClass=regular" ambiguous="YES" misplaced="YES">
-                                    <rect key="frame" x="699" y="670" width="101" height="60"/>
+                                    <rect key="frame" x="699" y="717" width="101" height="60"/>
                                 </variation>
                                 <connections>
                                     <action selector="rightPressed:" destination="BV1-FR-VrT" eventType="touchUpInside" id="YN1-QN-mdx"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Score: 0" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8QD-9I-P1f">
+                                <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
+                                <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="27"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                                <variation key="heightClass=regular-widthClass=regular" ambiguous="YES" misplaced="YES">
+                                    <rect key="frame" x="705" y="28" width="90" height="52"/>
+                                </variation>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
@@ -424,9 +424,11 @@
                             </constraint>
                             <constraint firstAttribute="centerX" secondItem="elc-Hv-mLz" secondAttribute="centerX" id="Bkf-sH-rxg"/>
                             <constraint firstAttribute="centerY" secondItem="p55-KT-ord" secondAttribute="centerY" constant="-50" id="JgZ-Ir-Fri"/>
-                            <constraint firstAttribute="centerY" relation="greaterThanOrEqual" secondItem="p55-KT-ord" secondAttribute="centerY" constant="-300" id="QYh-Te-mvv"/>
+                            <constraint firstAttribute="centerY" relation="greaterThanOrEqual" secondItem="p55-KT-ord" secondAttribute="centerY" constant="-300" id="QYh-Te-mvv">
+                                <variation key="heightClass=regular-widthClass=regular" constant="-350"/>
+                            </constraint>
                             <constraint firstAttribute="centerY" relation="greaterThanOrEqual" secondItem="elc-Hv-mLz" secondAttribute="centerY" constant="200" id="XCs-t7-o0Q">
-                                <variation key="heightClass=regular-widthClass=regular" constant="-300"/>
+                                <variation key="heightClass=regular-widthClass=regular" constant="-350"/>
                             </constraint>
                             <constraint firstAttribute="centerX" secondItem="8QD-9I-P1f" secondAttribute="centerX" constant="-350" id="Xls-iO-7qd"/>
                             <constraint firstAttribute="centerX" relation="lessThanOrEqual" secondItem="elc-Hv-mLz" secondAttribute="centerX" id="ZIA-YL-mVc">
@@ -447,9 +449,9 @@
                         <variation key="default">
                             <mask key="subviews">
                                 <exclude reference="fWy-EB-Khq"/>
-                                <exclude reference="8QD-9I-P1f"/>
                                 <exclude reference="elc-Hv-mLz"/>
                                 <exclude reference="p55-KT-ord"/>
+                                <exclude reference="8QD-9I-P1f"/>
                             </mask>
                             <mask key="constraints">
                                 <exclude reference="A3Y-U4-nrN"/>
@@ -470,9 +472,9 @@
                         <variation key="heightClass=regular-widthClass=regular">
                             <mask key="subviews">
                                 <include reference="fWy-EB-Khq"/>
-                                <include reference="8QD-9I-P1f"/>
                                 <include reference="elc-Hv-mLz"/>
                                 <include reference="p55-KT-ord"/>
+                                <include reference="8QD-9I-P1f"/>
                             </mask>
                             <mask key="constraints">
                                 <include reference="A3Y-U4-nrN"/>

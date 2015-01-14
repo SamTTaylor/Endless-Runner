@@ -37,19 +37,28 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-}
-
-- (void) viewDidAppear:(BOOL)animated{
     self.tiltbool = true;
     [self setBgimagestring:@"background"];
     [self setAvatarimagestring:@"avatar.gif"];
-     self.bgtexture = [SKTexture textureWithImageNamed:self.bgimagestring];
-     self.groundtexture = [SKTexture textureWithImageNamed:@"ground"];
-     self.svc = nil;
-     self.gvc = nil;
+    self.bgtexture = [SKTexture textureWithImageNamed:self.bgimagestring];
+    self.groundtexture = [SKTexture textureWithImageNamed:@"ground"];
+    self.svc = nil;
+    self.gvc = nil;
+}
+
+- (void) viewDidAppear:(BOOL)animated{
+    [self setAvatarimagestring:@"avatar.gif"];
     [self setBgimagestring:@"background"];
     [self initialiseMenuScene];
+    //[self getscores];
 }
+/*-(void)getscores{
+    AppDelegate *ad = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+    NSArray* mad = [[NSArray alloc]initWithArray:ad.highscores];
+    for (NSString *name in mad)
+        NSLog(@"%@", name);
+}*/
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

@@ -25,6 +25,7 @@
 		68480E2C1A66A945004A4EEA /* AvatarText.png in Resources */ = {isa = PBXBuildFile; fileRef = 68480E291A66A945004A4EEA /* AvatarText.png */; };
 		68480E2D1A66A945004A4EEA /* BackgroundText.png in Resources */ = {isa = PBXBuildFile; fileRef = 68480E2A1A66A945004A4EEA /* BackgroundText.png */; };
 		68480EC41A66A9F2004A4EEA /* ControlsText.png in Resources */ = {isa = PBXBuildFile; fileRef = 68480EC31A66A9F2004A4EEA /* ControlsText.png */; };
+		68480EC81A66E0A7004A4EEA /* LennyHighScores.plist in Resources */ = {isa = PBXBuildFile; fileRef = 68480EC71A66E0A7004A4EEA /* LennyHighScores.plist */; };
 		6851ECAD1A6526FB00C661D2 /* kopf-animation.png in Resources */ = {isa = PBXBuildFile; fileRef = 6851ECAC1A6526FB00C661D2 /* kopf-animation.png */; };
 		6875160E1A24F92600748410 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 6875160D1A24F92600748410 /* main.m */; };
 		687516111A24F92600748410 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 687516101A24F92600748410 /* AppDelegate.m */; };
@@ -99,6 +100,7 @@
 		68480E291A66A945004A4EEA /* AvatarText.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = AvatarText.png; path = "Endless Runner/Images/Text/AvatarText.png"; sourceTree = "<group>"; };
 		68480E2A1A66A945004A4EEA /* BackgroundText.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = BackgroundText.png; path = "Endless Runner/Images/Text/BackgroundText.png"; sourceTree = "<group>"; };
 		68480EC31A66A9F2004A4EEA /* ControlsText.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ControlsText.png; path = "Endless Runner/Images/Text/ControlsText.png"; sourceTree = "<group>"; };
+		68480EC71A66E0A7004A4EEA /* LennyHighScores.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = LennyHighScores.plist; sourceTree = "<group>"; };
 		6851ECAC1A6526FB00C661D2 /* kopf-animation.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "kopf-animation.png"; path = "Endless Runner/Images/Characters/kopf-animation.png"; sourceTree = "<group>"; };
 		687516081A24F92600748410 /* Endless Runner.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Endless Runner.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6875160C1A24F92600748410 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -244,6 +246,7 @@
 		687515FF1A24F92600748410 = {
 			isa = PBXGroup;
 			children = (
+				68480EC71A66E0A7004A4EEA /* LennyHighScores.plist */,
 				682428011A28748C00F71A3D /* Images */,
 				6875160A1A24F92600748410 /* Endless Runner */,
 				687516291A24F92600748410 /* Endless RunnerTests */,
@@ -450,6 +453,7 @@
 				687516211A24F92600748410 /* LaunchScreen.xib in Resources */,
 				68F359041A63C81F0006E4B1 /* background.png in Resources */,
 				68480E211A667C43004A4EEA /* IntroText.png in Resources */,
+				68480EC81A66E0A7004A4EEA /* LennyHighScores.plist in Resources */,
 				68480EC41A66A9F2004A4EEA /* ControlsText.png in Resources */,
 				682652711A65A965004DB8AC /* MenuScene.sks in Resources */,
 				68F358FF1A63C80E0006E4B1 /* Mushroom.png in Resources */,

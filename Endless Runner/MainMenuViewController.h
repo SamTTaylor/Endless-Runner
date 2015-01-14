@@ -13,6 +13,7 @@
 #import <CoreMotion/CoreMotion.h>
 #import "GameScene.h"
 #import "GameModel.h"
+#import "AppDelegate.h"
 
 @interface MainMenuViewController : UIViewController
 
