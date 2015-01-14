@@ -37,18 +37,17 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    self.tiltbool = true;
-    self.bgtexture = [SKTexture textureWithImageNamed:@"background"];
-    self.groundtexture = [SKTexture textureWithImageNamed:@"ground"];
-    self.svc = nil;
-    self.gvc = nil;
-    [self initialiseMenuScene];
 }
 
 - (void) viewDidAppear:(BOOL)animated{
-    //Ran twice on startup due to viewDidLoad running it too
-    //Does not actually duplicate because scene already unarchived
-    //Allows for dismissal/retrieval of the scene while moving between MVCs
+    self.tiltbool = true;
+    [self setBgimagestring:@"background"];
+    [self setAvatarimagestring:@"avatar.gif"];
+     self.bgtexture = [SKTexture textureWithImageNamed:self.bgimagestring];
+     self.groundtexture = [SKTexture textureWithImageNamed:@"ground"];
+     self.svc = nil;
+     self.gvc = nil;
+    [self setBgimagestring:@"background"];
     [self initialiseMenuScene];
 }
 
@@ -62,6 +61,8 @@
     if ([[segue identifier]isEqualToString:@"segueToSettings"]) {
         self.svc = [segue destinationViewController];
         [self.svc setTiltbool:self.tiltbool];
+        [self.svc setBgimagestring:self.bgimagestring];
+        [self.svc setAvatarimagestring:self.avatarimagestring];
     }
     if ([[segue identifier]isEqualToString:@"segueToGame"]) {
         self.gvc = [segue destinationViewController];

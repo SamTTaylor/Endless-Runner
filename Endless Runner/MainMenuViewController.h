@@ -24,7 +24,8 @@
 @property bool tiltbool;
 @property SKTexture* bgtexture;
 @property SKTexture* groundtexture;
-
+@property NSString* bgimagestring;
+@property NSString* avatarimagestring;
 
 
 @property (weak) GameScene* menuscene;

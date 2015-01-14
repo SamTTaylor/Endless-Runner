@@ -22,6 +22,9 @@
 		68480E241A667C43004A4EEA /* SettingsText.png in Resources */ = {isa = PBXBuildFile; fileRef = 68480E1E1A667C43004A4EEA /* SettingsText.png */; };
 		68480E271A6680FE004A4EEA /* LeftArrowText.png in Resources */ = {isa = PBXBuildFile; fileRef = 68480E251A6680FE004A4EEA /* LeftArrowText.png */; };
 		68480E281A6680FE004A4EEA /* RightArrowText.png in Resources */ = {isa = PBXBuildFile; fileRef = 68480E261A6680FE004A4EEA /* RightArrowText.png */; };
+		68480E2C1A66A945004A4EEA /* AvatarText.png in Resources */ = {isa = PBXBuildFile; fileRef = 68480E291A66A945004A4EEA /* AvatarText.png */; };
+		68480E2D1A66A945004A4EEA /* BackgroundText.png in Resources */ = {isa = PBXBuildFile; fileRef = 68480E2A1A66A945004A4EEA /* BackgroundText.png */; };
+		68480EC41A66A9F2004A4EEA /* ControlsText.png in Resources */ = {isa = PBXBuildFile; fileRef = 68480EC31A66A9F2004A4EEA /* ControlsText.png */; };
 		6851ECAD1A6526FB00C661D2 /* kopf-animation.png in Resources */ = {isa = PBXBuildFile; fileRef = 6851ECAC1A6526FB00C661D2 /* kopf-animation.png */; };
 		6875160E1A24F92600748410 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 6875160D1A24F92600748410 /* main.m */; };
 		687516111A24F92600748410 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 687516101A24F92600748410 /* AppDelegate.m */; };
@@ -93,6 +96,9 @@
 		68480E1E1A667C43004A4EEA /* SettingsText.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = SettingsText.png; path = "Endless Runner/Images/Text/SettingsText.png"; sourceTree = "<group>"; };
 		68480E251A6680FE004A4EEA /* LeftArrowText.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = LeftArrowText.png; path = "Endless Runner/Images/Text/LeftArrowText.png"; sourceTree = "<group>"; };
 		68480E261A6680FE004A4EEA /* RightArrowText.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = RightArrowText.png; path = "Endless Runner/Images/Text/RightArrowText.png"; sourceTree = "<group>"; };
+		68480E291A66A945004A4EEA /* AvatarText.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = AvatarText.png; path = "Endless Runner/Images/Text/AvatarText.png"; sourceTree = "<group>"; };
+		68480E2A1A66A945004A4EEA /* BackgroundText.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = BackgroundText.png; path = "Endless Runner/Images/Text/BackgroundText.png"; sourceTree = "<group>"; };
+		68480EC31A66A9F2004A4EEA /* ControlsText.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ControlsText.png; path = "Endless Runner/Images/Text/ControlsText.png"; sourceTree = "<group>"; };
 		6851ECAC1A6526FB00C661D2 /* kopf-animation.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "kopf-animation.png"; path = "Endless Runner/Images/Characters/kopf-animation.png"; sourceTree = "<group>"; };
 		687516081A24F92600748410 /* Endless Runner.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Endless Runner.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6875160C1A24F92600748410 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -221,6 +227,9 @@
 		68480E181A667A7B004A4EEA /* Text */ = {
 			isa = PBXGroup;
 			children = (
+				68480EC31A66A9F2004A4EEA /* ControlsText.png */,
+				68480E291A66A945004A4EEA /* AvatarText.png */,
+				68480E2A1A66A945004A4EEA /* BackgroundText.png */,
 				68480E251A6680FE004A4EEA /* LeftArrowText.png */,
 				68480E261A6680FE004A4EEA /* RightArrowText.png */,
 				68480E1A1A667C43004A4EEA /* HighScoresText.png */,
@@ -435,10 +444,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				68480E2D1A66A945004A4EEA /* BackgroundText.png in Resources */,
 				68F359A41A640CD60006E4B1 /* Beehive.png in Resources */,
+				68480E2C1A66A945004A4EEA /* AvatarText.png in Resources */,
 				687516211A24F92600748410 /* LaunchScreen.xib in Resources */,
 				68F359041A63C81F0006E4B1 /* background.png in Resources */,
 				68480E211A667C43004A4EEA /* IntroText.png in Resources */,
+				68480EC41A66A9F2004A4EEA /* ControlsText.png in Resources */,
 				682652711A65A965004DB8AC /* MenuScene.sks in Resources */,
 				68F358FF1A63C80E0006E4B1 /* Mushroom.png in Resources */,
 				68F359131A63C82F0006E4B1 /* Fox.png in Resources */,

@@ -23,6 +23,28 @@
     } else {
         self.tiltcontrol.selectedSegmentIndex = 0;
     }
+    [self setbgPickerImage];
+    [self setavatarPickerImage];
+}
+
+- (void)setbgPickerImage{
+    UIImage *bg =[UIImage imageNamed:self.bgimagestring];
+    bg = [self scaleImage:bg toSize:CGSizeMake(300, 160)];
+    [self.bgimageview setImage:bg];
+}
+
+- (void)setavatarPickerImage{
+    UIImage *avatar =[UIImage imageNamed:self.avatarimagestring];
+    avatar = [self scaleImage:avatar toSize:CGSizeMake(144, 160)];
+    [self.avatarimageview setImage:avatar];
+}
+
+-(UIImage*) scaleImage: (UIImage*)image toSize:(CGSize)newSize {
+    UIGraphicsBeginImageContext(newSize);
+    [image drawInRect:CGRectMake(0, 0, newSize.width, newSize.height)];
+    UIImage *newImage = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    return newImage;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -36,6 +58,7 @@
     
     if (![[self.navigationController viewControllers] containsObject:self]) {
         [(MainMenuViewController*)self.navigationController.viewControllers[0] setTiltbool:self.tiltbool];
+        [(MainMenuViewController*)self.navigationController.viewControllers[0] setBgimagestring:self.bgimagestring];
     }
 }
 
