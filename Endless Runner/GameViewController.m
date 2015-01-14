@@ -245,6 +245,7 @@ NSTimer *updatetimer;
 }
 
 - (void)updaterFireMethod:(NSTimer *)updatetimer{
+    [self checkPlayerPos];
     if (self.startedbytilt == true || self.tiltbool == false) {
         
         float i = (double)self.model.difficultyscore/(double)self.model.difficultythreshold;
@@ -308,6 +309,18 @@ NSTimer *updatetimer;
     [self.spawnedobjects addObject:spawn];
     [spawn animateSelf];
 }
+
+
+-(void)checkPlayerPos{
+    if (self.model.player.position.x < 0){
+        [self.model placePlayer];
+        [self.model.player setPosition:CGPointMake(-20, self.model.player.position.y)];
+    } else if (self.model.player.position.x > [UIScreen mainScreen].bounds.size.width){
+        [self.model placePlayer];
+        [self.model.player setPosition:CGPointMake([UIScreen mainScreen].bounds.size.width, self.model.player.position.y)];
+    }
+}
+
 
 -(void)checkIntroduction:(TactileObject*)Tobj{
     bool containsobjectofclass = false;
