@@ -52,7 +52,6 @@ NSTimer *updatetimer;
     [self addListenersToButtons];
     [self instantiateGestureRecognizers];
     self.spawnedobjects = [[NSMutableArray alloc] init];
-    [self.doubleTapRecognizer requireGestureRecognizerToFail:self.swipeRecognizer];
     if (self.tiltbool == true){
         [self startGame];
     }
@@ -182,8 +181,8 @@ NSTimer *updatetimer;
 //Touch & Gesture handling
 
 -(void) instantiateGestureRecognizers{
-    [self instantiateDoubleTapRecognizer];
     [self instantiateSwipeRecognizer];
+    [self instantiateDoubleTapRecognizer];
 }
 
 - (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldReceiveTouch:(UITouch *)touch {
@@ -200,6 +199,7 @@ NSTimer *updatetimer;
                                            action:@selector(handleDoubleTap)];
     self.doubleTapRecognizer.numberOfTapsRequired = 2;
     [self.doubleTapRecognizer setDelegate:self];
+    [self.doubleTapRecognizer requireGestureRecognizerToFail:self.swipeRecognizer];
     [self.view addGestureRecognizer:self.doubleTapRecognizer];
 }
 
@@ -360,9 +360,7 @@ NSTimer *updatetimer;
     self.doubleTapRecognizer = nil;
     self.closing = true;
     self.model = nil;
-    [self.gamescene removeAllChildren];
-    [self.gamescene removeFromParent];
-    self.gamescene = nil;
+    [(SKView*)self.view presentScene:nil];
     [self.updatetimer invalidate];
     [[self presentingViewController] dismissViewControllerAnimated:YES completion:nil];
 }

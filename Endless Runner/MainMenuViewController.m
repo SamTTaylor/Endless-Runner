@@ -42,7 +42,13 @@
     self.groundtexture = [SKTexture textureWithImageNamed:@"ground"];
     self.svc = nil;
     self.gvc = nil;
-   
+    [self initialiseMenuScene];
+}
+
+- (void) viewDidAppear:(BOOL)animated{
+    //Ran twice on startup due to viewDidLoad running it too
+    //Does not actually duplicate because scene already unarchived
+    //Allows for dismissal/retrieval of the scene while moving between MVCs
     [self initialiseMenuScene];
 }
 
@@ -52,8 +58,7 @@
 }
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    [self.menuscene removeFromParent];
-    self.menuscene = nil;
+    [(SKView*)self.view presentScene:nil];
     if ([[segue identifier]isEqualToString:@"segueToSettings"]) {
         self.svc = [segue destinationViewController];
         [self.svc setTiltbool:self.tiltbool];
