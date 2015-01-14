@@ -40,6 +40,8 @@
 @property SKTexture *groundtexture;
 @property SKTexture *backgroundtexture;
 
+@property SKAction *walkAnimation;
+
 - (id)initWithPlayer;
 
 - (void) incrementScore:(int)i;

@@ -63,6 +63,8 @@
 		68F359AE1A6422050006E4B1 /* Spikes.m in Sources */ = {isa = PBXBuildFile; fileRef = 68F359AD1A6422050006E4B1 /* Spikes.m */; };
 		68F359B11A6422110006E4B1 /* Mushroom.m in Sources */ = {isa = PBXBuildFile; fileRef = 68F359B01A6422110006E4B1 /* Mushroom.m */; };
 		68F359B41A64221F0006E4B1 /* Bush.m in Sources */ = {isa = PBXBuildFile; fileRef = 68F359B31A64221F0006E4B1 /* Bush.m */; };
+		71FDAAC01A66E7B300787AF2 /* avatar.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 71FDAABF1A66E7B300787AF2 /* avatar.atlas */; };
+		71FDAAC21A66EC9100787AF2 /* frog.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 71FDAAC11A66EC9100787AF2 /* frog.atlas */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -159,6 +161,8 @@
 		68F359B01A6422110006E4B1 /* Mushroom.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Mushroom.m; sourceTree = "<group>"; };
 		68F359B21A64221F0006E4B1 /* Bush.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Bush.h; sourceTree = "<group>"; };
 		68F359B31A64221F0006E4B1 /* Bush.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Bush.m; sourceTree = "<group>"; };
+		71FDAABF1A66E7B300787AF2 /* avatar.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; name = avatar.atlas; path = "Endless Runner/Images/avatar.atlas"; sourceTree = "<group>"; };
+		71FDAAC11A66EC9100787AF2 /* frog.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; name = frog.atlas; path = ../../Desktop/ios/animation/frog.atlas; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -182,7 +186,16 @@
 		682428011A28748C00F71A3D /* Images */ = {
 			isa = PBXGroup;
 			children = (
+<<<<<<< Updated upstream
 				68480E181A667A7B004A4EEA /* Text */,
+=======
+<<<<<<< HEAD
+				71FDAAC11A66EC9100787AF2 /* frog.atlas */,
+				71FDAABF1A66E7B300787AF2 /* avatar.atlas */,
+=======
+				68480E181A667A7B004A4EEA /* Text */,
+>>>>>>> FETCH_HEAD
+>>>>>>> Stashed changes
 				68F358F71A63C7940006E4B1 /* Obstacles */,
 				682428031A2874A000F71A3D /* Backgrounds */,
 				682428021A28749800F71A3D /* Characters */,
@@ -463,12 +476,21 @@
 				682652711A65A965004DB8AC /* MenuScene.sks in Resources */,
 				68F358FF1A63C80E0006E4B1 /* Mushroom.png in Resources */,
 				68F359131A63C82F0006E4B1 /* Fox.png in Resources */,
+<<<<<<< Updated upstream
 				68480E271A6680FE004A4EEA /* LeftArrowText.png in Resources */,
+=======
+<<<<<<< HEAD
+				71FDAAC01A66E7B300787AF2 /* avatar.atlas in Resources */,
+=======
+				68480E271A6680FE004A4EEA /* LeftArrowText.png in Resources */,
+>>>>>>> FETCH_HEAD
+>>>>>>> Stashed changes
 				6875161E1A24F92600748410 /* Images.xcassets in Resources */,
 				68F3590F1A63C82F0006E4B1 /* bee.png in Resources */,
 				68480E241A667C43004A4EEA /* SettingsText.png in Resources */,
 				68F359051A63C81F0006E4B1 /* ground.png in Resources */,
 				68F359141A63C82F0006E4B1 /* Frog.png in Resources */,
+				71FDAAC21A66EC9100787AF2 /* frog.atlas in Resources */,
 				68F359151A63C82F0006E4B1 /* Wolf.png in Resources */,
 				6851ECAD1A6526FB00C661D2 /* kopf-animation.png in Resources */,
 				68F3590E1A63C82F0006E4B1 /* avatar.gif in Resources */,
