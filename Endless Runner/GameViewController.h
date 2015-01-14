@@ -19,7 +19,7 @@
 @property (weak) IBOutlet UIButton *quit;
 @property (weak) IBOutlet UILabel *score;
 
-@property GameScene* gamescene;
+@property (weak) GameScene* gamescene;
 @property GameModel* model;
 
 

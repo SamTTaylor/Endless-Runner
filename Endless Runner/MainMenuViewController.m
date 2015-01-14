@@ -52,6 +52,8 @@
 }
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    [self.menuscene removeFromParent];
+    self.menuscene = nil;
     if ([[segue identifier]isEqualToString:@"segueToSettings"]) {
         self.svc = [segue destinationViewController];
         [self.svc setTiltbool:self.tiltbool];

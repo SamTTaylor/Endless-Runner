@@ -18,13 +18,15 @@
 
 @property (weak) IBOutlet UIButton *play;
 @property (weak) IBOutlet UIButton *settings;
+@property (weak) IBOutlet UIButton *highscores;
+@property (weak) IBOutlet UIButton *instructions;
 
 @property bool tiltbool;
 @property SKTexture* bgtexture;
 @property SKTexture* groundtexture;
 
 
-@property GameScene* menuscene;
+@property (weak) GameScene* menuscene;
 @property (weak) SettingsViewController *svc;
 @property (weak) GameViewController *gvc;
 

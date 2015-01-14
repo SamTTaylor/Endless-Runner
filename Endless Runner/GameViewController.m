@@ -76,7 +76,6 @@ NSTimer *updatetimer;
     [self setGameGround];
     [self placePlayer];
     // Present the scene.
-     NSLog(@"%@", self.view);
     [skView presentScene:self.gamescene];
 }
 
@@ -335,6 +334,8 @@ NSTimer *updatetimer;
     self.doubleTapRecognizer = nil;
     self.closing = true;
     self.model = nil;
+    [self.gamescene removeAllChildren];
+    [self.gamescene removeFromParent];
     self.gamescene = nil;
     [self.updatetimer invalidate];
     [[self presentingViewController] dismissViewControllerAnimated:YES completion:nil];

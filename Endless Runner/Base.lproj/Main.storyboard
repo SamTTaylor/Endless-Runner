@@ -16,44 +16,69 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Cb8-9q-qNS">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Cb8-9q-qNS">
                                 <rect key="frame" x="-23" y="-15" width="46" height="30"/>
-                                <state key="normal" title="Settings">
+                                <state key="normal" image="SettingsText.png">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <variation key="heightClass=regular-widthClass=regular" misplaced="YES">
+                                    <rect key="frame" x="219" y="263" width="363" height="74"/>
+                                </variation>
                                 <connections>
                                     <segue destination="SVp-U8-3F3" kind="show" identifier="segueToSettings" id="yuM-wc-8Jc"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dZU-qR-Oa0">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dZU-qR-Oa0">
                                 <rect key="frame" x="-23" y="-15" width="46" height="30"/>
-                                <state key="normal" title="Play">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <size key="titleShadowOffset" width="20" height="0.0"/>
+                                <state key="normal" image="PlayText.png">
+                                    <color key="titleColor" red="0.9997981448710731" green="1" blue="0.58033339593897271" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
+                                <variation key="heightClass=regular-widthClass=regular"/>
                                 <connections>
                                     <segue destination="BV1-FR-VrT" kind="presentation" identifier="segueToGame" modalTransitionStyle="flipHorizontal" id="QSQ-fe-3LX"/>
                                 </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3WO-1B-eJT">
+                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <state key="normal" image="HighScoresText.png">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1Ht-XI-grM">
+                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <state key="normal" image="IntroText.png">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
                             </button>
                         </subviews>
                         <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
                         <constraints>
                             <constraint firstAttribute="centerY" secondItem="dZU-qR-Oa0" secondAttribute="centerY" id="39B-l6-zRe"/>
                             <constraint firstAttribute="centerY" secondItem="Cb8-9q-qNS" secondAttribute="centerY" id="9af-bq-zkn"/>
+                            <constraint firstAttribute="centerY" secondItem="1Ht-XI-grM" secondAttribute="centerY" constant="-100" id="Mhd-gQ-aye"/>
                             <constraint firstAttribute="centerY" secondItem="Cb8-9q-qNS" secondAttribute="centerY" constant="100" id="SJK-0e-ZXv">
-                                <variation key="heightClass=regular-widthClass=regular" constant="-100"/>
+                                <variation key="heightClass=regular-widthClass=regular" constant="100"/>
                             </constraint>
+                            <constraint firstAttribute="centerX" secondItem="1Ht-XI-grM" secondAttribute="centerX" id="TOO-4L-RB3"/>
                             <constraint firstAttribute="centerX" secondItem="dZU-qR-Oa0" secondAttribute="centerX" id="U72-ul-Ium"/>
                             <constraint firstAttribute="centerX" secondItem="Cb8-9q-qNS" secondAttribute="centerX" constant="50" id="ZyB-Ks-rcL">
                                 <variation key="heightClass=regular-widthClass=regular" constant="0.0"/>
                             </constraint>
                             <constraint firstAttribute="centerX" secondItem="dZU-qR-Oa0" secondAttribute="centerX" id="bc3-Qx-CPH"/>
+                            <constraint firstAttribute="centerY" secondItem="3WO-1B-eJT" secondAttribute="centerY" id="faU-Yg-kMs"/>
                             <constraint firstAttribute="centerX" secondItem="Cb8-9q-qNS" secondAttribute="centerX" id="fvz-sm-olJ"/>
                             <constraint firstAttribute="centerY" secondItem="dZU-qR-Oa0" secondAttribute="centerY" constant="200" id="gyX-8t-Zb6"/>
+                            <constraint firstAttribute="centerX" secondItem="3WO-1B-eJT" secondAttribute="centerX" id="uIL-ha-9jC"/>
                         </constraints>
                         <variation key="default">
                             <mask key="subviews">
                                 <exclude reference="Cb8-9q-qNS"/>
                                 <exclude reference="dZU-qR-Oa0"/>
+                                <exclude reference="3WO-1B-eJT"/>
+                                <exclude reference="1Ht-XI-grM"/>
                             </mask>
                             <mask key="constraints">
                                 <exclude reference="9af-bq-zkn"/>
@@ -64,12 +89,18 @@
                                 <exclude reference="U72-ul-Ium"/>
                                 <exclude reference="bc3-Qx-CPH"/>
                                 <exclude reference="gyX-8t-Zb6"/>
+                                <exclude reference="faU-Yg-kMs"/>
+                                <exclude reference="uIL-ha-9jC"/>
+                                <exclude reference="Mhd-gQ-aye"/>
+                                <exclude reference="TOO-4L-RB3"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=regular-widthClass=regular">
                             <mask key="subviews">
                                 <include reference="Cb8-9q-qNS"/>
                                 <include reference="dZU-qR-Oa0"/>
+                                <include reference="3WO-1B-eJT"/>
+                                <include reference="1Ht-XI-grM"/>
                             </mask>
                             <mask key="constraints">
                                 <exclude reference="9af-bq-zkn"/>
@@ -80,11 +111,17 @@
                                 <exclude reference="U72-ul-Ium"/>
                                 <include reference="bc3-Qx-CPH"/>
                                 <include reference="gyX-8t-Zb6"/>
+                                <include reference="faU-Yg-kMs"/>
+                                <include reference="uIL-ha-9jC"/>
+                                <include reference="Mhd-gQ-aye"/>
+                                <include reference="TOO-4L-RB3"/>
                             </mask>
                         </variation>
                     </view>
                     <navigationItem key="navigationItem" id="rWK-Sv-7Le"/>
                     <connections>
+                        <outlet property="highscores" destination="3WO-1B-eJT" id="j5n-sG-qdO"/>
+                        <outlet property="instructions" destination="1Ht-XI-grM" id="JYs-pA-qYU"/>
                         <outlet property="play" destination="dZU-qR-Oa0" id="hpU-Us-tqc"/>
                         <outlet property="settings" destination="Cb8-9q-qNS" id="CXX-24-HGe"/>
                         <outlet property="view" destination="zR5-30-NiK" id="JRB-63-0gA"/>
@@ -162,27 +199,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="p55-KT-ord">
-                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="33"/>
-                                <state key="normal" title="Right">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <variation key="heightClass=regular-widthClass=regular" ambiguous="YES" misplaced="YES">
-                                    <rect key="frame" x="703" y="662" width="94" height="76"/>
-                                </variation>
-                                <connections>
-                                    <action selector="rightPressed:" destination="BV1-FR-VrT" eventType="touchUpInside" id="YN1-QN-mdx"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fWy-EB-Khq">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fWy-EB-Khq">
                                 <rect key="frame" x="-23" y="-15" width="46" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
-                                <state key="normal" title="Quit Game">
+                                <state key="normal" image="QuitText.png">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <variation key="heightClass=regular-widthClass=regular" ambiguous="YES" misplaced="YES">
-                                    <rect key="frame" x="16" y="20" width="139" height="43"/>
+                                    <rect key="frame" x="16" y="20" width="197" height="101"/>
                                 </variation>
                                 <connections>
                                     <action selector="quitPressed:" destination="BV1-FR-VrT" eventType="touchUpInside" id="SUw-kE-GL2"/>
@@ -197,17 +221,30 @@
                                     <rect key="frame" x="745" y="34" width="10" height="21"/>
                                 </variation>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="elc-Hv-mLz">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="elc-Hv-mLz">
                                 <rect key="frame" x="-23" y="-15" width="46" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="33"/>
-                                <state key="normal" title="Left">
+                                <state key="normal" image="LeftArrowText.png">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <variation key="heightClass=regular-widthClass=regular" ambiguous="YES" misplaced="YES">
-                                    <rect key="frame" x="16" y="680" width="86" height="41"/>
+                                    <rect key="frame" x="16" y="670" width="102" height="60"/>
                                 </variation>
                                 <connections>
                                     <action selector="leftPressed:" destination="BV1-FR-VrT" eventType="touchUpInside" id="Vmt-6M-ZXe"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="p55-KT-ord">
+                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="33"/>
+                                <state key="normal" image="RightArrowText.png">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <variation key="heightClass=regular-widthClass=regular" ambiguous="YES" misplaced="YES">
+                                    <rect key="frame" x="699" y="670" width="101" height="60"/>
+                                </variation>
+                                <connections>
+                                    <action selector="rightPressed:" destination="BV1-FR-VrT" eventType="touchUpInside" id="YN1-QN-mdx"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -233,18 +270,18 @@
                                 <variation key="heightClass=regular-widthClass=regular" constant="-350"/>
                             </constraint>
                             <constraint firstAttribute="centerY" relation="lessThanOrEqual" secondItem="fWy-EB-Khq" secondAttribute="centerY" constant="-200" id="pkJ-M6-fUe">
-                                <variation key="heightClass=regular-widthClass=regular" constant="350"/>
+                                <variation key="heightClass=regular-widthClass=regular" constant="330"/>
                             </constraint>
                             <constraint firstAttribute="centerX" relation="lessThanOrEqual" secondItem="fWy-EB-Khq" secondAttribute="centerX" constant="-200" id="qKa-vM-e8t">
-                                <variation key="heightClass=regular-widthClass=regular" constant="350"/>
+                                <variation key="heightClass=regular-widthClass=regular" constant="330"/>
                             </constraint>
                         </constraints>
                         <variation key="default">
                             <mask key="subviews">
-                                <exclude reference="p55-KT-ord"/>
                                 <exclude reference="fWy-EB-Khq"/>
                                 <exclude reference="8QD-9I-P1f"/>
                                 <exclude reference="elc-Hv-mLz"/>
+                                <exclude reference="p55-KT-ord"/>
                             </mask>
                             <mask key="constraints">
                                 <exclude reference="A3Y-U4-nrN"/>
@@ -264,10 +301,10 @@
                         </variation>
                         <variation key="heightClass=regular-widthClass=regular">
                             <mask key="subviews">
-                                <include reference="p55-KT-ord"/>
                                 <include reference="fWy-EB-Khq"/>
                                 <include reference="8QD-9I-P1f"/>
                                 <include reference="elc-Hv-mLz"/>
+                                <include reference="p55-KT-ord"/>
                             </mask>
                             <mask key="constraints">
                                 <include reference="A3Y-U4-nrN"/>
@@ -296,7 +333,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SZV-WD-TEh" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="346" y="778"/>
+            <point key="canvasLocation" x="345.75" y="777.75"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="qqw-Gj-P5D">
@@ -315,4 +352,13 @@
             <point key="canvasLocation" x="-1564" y="778"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="HighScoresText.png" width="431" height="75"/>
+        <image name="IntroText.png" width="457" height="73"/>
+        <image name="LeftArrowText.png" width="101" height="60"/>
+        <image name="PlayText.png" width="166" height="71"/>
+        <image name="QuitText.png" width="172" height="79"/>
+        <image name="RightArrowText.png" width="103" height="60"/>
+        <image name="SettingsText.png" width="296" height="74"/>
+    </resources>
 </document>
