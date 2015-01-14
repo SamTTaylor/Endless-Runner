@@ -26,6 +26,7 @@
 		68480E2D1A66A945004A4EEA /* BackgroundText.png in Resources */ = {isa = PBXBuildFile; fileRef = 68480E2A1A66A945004A4EEA /* BackgroundText.png */; };
 		68480EC41A66A9F2004A4EEA /* ControlsText.png in Resources */ = {isa = PBXBuildFile; fileRef = 68480EC31A66A9F2004A4EEA /* ControlsText.png */; };
 		68480EC81A66E0A7004A4EEA /* LennyHighScores.plist in Resources */ = {isa = PBXBuildFile; fileRef = 68480EC71A66E0A7004A4EEA /* LennyHighScores.plist */; };
+		68480ECB1A66E52F004A4EEA /* HighScoresViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 68480ECA1A66E52F004A4EEA /* HighScoresViewController.m */; };
 		6851ECAD1A6526FB00C661D2 /* kopf-animation.png in Resources */ = {isa = PBXBuildFile; fileRef = 6851ECAC1A6526FB00C661D2 /* kopf-animation.png */; };
 		6875160E1A24F92600748410 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 6875160D1A24F92600748410 /* main.m */; };
 		687516111A24F92600748410 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 687516101A24F92600748410 /* AppDelegate.m */; };
@@ -101,6 +102,8 @@
 		68480E2A1A66A945004A4EEA /* BackgroundText.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = BackgroundText.png; path = "Endless Runner/Images/Text/BackgroundText.png"; sourceTree = "<group>"; };
 		68480EC31A66A9F2004A4EEA /* ControlsText.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ControlsText.png; path = "Endless Runner/Images/Text/ControlsText.png"; sourceTree = "<group>"; };
 		68480EC71A66E0A7004A4EEA /* LennyHighScores.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = LennyHighScores.plist; sourceTree = "<group>"; };
+		68480EC91A66E52F004A4EEA /* HighScoresViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HighScoresViewController.h; sourceTree = "<group>"; };
+		68480ECA1A66E52F004A4EEA /* HighScoresViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HighScoresViewController.m; sourceTree = "<group>"; };
 		6851ECAC1A6526FB00C661D2 /* kopf-animation.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "kopf-animation.png"; path = "Endless Runner/Images/Characters/kopf-animation.png"; sourceTree = "<group>"; };
 		687516081A24F92600748410 /* Endless Runner.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Endless Runner.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6875160C1A24F92600748410 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -280,6 +283,8 @@
 				687516181A24F92600748410 /* GameViewController.m */,
 				68AA90281A56BE430056E5A2 /* SettingsViewController.h */,
 				68AA90291A56BE430056E5A2 /* SettingsViewController.m */,
+				68480EC91A66E52F004A4EEA /* HighScoresViewController.h */,
+				68480ECA1A66E52F004A4EEA /* HighScoresViewController.m */,
 				6875161A1A24F92600748410 /* Main.storyboard */,
 				6875161D1A24F92600748410 /* Images.xcassets */,
 				6875161F1A24F92600748410 /* LaunchScreen.xib */,
@@ -498,6 +503,7 @@
 				683D21C41A2F7CC90081FF3F /* Entity.m in Sources */,
 				687516191A24F92600748410 /* GameViewController.m in Sources */,
 				6816082B1A60172C0090CB96 /* Enemy.m in Sources */,
+				68480ECB1A66E52F004A4EEA /* HighScoresViewController.m in Sources */,
 				68F359B41A64221F0006E4B1 /* Bush.m in Sources */,
 				68F359251A63ECE20006E4B1 /* Wolf.m in Sources */,
 				687516111A24F92600748410 /* AppDelegate.m in Sources */,

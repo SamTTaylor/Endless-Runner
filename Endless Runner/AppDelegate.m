@@ -23,7 +23,12 @@
     NSString *filepath = [[NSBundle mainBundle]
                           pathForResource:@"LennyHighScores" ofType:@"plist"];
     self.highscores = [[NSArray alloc]                    initWithContentsOfFile:filepath];
-
+    //Delete documents folder contents
+    /*NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+     NSString *documentsDirectory = [paths objectAtIndex:0];
+     NSFileManager *fileMgr = [[NSFileManager alloc] init];
+     NSError *error = nil;
+     [fileMgr removeItemAtPath:documentsDirectory error:&error];*/
     return YES;
 }
 
@@ -60,7 +65,9 @@
 
 - (void)applicationWillTerminate:(UIApplication *)application {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
-
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *documentsDirectory = [paths objectAtIndex:0];
+    [self.highscores writeToFile:[documentsDirectory stringByAppendingPathComponent:@"LennyHighScores.plist"] atomically:YES];
 }
 
 @end

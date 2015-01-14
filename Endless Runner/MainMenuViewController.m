@@ -50,14 +50,7 @@
     [self setAvatarimagestring:@"avatar.gif"];
     [self setBgimagestring:@"background"];
     [self initialiseMenuScene];
-    //[self getscores];
 }
-/*-(void)getscores{
-    AppDelegate *ad = (AppDelegate *)[[UIApplication sharedApplication] delegate];
-    NSArray* mad = [[NSArray alloc]initWithArray:ad.highscores];
-    for (NSString *name in mad)
-        NSLog(@"%@", name);
-}*/
 
 
 - (void)didReceiveMemoryWarning {

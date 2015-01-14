@@ -367,9 +367,9 @@ NSTimer *updatetimer;
 - (void) checkLives{
     [self.model.player takeLife];
     [self updateLifeIcons];
-    if(self.model.player.lives<=0){
+    if (self.model.player.lives <=0){
         [self.updatetimer invalidate];
-        [self.model.player setLives:20];
+        self.model.player.lives = 20; //Makes loads of life nodes upon death, needs to be fixed
         UIAlertView *youdied = [[UIAlertView alloc]
                                 initWithTitle:@"Game Over!"
                                 message:[NSString stringWithFormat:@"You've run out lives!\n\n Your Score: %d\n\n Enter your name:", [self.model score] ]
@@ -394,11 +394,12 @@ NSTimer *updatetimer;
 - (void)saveScoreWithName:(NSString*)name Score:(int)s{
     AppDelegate *ad = (AppDelegate *)[[UIApplication sharedApplication] delegate];
     NSMutableArray* maad = [[NSMutableArray alloc]initWithArray:ad.highscores];
+    bool replaced = false;
     for (int i = 0; i < maad.count; i++){
-        if ([[maad objectAtIndex:i] integerValue] <= s){
-            
-            maad[i] = [NSString stringWithFormat:@"%i", s];
-            
+        NSArray *delimitedarray = [[maad objectAtIndex:i] componentsSeparatedByString:@":  "];
+        if ([(NSNumber *)delimitedarray.lastObject intValue] <= s){
+            [maad insertObject:[NSString stringWithFormat:@"%@:  %i", name, s] atIndex:i];
+            replaced = true;
             break;
         }
     }

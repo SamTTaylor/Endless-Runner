@@ -42,6 +42,9 @@
                                 <state key="normal" image="HighScoresText.png">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <segue destination="p6X-aJ-evQ" kind="show" id="HoY-Zu-Ihv"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1Ht-XI-grM">
                                 <rect key="frame" x="-23" y="-15" width="46" height="30"/>
@@ -125,7 +128,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dnL-lB-C0F" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-565.5" y="778.5"/>
+            <point key="canvasLocation" x="-568.5" y="787.5"/>
         </scene>
         <!--Settings View Controller-->
         <scene sceneID="NqV-QM-xZ7">
@@ -354,6 +357,89 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GWy-SA-426" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-958.5" y="1486.5"/>
+        </scene>
+        <!--High Scores View Controller-->
+        <scene sceneID="mqt-93-f1v">
+            <objects>
+                <viewController id="p6X-aJ-evQ" customClass="HighScoresViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="p2y-1O-Kmf"/>
+                        <viewControllerLayoutGuide type="bottom" id="Ctz-O9-96J"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="6Wd-cz-CCk">
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gvE-B5-Pxd">
+                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <state key="normal" image="HighScoresText.png">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" sectionIndexMinimumDisplayRowCount="10" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="8RH-tr-FjN">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="sectionIndexColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="sectionIndexBackgroundColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <variation key="heightClass=regular-widthClass=regular" ambiguous="YES">
+                                    <rect key="frame" x="0.0" y="219" width="800" height="463"/>
+                                </variation>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <constraints>
+                            <constraint firstAttribute="centerY" secondItem="8RH-tr-FjN" secondAttribute="centerY" id="4t9-gn-8Dt"/>
+                            <constraint firstAttribute="centerX" secondItem="8RH-tr-FjN" secondAttribute="centerX" id="8tb-Ed-0QO"/>
+                            <constraint firstAttribute="centerY" secondItem="8RH-tr-FjN" secondAttribute="centerY" id="HxR-xN-dnD">
+                                <variation key="heightClass=regular-widthClass=regular" constant="-50"/>
+                            </constraint>
+                            <constraint firstAttribute="centerY" secondItem="gvE-B5-Pxd" secondAttribute="centerY" id="I9q-Pj-BVO">
+                                <variation key="heightClass=regular-widthClass=regular" constant="256"/>
+                            </constraint>
+                            <constraint firstAttribute="centerX" secondItem="gvE-B5-Pxd" secondAttribute="centerX" id="MVh-Jx-wAl"/>
+                            <constraint firstAttribute="centerX" secondItem="8RH-tr-FjN" secondAttribute="centerX" id="a3b-20-Bd8"/>
+                            <constraint firstAttribute="centerX" secondItem="8RH-tr-FjN" secondAttribute="centerX" id="dzO-um-eOr"/>
+                            <constraint firstAttribute="centerY" secondItem="8RH-tr-FjN" secondAttribute="centerY" id="pEl-NE-6wK"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="gvE-B5-Pxd"/>
+                                <exclude reference="8RH-tr-FjN"/>
+                            </mask>
+                            <mask key="constraints">
+                                <exclude reference="I9q-Pj-BVO"/>
+                                <exclude reference="MVh-Jx-wAl"/>
+                                <exclude reference="4t9-gn-8Dt"/>
+                                <exclude reference="8tb-Ed-0QO"/>
+                                <exclude reference="HxR-xN-dnD"/>
+                                <exclude reference="a3b-20-Bd8"/>
+                                <exclude reference="dzO-um-eOr"/>
+                                <exclude reference="pEl-NE-6wK"/>
+                            </mask>
+                        </variation>
+                        <variation key="heightClass=regular-widthClass=regular">
+                            <mask key="subviews">
+                                <include reference="gvE-B5-Pxd"/>
+                                <include reference="8RH-tr-FjN"/>
+                            </mask>
+                            <mask key="constraints">
+                                <include reference="I9q-Pj-BVO"/>
+                                <include reference="MVh-Jx-wAl"/>
+                                <exclude reference="4t9-gn-8Dt"/>
+                                <exclude reference="8tb-Ed-0QO"/>
+                                <exclude reference="HxR-xN-dnD"/>
+                                <exclude reference="a3b-20-Bd8"/>
+                                <exclude reference="dzO-um-eOr"/>
+                                <exclude reference="pEl-NE-6wK"/>
+                            </mask>
+                        </variation>
+                    </view>
+                    <connections>
+                        <outlet property="highscoretable" destination="8RH-tr-FjN" id="Uco-Nq-FMe"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="L64-Mp-iro" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-304.5" y="1486.5"/>
         </scene>
         <!--Game View Controller-->
         <scene sceneID="tXr-a1-R10">

@@ -15,6 +15,7 @@
 @property bool inbog;
 @property int lives;
 @property bool invulnerable;
+@property bool dead;
 
 - (void)takeLife;
 - (void)collidedWithBog;

@@ -20,6 +20,7 @@
         self.physicsBody.collisionBitMask = 0x1 << 2 | 0x1 << 4 | 0x1 << 3 | 0x1 << 8 | 0x1 << 7;
         self.physicsBody.allowsRotation = false;
         self.lives = 3;
+        self.dead = false;
         [self setInvulnerable:false];
         [self setSpeed:50];
     }
@@ -46,6 +47,9 @@
             [SKAction runBlock:^{
                 [self setInvulnerable:false];
             }]]]];
+    }
+    if (self.lives == 0){
+        self.dead == true;
     }
 }
 
