@@ -15,8 +15,6 @@
     if (self) {
         //Initialization code
         self.player = [[Player alloc] initWithTexture:[SKTexture textureWithImageNamed:@"avatar.gif"]];
-        self.backgroundtexture = [SKTexture textureWithImageNamed:@"background"];
-        self.groundtexture = [SKTexture textureWithImageNamed:@"ground"];
         [self populateEnemyArray];
         [self populateObstacleArray];
         [self populateLivesArray];

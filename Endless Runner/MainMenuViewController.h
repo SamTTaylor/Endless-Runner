@@ -7,13 +7,24 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <SpriteKit/SpriteKit.h>
 #import "SettingsViewController.h"
 #import "GameViewController.h"
+#import <CoreMotion/CoreMotion.h>
+#import "GameScene.h"
+#import "GameModel.h"
 
 @interface MainMenuViewController : UIViewController
 
-@property bool tiltbool;
+@property (weak) IBOutlet UIButton *play;
+@property (weak) IBOutlet UIButton *settings;
 
+@property bool tiltbool;
+@property SKTexture* bgtexture;
+@property SKTexture* groundtexture;
+
+
+@property GameScene* menuscene;
 @property (weak) SettingsViewController *svc;
 @property (weak) GameViewController *gvc;
 

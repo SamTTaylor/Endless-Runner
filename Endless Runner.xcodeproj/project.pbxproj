@@ -10,6 +10,7 @@
 		681608281A6010410090CB96 /* ToastView.m in Sources */ = {isa = PBXBuildFile; fileRef = 681608271A6010410090CB96 /* ToastView.m */; };
 		6816082B1A60172C0090CB96 /* Enemy.m in Sources */ = {isa = PBXBuildFile; fileRef = 6816082A1A60172C0090CB96 /* Enemy.m */; };
 		682428001A28740B00F71A3D /* GameModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 682427FF1A28740B00F71A3D /* GameModel.m */; };
+		682652711A65A965004DB8AC /* MenuScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 682652701A65A965004DB8AC /* MenuScene.sks */; };
 		683D21C41A2F7CC90081FF3F /* Entity.m in Sources */ = {isa = PBXBuildFile; fileRef = 683D21C31A2F7CC90081FF3F /* Entity.m */; };
 		683D21C71A2F7CD50081FF3F /* Player.m in Sources */ = {isa = PBXBuildFile; fileRef = 683D21C61A2F7CD50081FF3F /* Player.m */; };
 		683D21CA1A2F7F320081FF3F /* LivingEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = 683D21C91A2F7F320081FF3F /* LivingEntity.m */; };
@@ -69,6 +70,7 @@
 		6816082A1A60172C0090CB96 /* Enemy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Enemy.m; sourceTree = "<group>"; };
 		682427FE1A28740B00F71A3D /* GameModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameModel.h; sourceTree = "<group>"; };
 		682427FF1A28740B00F71A3D /* GameModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameModel.m; sourceTree = "<group>"; };
+		682652701A65A965004DB8AC /* MenuScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = MenuScene.sks; sourceTree = "<group>"; };
 		683D21C21A2F7CC90081FF3F /* Entity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Entity.h; sourceTree = "<group>"; };
 		683D21C31A2F7CC90081FF3F /* Entity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Entity.m; sourceTree = "<group>"; };
 		683D21C51A2F7CD50081FF3F /* Player.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Player.h; sourceTree = "<group>"; };
@@ -232,6 +234,7 @@
 				682427FF1A28740B00F71A3D /* GameModel.m */,
 				68AA902B1A56C4700056E5A2 /* MainMenuViewController.h */,
 				68AA902C1A56C4700056E5A2 /* MainMenuViewController.m */,
+				682652701A65A965004DB8AC /* MenuScene.sks */,
 				687516171A24F92600748410 /* GameViewController.h */,
 				687516181A24F92600748410 /* GameViewController.m */,
 				68AA90281A56BE430056E5A2 /* SettingsViewController.h */,
@@ -406,6 +409,7 @@
 				68F359A41A640CD60006E4B1 /* Beehive.png in Resources */,
 				687516211A24F92600748410 /* LaunchScreen.xib in Resources */,
 				68F359041A63C81F0006E4B1 /* background.png in Resources */,
+				682652711A65A965004DB8AC /* MenuScene.sks in Resources */,
 				68F358FF1A63C80E0006E4B1 /* Mushroom.png in Resources */,
 				68F359131A63C82F0006E4B1 /* Fox.png in Resources */,
 				6875161E1A24F92600748410 /* Images.xcassets in Resources */,

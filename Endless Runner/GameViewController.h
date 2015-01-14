@@ -22,8 +22,12 @@
 @property GameScene* gamescene;
 @property GameModel* model;
 
-@property bool closing;
+
 @property bool tiltbool;
+@property SKTexture* bgtexture;
+@property SKTexture* groundtexture;
+
+@property bool closing;
 @property bool gamestarted;
 @property bool startedbytilt;
 @property double yRotation;

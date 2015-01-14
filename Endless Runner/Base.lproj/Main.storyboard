@@ -7,14 +7,13 @@
         <!--Main Menu View Controller-->
         <scene sceneID="vIE-LY-yET">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dnL-lB-C0F" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="5VM-Tk-vgp" customClass="MainMenuViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="emr-5g-PhJ"/>
                         <viewControllerLayoutGuide type="bottom" id="zSf-Y8-NGX"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="zR5-30-NiK">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="536"/>
+                    <view key="view" autoresizesSubviews="NO" contentMode="scaleToFill" id="zR5-30-NiK" customClass="SKView">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Cb8-9q-qNS">
@@ -84,10 +83,14 @@
                             </mask>
                         </variation>
                     </view>
-                    <extendedEdge key="edgesForExtendedLayout"/>
                     <navigationItem key="navigationItem" id="rWK-Sv-7Le"/>
-                    <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
+                    <connections>
+                        <outlet property="play" destination="dZU-qR-Oa0" id="hpU-Us-tqc"/>
+                        <outlet property="settings" destination="Cb8-9q-qNS" id="CXX-24-HGe"/>
+                        <outlet property="view" destination="zR5-30-NiK" id="JRB-63-0gA"/>
+                    </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dnL-lB-C0F" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-565.5" y="778.5"/>
         </scene>

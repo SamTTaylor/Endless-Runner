@@ -7,6 +7,26 @@
 //
 
 #import "MainMenuViewController.h"
+#import "GameScene.h"
+
+@implementation SKScene (Unarchive)
+
++ (instancetype)unarchiveFromFile:(NSString *)file {
+    /* Retrieve scene file path from the application bundle */
+    NSString *nodePath = [[NSBundle mainBundle] pathForResource:file ofType:@"sks"];
+    /* Unarchive the file to an SKScene object */
+    NSData *data = [NSData dataWithContentsOfFile:nodePath
+                                          options:NSDataReadingMappedIfSafe
+                                            error:nil];
+    NSKeyedUnarchiver *arch = [[NSKeyedUnarchiver alloc] initForReadingWithData:data];
+    [arch setClass:self forClassName:@"SKScene"];
+    SKScene *scene = [arch decodeObjectForKey:NSKeyedArchiveRootObjectKey];
+    [arch finishDecoding];
+    
+    return scene;
+}
+
+@end
 
 @interface MainMenuViewController ()
 
@@ -18,8 +38,12 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.tiltbool = true;
+    self.bgtexture = [SKTexture textureWithImageNamed:@"background"];
+    self.groundtexture = [SKTexture textureWithImageNamed:@"ground"];
     self.svc = nil;
     self.gvc = nil;
+   
+    [self initialiseMenuScene];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -35,7 +59,35 @@
     if ([[segue identifier]isEqualToString:@"segueToGame"]) {
         self.gvc = [segue destinationViewController];
         [self.gvc setTiltbool:self.tiltbool];
+        [self.gvc setGroundtexture:self.groundtexture];
+        [self.gvc setBgtexture:self.bgtexture];
     }
+}
+
+- (void)setMenuBackground{
+    SKAction* moveBg = [SKAction moveByX:-self.bgtexture.size.width*2 y:0 duration:0.015 * self.bgtexture.size.width*2];
+    SKAction* resetBg = [SKAction moveByX:self.bgtexture.size.width*2 y:0 duration:0];
+    SKAction* loopBgMovement = [SKAction repeatActionForever:[SKAction sequence:@[moveBg, resetBg]]];
+    
+    
+    for( int i = 0; i < 2 + self.menuscene.frame.size.width; ++i ) {
+        SKSpriteNode* sprite = [SKSpriteNode spriteNodeWithTexture:self.bgtexture];
+        [sprite setScale:0.55];
+        sprite.position = CGPointMake(i * sprite.size.width-(5*i), sprite.size.height/2);
+        [sprite runAction:loopBgMovement];
+        [self.menuscene addChild:sprite];
+    }
+}
+
+- (void)initialiseMenuScene{
+    // Configure  jthe view.
+    SKView * skView = (SKView *)self.view;
+    skView.ignoresSiblingOrder = YES;
+    self.menuscene = [GameScene unarchiveFromFile:@"MenuScene"];
+    self.menuscene.scaleMode = SKSceneScaleModeAspectFill;
+    [self setMenuBackground];
+    // Present the scene.
+    [skView presentScene:self.menuscene];
 }
 
 @end

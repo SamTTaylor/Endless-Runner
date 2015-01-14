@@ -70,10 +70,13 @@ NSTimer *updatetimer;
     self.gamescene = [GameScene unarchiveFromFile:@"GameScene"];
     self.gamescene.scaleMode = SKSceneScaleModeAspectFill;
     self.model = [[GameModel alloc] initWithPlayer];
-    [self setGameBackground:self.model.backgroundtexture];
-    [self setGameGround:self.model.groundtexture];
+    [self.model setGroundtexture:self.groundtexture];
+    [self.model setBackgroundtexture:self.bgtexture];
+    [self setGameBackground];
+    [self setGameGround];
     [self placePlayer];
     // Present the scene.
+     NSLog(@"%@", self.view);
     [skView presentScene:self.gamescene];
 }
 
@@ -131,14 +134,14 @@ NSTimer *updatetimer;
     }
 }
 
-- (void)setGameBackground:(SKTexture*) bgImage{
-    SKAction* moveBg = [SKAction moveByX:-self.model.backgroundtexture.size.width*2 y:0 duration:0.015 * self.model.backgroundtexture.size.width*2];
-    SKAction* resetBg = [SKAction moveByX:self.model.backgroundtexture.size.width*2 y:0 duration:0];
+- (void)setGameBackground{
+    SKAction* moveBg = [SKAction moveByX:-self.bgtexture.size.width*2 y:0 duration:0.015 * self.bgtexture.size.width*2];
+    SKAction* resetBg = [SKAction moveByX:self.bgtexture.size.width*2 y:0 duration:0];
     SKAction* loopBgMovement = [SKAction repeatActionForever:[SKAction sequence:@[moveBg, resetBg]]];
     
     
     for( int i = 0; i < 2 + self.gamescene.frame.size.width; ++i ) {
-        SKSpriteNode* sprite = [SKSpriteNode spriteNodeWithTexture:bgImage];
+        SKSpriteNode* sprite = [SKSpriteNode spriteNodeWithTexture:self.bgtexture];
         [sprite setScale:0.55];
         sprite.position = CGPointMake(i * sprite.size.width-(5*i), sprite.size.height/2);
         [sprite runAction:loopBgMovement];
@@ -146,11 +149,11 @@ NSTimer *updatetimer;
     }
 }
 
-- (void)setGameGround:(SKTexture*) groundtexture{
+- (void)setGameGround{
     
-    for( int i = 0; i < 2 + self.gamescene.frame.size.width / ( self.model.groundtexture.size.width * 2 ); ++i ) {
+    for( int i = 0; i < 2 + self.gamescene.frame.size.width / ( self.groundtexture.size.width * 2 ); ++i ) {
         // Create the sprite
-        SKSpriteNode* sprite = [SKSpriteNode spriteNodeWithTexture:self.model.groundtexture];
+        SKSpriteNode* sprite = [SKSpriteNode spriteNodeWithTexture:self.groundtexture];
         sprite.yScale = 0.4;
         sprite.position = CGPointMake(i * sprite.size.width-(30*i),sprite.size.height/2);
         [self.model moveNodeWithGround:sprite Repeat:true];

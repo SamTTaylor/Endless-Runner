@@ -25,8 +25,6 @@
 @interface GameModel : NSObject 
 
 @property Player* player;
-@property SKTexture* backgroundtexture;
-@property SKTexture* groundtexture;
 @property SKNode* groundnode;
 @property float speed;
 @property float tiltsensitivity;
@@ -38,6 +36,9 @@
 @property int difficultythreshold;
 @property int currentdifficulty;
 @property int groundspeed;
+
+@property SKTexture *groundtexture;
+@property SKTexture *backgroundtexture;
 
 - (id)initWithPlayer;
 
