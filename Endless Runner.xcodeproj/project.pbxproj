@@ -42,7 +42,6 @@
 		6875162D1A24F92600748410 /* Endless_RunnerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6875162C1A24F92600748410 /* Endless_RunnerTests.m */; };
 		68AA902A1A56BE430056E5A2 /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 68AA90291A56BE430056E5A2 /* SettingsViewController.m */; };
 		68AA902D1A56C4700056E5A2 /* MainMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 68AA902C1A56C4700056E5A2 /* MainMenuViewController.m */; };
-		68F358FD1A63C80E0006E4B1 /* Bog.png in Resources */ = {isa = PBXBuildFile; fileRef = 68F358F81A63C80E0006E4B1 /* Bog.png */; };
 		68F358FE1A63C80E0006E4B1 /* Bush.png in Resources */ = {isa = PBXBuildFile; fileRef = 68F358F91A63C80E0006E4B1 /* Bush.png */; };
 		68F358FF1A63C80E0006E4B1 /* Mushroom.png in Resources */ = {isa = PBXBuildFile; fileRef = 68F358FA1A63C80E0006E4B1 /* Mushroom.png */; };
 		68F359001A63C80E0006E4B1 /* Spikes.png in Resources */ = {isa = PBXBuildFile; fileRef = 68F358FB1A63C80E0006E4B1 /* Spikes.png */; };
@@ -69,6 +68,11 @@
 		717CCAB61A67C18300B55E61 /* avatar.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 717CCAB31A67C18300B55E61 /* avatar.atlas */; };
 		717CCAB71A67C18300B55E61 /* beehive.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 717CCAB41A67C18300B55E61 /* beehive.atlas */; };
 		717CCAB81A67C18300B55E61 /* frog.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 717CCAB51A67C18300B55E61 /* frog.atlas */; };
+		BD2BFCDE1A68043C00A1E697 /* bird.atlas in Resources */ = {isa = PBXBuildFile; fileRef = BD2BFCD91A68043C00A1E697 /* bird.atlas */; };
+		BD2BFCDF1A68043C00A1E697 /* bog.atlas in Resources */ = {isa = PBXBuildFile; fileRef = BD2BFCDA1A68043C00A1E697 /* bog.atlas */; };
+		BD2BFCE01A68043C00A1E697 /* frog.atlas in Resources */ = {isa = PBXBuildFile; fileRef = BD2BFCDB1A68043C00A1E697 /* frog.atlas */; };
+		BD2BFCE11A68043C00A1E697 /* mushroom.atlas in Resources */ = {isa = PBXBuildFile; fileRef = BD2BFCDC1A68043C00A1E697 /* mushroom.atlas */; };
+		BD2BFCE21A68043C00A1E697 /* wolf.atlas in Resources */ = {isa = PBXBuildFile; fileRef = BD2BFCDD1A68043C00A1E697 /* wolf.atlas */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -134,7 +138,6 @@
 		68AA90291A56BE430056E5A2 /* SettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsViewController.m; sourceTree = "<group>"; };
 		68AA902B1A56C4700056E5A2 /* MainMenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainMenuViewController.h; sourceTree = "<group>"; };
 		68AA902C1A56C4700056E5A2 /* MainMenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainMenuViewController.m; sourceTree = "<group>"; };
-		68F358F81A63C80E0006E4B1 /* Bog.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Bog.png; path = "Endless Runner/Images/Obstacles/Bog.png"; sourceTree = "<group>"; };
 		68F358F91A63C80E0006E4B1 /* Bush.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Bush.png; path = "Endless Runner/Images/Obstacles/Bush.png"; sourceTree = "<group>"; };
 		68F358FA1A63C80E0006E4B1 /* Mushroom.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Mushroom.png; path = "Endless Runner/Images/Obstacles/Mushroom.png"; sourceTree = "<group>"; };
 		68F358FB1A63C80E0006E4B1 /* Spikes.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Spikes.png; path = "Endless Runner/Images/Obstacles/Spikes.png"; sourceTree = "<group>"; };
@@ -171,6 +174,11 @@
 		717CCAB31A67C18300B55E61 /* avatar.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = avatar.atlas; sourceTree = "<group>"; };
 		717CCAB41A67C18300B55E61 /* beehive.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = beehive.atlas; sourceTree = "<group>"; };
 		717CCAB51A67C18300B55E61 /* frog.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = frog.atlas; sourceTree = "<group>"; };
+		BD2BFCD91A68043C00A1E697 /* bird.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = bird.atlas; sourceTree = "<group>"; };
+		BD2BFCDA1A68043C00A1E697 /* bog.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = bog.atlas; sourceTree = "<group>"; };
+		BD2BFCDB1A68043C00A1E697 /* frog.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = frog.atlas; sourceTree = "<group>"; };
+		BD2BFCDC1A68043C00A1E697 /* mushroom.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = mushroom.atlas; sourceTree = "<group>"; };
+		BD2BFCDD1A68043C00A1E697 /* wolf.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = wolf.atlas; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -197,6 +205,11 @@
 				717CCAB31A67C18300B55E61 /* avatar.atlas */,
 				717CCAB41A67C18300B55E61 /* beehive.atlas */,
 				717CCAB51A67C18300B55E61 /* frog.atlas */,
+				BD2BFCD91A68043C00A1E697 /* bird.atlas */,
+				BD2BFCDA1A68043C00A1E697 /* bog.atlas */,
+				BD2BFCDB1A68043C00A1E697 /* frog.atlas */,
+				BD2BFCDC1A68043C00A1E697 /* mushroom.atlas */,
+				BD2BFCDD1A68043C00A1E697 /* wolf.atlas */,
 				68480E181A667A7B004A4EEA /* Text */,
 				68F358F71A63C7940006E4B1 /* Obstacles */,
 				682428031A2874A000F71A3D /* Backgrounds */,
@@ -343,7 +356,6 @@
 		68F358F71A63C7940006E4B1 /* Obstacles */ = {
 			isa = PBXGroup;
 			children = (
-				68F358F81A63C80E0006E4B1 /* Bog.png */,
 				68F358F91A63C80E0006E4B1 /* Bush.png */,
 				68F358FA1A63C80E0006E4B1 /* Mushroom.png */,
 				68F358FB1A63C80E0006E4B1 /* Spikes.png */,
@@ -489,21 +501,25 @@
 				717CCAB61A67C18300B55E61 /* avatar.atlas in Resources */,
 				68480E241A667C43004A4EEA /* SettingsText.png in Resources */,
 				68F359051A63C81F0006E4B1 /* ground.png in Resources */,
+				BD2BFCE21A68043C00A1E697 /* wolf.atlas in Resources */,
+				BD2BFCE01A68043C00A1E697 /* frog.atlas in Resources */,
 				68F359141A63C82F0006E4B1 /* Frog.png in Resources */,
 				68F359151A63C82F0006E4B1 /* Wolf.png in Resources */,
 				6851ECAD1A6526FB00C661D2 /* kopf-animation.png in Resources */,
 				68F3590E1A63C82F0006E4B1 /* avatar.gif in Resources */,
-				68F358FD1A63C80E0006E4B1 /* Bog.png in Resources */,
 				68F359001A63C80E0006E4B1 /* Spikes.png in Resources */,
+				BD2BFCE11A68043C00A1E697 /* mushroom.atlas in Resources */,
 				68480E201A667C43004A4EEA /* HighScoresText.png in Resources */,
 				68F358FE1A63C80E0006E4B1 /* Bush.png in Resources */,
 				68480E221A667C43004A4EEA /* PlayText.png in Resources */,
 				685F3D931A67D73B00A20F9A /* level1-bonus.png in Resources */,
+				BD2BFCDF1A68043C00A1E697 /* bog.atlas in Resources */,
 				68F359121A63C82F0006E4B1 /* Bird.png in Resources */,
 				685F3D941A67D73B00A20F9A /* level1-pit.png in Resources */,
 				68480E281A6680FE004A4EEA /* RightArrowText.png in Resources */,
 				68480E231A667C43004A4EEA /* QuitText.png in Resources */,
 				687516161A24F92600748410 /* GameScene.sks in Resources */,
+				BD2BFCDE1A68043C00A1E697 /* bird.atlas in Resources */,
 				717CCAB81A67C18300B55E61 /* frog.atlas in Resources */,
 				6875161C1A24F92600748410 /* Main.storyboard in Resources */,
 				68F359011A63C80E0006E4B1 /* Stump.png in Resources */,
@@ -674,6 +690,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = "Endless Runner/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
@@ -687,6 +704,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = "Endless Runner/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
