@@ -17,6 +17,7 @@
         //Initialization code
         [self setScale:0.6];
         self.physicsBody.categoryBitMask = 0x1 << 5;
+        [self animateSelf];
     }
     return self;
 }

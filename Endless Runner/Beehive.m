@@ -41,6 +41,7 @@
     [super deathAnimation];
     NSMutableArray *textures = [NSMutableArray arrayWithCapacity:16];
     for (int i = 1; i < 8; i++) {
+        NSLog(@"BEEHIVE in for loop");
         NSString *textureName = [NSString stringWithFormat:@"beehive%d.png", i];
         SKTexture *texture =[SKTexture textureWithImageNamed:textureName];
         [textures addObject:texture];

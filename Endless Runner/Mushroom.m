@@ -30,6 +30,7 @@
     [super deathAnimation];
     NSMutableArray *textures = [NSMutableArray arrayWithCapacity:16];
     for (int i = 1; i < 9; i++) {
+        NSLog(@"MUSHROOM in for loop");
         NSString *textureName = [NSString stringWithFormat:@"mushroom%d.png", i];
         SKTexture *texture =[SKTexture textureWithImageNamed:textureName];
         [textures addObject:texture];

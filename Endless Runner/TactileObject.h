@@ -18,8 +18,8 @@
 -(void)moveEntityRight:(int)speed;
 -(void)stopMovementActionsWithDirection:(int)d;
 
-- (void) animateSelf;
-- (void) deathAnimation;
+- (void)animateSelf;
+- (void)deathAnimation;
 - (void)introduction:(UIView*)inview;
 
 -(void) addLightNode;

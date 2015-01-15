@@ -73,6 +73,7 @@
 		BD2BFCE01A68043C00A1E697 /* frog.atlas in Resources */ = {isa = PBXBuildFile; fileRef = BD2BFCDB1A68043C00A1E697 /* frog.atlas */; };
 		BD2BFCE11A68043C00A1E697 /* mushroom.atlas in Resources */ = {isa = PBXBuildFile; fileRef = BD2BFCDC1A68043C00A1E697 /* mushroom.atlas */; };
 		BD2BFCE21A68043C00A1E697 /* wolf.atlas in Resources */ = {isa = PBXBuildFile; fileRef = BD2BFCDD1A68043C00A1E697 /* wolf.atlas */; };
+		BD2BFCE41A6820DE00A1E697 /* Bog.png in Resources */ = {isa = PBXBuildFile; fileRef = BD2BFCE31A6820DE00A1E697 /* Bog.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -179,6 +180,7 @@
 		BD2BFCDB1A68043C00A1E697 /* frog.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = frog.atlas; sourceTree = "<group>"; };
 		BD2BFCDC1A68043C00A1E697 /* mushroom.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = mushroom.atlas; sourceTree = "<group>"; };
 		BD2BFCDD1A68043C00A1E697 /* wolf.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = wolf.atlas; sourceTree = "<group>"; };
+		BD2BFCE31A6820DE00A1E697 /* Bog.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Bog.png; path = "Endless Runner/Images/Obstacles/Bog.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -356,6 +358,7 @@
 		68F358F71A63C7940006E4B1 /* Obstacles */ = {
 			isa = PBXGroup;
 			children = (
+				BD2BFCE31A6820DE00A1E697 /* Bog.png */,
 				68F358F91A63C80E0006E4B1 /* Bush.png */,
 				68F358FA1A63C80E0006E4B1 /* Mushroom.png */,
 				68F358FB1A63C80E0006E4B1 /* Spikes.png */,
@@ -506,6 +509,7 @@
 				68F359141A63C82F0006E4B1 /* Frog.png in Resources */,
 				68F359151A63C82F0006E4B1 /* Wolf.png in Resources */,
 				6851ECAD1A6526FB00C661D2 /* kopf-animation.png in Resources */,
+				BD2BFCE41A6820DE00A1E697 /* Bog.png in Resources */,
 				68F3590E1A63C82F0006E4B1 /* avatar.gif in Resources */,
 				68F359001A63C80E0006E4B1 /* Spikes.png in Resources */,
 				BD2BFCE11A68043C00A1E697 /* mushroom.atlas in Resources */,
