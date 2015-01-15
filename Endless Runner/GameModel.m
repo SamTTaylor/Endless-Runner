@@ -168,14 +168,22 @@
 }
 
 -(void)animateAvatar {
-    NSMutableArray *textures = [NSMutableArray arrayWithCapacity:8];
-    for (int i = 0; i < 8; i++) {
+    NSMutableArray *textures = [NSMutableArray arrayWithCapacity:16];
+    for (int i = 1; i < 8; i++) {
+        NSString *textureName = [NSString stringWithFormat:@"avatar%d.png", i];
+        SKTexture *texture =[SKTexture textureWithImageNamed:textureName];
+        [textures addObject:texture];
+    }
+    SKTexture *texture =[SKTexture textureWithImageNamed:@"avatar0.png"];
+    [textures addObject:texture];
+    [textures addObject:texture];
+    for (int i = 7; i > 0; i--) {
         NSString *textureName = [NSString stringWithFormat:@"avatar%d.png", i];
         SKTexture *texture =[SKTexture textureWithImageNamed:textureName];
         [textures addObject:texture];
     }
     
-    self.walkAnimation =[SKAction animateWithTextures:textures timePerFrame:0.3];
+    self.walkAnimation =[SKAction animateWithTextures:textures timePerFrame:3];
     SKAction *repeat = [SKAction repeatActionForever:self.walkAnimation];
     [self.player runAction:repeat];
 }
