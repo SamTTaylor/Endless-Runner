@@ -10,4 +10,6 @@
 
 @interface Wolf : Enemy
 
+@property SKAction *jumpAnimation;
+
 @end
