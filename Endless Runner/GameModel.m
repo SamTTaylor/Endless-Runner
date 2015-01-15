@@ -14,7 +14,7 @@
     self = [super init];
     if (self) {
         //Initialization code
-        self.player = [[Player alloc] initWithTexture:[SKTexture textureWithImageNamed:@"avatar.gif"]];
+        self.player = [[Player alloc] initWithTexture:[SKTexture textureWithImageNamed:@"avatar0.png"]];
         [self populateEnemyArray];
         [self populateObstacleArray];
         [self populateLivesArray];
@@ -25,6 +25,7 @@
         [self setGroundspeed:10];
         [self setSpeed:0.004];
         [self setTiltsensitivity:0.1];
+        [self animateAvatar];
     }
     return self;
 }
@@ -164,6 +165,19 @@
     //Bottom left
     [self.player setScale:0.2];
     [self placeEntWithLoc:1 Ent:self.player];
+}
+
+-(void)animateAvatar {
+    NSMutableArray *textures = [NSMutableArray arrayWithCapacity:8];
+    for (int i = 0; i < 8; i++) {
+        NSString *textureName = [NSString stringWithFormat:@"avatar%d.png", i];
+        SKTexture *texture =[SKTexture textureWithImageNamed:textureName];
+        [textures addObject:texture];
+    }
+    
+    self.walkAnimation =[SKAction animateWithTextures:textures timePerFrame:0.3];
+    SKAction *repeat = [SKAction repeatActionForever:self.walkAnimation];
+    [self.player runAction:repeat];
 }
 
 -(void)placeEntWithLoc:(int)loc Ent:(Entity*)ent{
