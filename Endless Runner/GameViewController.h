@@ -21,6 +21,7 @@
 @property (weak) IBOutlet UILabel *score;
 
 @property (weak) GameScene* gamescene;
+@property (weak) GameScene* challengescene;
 @property GameModel* model;
 
 

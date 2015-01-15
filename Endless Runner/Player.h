@@ -18,6 +18,7 @@
 @property bool dead;
 @property SKAction *walkAnimation;
 
+- (void)stopAnimation;
 - (void)takeLife;
 - (void)collidedWithBog;
 - (void)collidedWithMushroom;

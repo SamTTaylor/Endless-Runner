@@ -52,6 +52,7 @@
 
 - (TactileObject*) spawnRandomObstacle;
 - (Enemy*) spawnRandomEnemy;
+- (TactileObject*) spawnPit;
 
 - (void)moveNodeWithGround:(SKNode*)node Repeat:(bool)r;
 - (void)placePlayer;

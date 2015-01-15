@@ -32,7 +32,7 @@ float const ToastGap = 10.0f;
         _textLabel.textAlignment = NSTextAlignmentCenter;
         _textLabel.textColor = [UIColor whiteColor];
         _textLabel.numberOfLines = 2;
-        _textLabel.font = [UIFont fontWithName:@"TrebuchetMS" size:20];
+        _textLabel.font = [UIFont fontWithName:@"MarkerFelt-Thin" size:20];
         _textLabel.lineBreakMode = NSLineBreakByCharWrapping;
         [self addSubview:_textLabel];
         

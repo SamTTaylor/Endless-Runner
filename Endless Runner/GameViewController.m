@@ -31,12 +31,8 @@
 
 @implementation GameViewController
 
-static const int playerCategory = 0x1 << 1;
-static const int enemyCategory = 0x1 << 2;
-static const int bogCategory = 0x1 << 5;
-static const int lethalpassableCategory = 0x1 << 6;
-static const int mushroomCategory = 0x1 << 7;
-static const int lethalimpassableCategory = 0x1 << 8;
+static const int playerCategory = 0x1 << 1, enemyCategory = 0x1 << 2, bogCategory = 0x1 << 5, lethalpassableCategory = 0x1 << 6, mushroomCategory = 0x1 << 7, lethalimpassableCategory = 0x1 << 8, pitCategory = 0x1 << 10;
+
 
 NSTimer *updatetimer;
 
@@ -67,12 +63,13 @@ NSTimer *updatetimer;
     // Create and configure the scene.
     self.gamescene = [GameScene unarchiveFromFile:@"GameScene"];
     self.gamescene.scaleMode = SKSceneScaleModeAspectFill;
+    [self.gamescene setBoundsWithCategory:0];
     self.model = [[GameModel alloc] initWithPlayer];
     [self.model setGroundtexture:self.groundtexture];
     [self.model setBackgroundtexture:self.bgtexture];
     [self setGameBackground];
     [self setGameGround];
-    [self placePlayer];
+    [self placePlayer:0];
     // Present the scene.
     [skView presentScene:self.gamescene];
 }
@@ -172,11 +169,20 @@ NSTimer *updatetimer;
     [self.gamescene addChild:self.model.groundnode];
 }
 
-- (void)placePlayer{
+- (void)placePlayer:(int)scene{
     [self.model placePlayer];
-    [self.gamescene addChild:self.model.player];
+    switch (scene) {
+        case 0:
+            [self.gamescene addChild:self.model.player];
+            break;
+        case 1:
+            [self.challengescene addChild:self.model.player];
+            break;
+        default:
+            break;
+    }
+    
 }
-
 
 
 
@@ -275,7 +281,8 @@ NSTimer *updatetimer;
     if ([self dicerollWithPercentage:(i*100+20)] == YES){
         //What should I spawn?
         if ([self dicerollWithPercentage:(2)]){//2% chance for pit
-            //[self spawnPit];
+            TactileObject *pit = [self.model spawnPit];
+            [self.gamescene addChild:pit];
         } else if ([self dicerollWithPercentage:(50)]==YES){
             [self spawnRandomObstacle];
         } else {
@@ -347,9 +354,9 @@ NSTimer *updatetimer;
 - (void) checkLives{
     [self.model.player takeLife];
     [self updateLifeIcons];
-    if (self.model.player.lives <=0){
+    if (self.model.player.lives <=0 && self.model.player.dead == true){
         [self.updatetimer invalidate];
-        self.model.player.lives = 20; //Makes loads of life nodes upon death, needs to be fixed
+        self.model.player.dead == false;
         UIAlertView *youdied = [[UIAlertView alloc]
                                 initWithTitle:@"Game Over!"
                                 message:[NSString stringWithFormat:@"You've run out lives!\n\n Your Score: %d\n\n Enter your name:", [self.model score] ]
@@ -444,10 +451,54 @@ NSTimer *updatetimer;
         [ms deathAnimation];
         [self.model.player collidedWithMushroom];
     }
+    if (contact.bodyA.categoryBitMask == playerCategory && contact.bodyB.categoryBitMask == pitCategory){
+        [self.updatetimer invalidate];
+        [self movetoPitScene];
+    }
 }
 
+- (void)movetoPitScene{
 
+    // Configure the view.
+    SKView * skView = (SKView *)self.view;
+    self.challengescene = [GameScene unarchiveFromFile:@"GameScene"];
+    self.challengescene.scaleMode = SKSceneScaleModeAspectFill;
+    [self.challengescene setBoundsWithCategory:1];
+    // Create and configure the scene.
+    [self setChallengeBackground:1];
+    [self setChallengeGround:1];
+    // Present the scene.
+    [skView presentScene:self.challengescene transition:[SKTransition fadeWithColor:[UIColor blackColor] duration:1]];
+    [self.gamescene removeAllChildren];
+    [self placePlayer:1];
+}
 
+- (void)setChallengeBackground:(int)challenge{
+    SKSpriteNode* sprite = [[SKSpriteNode alloc] init];
+    CGFloat screenwidth = [UIScreen mainScreen].bounds.size.width;
+    CGFloat screenheight = [UIScreen mainScreen].bounds.size.height;
+    switch (challenge) {
+        case 1:
+            sprite = [SKSpriteNode spriteNodeWithTexture:[SKTexture textureWithImageNamed:@"level1-bonus"]];
+            [sprite setSize:CGSizeMake(screenwidth + 10, screenheight+20)];
+            sprite.position = CGPointMake(CGRectGetMidX(self.gamescene.frame), CGRectGetMidY(self.gamescene.frame));
+            [self.challengescene addChild:sprite];
+            break;
+            
+        default:
+            break;
+    }
+}
+
+- (void)setChallengeGround:(int)challenge{
+    switch (challenge) {
+        case 1:       
+            
+            break;
+        default:
+            break;
+    }
+}
 
 
 

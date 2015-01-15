@@ -155,6 +155,22 @@
     return spawn;
 }
 
+- (TactileObject*) spawnPit{
+    TactileObject* pit = [[TactileObject alloc] initWithTexture:[SKTexture textureWithImageNamed:@"level1-pit"]];
+    [pit setScale:0.4];
+    [pit setXScale:0.6];
+    [self placeEntWithLoc:0 Ent:pit];
+    pit.physicsBody.categoryBitMask = 0x1 << 10;
+    [pit setPosition:CGPointMake(pit.position.x, pit.position.y+5)];
+    return pit;
+}
+
+
+
+
+
+
+
 -(void)moveNodeWithGround:(SKNode*)node Repeat:(bool)r{
     //Sets up the ground sprites, makes them scroll passed in a loop
     CGFloat distance =  [UIScreen mainScreen].bounds.size.width*1.5;
@@ -169,7 +185,7 @@
         
     } else {
         
-        SKAction* move = [SKAction moveByX:-distance y:0 duration:self.groundspeed*10.15];
+        SKAction* move = [SKAction moveByX:-distance y:0 duration:self.groundspeed*10.35];
         SKAction* remove = [SKAction removeFromParent];
         SKAction* Movement = [SKAction sequence:@[move, remove]];
         

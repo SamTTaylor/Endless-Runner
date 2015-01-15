@@ -15,7 +15,7 @@
     self = [super initWithTexture:nodetexture];
     if (self) {
         //Initialization code
-        self.physicsBody.contactTestBitMask = 0x1 << 2 | 0x1 << 4 | 0x1 << 6 | 0x1 << 5 | 0x1 << 8 | 0x1 << 7;
+        self.physicsBody.contactTestBitMask = 0x1 << 2 | 0x1 << 4 | 0x1 << 6 | 0x1 << 5 | 0x1 << 8 | 0x1 << 7 | 0x1 << 10;
         self.physicsBody.categoryBitMask = 0x1 << 1;//player
         self.physicsBody.collisionBitMask = 0x1 << 2 | 0x1 << 4 | 0x1 << 3 | 0x1 << 8 | 0x1 << 7;
         self.physicsBody.allowsRotation = false;
@@ -52,6 +52,10 @@
     }
 }
 
+-(void) stopAnimation{
+    [self removeActionForKey:@"playeranimation"];
+}
+
 -(void) animateSelf{
     NSMutableArray *textures = [NSMutableArray arrayWithCapacity:16];
     for (int i = 1; i < 8; i++) {
@@ -72,7 +76,7 @@
     SKAction *repeat = [SKAction repeatActionForever:self.walkAnimation];
     [self runAction:[SKAction runBlock:^{
         [self runAction:repeat];
-    }]];
+    }]withKey:@"playeranimation"];
 }
 
 - (void)collidedWithBog{

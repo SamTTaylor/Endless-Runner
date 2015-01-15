@@ -12,4 +12,6 @@
 
 @property SKSpriteNode* currentBackgroundImage;
 
+-(void)setBoundsWithCategory:(int)cat;
+
 @end
