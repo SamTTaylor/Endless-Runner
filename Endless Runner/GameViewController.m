@@ -31,7 +31,7 @@
 
 @implementation GameViewController
 
-static const int playerCategory = 0x1 << 1, enemyCategory = 0x1 << 2, bogCategory = 0x1 << 5, lethalpassableCategory = 0x1 << 6, mushroomCategory = 0x1 << 7, lethalimpassableCategory = 0x1 << 8, pitCategory = 0x1 << 10;
+static const int playerCategory = 0x1 << 1, enemyCategory = 0x1 << 2, bogCategory = 0x1 << 5, lethalpassableCategory = 0x1 << 6, mushroomCategory = 0x1 << 7, lethalimpassableCategory = 0x1 << 8, pitCategory = 0x1 << 10, berryCategory = 0x1 << 11;
 
 
 NSTimer *updatetimer;
@@ -41,6 +41,8 @@ NSTimer *updatetimer;
     [super viewDidLoad];
     //Load new game
     [self initialiseGameScene];
+    [self initialiseModel];
+    [self GameStart];
     [self.gamescene.physicsWorld setContactDelegate:self];
     [self checkTiltBool];
     self.gamestarted = false;
@@ -64,14 +66,22 @@ NSTimer *updatetimer;
     self.gamescene = [GameScene unarchiveFromFile:@"GameScene"];
     self.gamescene.scaleMode = SKSceneScaleModeAspectFill;
     [self.gamescene setBoundsWithCategory:0];
+}
+
+- (void)initialiseModel{
     self.model = [[GameModel alloc] initWithPlayer];
     [self.model setGroundtexture:self.groundtexture];
     [self.model setBackgroundtexture:self.bgtexture];
+}
+
+-(void) GameStart{
     [self setGameBackground];
     [self setGameGround];
     [self placePlayer:0];
     // Present the scene.
-    [skView presentScene:self.gamescene];
+    // Configure the view.
+    SKView * skView = (SKView *)self.view;
+    [skView presentScene:self.gamescene transition:[SKTransition fadeWithColor:[UIColor blackColor] duration:1]];
 }
 
 - (void)startGame{
@@ -128,14 +138,16 @@ NSTimer *updatetimer;
 }
 
 - (void)setGameBackground{
-    SKAction* moveBg = [SKAction moveByX:-self.bgtexture.size.width*2 y:0 duration:0.015 * self.bgtexture.size.width*2];
-    SKAction* resetBg = [SKAction moveByX:self.bgtexture.size.width*2 y:0 duration:0];
+    int distance = self.bgtexture.size.width*2;
+    SKAction* moveBg = [SKAction moveByX:-distance y:0 duration:0.01 * distance];
+    SKAction* resetBg = [SKAction moveByX:distance y:0 duration:0];
     SKAction* loopBgMovement = [SKAction repeatActionForever:[SKAction sequence:@[moveBg, resetBg]]];
     
     
     for( int i = 0; i < 2 + self.gamescene.frame.size.width; ++i ) {
         SKSpriteNode* sprite = [SKSpriteNode spriteNodeWithTexture:self.bgtexture];
         [sprite setScale:0.55];
+        sprite.zPosition = -20;
         sprite.lightingBitMask = 0x1 << 1;
         sprite.position = CGPointMake(i * sprite.size.width-(5*i), sprite.size.height/2);
         
@@ -170,7 +182,7 @@ NSTimer *updatetimer;
 }
 
 - (void)placePlayer:(int)scene{
-    [self.model placePlayer];
+    [self.model placePlayer:scene];
     switch (scene) {
         case 0:
             [self.gamescene addChild:self.model.player];
@@ -217,9 +229,8 @@ NSTimer *updatetimer;
     if([self getNodeTouched:(UITouch*)self.doubleTapRecognizer].class == NSClassFromString(@"Beehive")){
             [(Beehive*)[self getNodeTouched:(UITouch*)self.doubleTapRecognizer] deathAnimation];
             [self.model incrementScore:self.model.currentdifficulty * 10];
-    } else {
-        [self.model jumpEntity:self.model.player];
     }
+    
 }
 
 
@@ -313,10 +324,10 @@ NSTimer *updatetimer;
 
 -(void)checkPlayerPos{
     if (self.model.player.position.x < 0){
-        [self.model placePlayer];
+        [self.model placePlayer:0];
         [self.model.player setPosition:CGPointMake(-20, self.model.player.position.y)];
     } else if (self.model.player.position.x > [UIScreen mainScreen].bounds.size.width){
-        [self.model placePlayer];
+        [self.model placePlayer:0];
         [self.model.player setPosition:CGPointMake([UIScreen mainScreen].bounds.size.width, self.model.player.position.y)];
     }
 }
@@ -426,39 +437,39 @@ NSTimer *updatetimer;
 
 
 //Contact handling
-- (void)didBeginContact:(SKPhysicsContact *)contact {
-    SKSpriteNode *firstNode, *secondNode;
-    firstNode = (SKSpriteNode *)contact.bodyA.node;
-    secondNode = (SKSpriteNode *) contact.bodyB.node;
-    
+- (void)didBeginContact:(SKPhysicsContact *)contact {  
     if (contact.bodyA.categoryBitMask == playerCategory && contact.bodyB.categoryBitMask == enemyCategory){
         [self checkLives];
-    }
-    if (contact.bodyA.categoryBitMask == playerCategory && contact.bodyB.categoryBitMask == lethalpassableCategory){
+    }else if (contact.bodyA.categoryBitMask == playerCategory && contact.bodyB.categoryBitMask == lethalpassableCategory){
         [self checkLives];
-    }
-    if (contact.bodyA.categoryBitMask == playerCategory && contact.bodyB.categoryBitMask == lethalimpassableCategory){
+    }else if (contact.bodyA.categoryBitMask == playerCategory && contact.bodyB.categoryBitMask == lethalimpassableCategory){
         [self checkLives];
-    }
-    if (contact.bodyA.categoryBitMask == playerCategory && contact.bodyB.categoryBitMask == bogCategory){
+    }else if (contact.bodyA.categoryBitMask == playerCategory && contact.bodyB.categoryBitMask == bogCategory){
         [self.model.player collidedWithBog];
-    }
-    if (contact.bodyA.categoryBitMask == playerCategory && contact.bodyB.categoryBitMask == mushroomCategory){
+    }else if (contact.bodyA.categoryBitMask == playerCategory && contact.bodyB.categoryBitMask == mushroomCategory){
         Mushroom* ms = (Mushroom*)contact.bodyB.node;
         ms.physicsBody.categoryBitMask = 0x1 << 9;//Stops over collision
         [self stopPlayerLeft];
         [self stopPlayerRight];
         [ms deathAnimation];
         [self.model.player collidedWithMushroom];
-    }
-    if (contact.bodyA.categoryBitMask == playerCategory && contact.bodyB.categoryBitMask == pitCategory){
+    }else if (contact.bodyA.categoryBitMask == playerCategory && contact.bodyB.categoryBitMask == pitCategory){
         [self.updatetimer invalidate];
         [self movetoPitScene];
+    }
+    if (contact.bodyA.categoryBitMask == playerCategory && contact.bodyB.categoryBitMask == berryCategory){
+        Berry* berry = (Berry*)contact.bodyB.node;
+        berry.physicsBody.categoryBitMask = 0x1 << 9;//Stops over collision
+        [berry deathAnimation];
+        [self.model incrementScore:500*self.model.currentdifficulty];
+        SKView * skView = (SKView *)self.view;
+        if (skView.scene == self.challengescene) {
+            [self moveBackToGameScene];
+        }
     }
 }
 
 - (void)movetoPitScene{
-
     // Configure the view.
     SKView * skView = (SKView *)self.view;
     self.challengescene = [GameScene unarchiveFromFile:@"GameScene"];
@@ -466,11 +477,16 @@ NSTimer *updatetimer;
     [self.challengescene setBoundsWithCategory:1];
     // Create and configure the scene.
     [self setChallengeBackground:1];
-    [self setChallengeGround:1];
     // Present the scene.
     [skView presentScene:self.challengescene transition:[SKTransition fadeWithColor:[UIColor blackColor] duration:1]];
     [self.gamescene removeAllChildren];
+    self.gamescene = nil;
     [self placePlayer:1];
+    [self.model.player stopAnimation];
+    [self.challengescene.children[0] setZPosition:5];
+    [self.challengescene.children[1] setZPosition:20];
+    [self.challengescene buildPitScene];
+    [self.challengescene.physicsWorld setContactDelegate:self];
 }
 
 - (void)setChallengeBackground:(int)challenge{
@@ -482,6 +498,7 @@ NSTimer *updatetimer;
             sprite = [SKSpriteNode spriteNodeWithTexture:[SKTexture textureWithImageNamed:@"level1-bonus"]];
             [sprite setSize:CGSizeMake(screenwidth + 10, screenheight+20)];
             sprite.position = CGPointMake(CGRectGetMidX(self.gamescene.frame), CGRectGetMidY(self.gamescene.frame));
+            [self.model.player addLightNode];
             [self.challengescene addChild:sprite];
             break;
             
@@ -490,19 +507,17 @@ NSTimer *updatetimer;
     }
 }
 
-- (void)setChallengeGround:(int)challenge{
-    switch (challenge) {
-        case 1:       
-            
-            break;
-        default:
-            break;
-    }
+
+- (void) moveBackToGameScene{
+    // Configure the view.
+    [self.model.player removeLightNode];
+    [self.challengescene removeAllChildren];
+    [self initialiseGameScene];
+    [self GameStart];
+    [self updaterfire];
+    [self.model.player animateSelf];
+    [self.gamescene.physicsWorld setContactDelegate:self];
 }
-
-
-
-
 
 
 //PLAYER MOVEMENT
@@ -530,6 +545,7 @@ NSTimer *updatetimer;
     } else {
         [self.model stopTactileObjectMovement:self.model.player Direction:1];
     }
+    [self pausePlayerAnimation];
 }
 
 - (void)stopPlayerRight{
@@ -538,10 +554,15 @@ NSTimer *updatetimer;
     } else {
         [self.model stopTactileObjectMovement:self.model.player Direction:0];
     }
+    [self pausePlayerAnimation];
 }
 
-
-
+- (void)pausePlayerAnimation{
+    SKView * skView = (SKView *)self.view;
+    if (skView.scene == self.challengescene) {
+        [self.model.player stopAnimation];
+    }
+}
 
 
 

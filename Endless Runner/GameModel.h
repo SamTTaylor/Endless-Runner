@@ -20,7 +20,7 @@
 #import "Spikes.h"
 #import "Mushroom.h"
 #import "Bush.h"
-
+#import "Berry.h"
 
 @interface GameModel : NSObject 
 
@@ -55,7 +55,7 @@
 - (TactileObject*) spawnPit;
 
 - (void)moveNodeWithGround:(SKNode*)node Repeat:(bool)r;
-- (void)placePlayer;
+- (void)placePlayer:(int)scene;
 
 - (void)placeEntWithLoc:(int)loc Ent:(Entity*)ent;
 

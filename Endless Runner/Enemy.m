@@ -15,7 +15,6 @@
     self = [super initWithTexture:nodetexture];
     if (self) {
         //Initialization code
-        self.shadowCastBitMask = 0x1 << 1;
     }
     return self;
 }

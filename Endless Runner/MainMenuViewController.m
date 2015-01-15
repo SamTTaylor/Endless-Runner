@@ -37,7 +37,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    self.tiltbool = true;
+    self.tiltbool = false;
     [self setBgimagestring:@"background"];
     [self setAvatarimagestring:@"avatar.gif"];
     self.bgtexture = [SKTexture textureWithImageNamed:self.bgimagestring];

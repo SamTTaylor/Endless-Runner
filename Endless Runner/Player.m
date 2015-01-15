@@ -15,7 +15,7 @@
     self = [super initWithTexture:nodetexture];
     if (self) {
         //Initialization code
-        self.physicsBody.contactTestBitMask = 0x1 << 2 | 0x1 << 4 | 0x1 << 6 | 0x1 << 5 | 0x1 << 8 | 0x1 << 7 | 0x1 << 10;
+        self.physicsBody.contactTestBitMask = 0x1 << 2 | 0x1 << 4 | 0x1 << 6 | 0x1 << 5 | 0x1 << 8 | 0x1 << 7 | 0x1 << 10 | 0x1 << 11;
         self.physicsBody.categoryBitMask = 0x1 << 1;//player
         self.physicsBody.collisionBitMask = 0x1 << 2 | 0x1 << 4 | 0x1 << 3 | 0x1 << 8 | 0x1 << 7;
         self.physicsBody.allowsRotation = false;
@@ -23,8 +23,21 @@
         self.dead = false;
         [self setInvulnerable:false];
         [self setSpeed:50];
+        [self initialiseAnimation];
     }
     return self;
+}
+
+-(void)moveEntityLeft:(int)speed{
+    [super moveEntityLeft:self.speed];
+    if (self.animated == false)
+        [self animateSelf];
+}
+
+-(void)moveEntityRight:(int)speed{
+    [super moveEntityRight:self.speed];
+    if (self.animated == false)
+        [self animateSelf];
 }
 
 -(void)jumpEntity{
@@ -53,10 +66,11 @@
 }
 
 -(void) stopAnimation{
-    [self removeActionForKey:@"playeranimation"];
+    [self setAnimated:false];
+    [self removeAllActions];
 }
 
--(void) animateSelf{
+-(void)initialiseAnimation{
     NSMutableArray *textures = [NSMutableArray arrayWithCapacity:16];
     for (int i = 1; i < 8; i++) {
         NSString *textureName = [NSString stringWithFormat:@"avatar%d.png", i];
@@ -73,6 +87,10 @@
     }
     
     self.walkAnimation =[SKAction animateWithTextures:textures timePerFrame:3];
+}
+
+-(void) animateSelf{
+    [self setAnimated:true];
     SKAction *repeat = [SKAction repeatActionForever:self.walkAnimation];
     [self runAction:[SKAction runBlock:^{
         [self runAction:repeat];

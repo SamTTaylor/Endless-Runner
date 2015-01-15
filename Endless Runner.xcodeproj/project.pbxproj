@@ -31,6 +31,7 @@
 		685F3D921A67D73B00A20F9A /* berry.png in Resources */ = {isa = PBXBuildFile; fileRef = 685F3D8F1A67D73B00A20F9A /* berry.png */; };
 		685F3D931A67D73B00A20F9A /* level1-bonus.png in Resources */ = {isa = PBXBuildFile; fileRef = 685F3D901A67D73B00A20F9A /* level1-bonus.png */; };
 		685F3D961A67E40900A20F9A /* level1-pit.png in Resources */ = {isa = PBXBuildFile; fileRef = 685F3D951A67E40900A20F9A /* level1-pit.png */; };
+		685F3D9C1A68332600A20F9A /* Berry.m in Sources */ = {isa = PBXBuildFile; fileRef = 685F3D9B1A68332600A20F9A /* Berry.m */; };
 		6875160E1A24F92600748410 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 6875160D1A24F92600748410 /* main.m */; };
 		687516111A24F92600748410 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 687516101A24F92600748410 /* AppDelegate.m */; };
 		687516141A24F92600748410 /* GameScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 687516131A24F92600748410 /* GameScene.m */; };
@@ -114,6 +115,8 @@
 		685F3D8F1A67D73B00A20F9A /* berry.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = berry.png; path = "Endless Runner/Images/Backgrounds/berry.png"; sourceTree = "<group>"; };
 		685F3D901A67D73B00A20F9A /* level1-bonus.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "level1-bonus.png"; path = "Endless Runner/Images/Backgrounds/level1-bonus.png"; sourceTree = "<group>"; };
 		685F3D951A67E40900A20F9A /* level1-pit.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "level1-pit.png"; path = "Endless Runner/Images/Backgrounds/level1-pit.png"; sourceTree = "<group>"; };
+		685F3D9A1A68332600A20F9A /* Berry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Berry.h; sourceTree = "<group>"; };
+		685F3D9B1A68332600A20F9A /* Berry.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Berry.m; sourceTree = "<group>"; };
 		687516081A24F92600748410 /* Endless Runner.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Endless Runner.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6875160C1A24F92600748410 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6875160D1A24F92600748410 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -224,7 +227,6 @@
 			isa = PBXGroup;
 			children = (
 				685F3D951A67E40900A20F9A /* level1-pit.png */,
-				685F3D8F1A67D73B00A20F9A /* berry.png */,
 				685F3D901A67D73B00A20F9A /* level1-bonus.png */,
 				68F359021A63C81F0006E4B1 /* background.png */,
 				68F359031A63C81F0006E4B1 /* ground.png */,
@@ -351,6 +353,7 @@
 		68F358F71A63C7940006E4B1 /* Obstacles */ = {
 			isa = PBXGroup;
 			children = (
+				685F3D8F1A67D73B00A20F9A /* berry.png */,
 				68F358F81A63C80E0006E4B1 /* Bog.png */,
 				68F358F91A63C80E0006E4B1 /* Bush.png */,
 				68F358FA1A63C80E0006E4B1 /* Mushroom.png */,
@@ -394,6 +397,8 @@
 				68F359B01A6422110006E4B1 /* Mushroom.m */,
 				68F359B21A64221F0006E4B1 /* Bush.h */,
 				68F359B31A64221F0006E4B1 /* Bush.m */,
+				685F3D9A1A68332600A20F9A /* Berry.h */,
+				685F3D9B1A68332600A20F9A /* Berry.m */,
 			);
 			name = Obstacles;
 			sourceTree = "<group>";
@@ -545,6 +550,7 @@
 				681608281A6010410090CB96 /* ToastView.m in Sources */,
 				68F359221A63ECD50006E4B1 /* Frog.m in Sources */,
 				68AA902D1A56C4700056E5A2 /* MainMenuViewController.m in Sources */,
+				685F3D9C1A68332600A20F9A /* Berry.m in Sources */,
 				68F359B11A6422110006E4B1 /* Mushroom.m in Sources */,
 				68F359181A63DB540006E4B1 /* Fox.m in Sources */,
 				682428001A28740B00F71A3D /* GameModel.m in Sources */,

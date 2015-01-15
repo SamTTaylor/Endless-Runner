@@ -24,7 +24,7 @@
         [self setScore:0];
         [self setGroundspeed:10];
         [self setSpeed:0.004];
-        [self setTiltsensitivity:0.1];
+        [self setTiltsensitivity:0.08];
         [self.player animateSelf];
     }
     return self;
@@ -226,10 +226,22 @@
     [Lent setFlying:f flappingfrequency:freq];
 }
 
--(void)placePlayer{
-    //Bottom left
-    [self.player setScale:0.2];
-    [self placeEntWithLoc:1 Ent:self.player];
+-(void)placePlayer:(int)scene{
+    switch (scene) {
+        case 0:
+            //Bottom left
+            [self.player setScale:0.2];
+            [self placeEntWithLoc:1 Ent:self.player];
+            break;
+        case 1:
+            //Bottom left
+            [self.player setScale:0.2];
+            [self.player setPosition:CGPointMake(self.player.size.width*2, [UIScreen mainScreen].bounds.size.height-self.player.size.height*1.5)];
+            break;
+        default:
+            break;
+    }
+
 }
 
 
