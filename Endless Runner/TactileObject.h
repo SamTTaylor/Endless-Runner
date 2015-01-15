@@ -12,6 +12,7 @@
 @interface TactileObject : Entity
 
 @property int difficultylevel;
+@property SKLightNode* light;
 
 -(void)moveEntityLeft:(int)speed;
 -(void)moveEntityRight:(int)speed;
@@ -20,5 +21,8 @@
 - (void) animateSelf;
 - (void) deathAnimation;
 - (void)introduction:(UIView*)inview;
+
+-(void) addLightNode;
+-(void) removeLightNode;
 
 @end

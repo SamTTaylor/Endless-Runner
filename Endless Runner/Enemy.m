@@ -15,13 +15,12 @@
     self = [super initWithTexture:nodetexture];
     if (self) {
         //Initialization code
-        
+        self.shadowCastBitMask = 0x1 << 1;
     }
     return self;
 }
 
 
-- (void) animateSelf{
-    
-}
+- (void) animateSelf{}
+- (void) deathAnimation{[super deathAnimation];}
 @end

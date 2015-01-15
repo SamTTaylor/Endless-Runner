@@ -16,6 +16,7 @@
 @property int lives;
 @property bool invulnerable;
 @property bool dead;
+@property SKAction *walkAnimation;
 
 - (void)takeLife;
 - (void)collidedWithBog;

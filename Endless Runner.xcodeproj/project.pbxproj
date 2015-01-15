@@ -28,6 +28,9 @@
 		68480EC81A66E0A7004A4EEA /* LennyHighScores.plist in Resources */ = {isa = PBXBuildFile; fileRef = 68480EC71A66E0A7004A4EEA /* LennyHighScores.plist */; };
 		68480ECB1A66E52F004A4EEA /* HighScoresViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 68480ECA1A66E52F004A4EEA /* HighScoresViewController.m */; };
 		6851ECAD1A6526FB00C661D2 /* kopf-animation.png in Resources */ = {isa = PBXBuildFile; fileRef = 6851ECAC1A6526FB00C661D2 /* kopf-animation.png */; };
+		685F3D921A67D73B00A20F9A /* berry.png in Resources */ = {isa = PBXBuildFile; fileRef = 685F3D8F1A67D73B00A20F9A /* berry.png */; };
+		685F3D931A67D73B00A20F9A /* level1-bonus.png in Resources */ = {isa = PBXBuildFile; fileRef = 685F3D901A67D73B00A20F9A /* level1-bonus.png */; };
+		685F3D941A67D73B00A20F9A /* level1-pit.png in Resources */ = {isa = PBXBuildFile; fileRef = 685F3D911A67D73B00A20F9A /* level1-pit.png */; };
 		6875160E1A24F92600748410 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 6875160D1A24F92600748410 /* main.m */; };
 		687516111A24F92600748410 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 687516101A24F92600748410 /* AppDelegate.m */; };
 		687516141A24F92600748410 /* GameScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 687516131A24F92600748410 /* GameScene.m */; };
@@ -108,6 +111,9 @@
 		68480EC91A66E52F004A4EEA /* HighScoresViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HighScoresViewController.h; sourceTree = "<group>"; };
 		68480ECA1A66E52F004A4EEA /* HighScoresViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HighScoresViewController.m; sourceTree = "<group>"; };
 		6851ECAC1A6526FB00C661D2 /* kopf-animation.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "kopf-animation.png"; path = "Endless Runner/Images/Characters/kopf-animation.png"; sourceTree = "<group>"; };
+		685F3D8F1A67D73B00A20F9A /* berry.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = berry.png; path = "Endless Runner/Images/Backgrounds/berry.png"; sourceTree = "<group>"; };
+		685F3D901A67D73B00A20F9A /* level1-bonus.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "level1-bonus.png"; path = "Endless Runner/Images/Backgrounds/level1-bonus.png"; sourceTree = "<group>"; };
+		685F3D911A67D73B00A20F9A /* level1-pit.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "level1-pit.png"; path = "Endless Runner/Images/Backgrounds/level1-pit.png"; sourceTree = "<group>"; };
 		687516081A24F92600748410 /* Endless Runner.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Endless Runner.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6875160C1A24F92600748410 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6875160D1A24F92600748410 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -217,6 +223,9 @@
 		682428031A2874A000F71A3D /* Backgrounds */ = {
 			isa = PBXGroup;
 			children = (
+				685F3D8F1A67D73B00A20F9A /* berry.png */,
+				685F3D901A67D73B00A20F9A /* level1-bonus.png */,
+				685F3D911A67D73B00A20F9A /* level1-pit.png */,
 				68F359021A63C81F0006E4B1 /* background.png */,
 				68F359031A63C81F0006E4B1 /* ground.png */,
 			);
@@ -473,6 +482,7 @@
 				682652711A65A965004DB8AC /* MenuScene.sks in Resources */,
 				68F358FF1A63C80E0006E4B1 /* Mushroom.png in Resources */,
 				68F359131A63C82F0006E4B1 /* Fox.png in Resources */,
+				685F3D921A67D73B00A20F9A /* berry.png in Resources */,
 				68480E271A6680FE004A4EEA /* LeftArrowText.png in Resources */,
 				6875161E1A24F92600748410 /* Images.xcassets in Resources */,
 				68F3590F1A63C82F0006E4B1 /* bee.png in Resources */,
@@ -488,7 +498,9 @@
 				68480E201A667C43004A4EEA /* HighScoresText.png in Resources */,
 				68F358FE1A63C80E0006E4B1 /* Bush.png in Resources */,
 				68480E221A667C43004A4EEA /* PlayText.png in Resources */,
+				685F3D931A67D73B00A20F9A /* level1-bonus.png in Resources */,
 				68F359121A63C82F0006E4B1 /* Bird.png in Resources */,
+				685F3D941A67D73B00A20F9A /* level1-pit.png in Resources */,
 				68480E281A6680FE004A4EEA /* RightArrowText.png in Resources */,
 				68480E231A667C43004A4EEA /* QuitText.png in Resources */,
 				687516161A24F92600748410 /* GameScene.sks in Resources */,

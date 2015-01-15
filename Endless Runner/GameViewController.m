@@ -94,7 +94,6 @@ NSTimer *updatetimer;
         [self.motionManager startAccelerometerUpdates];
         
         self.accelerometerHandler = ^(CMAccelerometerData *accData, NSError *error) {
-           
             self.yRotation = accData.acceleration.y;
             if (self.yRotation > self.model.tiltsensitivity){
                 [self movePlayerLeft];
@@ -140,8 +139,13 @@ NSTimer *updatetimer;
     for( int i = 0; i < 2 + self.gamescene.frame.size.width; ++i ) {
         SKSpriteNode* sprite = [SKSpriteNode spriteNodeWithTexture:self.bgtexture];
         [sprite setScale:0.55];
+        sprite.lightingBitMask = 0x1 << 1;
         sprite.position = CGPointMake(i * sprite.size.width-(5*i), sprite.size.height/2);
-        [sprite runAction:loopBgMovement];
+        
+        [sprite runAction:[SKAction runBlock:^{
+            [sprite runAction:loopBgMovement];
+        }]];
+        
         [self.gamescene addChild:sprite];
     }
 }
@@ -260,16 +264,23 @@ NSTimer *updatetimer;
 - (void)updaterFireMethod:(NSTimer *)updatetimer{
     [self checkPlayerPos];
     if (self.startedbytilt == true || self.tiltbool == false) {
-        
-        float i = (double)self.model.difficultyscore/(double)self.model.difficultythreshold;
-        if ([self dicerollWithPercentage:(i*100+20)] == YES){
-            if ([self dicerollWithPercentage:(50)]==YES){
-                [self spawnRandomObstacle];
-            } else {
-                [self spawnRandomEnemy];
-            }
-        }
+        [self spawnSomething];
         [self incrementScores];
+    }
+}
+
+- (void)spawnSomething{
+    float i = (double)self.model.difficultyscore/(double)self.model.difficultythreshold;
+    //Should I spawn something?
+    if ([self dicerollWithPercentage:(i*100+20)] == YES){
+        //What should I spawn?
+        if ([self dicerollWithPercentage:(2)]){//2% chance for pit
+            //[self spawnPit];
+        } else if ([self dicerollWithPercentage:(50)]==YES){
+            [self spawnRandomObstacle];
+        } else {
+            [self spawnRandomEnemy];
+        }
     }
 }
 
@@ -278,45 +289,14 @@ NSTimer *updatetimer;
 }
 
 - (void) spawnRandomObstacle{
-    int i = arc4random()%self.model.currentdifficulty;
-    TactileObject* Tobj = [[TactileObject alloc] init];
-    Tobj = self.model.obstacles[i];
-    int loc;
-    TactileObject* spawn = [[Tobj.class alloc] initWithTexture:Tobj.texture];
-        loc = 0;
-    [self.model placeEntWithLoc:loc Ent:spawn];
-    NSString *strClass = NSStringFromClass(spawn.class);
-    if ([strClass  isEqual: @"Stump"]) {
-        [spawn setPosition:CGPointMake(spawn.position.x, spawn.position.y+40)];
-    } else if ([strClass  isEqual: @"Bog"]) {
-        [spawn setPosition:CGPointMake(spawn.position.x, spawn.position.y)];
-    } else if ([strClass  isEqual: @"Spikes"]) {
-        [spawn setPosition:CGPointMake(spawn.position.x, spawn.position.y+40)];
-    } else if ([strClass  isEqual: @"Mushroom"]) {
-        [spawn setPosition:CGPointMake(spawn.position.x, spawn.position.y+40)];
-    } else if ([strClass  isEqual: @"Bush"]) {
-        [spawn setPosition:CGPointMake(spawn.position.x, spawn.position.y+40)];
-    }
+    TactileObject *spawn = [self.model spawnRandomObstacle];
     [self checkIntroduction:spawn];
     [self.gamescene addChild:spawn];
     [self.spawnedobjects addObject:spawn];
 }
 
 - (void) spawnRandomEnemy{
-    int i = arc4random()%self.model.currentdifficulty;
-    Enemy* en = [[Enemy alloc] init];
-    en = self.model.enemies[i];
-    int loc;
-    NSString *strClass = NSStringFromClass(en.class);
-    Enemy* spawn = [[en.class alloc] initWithTexture:en.texture];
-    if([strClass  isEqual: @"Bird" ]){
-        loc = 2;
-    } else if([strClass  isEqual: @"Beehive" ]){
-        loc = 3;
-    } else {
-        loc = 0;
-    }
-    [self.model placeEntWithLoc:loc Ent:spawn];
+    Enemy *spawn = [self.model spawnRandomEnemy];
     [self checkIntroduction:spawn];
     [self.gamescene addChild:spawn];
     [self.spawnedobjects addObject:spawn];

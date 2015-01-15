@@ -40,8 +40,6 @@
 @property SKTexture *groundtexture;
 @property SKTexture *backgroundtexture;
 
-@property SKAction *walkAnimation;
-
 - (id)initWithPlayer;
 
 - (void) incrementScore:(int)i;
@@ -51,6 +49,9 @@
 - (void)addLife;
 - (void)updateLives;
 - (void)removeLife;
+
+- (TactileObject*) spawnRandomObstacle;
+- (Enemy*) spawnRandomEnemy;
 
 - (void)moveNodeWithGround:(SKNode*)node Repeat:(bool)r;
 - (void)placePlayer;

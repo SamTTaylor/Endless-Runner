@@ -25,7 +25,7 @@
         [self setGroundspeed:10];
         [self setSpeed:0.004];
         [self setTiltsensitivity:0.1];
-        [self animateAvatar];
+        [self.player animateSelf];
     }
     return self;
 }
@@ -114,6 +114,47 @@
 
 
 
+- (TactileObject*) spawnRandomObstacle{
+    int i = arc4random()%self.currentdifficulty;
+    TactileObject* Tobj = [[TactileObject alloc] init];
+    Tobj = self.obstacles[i];
+    int loc;
+    TactileObject* spawn = [[Tobj.class alloc] initWithTexture:Tobj.texture];
+    loc = 0;
+    [self placeEntWithLoc:loc Ent:spawn];
+    NSString *strClass = NSStringFromClass(spawn.class);
+    if ([strClass  isEqual: @"Stump"]) {
+        [spawn setPosition:CGPointMake(spawn.position.x, spawn.position.y+40)];
+    } else if ([strClass  isEqual: @"Bog"]) {
+        [spawn setPosition:CGPointMake(spawn.position.x, spawn.position.y)];
+    } else if ([strClass  isEqual: @"Spikes"]) {
+        [spawn setPosition:CGPointMake(spawn.position.x, spawn.position.y+40)];
+    } else if ([strClass  isEqual: @"Mushroom"]) {
+        [spawn setPosition:CGPointMake(spawn.position.x, spawn.position.y+40)];
+    } else if ([strClass  isEqual: @"Bush"]) {
+        [spawn setPosition:CGPointMake(spawn.position.x, spawn.position.y+40)];
+    }
+    return spawn;
+}
+
+- (Enemy*) spawnRandomEnemy{
+    int i = arc4random()%self.currentdifficulty;
+    Enemy* en = [[Enemy alloc] init];
+    en = self.enemies[i];
+    int loc;
+    NSString *strClass = NSStringFromClass(en.class);
+    Enemy* spawn = [[en.class alloc] initWithTexture:en.texture];
+    if([strClass  isEqual: @"Bird" ]){
+        loc = 2;
+    } else if([strClass  isEqual: @"Beehive" ]){
+        loc = 3;
+    } else {
+        loc = 0;
+    }
+    [self placeEntWithLoc:loc Ent:spawn];
+    return spawn;
+}
+
 -(void)moveNodeWithGround:(SKNode*)node Repeat:(bool)r{
     //Sets up the ground sprites, makes them scroll passed in a loop
     CGFloat distance =  [UIScreen mainScreen].bounds.size.width*1.5;
@@ -121,13 +162,21 @@
         SKAction* move = [SKAction moveByX:-self.groundtexture.size.width y:0 duration:self.groundspeed];
         SKAction* reset = [SKAction moveByX:self.groundtexture.size.width y:0 duration:0];
         SKAction* loopMovement = [SKAction repeatActionForever:[SKAction sequence:@[move, reset]]];
-        [node runAction:loopMovement];
+        
+        [node runAction:[SKAction runBlock:^{
+            [node runAction:loopMovement];
+        }]];
+        
     } else {
         
         SKAction* move = [SKAction moveByX:-distance y:0 duration:self.groundspeed*10.15];
         SKAction* remove = [SKAction removeFromParent];
         SKAction* Movement = [SKAction sequence:@[move, remove]];
-        [node runAction:Movement];
+        
+        [node runAction:[SKAction runBlock:^{
+            [node runAction:Movement];
+        }]];
+        
     }
 }
 
@@ -167,26 +216,6 @@
     [self placeEntWithLoc:1 Ent:self.player];
 }
 
--(void)animateAvatar {
-    NSMutableArray *textures = [NSMutableArray arrayWithCapacity:16];
-    for (int i = 1; i < 8; i++) {
-        NSString *textureName = [NSString stringWithFormat:@"avatar%d.png", i];
-        SKTexture *texture =[SKTexture textureWithImageNamed:textureName];
-        [textures addObject:texture];
-    }
-    SKTexture *texture =[SKTexture textureWithImageNamed:@"avatar0.png"];
-    [textures addObject:texture];
-    [textures addObject:texture];
-    for (int i = 7; i > 0; i--) {
-        NSString *textureName = [NSString stringWithFormat:@"avatar%d.png", i];
-        SKTexture *texture =[SKTexture textureWithImageNamed:textureName];
-        [textures addObject:texture];
-    }
-    
-    self.walkAnimation =[SKAction animateWithTextures:textures timePerFrame:3];
-    SKAction *repeat = [SKAction repeatActionForever:self.walkAnimation];
-    [self.player runAction:repeat];
-}
 
 -(void)placeEntWithLoc:(int)loc Ent:(Entity*)ent{
     CGFloat screenwidth = [UIScreen mainScreen].bounds.size.width;
