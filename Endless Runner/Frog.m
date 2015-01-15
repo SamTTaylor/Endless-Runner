@@ -32,11 +32,21 @@
 
 - (void) animateSelf{
     [super animateSelf];
+    NSMutableArray *textures = [NSMutableArray arrayWithCapacity:16];
+    for (int i = 1; i < 7; i++) {
+        NSString *textureName = [NSString stringWithFormat:@"frog%d.png", i];
+        SKTexture *texture =[SKTexture textureWithImageNamed:textureName];
+        [textures addObject:texture];
+    }
+    SKTexture *texture =[SKTexture textureWithImageNamed:@"frog0.png"];
+    [textures addObject:texture];
     [self removeActionForKey:[NSString stringWithFormat:@"animate %@", self.class]];
     [self runAction:[SKAction sequence:@[[SKAction repeatAction:[SKAction sequence:@[[SKAction runBlock:^{
         //Tongue attack
+        self.tongueAnimation =[SKAction animateWithTextures:textures timePerFrame:3];
     }], [SKAction waitForDuration:1], [SKAction runBlock:^{
         //Tongue attack
+        [self runAction:[SKAction repeatActionForever:self.tongueAnimation]];
     }], [SKAction waitForDuration:1]]] count:5]]] withKey:[NSString stringWithFormat:@"animate %@", self.class]];
 }
 @end

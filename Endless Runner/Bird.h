@@ -10,4 +10,6 @@
 
 @interface Bird : Enemy
 
+@property SKAction *flyAnimation;
+
 @end

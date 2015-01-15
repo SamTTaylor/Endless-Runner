@@ -26,6 +26,7 @@
         [self setSpeed:0.004];
         [self setTiltsensitivity:0.1];
         [self.player animateSelf];
+        
     }
     return self;
 }

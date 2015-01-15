@@ -284,26 +284,26 @@
                                 <exclude reference="HVj-9F-tJ7"/>
                             </mask>
                             <mask key="constraints">
-                                <exclude reference="6J9-sc-j1b"/>
-                                <exclude reference="NPt-gv-lqx"/>
-                                <exclude reference="XYx-nc-vKs"/>
-                                <exclude reference="sHg-E4-Gvm"/>
+                                <exclude reference="auD-ua-yJX"/>
+                                <exclude reference="w1M-HV-iI8"/>
+                                <exclude reference="DoA-YU-8aI"/>
+                                <exclude reference="Sia-jc-kbL"/>
+                                <exclude reference="HiJ-g9-vbT"/>
+                                <exclude reference="gmS-pD-uyx"/>
+                                <exclude reference="Nki-lv-3wB"/>
+                                <exclude reference="Y6u-eQ-LOU"/>
                                 <exclude reference="fpr-Up-VSd"/>
                                 <exclude reference="lNl-2M-GPT"/>
                                 <exclude reference="OW8-Uu-Gzo"/>
                                 <exclude reference="XwK-Dt-1XB"/>
-                                <exclude reference="Nki-lv-3wB"/>
-                                <exclude reference="Y6u-eQ-LOU"/>
-                                <exclude reference="EAs-bB-cAX"/>
-                                <exclude reference="K6K-Mw-jBw"/>
-                                <exclude reference="DoA-YU-8aI"/>
-                                <exclude reference="Sia-jc-kbL"/>
                                 <exclude reference="haE-nU-KcU"/>
                                 <exclude reference="oGE-aL-4ub"/>
-                                <exclude reference="auD-ua-yJX"/>
-                                <exclude reference="w1M-HV-iI8"/>
-                                <exclude reference="HiJ-g9-vbT"/>
-                                <exclude reference="gmS-pD-uyx"/>
+                                <exclude reference="6J9-sc-j1b"/>
+                                <exclude reference="NPt-gv-lqx"/>
+                                <exclude reference="EAs-bB-cAX"/>
+                                <exclude reference="K6K-Mw-jBw"/>
+                                <exclude reference="XYx-nc-vKs"/>
+                                <exclude reference="sHg-E4-Gvm"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=regular-widthClass=regular">
@@ -320,26 +320,26 @@
                                 <include reference="HVj-9F-tJ7"/>
                             </mask>
                             <mask key="constraints">
-                                <include reference="6J9-sc-j1b"/>
-                                <include reference="NPt-gv-lqx"/>
-                                <include reference="XYx-nc-vKs"/>
-                                <include reference="sHg-E4-Gvm"/>
+                                <include reference="auD-ua-yJX"/>
+                                <include reference="w1M-HV-iI8"/>
+                                <include reference="DoA-YU-8aI"/>
+                                <include reference="Sia-jc-kbL"/>
+                                <include reference="HiJ-g9-vbT"/>
+                                <include reference="gmS-pD-uyx"/>
+                                <include reference="Nki-lv-3wB"/>
+                                <include reference="Y6u-eQ-LOU"/>
                                 <include reference="fpr-Up-VSd"/>
                                 <include reference="lNl-2M-GPT"/>
                                 <include reference="OW8-Uu-Gzo"/>
                                 <include reference="XwK-Dt-1XB"/>
-                                <include reference="Nki-lv-3wB"/>
-                                <include reference="Y6u-eQ-LOU"/>
-                                <include reference="EAs-bB-cAX"/>
-                                <include reference="K6K-Mw-jBw"/>
-                                <include reference="DoA-YU-8aI"/>
-                                <include reference="Sia-jc-kbL"/>
                                 <include reference="haE-nU-KcU"/>
                                 <include reference="oGE-aL-4ub"/>
-                                <include reference="auD-ua-yJX"/>
-                                <include reference="w1M-HV-iI8"/>
-                                <include reference="HiJ-g9-vbT"/>
-                                <include reference="gmS-pD-uyx"/>
+                                <include reference="6J9-sc-j1b"/>
+                                <include reference="NPt-gv-lqx"/>
+                                <include reference="EAs-bB-cAX"/>
+                                <include reference="K6K-Mw-jBw"/>
+                                <include reference="XYx-nc-vKs"/>
+                                <include reference="sHg-E4-Gvm"/>
                             </mask>
                         </variation>
                     </view>
@@ -367,6 +367,7 @@
                         <viewControllerLayoutGuide type="bottom" id="Ctz-O9-96J"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="6Wd-cz-CCk">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gvE-B5-Pxd">

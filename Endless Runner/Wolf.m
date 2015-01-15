@@ -27,14 +27,26 @@
 
 - (void) animateSelf{
     [super animateSelf];
+    NSMutableArray *textures = [NSMutableArray arrayWithCapacity:16];
+    for (int i = 1; i < 5; i++) {
+        NSString *textureName = [NSString stringWithFormat:@"wolf%d.png", i];
+        SKTexture *texture =[SKTexture textureWithImageNamed:textureName];
+        [textures addObject:texture];
+    }
+    SKTexture *texture =[SKTexture textureWithImageNamed:@"wolf0.png"];
+    [textures addObject:texture];
     [self removeActionForKey:[NSString stringWithFormat:@"animate %@", self.class]];
     [self runAction:[SKAction sequence:@[[SKAction repeatAction:[SKAction sequence:@[
         [SKAction waitForDuration:10],
         [SKAction runBlock:^{
-            [self setSpeed:50];
+            [self setSpeed:40];
+            [self jumpEntity];
+            self.xScale = 0.2;
             [self impulseEntityLeft];
             [self moveEntityLeft:0];
             //Add pounce animation
+            self.jumpAnimation =[SKAction animateWithTextures:textures timePerFrame:3];
+            [self runAction:[SKAction repeatAction:self.jumpAnimation count:1]];
         }],
         [SKAction waitForDuration:0.5]]] count:1]]] withKey:[NSString stringWithFormat:@"animate %@", self.class]];
 }

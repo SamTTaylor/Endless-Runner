@@ -11,6 +11,6 @@
 @interface Mushroom : TactileObject
 
 @property bool touched;
-
+@property SKAction *burstAnimation;
 
 @end

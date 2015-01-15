@@ -10,4 +10,6 @@
 
 @interface Beehive : Enemy
 
+@property SKAction *explodeAnimation;
+
 @end

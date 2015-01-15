@@ -26,11 +26,22 @@
 
 - (void) animateSelf{
     [super animateSelf];
+    NSMutableArray *textures = [NSMutableArray arrayWithCapacity:16];
+    for (int i = 1; i < 5; i++) {
+        NSString *textureName = [NSString stringWithFormat:@"bird%d.png", i];
+        SKTexture *texture =[SKTexture textureWithImageNamed:textureName];
+        [textures addObject:texture];
+    }
+    SKTexture *texture =[SKTexture textureWithImageNamed:@"bird0.png"];
+    [textures addObject:texture];
+    
     [self removeActionForKey:[NSString stringWithFormat:@"animate %@", self.class]];
     [self runAction:[SKAction sequence:@[[SKAction repeatAction:[SKAction sequence:@[[SKAction runBlock:^{
         //Add flap
+        self.flyAnimation =[SKAction animateWithTextures:textures timePerFrame:3];
     }], [SKAction waitForDuration:1], [SKAction runBlock:^{
         //Add flap
+        [self runAction:[SKAction repeatActionForever:self.flyAnimation]];
     }], [SKAction waitForDuration:1]]] count:5]]] withKey:[NSString stringWithFormat:@"animate %@", self.class]];
 }
 

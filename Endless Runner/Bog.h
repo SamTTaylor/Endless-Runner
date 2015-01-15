@@ -10,4 +10,6 @@
 
 @interface Bog : TactileObject
 
+@property SKAction *bubbleAnimation;
+
 @end

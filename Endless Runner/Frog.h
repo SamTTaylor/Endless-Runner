@@ -10,4 +10,6 @@
 
 @interface Frog : Enemy
 
+@property SKAction *tongueAnimation;
+
 @end
