@@ -30,7 +30,6 @@
     [super deathAnimation];
     NSMutableArray *textures = [NSMutableArray arrayWithCapacity:16];
     for (int i = 1; i < 9; i++) {
-        NSLog(@"MUSHROOM in for loop");
         NSString *textureName = [NSString stringWithFormat:@"mushroom%d.png", i];
         SKTexture *texture =[SKTexture textureWithImageNamed:textureName];
         [textures addObject:texture];
@@ -41,9 +40,9 @@
     [self runAction:[SKAction sequence:@[[SKAction repeatAction:[SKAction sequence:@[[SKAction runBlock:^{
         //Add burst
         self.burstAnimation =[SKAction animateWithTextures:textures timePerFrame:3];
+        [self runAction:[SKAction repeatAction:self.burstAnimation count:1]];
     }], [SKAction waitForDuration:20], [SKAction runBlock:^{
-        //Add burst
-        [self runAction:[SKAction repeatActionForever:self.burstAnimation]];
+        
         [self removeFromParent];//remove once animation is complete
     }], [SKAction waitForDuration:1]]] count:1]]] withKey:[NSString stringWithFormat:@"animate %@", self.class]];
 }

@@ -43,7 +43,7 @@
             [self impulseEntityLeft];
             [self moveEntityLeft:0];
             //Add pounce animation
-            self.jumpAnimation =[SKAction animateWithTextures:textures timePerFrame:10];
+            self.jumpAnimation =[SKAction animateWithTextures:textures timePerFrame:3];
             [self runAction:[SKAction repeatAction:self.jumpAnimation count:1]];
         }],
         [SKAction waitForDuration:0.5]]] count:1]]] withKey:[NSString stringWithFormat:@"animate %@", self.class]];
