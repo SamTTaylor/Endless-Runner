@@ -40,6 +40,8 @@
         [SKAction waitForDuration:10],
         [SKAction runBlock:^{
             [self setSpeed:40];
+            [self jumpEntity];
+            self.xScale = 0.2;
             [self impulseEntityLeft];
             [self moveEntityLeft:0];
             //Add pounce animation
