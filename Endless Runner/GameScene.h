@@ -11,8 +11,7 @@
 
 @interface GameScene : SKScene 
 
-@property SKSpriteNode* currentBackgroundImage;
-
--(void)setBoundsWithCategory:(int)cat;
--(void) buildPitScene;
+//Methods
+-(void)setBoundsWithCategory:(int)cat; //Set physics world to square
+-(void) buildPitScene;//Builds pit challenge scene 
 @end

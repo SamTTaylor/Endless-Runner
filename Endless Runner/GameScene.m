@@ -13,20 +13,24 @@
 
 -(void)didMoveToView:(SKView *)view {
     /* Setup your scene here */
-
+    
+    //Gravity on all worlds is consistent -10 downard
     self.physicsWorld.gravity = CGVectorMake(0.0, -10.0);
-    self.view.showsNodeCount = YES;
-    self.view.showsFPS = YES;
+    
+    //For performance monitoring
+        //self.view.showsNodeCount = YES;
+        //self.view.showsFPS = YES;
 }
 
+//Sets bounds for different scenes, split into categories using screen size
 -(void)setBoundsWithCategory:(int)cat{
     CGFloat screenwidth = [UIScreen mainScreen].bounds.size.width;
     CGFloat screenheight = [UIScreen mainScreen].bounds.size.height;
     switch (cat) {
-        case 0:
+        case 0://Main scene, uses screen bounds with elongated width
             self.physicsBody = [SKPhysicsBody bodyWithEdgeLoopFromRect:CGRectMake(-600, 0, screenwidth+1200, screenheight)];
             break;
-        case 1:
+        case 1://Pit scene, shrinks screen bounds to match pit background texture
             self.physicsBody = [SKPhysicsBody bodyWithEdgeLoopFromRect:CGRectMake(screenwidth*0.08, screenheight*0.06, screenwidth*0.81, screenheight*0.8)];
             
             break;
@@ -36,8 +40,11 @@
 
 }
 
+//Used to create a blocking node for platforms/blocks in levels that are not just square
 -(void) createBarrier:(CGSize)size Position:(CGPoint)pos Scene:(GameScene*)scene Dynamic:(bool)d{
+    //Create node using size passed
     SKSpriteNode *node = [[SKSpriteNode alloc] initWithColor:[UIColor colorWithRed:0.6 green:0.1 blue:0.1 alpha:1.0] size:CGSizeMake(size.width*5, size.height*5)];
+    //
     [node setScale:0.2];
     node.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:size];
     node.position = pos;
