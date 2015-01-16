@@ -28,6 +28,7 @@
 @property bool tiltbool;
 @property SKTexture* bgtexture;
 @property SKTexture* groundtexture;
+@property UIImage* screenshot;
 
 @property bool closing;
 @property bool gamestarted;

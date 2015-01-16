@@ -9,6 +9,7 @@
 #import "GameViewController.h"
 #import "GameScene.h"
 #import "ToastView.h"
+#import <Social/Social.h>
 
 @implementation SKScene (Unarchive)
 
@@ -365,17 +366,18 @@ NSTimer *updatetimer;
 - (void) checkLives{
     [self.model.player takeLife];
     [self updateLifeIcons];
-    if (self.model.player.lives <=0 && self.model.player.dead == true){
+    if (self.model.player.lives == 0){
         [self.updatetimer invalidate];
-        self.model.player.dead == false;
+        
         UIAlertView *youdied = [[UIAlertView alloc]
                                 initWithTitle:@"Game Over!"
                                 message:[NSString stringWithFormat:@"You've run out lives!\n\n Your Score: %d\n\n Enter your name:", [self.model score] ]
                                 delegate:self
                                 cancelButtonTitle:@"Submit"
-                                otherButtonTitles:nil];
+                                otherButtonTitles:@"Submit and Share on Facebook", nil];
         youdied.alertViewStyle = UIAlertViewStylePlainTextInput;
         [youdied show];
+        self.screenshot = [self getScreenShot];
     };
 }
 
@@ -383,13 +385,18 @@ NSTimer *updatetimer;
 -(void)alertView:(UIAlertView *)youdied clickedButtonAtIndex:(NSInteger)buttonIndex{
     if (buttonIndex == 0){
         UITextField *playername = [youdied textFieldAtIndex:0];
-        [self saveScoreWithName:playername.text Score:[self.model score]];
+        [self saveScoreWithName:playername.text Score:[self.model score] Facebook:false];
+        [self quitSelf];
+    } else if (buttonIndex == 1){
+        UITextField *playername = [youdied textFieldAtIndex:0];
+        [self saveScoreWithName:playername.text Score:[self.model score] Facebook:true];
+    
     }
-    [self quitSelf];
+    
 }
 
 
-- (void)saveScoreWithName:(NSString*)name Score:(int)s{
+- (void)saveScoreWithName:(NSString*)name Score:(int)s Facebook:(bool)f{
     AppDelegate *ad = (AppDelegate *)[[UIApplication sharedApplication] delegate];
     NSMutableArray* maad = [[NSMutableArray alloc]initWithArray:ad.highscores];
     bool replaced = false;
@@ -402,7 +409,41 @@ NSTimer *updatetimer;
         }
     }
     ad.highscores = [maad copy];
+    if (f == true){
+        [self ShareScoreonFacebook];
+    }
 }
+
+-(void)ShareScoreonFacebook{
+
+    SLComposeViewController *controller = [SLComposeViewController composeViewControllerForServiceType:SLServiceTypeFacebook];
+    [controller addImage:self.screenshot];
+    controller.completionHandler= ^(SLComposeViewControllerResult result) {
+        switch (result) {
+            case SLComposeViewControllerResultCancelled:
+                NSLog(@"Cancelled");
+                [self quitSelf];
+                break;
+            case SLComposeViewControllerResultDone:
+                NSLog(@"Posted");
+                [self quitSelf];
+                break;
+        }};
+    
+    [self presentViewController:controller animated:YES completion:nil];
+}
+
+-(UIImage*)getScreenShot{
+    SKView * skView = (SKView *)self.view;
+    UIGraphicsBeginImageContextWithOptions([UIScreen mainScreen].bounds.size, NO, [UIScreen mainScreen].scale);
+    [skView drawViewHierarchyInRect:[UIScreen mainScreen].bounds afterScreenUpdates:YES];
+    UIImage *snapshotImage = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    return snapshotImage;
+}
+
+
+
 
 - (void) updateLifeIcons{
     [self.model updateLives];
@@ -437,36 +478,39 @@ NSTimer *updatetimer;
 
 
 //Contact handling
-- (void)didBeginContact:(SKPhysicsContact *)contact {  
-    if (contact.bodyA.categoryBitMask == playerCategory && contact.bodyB.categoryBitMask == enemyCategory){
-        [self checkLives];
-    }else if (contact.bodyA.categoryBitMask == playerCategory && contact.bodyB.categoryBitMask == lethalpassableCategory){
-        [self checkLives];
-    }else if (contact.bodyA.categoryBitMask == playerCategory && contact.bodyB.categoryBitMask == lethalimpassableCategory){
-        [self checkLives];
-    }else if (contact.bodyA.categoryBitMask == playerCategory && contact.bodyB.categoryBitMask == bogCategory){
-        [self.model.player collidedWithBog];
-    }else if (contact.bodyA.categoryBitMask == playerCategory && contact.bodyB.categoryBitMask == mushroomCategory){
-        Mushroom* ms = (Mushroom*)contact.bodyB.node;
-        ms.physicsBody.categoryBitMask = 0x1 << 9;//Stops over collision
-        [self stopPlayerLeft];
-        [self stopPlayerRight];
-        [ms deathAnimation];
-        [self.model.player collidedWithMushroom];
-    }else if (contact.bodyA.categoryBitMask == playerCategory && contact.bodyB.categoryBitMask == pitCategory){
-        [self.updatetimer invalidate];
-        [self movetoPitScene];
-    }
-    if (contact.bodyA.categoryBitMask == playerCategory && contact.bodyB.categoryBitMask == berryCategory){
-        Berry* berry = (Berry*)contact.bodyB.node;
-        berry.physicsBody.categoryBitMask = 0x1 << 9;//Stops over collision
-        [berry deathAnimation];
-        [self.model incrementScore:500*self.model.currentdifficulty];
-        SKView * skView = (SKView *)self.view;
-        if (skView.scene == self.challengescene) {
-            [self moveBackToGameScene];
+- (void)didBeginContact:(SKPhysicsContact *)contact {
+    if(self.model.player.lives > 0){
+        if (contact.bodyA.categoryBitMask == playerCategory && contact.bodyB.categoryBitMask == enemyCategory){
+            [self checkLives];
+        }else if (contact.bodyA.categoryBitMask == playerCategory && contact.bodyB.categoryBitMask == lethalpassableCategory){
+            [self checkLives];
+        }else if (contact.bodyA.categoryBitMask == playerCategory && contact.bodyB.categoryBitMask == lethalimpassableCategory){
+            [self checkLives];
+        }else if (contact.bodyA.categoryBitMask == playerCategory && contact.bodyB.categoryBitMask == bogCategory){
+            [self.model.player collidedWithBog];
+        }else if (contact.bodyA.categoryBitMask == playerCategory && contact.bodyB.categoryBitMask == mushroomCategory){
+            Mushroom* ms = (Mushroom*)contact.bodyB.node;
+            ms.physicsBody.categoryBitMask = 0x1 << 9;//Stops over collision
+            [self stopPlayerLeft];
+            [self stopPlayerRight];
+            [ms deathAnimation];
+            [self.model.player collidedWithMushroom];
+        }else if (contact.bodyA.categoryBitMask == playerCategory && contact.bodyB.categoryBitMask == pitCategory){
+            [self.updatetimer invalidate];
+            [self movetoPitScene];
+        }
+        if (contact.bodyA.categoryBitMask == playerCategory && contact.bodyB.categoryBitMask == berryCategory){
+            Berry* berry = (Berry*)contact.bodyB.node;
+            berry.physicsBody.categoryBitMask = 0x1 << 9;//Stops over collision
+            [berry deathAnimation];
+            [self.model incrementScore:500*self.model.currentdifficulty];
+            SKView * skView = (SKView *)self.view;
+            if (skView.scene == self.challengescene) {
+                [self moveBackToGameScene];
+            }
         }
     }
+
 }
 
 - (void)movetoPitScene{

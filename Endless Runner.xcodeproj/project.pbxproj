@@ -9,6 +9,15 @@
 /* Begin PBXBuildFile section */
 		681608281A6010410090CB96 /* ToastView.m in Sources */ = {isa = PBXBuildFile; fileRef = 681608271A6010410090CB96 /* ToastView.m */; };
 		6816082B1A60172C0090CB96 /* Enemy.m in Sources */ = {isa = PBXBuildFile; fileRef = 6816082A1A60172C0090CB96 /* Enemy.m */; };
+		681E67111A691B54007E727A /* 29x29.png in Resources */ = {isa = PBXBuildFile; fileRef = 681E67081A691B54007E727A /* 29x29.png */; };
+		681E67121A691B54007E727A /* 40x40.png in Resources */ = {isa = PBXBuildFile; fileRef = 681E67091A691B54007E727A /* 40x40.png */; };
+		681E67131A691B54007E727A /* 58x58.png in Resources */ = {isa = PBXBuildFile; fileRef = 681E670A1A691B54007E727A /* 58x58.png */; };
+		681E67141A691B54007E727A /* 76x76.png in Resources */ = {isa = PBXBuildFile; fileRef = 681E670B1A691B54007E727A /* 76x76.png */; };
+		681E67151A691B54007E727A /* 80x80.png in Resources */ = {isa = PBXBuildFile; fileRef = 681E670C1A691B54007E727A /* 80x80.png */; };
+		681E67161A691B54007E727A /* 87x87.png in Resources */ = {isa = PBXBuildFile; fileRef = 681E670D1A691B54007E727A /* 87x87.png */; };
+		681E67171A691B54007E727A /* 120x120.png in Resources */ = {isa = PBXBuildFile; fileRef = 681E670E1A691B54007E727A /* 120x120.png */; };
+		681E67181A691B54007E727A /* 152x152.png in Resources */ = {isa = PBXBuildFile; fileRef = 681E670F1A691B54007E727A /* 152x152.png */; };
+		681E67191A691B54007E727A /* 180x180.png in Resources */ = {isa = PBXBuildFile; fileRef = 681E67101A691B54007E727A /* 180x180.png */; };
 		682428001A28740B00F71A3D /* GameModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 682427FF1A28740B00F71A3D /* GameModel.m */; };
 		682652711A65A965004DB8AC /* MenuScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 682652701A65A965004DB8AC /* MenuScene.sks */; };
 		683D21C41A2F7CC90081FF3F /* Entity.m in Sources */ = {isa = PBXBuildFile; fileRef = 683D21C31A2F7CC90081FF3F /* Entity.m */; };
@@ -87,6 +96,15 @@
 		681608271A6010410090CB96 /* ToastView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ToastView.m; sourceTree = "<group>"; };
 		681608291A60172C0090CB96 /* Enemy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Enemy.h; sourceTree = "<group>"; };
 		6816082A1A60172C0090CB96 /* Enemy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Enemy.m; sourceTree = "<group>"; };
+		681E67081A691B54007E727A /* 29x29.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = 29x29.png; path = "Endless Runner/Images/Icons/29x29.png"; sourceTree = "<group>"; };
+		681E67091A691B54007E727A /* 40x40.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = 40x40.png; path = "Endless Runner/Images/Icons/40x40.png"; sourceTree = "<group>"; };
+		681E670A1A691B54007E727A /* 58x58.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = 58x58.png; path = "Endless Runner/Images/Icons/58x58.png"; sourceTree = "<group>"; };
+		681E670B1A691B54007E727A /* 76x76.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = 76x76.png; path = "Endless Runner/Images/Icons/76x76.png"; sourceTree = "<group>"; };
+		681E670C1A691B54007E727A /* 80x80.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = 80x80.png; path = "Endless Runner/Images/Icons/80x80.png"; sourceTree = "<group>"; };
+		681E670D1A691B54007E727A /* 87x87.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = 87x87.png; path = "Endless Runner/Images/Icons/87x87.png"; sourceTree = "<group>"; };
+		681E670E1A691B54007E727A /* 120x120.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = 120x120.png; path = "Endless Runner/Images/Icons/120x120.png"; sourceTree = "<group>"; };
+		681E670F1A691B54007E727A /* 152x152.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = 152x152.png; path = "Endless Runner/Images/Icons/152x152.png"; sourceTree = "<group>"; };
+		681E67101A691B54007E727A /* 180x180.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = 180x180.png; path = "Endless Runner/Images/Icons/180x180.png"; sourceTree = "<group>"; };
 		682427FE1A28740B00F71A3D /* GameModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameModel.h; sourceTree = "<group>"; };
 		682427FF1A28740B00F71A3D /* GameModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameModel.m; sourceTree = "<group>"; };
 		682652701A65A965004DB8AC /* MenuScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = MenuScene.sks; sourceTree = "<group>"; };
@@ -194,9 +212,26 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		681E67071A691B39007E727A /* Icons */ = {
+			isa = PBXGroup;
+			children = (
+				681E67081A691B54007E727A /* 29x29.png */,
+				681E67091A691B54007E727A /* 40x40.png */,
+				681E670A1A691B54007E727A /* 58x58.png */,
+				681E670B1A691B54007E727A /* 76x76.png */,
+				681E670C1A691B54007E727A /* 80x80.png */,
+				681E670D1A691B54007E727A /* 87x87.png */,
+				681E670E1A691B54007E727A /* 120x120.png */,
+				681E670F1A691B54007E727A /* 152x152.png */,
+				681E67101A691B54007E727A /* 180x180.png */,
+			);
+			name = Icons;
+			sourceTree = "<group>";
+		};
 		682428011A28748C00F71A3D /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				681E67071A691B39007E727A /* Icons */,
 				717CCAB31A67C18300B55E61 /* avatar.atlas */,
 				717CCAB41A67C18300B55E61 /* beehive.atlas */,
 				717CCAB51A67C18300B55E61 /* frog.atlas */,
@@ -485,7 +520,9 @@
 			files = (
 				68480E2D1A66A945004A4EEA /* BackgroundText.png in Resources */,
 				68F359A41A640CD60006E4B1 /* Beehive.png in Resources */,
+				681E67111A691B54007E727A /* 29x29.png in Resources */,
 				68480E2C1A66A945004A4EEA /* AvatarText.png in Resources */,
+				681E67171A691B54007E727A /* 120x120.png in Resources */,
 				687516211A24F92600748410 /* LaunchScreen.xib in Resources */,
 				68F359041A63C81F0006E4B1 /* background.png in Resources */,
 				717CCAB71A67C18300B55E61 /* beehive.atlas in Resources */,
@@ -498,23 +535,30 @@
 				685F3D921A67D73B00A20F9A /* berry.png in Resources */,
 				68480E271A6680FE004A4EEA /* LeftArrowText.png in Resources */,
 				6875161E1A24F92600748410 /* Images.xcassets in Resources */,
+				681E67161A691B54007E727A /* 87x87.png in Resources */,
 				68F3590F1A63C82F0006E4B1 /* bee.png in Resources */,
 				717CCAB61A67C18300B55E61 /* avatar.atlas in Resources */,
 				68480E241A667C43004A4EEA /* SettingsText.png in Resources */,
 				68F359051A63C81F0006E4B1 /* ground.png in Resources */,
 				68F359141A63C82F0006E4B1 /* Frog.png in Resources */,
 				68F359151A63C82F0006E4B1 /* Wolf.png in Resources */,
+				681E67131A691B54007E727A /* 58x58.png in Resources */,
 				6851ECAD1A6526FB00C661D2 /* kopf-animation.png in Resources */,
 				68F3590E1A63C82F0006E4B1 /* avatar.gif in Resources */,
 				68F358FD1A63C80E0006E4B1 /* Bog.png in Resources */,
 				68F359001A63C80E0006E4B1 /* Spikes.png in Resources */,
 				68480E201A667C43004A4EEA /* HighScoresText.png in Resources */,
+				681E67121A691B54007E727A /* 40x40.png in Resources */,
 				68F358FE1A63C80E0006E4B1 /* Bush.png in Resources */,
+				681E67151A691B54007E727A /* 80x80.png in Resources */,
 				68480E221A667C43004A4EEA /* PlayText.png in Resources */,
 				685F3D931A67D73B00A20F9A /* level1-bonus.png in Resources */,
+				681E67141A691B54007E727A /* 76x76.png in Resources */,
+				681E67191A691B54007E727A /* 180x180.png in Resources */,
 				68F359121A63C82F0006E4B1 /* Bird.png in Resources */,
 				685F3D961A67E40900A20F9A /* level1-pit.png in Resources */,
 				68480E281A6680FE004A4EEA /* RightArrowText.png in Resources */,
+				681E67181A691B54007E727A /* 152x152.png in Resources */,
 				68480E231A667C43004A4EEA /* QuitText.png in Resources */,
 				687516161A24F92600748410 /* GameScene.sks in Resources */,
 				717CCAB81A67C18300B55E61 /* frog.atlas in Resources */,
