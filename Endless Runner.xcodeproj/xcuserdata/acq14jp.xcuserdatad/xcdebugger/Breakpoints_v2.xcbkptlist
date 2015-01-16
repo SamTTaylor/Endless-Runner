@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Endless Runner/GameViewController.m"
-            timestampString = "443030057.870993"
+            timestampString = "443097244.856701"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "543"
-            endingLineNumber = "543"
+            startingLineNumber = "544"
+            endingLineNumber = "544"
             landmarkName = "@implementation GameViewController"
             landmarkType = "3">
          </BreakpointContent>

@@ -365,6 +365,7 @@ NSTimer *updatetimer;
 -(void)alertView:(UIAlertView *)youdied clickedButtonAtIndex:(NSInteger)buttonIndex{
     if (buttonIndex == 0){
         UITextField *playername = [youdied textFieldAtIndex:0];
+            if ([playername.text isEqual:@""]) { playername.text=@"Unknown";}
         [self saveScoreWithName:playername.text Score:[self.model score]];
     }
     [self quitSelf];

@@ -38,11 +38,21 @@
 
 - (void) deathAnimation{
     [super deathAnimation];
+    NSMutableArray *textures = [NSMutableArray arrayWithCapacity:16];
+    for (int i = 1; i < 6; i++) {
+        NSString *textureName = [NSString stringWithFormat:@"bush%d.png", i];
+        SKTexture *texture =[SKTexture textureWithImageNamed:textureName];
+        [textures addObject:texture];
+    }
+    
+    SKTexture *texture =[SKTexture textureWithImageNamed:@"bush0.png"];
+    [textures addObject:texture];
     [self removeActionForKey:[NSString stringWithFormat:@"animate %@", self.class]];
     [self runAction:[SKAction sequence:@[[SKAction repeatAction:[SKAction sequence:@[[SKAction runBlock:^{
-        //Add cut
-    }], [SKAction waitForDuration:1], [SKAction runBlock:^{
-        //Add cut
+        //Add breakAnimation
+        self.breakAnimation =[SKAction animateWithTextures:textures timePerFrame:3];
+        [self runAction:[SKAction repeatAction:self.breakAnimation count:1]];
+    }], [SKAction waitForDuration:20], [SKAction runBlock:^{
         [self removeFromParent];//remove once animation is complete
     }], [SKAction waitForDuration:1]]] count:1]]] withKey:[NSString stringWithFormat:@"animate %@", self.class]];
 }
