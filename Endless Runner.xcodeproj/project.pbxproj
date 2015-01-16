@@ -18,6 +18,10 @@
 		681E67171A691B54007E727A /* 120x120.png in Resources */ = {isa = PBXBuildFile; fileRef = 681E670E1A691B54007E727A /* 120x120.png */; };
 		681E67181A691B54007E727A /* 152x152.png in Resources */ = {isa = PBXBuildFile; fileRef = 681E670F1A691B54007E727A /* 152x152.png */; };
 		681E67191A691B54007E727A /* 180x180.png in Resources */ = {isa = PBXBuildFile; fileRef = 681E67101A691B54007E727A /* 180x180.png */; };
+		681E671F1A693932007E727A /* Birdhouse.png in Resources */ = {isa = PBXBuildFile; fileRef = 681E671D1A693932007E727A /* Birdhouse.png */; };
+		681E67201A693932007E727A /* Butterfly.png in Resources */ = {isa = PBXBuildFile; fileRef = 681E671E1A693932007E727A /* Butterfly.png */; };
+		681E67241A694CB2007E727A /* Butterfly.m in Sources */ = {isa = PBXBuildFile; fileRef = 681E67231A694CB2007E727A /* Butterfly.m */; };
+		681E67271A694CBD007E727A /* Haven.m in Sources */ = {isa = PBXBuildFile; fileRef = 681E67261A694CBD007E727A /* Haven.m */; };
 		682428001A28740B00F71A3D /* GameModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 682427FF1A28740B00F71A3D /* GameModel.m */; };
 		682652711A65A965004DB8AC /* MenuScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 682652701A65A965004DB8AC /* MenuScene.sks */; };
 		683D21C41A2F7CC90081FF3F /* Entity.m in Sources */ = {isa = PBXBuildFile; fileRef = 683D21C31A2F7CC90081FF3F /* Entity.m */; };
@@ -105,6 +109,12 @@
 		681E670E1A691B54007E727A /* 120x120.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = 120x120.png; path = "Endless Runner/Images/Icons/120x120.png"; sourceTree = "<group>"; };
 		681E670F1A691B54007E727A /* 152x152.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = 152x152.png; path = "Endless Runner/Images/Icons/152x152.png"; sourceTree = "<group>"; };
 		681E67101A691B54007E727A /* 180x180.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = 180x180.png; path = "Endless Runner/Images/Icons/180x180.png"; sourceTree = "<group>"; };
+		681E671D1A693932007E727A /* Birdhouse.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Birdhouse.png; path = "Endless Runner/Images/Characters/Birdhouse.png"; sourceTree = "<group>"; };
+		681E671E1A693932007E727A /* Butterfly.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Butterfly.png; path = "Endless Runner/Images/Characters/Butterfly.png"; sourceTree = "<group>"; };
+		681E67221A694CB2007E727A /* Butterfly.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Butterfly.h; sourceTree = "<group>"; };
+		681E67231A694CB2007E727A /* Butterfly.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Butterfly.m; sourceTree = "<group>"; };
+		681E67251A694CBD007E727A /* Haven.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Haven.h; sourceTree = "<group>"; };
+		681E67261A694CBD007E727A /* Haven.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Haven.m; sourceTree = "<group>"; };
 		682427FE1A28740B00F71A3D /* GameModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameModel.h; sourceTree = "<group>"; };
 		682427FF1A28740B00F71A3D /* GameModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameModel.m; sourceTree = "<group>"; };
 		682652701A65A965004DB8AC /* MenuScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = MenuScene.sks; sourceTree = "<group>"; };
@@ -228,6 +238,17 @@
 			name = Icons;
 			sourceTree = "<group>";
 		};
+		681E67211A694C9E007E727A /* Allies */ = {
+			isa = PBXGroup;
+			children = (
+				681E67221A694CB2007E727A /* Butterfly.h */,
+				681E67231A694CB2007E727A /* Butterfly.m */,
+				681E67251A694CBD007E727A /* Haven.h */,
+				681E67261A694CBD007E727A /* Haven.m */,
+			);
+			name = Allies;
+			sourceTree = "<group>";
+		};
 		682428011A28748C00F71A3D /* Images */ = {
 			isa = PBXGroup;
 			children = (
@@ -246,6 +267,8 @@
 		682428021A28749800F71A3D /* Characters */ = {
 			isa = PBXGroup;
 			children = (
+				681E671D1A693932007E727A /* Birdhouse.png */,
+				681E671E1A693932007E727A /* Butterfly.png */,
 				6851ECAC1A6526FB00C661D2 /* kopf-animation.png */,
 				68F359A31A640CD60006E4B1 /* Beehive.png */,
 				68F359061A63C82F0006E4B1 /* avatar.gif */,
@@ -272,6 +295,7 @@
 		683D21CB1A2F7F390081FF3F /* Entities */ = {
 			isa = PBXGroup;
 			children = (
+				681E67211A694C9E007E727A /* Allies */,
 				68F359A51A6421CD0006E4B1 /* Obstacles */,
 				68F3591C1A63E9730006E4B1 /* Enemies */,
 				683D21C21A2F7CC90081FF3F /* Entity.h */,
@@ -545,11 +569,13 @@
 				681E67131A691B54007E727A /* 58x58.png in Resources */,
 				6851ECAD1A6526FB00C661D2 /* kopf-animation.png in Resources */,
 				68F3590E1A63C82F0006E4B1 /* avatar.gif in Resources */,
+				681E671F1A693932007E727A /* Birdhouse.png in Resources */,
 				68F358FD1A63C80E0006E4B1 /* Bog.png in Resources */,
 				68F359001A63C80E0006E4B1 /* Spikes.png in Resources */,
 				68480E201A667C43004A4EEA /* HighScoresText.png in Resources */,
 				681E67121A691B54007E727A /* 40x40.png in Resources */,
 				68F358FE1A63C80E0006E4B1 /* Bush.png in Resources */,
+				681E67201A693932007E727A /* Butterfly.png in Resources */,
 				681E67151A691B54007E727A /* 80x80.png in Resources */,
 				68480E221A667C43004A4EEA /* PlayText.png in Resources */,
 				685F3D931A67D73B00A20F9A /* level1-bonus.png in Resources */,
@@ -581,6 +607,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				681E67271A694CBD007E727A /* Haven.m in Sources */,
 				683D21C41A2F7CC90081FF3F /* Entity.m in Sources */,
 				687516191A24F92600748410 /* GameViewController.m in Sources */,
 				6816082B1A60172C0090CB96 /* Enemy.m in Sources */,
@@ -606,6 +633,7 @@
 				6875160E1A24F92600748410 /* main.m in Sources */,
 				684747D41A5AB3740005B80A /* TactileObject.m in Sources */,
 				683D21CA1A2F7F320081FF3F /* LivingEntity.m in Sources */,
+				681E67241A694CB2007E727A /* Butterfly.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -21,6 +21,8 @@
 #import "Mushroom.h"
 #import "Bush.h"
 #import "Berry.h"
+#import "Butterfly.h"
+#import "Haven.h"
 
 @interface GameModel : NSObject 
 
@@ -37,6 +39,7 @@
 @property int currentdifficulty;
 @property int groundspeed;
 
+
 @property SKTexture *groundtexture;
 @property SKTexture *backgroundtexture;
 
@@ -52,7 +55,12 @@
 
 - (TactileObject*) spawnRandomObstacle;
 - (Enemy*) spawnRandomEnemy;
+
+//Objects that dont fit into an initial array
 - (TactileObject*) spawnPit;
+- (Butterfly*) spawnButterfly;
+
+- (Haven*) spawnHaven;
 
 - (void)moveNodeWithGround:(SKNode*)node Repeat:(bool)r;
 - (void)placePlayer:(int)scene;

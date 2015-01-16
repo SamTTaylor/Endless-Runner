@@ -165,7 +165,16 @@
     return pit;
 }
 
-
+- (Butterfly*) spawnButterfly{
+    Butterfly* butterfly = [[Butterfly alloc] initWithTexture:[SKTexture textureWithImageNamed:@"Butterfly"]];
+    [self placeEntWithLoc:2 Ent:butterfly];
+    return butterfly;
+}
+- (Haven*) spawnHaven{
+    Haven* haven = [[Haven alloc] initWithTexture:[SKTexture textureWithImageNamed:@"Birdhouse"]];
+    [self placeEntWithLoc:2 Ent:haven];
+    return haven;
+}
 
 
 
@@ -190,7 +199,7 @@
         SKAction* Movement = [SKAction sequence:@[move, remove]];
         
         [node runAction:[SKAction runBlock:^{
-            [node runAction:Movement];
+            [node runAction:Movement withKey:@"movingwithground"];
         }]];
         
     }

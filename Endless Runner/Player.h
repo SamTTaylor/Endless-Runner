@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "LivingEntity.h"
+#import "Butterfly.h"
 
 @interface Player : LivingEntity
 
@@ -17,11 +18,14 @@
 @property bool invulnerable;
 @property SKAction *walkAnimation;
 @property bool animated;
+@property bool gotfollower;
+@property Butterfly* currentbutterfly;
 
 - (void)stopAnimation;
 - (void)takeLife;
 - (void)collidedWithBog;
 - (void)collidedWithMushroom;
 - (void)collidedWithEnemy;
+
 
 @end

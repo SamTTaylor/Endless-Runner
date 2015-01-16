@@ -15,7 +15,7 @@
     self = [super initWithTexture:nodetexture];
     if (self) {
         //Initialization code
-        self.physicsBody.contactTestBitMask = 0x1 << 2 | 0x1 << 4 | 0x1 << 6 | 0x1 << 5 | 0x1 << 8 | 0x1 << 7 | 0x1 << 10 | 0x1 << 11;
+        self.physicsBody.contactTestBitMask = 0x1 << 2 | 0x1 << 4 | 0x1 << 6 | 0x1 << 5 | 0x1 << 8 | 0x1 << 7 | 0x1 << 10 | 0x1 << 11 | 0x1 << 12;
         self.physicsBody.categoryBitMask = 0x1 << 1;//player
         self.physicsBody.collisionBitMask = 0x1 << 2 | 0x1 << 4 | 0x1 << 3 | 0x1 << 8 | 0x1 << 7;
         self.physicsBody.allowsRotation = false;
@@ -49,7 +49,7 @@
 }
 
 -(void) takeLife{
-    if (self.invulnerable == false){
+    if (self.invulnerable == false && self.gotfollower == false){
         self.lives--;
         self.invulnerable = true;
         [self runAction:
@@ -58,6 +58,16 @@
             [SKAction runBlock:^{
                 [self setInvulnerable:false];
             }]]]];
+    } else {
+        self.gotfollower = false;
+        [self.currentbutterfly removeFromParent];
+        self.invulnerable = true;
+        [self runAction:
+         [SKAction sequence:@[
+                              [SKAction waitForDuration:40],
+                              [SKAction runBlock:^{
+             [self setInvulnerable:false];
+         }]]]];
     }
 }
 
@@ -67,7 +77,7 @@
 }
 
 -(void)initialiseAnimation{
-    NSMutableArray *textures = [NSMutableArray arrayWithCapacity:16];
+   NSMutableArray *textures = [NSMutableArray arrayWithCapacity:16];
     for (int i = 1; i < 8; i++) {
         NSString *textureName = [NSString stringWithFormat:@"avatar%d.png", i];
         SKTexture *texture =[SKTexture textureWithImageNamed:textureName];
@@ -92,6 +102,7 @@
         [self runAction:repeat];
     }]withKey:@"playeranimation"];
 }
+
 
 - (void)collidedWithBog{
     [self removeActionForKey:@"bogcollision"];

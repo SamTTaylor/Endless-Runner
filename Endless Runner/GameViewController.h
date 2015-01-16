@@ -38,6 +38,8 @@
 @property NSTimer* updatetimer;
 @property NSMutableArray *spawnedobjects;
 
+
+
 @property (strong) UITapGestureRecognizer *doubleTapRecognizer;
 @property (strong) UISwipeGestureRecognizer *swipeRecognizer;
 @property (strong) UIGestureRecognizer *buttonRecognizer;

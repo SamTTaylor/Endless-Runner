@@ -32,7 +32,7 @@
 
 @implementation GameViewController
 
-static const int playerCategory = 0x1 << 1, enemyCategory = 0x1 << 2, bogCategory = 0x1 << 5, lethalpassableCategory = 0x1 << 6, mushroomCategory = 0x1 << 7, lethalimpassableCategory = 0x1 << 8, pitCategory = 0x1 << 10, berryCategory = 0x1 << 11;
+static const int playerCategory = 0x1 << 1, enemyCategory = 0x1 << 2, bogCategory = 0x1 << 5, lethalpassableCategory = 0x1 << 6, mushroomCategory = 0x1 << 7, lethalimpassableCategory = 0x1 << 8, pitCategory = 0x1 << 10, berryCategory = 0x1 << 11, butterflyCategory = 0x1 << 12, havenCategory = 0x1 << 13;
 
 
 NSTimer *updatetimer;
@@ -292,10 +292,24 @@ NSTimer *updatetimer;
     //Should I spawn something?
     if ([self dicerollWithPercentage:(i*100+20)] == YES){
         //What should I spawn?
-        if ([self dicerollWithPercentage:(2)]){//2% chance for pit
+        if ([self dicerollWithPercentage:5]){//5% chance to spawn butterfly
+            if (self.model.player.gotfollower == false){
+                Butterfly *butterfly = [self.model spawnButterfly];
+                [self.gamescene addChild:butterfly];
+                [self checkIntroduction:butterfly];
+                self.model.player.currentbutterfly = butterfly;
+            } else {
+                TactileObject *haven = [self.model spawnHaven];
+                [self.gamescene addChild:haven];
+                [self checkIntroduction:haven];
+            }
+            
+        }else if ([self dicerollWithPercentage:(2)]){ //2% chance of remaining chance to spawn pit
             TactileObject *pit = [self.model spawnPit];
             [self.gamescene addChild:pit];
-        } else if ([self dicerollWithPercentage:(50)]==YES){
+            [self checkIntroduction:pit];
+            
+        } else if ([self dicerollWithPercentage:(50)]==YES){ //50% chance of remaining chance to spawn obsticle/entity
             [self spawnRandomObstacle];
         } else {
             [self spawnRandomEnemy];
@@ -311,14 +325,12 @@ NSTimer *updatetimer;
     TactileObject *spawn = [self.model spawnRandomObstacle];
     [self checkIntroduction:spawn];
     [self.gamescene addChild:spawn];
-    [self.spawnedobjects addObject:spawn];
 }
 
 - (void) spawnRandomEnemy{
     Enemy *spawn = [self.model spawnRandomEnemy];
     [self checkIntroduction:spawn];
     [self.gamescene addChild:spawn];
-    [self.spawnedobjects addObject:spawn];
     [spawn animateSelf];
 }
 
@@ -343,6 +355,7 @@ NSTimer *updatetimer;
     }
     if(containsobjectofclass == false){
         [Tobj introduction:self.view];
+        [self.spawnedobjects addObject:Tobj];
     }
 }
 
@@ -479,15 +492,19 @@ NSTimer *updatetimer;
 
 //Contact handling
 - (void)didBeginContact:(SKPhysicsContact *)contact {
-    if(self.model.player.lives > 0){
+    if(self.model.player.lives > 0){//Dont compute contact if player is dead
         if (contact.bodyA.categoryBitMask == playerCategory && contact.bodyB.categoryBitMask == enemyCategory){
             [self checkLives];
         }else if (contact.bodyA.categoryBitMask == playerCategory && contact.bodyB.categoryBitMask == lethalpassableCategory){
             [self checkLives];
         }else if (contact.bodyA.categoryBitMask == playerCategory && contact.bodyB.categoryBitMask == lethalimpassableCategory){
             [self checkLives];
+            
+            
         }else if (contact.bodyA.categoryBitMask == playerCategory && contact.bodyB.categoryBitMask == bogCategory){
             [self.model.player collidedWithBog];
+            
+            
         }else if (contact.bodyA.categoryBitMask == playerCategory && contact.bodyB.categoryBitMask == mushroomCategory){
             Mushroom* ms = (Mushroom*)contact.bodyB.node;
             ms.physicsBody.categoryBitMask = 0x1 << 9;//Stops over collision
@@ -495,11 +512,14 @@ NSTimer *updatetimer;
             [self stopPlayerRight];
             [ms deathAnimation];
             [self.model.player collidedWithMushroom];
+            
+            
         }else if (contact.bodyA.categoryBitMask == playerCategory && contact.bodyB.categoryBitMask == pitCategory){
             [self.updatetimer invalidate];
             [self movetoPitScene];
-        }
-        if (contact.bodyA.categoryBitMask == playerCategory && contact.bodyB.categoryBitMask == berryCategory){
+            
+            
+        } else if (contact.bodyA.categoryBitMask == playerCategory && contact.bodyB.categoryBitMask == berryCategory){
             Berry* berry = (Berry*)contact.bodyB.node;
             berry.physicsBody.categoryBitMask = 0x1 << 9;//Stops over collision
             [berry deathAnimation];
@@ -508,9 +528,34 @@ NSTimer *updatetimer;
             if (skView.scene == self.challengescene) {
                 [self moveBackToGameScene];
             }
+            
+
+        } else if (contact.bodyA.categoryBitMask == playerCategory && contact.bodyB.categoryBitMask == butterflyCategory){
+            TactileObject* butterfly = (TactileObject*)contact.bodyB.node;
+            [self followPlayer:butterfly];
+            [self.model.player setGotfollower:true];
+            
+            
+            
+        } else if (contact.bodyA.categoryBitMask == butterflyCategory && contact.bodyB.categoryBitMask == havenCategory){
+            TactileObject* butterfly = (TactileObject*)contact.bodyA.node;
+            [butterfly removeFromParent];
+            [self.model.player setGotfollower:false];
+            [self.model incrementScore:200*self.model.currentdifficulty];
         }
     }
+}
 
+-(void)followPlayer:(SKSpriteNode*)node{
+    [node removeActionForKey:@"movingwithground"];
+    [node removeActionForKey:@"followingplayer"];
+    [node runAction:[SKAction repeatActionForever:
+                     [SKAction sequence:@[
+                                          [SKAction runBlock:^{
+                                            [node.physicsBody setVelocity:CGVectorMake(((self.model.player.position.x-self.model.player.frame.size.width*1.5) - node.position.x), ((self.model.player.position.y+(self.model.player.position.y/2)) -node.position.y) )];
+                                                }]
+                                          ,[SKAction waitForDuration:1.0]]]]withKey:@"followingplayer"];
+    
 }
 
 - (void)movetoPitScene{
@@ -526,11 +571,13 @@ NSTimer *updatetimer;
     [self.gamescene removeAllChildren];
     self.gamescene = nil;
     [self placePlayer:1];
+    [self moveButterfly:false];
     [self.model.player stopAnimation];
     [self.challengescene.children[0] setZPosition:5];
     [self.challengescene.children[1] setZPosition:20];
     [self.challengescene buildPitScene];
     [self.challengescene.physicsWorld setContactDelegate:self];
+    [self updateLifeIcons];
 }
 
 - (void)setChallengeBackground:(int)challenge{
@@ -561,6 +608,24 @@ NSTimer *updatetimer;
     [self updaterfire];
     [self.model.player animateSelf];
     [self.gamescene.physicsWorld setContactDelegate:self];
+    [self moveButterfly:true];
+    [self updateLifeIcons];
+}
+
+
+-(void)moveButterfly:(bool)toOrfromMainLevel{
+    if (toOrfromMainLevel == false) {//Move from main level to challenge level
+        if (self.model.player.gotfollower == true){
+            [self.model.player.currentbutterfly removeFromParent];
+            [self.challengescene addChild:self.model.player.currentbutterfly];
+        }
+    } else { //Move from challenge level to main level
+        if (self.model.player.gotfollower == true){
+            [self.model.player.currentbutterfly removeFromParent];
+            [self.gamescene addChild:self.model.player.currentbutterfly];
+        }
+    }
+
 }
 
 
