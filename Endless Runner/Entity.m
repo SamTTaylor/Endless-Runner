@@ -10,6 +10,11 @@
 
 @implementation Entity
 
+
+//The game's objects are mostly contained inside a hierarchy of objects of which Entity is the highest.
+//This allows the organised handling, assigning and overriding of properties and methods and generally makes life much easier
+
+//The entity class itself just states that each entity must have an initWithTexture method which picks up and applies its own texture.
 - (id)initWithTexture:(SKTexture *)nodetexture
 {
     self = [super initWithTexture:nodetexture];

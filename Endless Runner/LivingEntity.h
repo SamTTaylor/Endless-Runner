@@ -9,14 +9,13 @@
 #import "Entity.h"
 #import "TactileObject.h"
 
-@interface LivingEntity : TactileObject
+@interface LivingEntity : TactileObject //3rd in the hierarchy
 
-@property int health;
-@property bool flying; 
-@property float speed;
+@property bool flying; //All living entities can fly if they want
+@property float speed;//All living entities can have their movement and jump speed adjusted
 
--(void)impulseEntityRight;
+-(void)impulseEntityRight; //All living entities can be shoved left or right
 -(void)impulseEntityLeft;
--(void)jumpEntity;
--(void) setFlying:(bool)f flappingfrequency:(double)flap;
+-(void)jumpEntity;//All living entities can jump
+-(void) setFlying:(bool)f flappingfrequency:(double)flap; //All living entities can fly
 @end

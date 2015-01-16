@@ -10,11 +10,12 @@
 #import <SpriteKit/SpriteKit.h>
 
 
-@interface Entity : SKSpriteNode
+@interface Entity : SKSpriteNode //Top of the custom hierarchy
 
-@property SKTexture* nodetexture;
+//>>>>>>>>>>>>>>>>>>>>PROPERTIES<<<<<<<<<<<<<<<<<<<<
+@property SKTexture* nodetexture; //All entities in the game's hierarchy must have a texture
 
-
+//>>>>>>>>>>>>>>>>>>>>METHODS<<<<<<<<<<<<<<<<<<<<
 - (id)initWithTexture:(SKTexture *)nodetexture;
 - (CGRect)collisionBoundingBox;
 
