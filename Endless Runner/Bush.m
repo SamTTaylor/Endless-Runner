@@ -52,7 +52,7 @@
         //Add breakAnimation
         self.breakAnimation =[SKAction animateWithTextures:textures timePerFrame:3];
         [self runAction:[SKAction repeatAction:self.breakAnimation count:1]];
-    }], [SKAction waitForDuration:20], [SKAction runBlock:^{
+    }], [SKAction waitForDuration:10], [SKAction runBlock:^{
         [self removeFromParent];//remove once animation is complete
     }], [SKAction waitForDuration:1]]] count:1]]] withKey:[NSString stringWithFormat:@"animate %@", self.class]];
 }
