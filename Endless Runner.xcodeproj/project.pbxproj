@@ -295,15 +295,15 @@
 		683D21CB1A2F7F390081FF3F /* Entities */ = {
 			isa = PBXGroup;
 			children = (
-				681E67211A694C9E007E727A /* Allies */,
-				68F359A51A6421CD0006E4B1 /* Obstacles */,
-				68F3591C1A63E9730006E4B1 /* Enemies */,
 				683D21C21A2F7CC90081FF3F /* Entity.h */,
 				683D21C31A2F7CC90081FF3F /* Entity.m */,
 				683D21C81A2F7F320081FF3F /* LivingEntity.h */,
 				683D21C91A2F7F320081FF3F /* LivingEntity.m */,
 				683D21C51A2F7CD50081FF3F /* Player.h */,
 				683D21C61A2F7CD50081FF3F /* Player.m */,
+				681E67211A694C9E007E727A /* Allies */,
+				68F359A51A6421CD0006E4B1 /* Obstacles */,
+				68F3591C1A63E9730006E4B1 /* Enemies */,
 			);
 			name = Entities;
 			sourceTree = "<group>";

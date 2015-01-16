@@ -9,49 +9,62 @@
 #import "GameModel.h"
 
 @implementation GameModel
-
+////>>>>>>>>>>>>>>>>>>>>INIT<<<<<<<<<<<<<<<<<<<<
 - (id)initWithPlayer{
     self = [super init];
     if (self) {
         //Initialization code
+        //Adds player node, fills enemy array with all available enemies, fills obstacle array, fills life array, sets difficulty values, score to 0, ground movement speed, and tilt sensitiviy, also asks player to start its walk animation
         self.player = [[Player alloc] initWithTexture:[SKTexture textureWithImageNamed:@"avatar0.png"]];
         [self populateEnemyArray];
         [self populateObstacleArray];
         [self populateLivesArray];
         [self setCurrentdifficulty:1];
         [self setDifficultyscore:0];
-        [self setDifficultythreshold:50];
+        [self setDifficultythreshold:30];
         [self setScore:0];
         [self setGroundspeed:10];
-        [self setSpeed:0.004];
         [self setTiltsensitivity:0.08];
         [self.player animateSelf];
     }
     return self;
 }
 
+
+
+
+
+
+
+
+//>>>>>>>>>>>>>>>>>>>>SCORE/DIFFICULTY<<<<<<<<<<<<<<<<<<<<
+//Add any value to score
 - (void) incrementScore:(int)i{
     self.score += i;
 }
-
+//Add any value to difficulty score
 - (void) incrementDifficultyScore:(int)i{
     self.difficultyscore += i;
 }
-
+//Check if diffivulty score is passed the  threshold, if it is, raise current difficulty level and reset the score
 - (void) updateDifficulty{
+    //Don't do this if its more than 4 because there are currently only 5 levels of difficulty
     if(self.difficultyscore > self.difficultythreshold && self.currentdifficulty <= 4){
         self.currentdifficulty++;
         [self setDifficultyscore:0];
     }
 }
 
+
+//>>>>>>>>>>>>>>>>>>>>LIVES<<<<<<<<<<<<<<<<<<<<
+//Fills life array with nodes equal the amount of player lives
 - (void) populateLivesArray{
     self.lives = [[NSMutableArray alloc] init];
     for (int i=0; i<self.player.lives; i++) {
         [self addLife];
     }
 }
-
+//Adds or removes a life node from the array if it differs from the actual amount of lives the player has
 - (void) updateLives{
     if (self.lives.count > self.player.lives){
         [self removeLife];
@@ -59,20 +72,33 @@
        [self addLife];
     }
 }
-
+//Removes 1 life from its parent and the Lives array, triggered by updateLives
 - (void) removeLife{
     SKSpriteNode *life = self.lives.lastObject;
     [life removeFromParent];
     life = nil;
     [self.lives removeLastObject];
 }
+//Adds 1 life to the life array, triggered by updateLives
 - (void) addLife{
+    //Life nodes are represented by the Lenny Head texture, and placed at the top of the screen in front of the other life nodes
     SKSpriteNode *life = [[SKSpriteNode alloc] initWithImageNamed:@"kopf-animation"];
     [life setScale:0.2];
     life.position = CGPointMake(([UIScreen mainScreen].bounds.size.width/2 - (self.player.lives/2)*life.frame.size.width) + self.lives.count*life.frame.size.width, [UIScreen mainScreen].bounds.size.height - life.frame.size.height);
     [self.lives addObject:(life)];
 }
 
+
+
+
+
+
+
+
+
+
+//>>>>>>>>>>>>>>>>>>>>NODES<<<<<<<<<<<<<<<<<<<<
+//Fills obstacle array with all 1 instance of each obstacle type, in order of their difficulty, and sets their difficulty levels using the array count as it is built, levels 1 - however many obstacles there are
 - (void) populateObstacleArray{
     self.obstacles = [[NSMutableArray alloc] init];
     TactileObject* Tobj = [[Stump alloc] initWithTexture:[SKTexture textureWithImageNamed:@"Stump"]];
@@ -91,7 +117,7 @@
     [self.obstacles addObject:Tobj];
     [Tobj setDifficultylevel:self.obstacles.count];
 }
-
+//Same thing is done with all the enemies
 - (void) populateEnemyArray{
     self.enemies = [[NSMutableArray alloc] init];
     Enemy* en = [[Fox alloc] initWithTexture:[SKTexture textureWithImageNamed:@"Fox"]];
@@ -112,8 +138,7 @@
 
 }
 
-
-
+//Each obstacle needs to be positioned precisely to sit on the ground, as they are not dynamic. This method chooses one at random based on the current difficulty, instanciates it from the array, positions and returns it
 - (TactileObject*) spawnRandomObstacle{
     int i = arc4random()%self.currentdifficulty;
     TactileObject* Tobj = [[TactileObject alloc] init];
@@ -121,7 +146,7 @@
     int loc;
     TactileObject* spawn = [[Tobj.class alloc] initWithTexture:Tobj.texture];
     loc = 0;
-    [self placeEntWithLoc:loc Ent:spawn];
+    [self placeEntWithLoc:loc Ent:spawn];//Places node and sets it moving with the ground, will be discussed later
     NSString *strClass = NSStringFromClass(spawn.class);
     if ([strClass  isEqual: @"Stump"]) {
         [spawn setPosition:CGPointMake(spawn.position.x, spawn.position.y+40)];
@@ -137,6 +162,7 @@
     return spawn;
 }
 
+//Enemies do not have to be positioned so precisely but things like birds and beehives need to be spawned in the air
 - (Enemy*) spawnRandomEnemy{
     int i = arc4random()%self.currentdifficulty;
     Enemy* en = [[Enemy alloc] init];
@@ -155,21 +181,23 @@
     return spawn;
 }
 
+//Returns an instance of a Tobj node with the Pit texture, bit mask is set here as there is no "Pit" class to set it on initialisation
 - (TactileObject*) spawnPit{
     TactileObject* pit = [[TactileObject alloc] initWithTexture:[SKTexture textureWithImageNamed:@"level1-pit"]];
     [pit setScale:0.4];
     [pit setXScale:0.6];
     [self placeEntWithLoc:0 Ent:pit];
     pit.physicsBody.categoryBitMask = 0x1 << 10;
-    [pit setPosition:CGPointMake(pit.position.x, pit.position.y+5)];
+    [pit setPosition:CGPointMake(pit.position.x, pit.position.y+5)];//Slightly repositioned to look right
     return pit;
 }
-
+//Returns an instance of a Butterfly, location#2
 - (Butterfly*) spawnButterfly{
     Butterfly* butterfly = [[Butterfly alloc] initWithTexture:[SKTexture textureWithImageNamed:@"Butterfly"]];
     [self placeEntWithLoc:2 Ent:butterfly];
     return butterfly;
 }
+//Returns an instance of a Haven
 - (Haven*) spawnHaven{
     Haven* haven = [[Haven alloc] initWithTexture:[SKTexture textureWithImageNamed:@"Birdhouse"]];
     [self placeEntWithLoc:2 Ent:haven];
@@ -180,10 +208,16 @@
 
 
 
+
+
+
+
+
+////>>>>>>>>>>>>>>>>>>>>NODE MOVEMENT<<<<<<<<<<<<<<<<<<<<
 -(void)moveNodeWithGround:(SKNode*)node Repeat:(bool)r{
-    //Sets up the ground sprites, makes them scroll passed in a loop
+    //Sets up the ground sprites, makes them scroll passed based on the groundtexture size
     CGFloat distance =  [UIScreen mainScreen].bounds.size.width*1.5;
-    if (r == true){
+    if (r == true){//If you want you can reset it after a loop and have it scroll by again!
         SKAction* move = [SKAction moveByX:-self.groundtexture.size.width y:0 duration:self.groundspeed];
         SKAction* reset = [SKAction moveByX:self.groundtexture.size.width y:0 duration:0];
         SKAction* loopMovement = [SKAction repeatActionForever:[SKAction sequence:@[move, reset]]];
@@ -193,57 +227,72 @@
         }]];
         
     } else {
-        
+        //Or you can just delete it
         SKAction* move = [SKAction moveByX:-distance y:0 duration:self.groundspeed*10.35];
         SKAction* remove = [SKAction removeFromParent];
         SKAction* Movement = [SKAction sequence:@[move, remove]];
         
         [node runAction:[SKAction runBlock:^{
-            [node runAction:Movement withKey:@"movingwithground"];
+            [node runAction:Movement withKey:@"movingwithground"];//Key set so you can stop this action if need be
         }]];
         
     }
 }
 
+//These methods aren't required but it just makes it a little less verbose and a little more structured
 
+//Stop Tobj moving left or right by calling it's method
 -(void)stopTactileObjectMovement:(TactileObject*)Tobj Direction:(int)d{
     [Tobj stopMovementActionsWithDirection:d];
 }
-
+//Move Tobj right by calling its method, speed can be altered
 -(void)moveTactileObjectRight:(TactileObject*)Tobj speed:(int)s{
     [Tobj moveEntityRight:s];
 }
-
+//Left, too
 -(void)moveTactileObjectLeft:(TactileObject*)Tobj speed:(int)s{
     [Tobj moveEntityLeft:s];
 }
-
+//Impulse Living Entity right using its method
 -(void)impulseEntityRight:(LivingEntity*)Lent{
     [Lent impulseEntityRight];
 }
-
+//Left, too
 -(void)impulseEntityLeft:(LivingEntity*)Lent{
     [Lent impulseEntityLeft];
 }
-
+//Jump Entity using its method
 -(void)jumpEntity:(LivingEntity*)Lent{
-    
     [Lent jumpEntity];
 }
-
+//Sets any Living Entity so that it bobs up and down across screen as it moves, using actual physics none of this cheap "moveByY" stuff
 - (void)setFlying:(bool)f flappingfrequenct:(double)freq LivingEntity:(LivingEntity*)Lent{
     [Lent setFlying:f flappingfrequency:freq];
 }
 
+
+
+
+
+
+
+
+
+
+
+
+//>>>>>>>>>>>>>>>>>>>>NODE PLACEMENT<<<<<<<<<<<<<<<<<<<<
+//Puts hte player in the right starting position for each scene
+
 -(void)placePlayer:(int)scene{
     switch (scene) {
-        case 0:
-            //Bottom left
+        case 0://Fun fact: This is also used to reset player position if he runs off screen left in the main level
+            //Bottom left (Main level)
             [self.player setScale:0.2];
             [self placeEntWithLoc:1 Ent:self.player];
             break;
         case 1:
-            //Bottom left
+            //Top left-ish (Pit level)
             [self.player setScale:0.2];
             [self.player setPosition:CGPointMake(self.player.size.width*2, [UIScreen mainScreen].bounds.size.height-self.player.size.height*1.5)];
             break;
@@ -253,23 +302,23 @@
 
 }
 
-
+//Places any entity in various re-used positions in the game
 -(void)placeEntWithLoc:(int)loc Ent:(Entity*)ent{
     CGFloat screenwidth = [UIScreen mainScreen].bounds.size.width;
     CGFloat screenheight = [UIScreen mainScreen].bounds.size.height;
     switch (loc) {
-        case 0://Bottom Right
+        case 0://Bottom Right, used for walking objects.
             [ent setPosition:CGPointMake(screenwidth+ent.frame.size.width/2, self.groundnode.frame.size.height+ent.frame.size.height/2)];
             [self moveNodeWithGround:ent Repeat:NO];
             break;
-        case 1://Bottom Left
+        case 1://Bottom Left, used for the player, no "MoveNodeWithGround" because it would just immediately run it off screen.
             [ent setPosition:CGPointMake(ent.frame.size.width/2,self.groundnode.frame.size.height+ent.frame.size.height/2)];
             break;
-        case 2://Middle right
+        case 2://Middle right, used for flying objects
             [ent setPosition:CGPointMake(screenwidth+ent.frame.size.width/2,screenheight/2)];
             [self moveNodeWithGround:ent Repeat:NO];
             break;
-        case 3://75% right
+        case 3://75% right, used for low flying objects
             [ent setPosition:CGPointMake(screenwidth+ent.frame.size.width/2,screenheight/4)];
             [self moveNodeWithGround:ent Repeat:NO];
             break;
@@ -278,11 +327,7 @@
     }
 }
 
--(TactileObject*)newEnvironmentObjectWithImageNamed:(NSString*)name scale:(float)scale{
-    TactileObject  *Tobj = [[TactileObject alloc] initWithTexture:[SKTexture textureWithImageNamed:name]];
-    [Tobj setScale:scale];
-    return Tobj;
-}
+
 
 
 @end

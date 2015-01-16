@@ -11,7 +11,8 @@
 
 @interface HighScoresViewController : UIViewController <UITableViewDelegate, UITableViewDataSource>
 
+//>>>>>>>>>>>>>>>>>>>>UI ELEMENTS<<<<<<<<<<<<<<<<<<<<
 @property (weak) IBOutlet UITableView* highscoretable;
-@property NSMutableArray *highscores;
+@property NSMutableArray *highscores;//Used to mirror the immutable global highscores array
 
 @end

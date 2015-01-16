@@ -18,6 +18,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    //Let the tiltbool control mirror the current selection
     if (self.tiltbool == true){
         self.tiltcontrol.selectedSegmentIndex = 1;
     } else {

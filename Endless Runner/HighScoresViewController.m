@@ -28,12 +28,13 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     AppDelegate *ad = (AppDelegate *)[[UIApplication sharedApplication] delegate];
-    self.highscores = [[NSMutableArray alloc] initWithArray:ad.highscores];
+    self.highscores = [[NSMutableArray alloc] initWithArray:ad.highscores];//Initialise the local highscores array with the one from the app delegate
+    
     UITableView *tableView = self.highscoretable;
     tableView.delegate = self;
     tableView.dataSource = self;
     [tableView reloadData];
-    self.highscoretable.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
+    self.highscoretable.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];//Ensures the table is no longer than the array
     int width =self.view.bounds.size.width/4;
     int height =self.view.bounds.size.height*0.64;
     [self.highscoretable setFrame:CGRectMake(self.view.bounds.size.width/2-width/2, 200, width, height)];
@@ -48,12 +49,12 @@
 // 1 section
 -(NSInteger)numberOfSectionsInTableView:
 (UITableView *)sender {
-    return 1;
+    return 1;//Only 1 section
 }
 //5 rows
 -(NSInteger)tableView:(UITableView *)sender
 numberOfRowsInSection:(NSInteger)section {
-    return [self.highscores count];
+    return [self.highscores count];//Number of rows equal to the number of highscore entries
 }
 
 //Cell population
@@ -69,7 +70,7 @@ numberOfRowsInSection:(NSInteger)section {
                 reuseIdentifier:myIdentifier];
     }
     
-    //Cell text is set to the corresponding index of the sorted arrays
+    //Cell text is set to the corresponding index of the sorted highscore arrays
     cell.textLabel.text = [NSString stringWithFormat:@"%@", [self.highscores objectAtIndex:indexPath.row]];
     
     cell.textLabel.font = [UIFont fontWithName:@"MarkerFelt-Thin" size:22];

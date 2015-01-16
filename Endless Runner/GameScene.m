@@ -44,17 +44,20 @@
 -(void) createBarrier:(CGSize)size Position:(CGPoint)pos Scene:(GameScene*)scene Dynamic:(bool)d{
     //Create node using size passed
     SKSpriteNode *node = [[SKSpriteNode alloc] initWithColor:[UIColor colorWithRed:0.6 green:0.1 blue:0.1 alpha:1.0] size:CGSizeMake(size.width*5, size.height*5)];
-    //
+    //Resizing the scale makes the nodes more slippery - which I doubt is intended but its useful
     [node setScale:0.2];
+    
     node.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:size];
     node.position = pos;
-    node.shadowCastBitMask = 0x1 << 1;
-    node.physicsBody.dynamic = d;
+    node.shadowCastBitMask = 0x1 << 1; //All created nodes cast shadows
+    node.physicsBody.dynamic = d; //All nodes defy gravity but some can be moved by force
     node.physicsBody.affectedByGravity = false;
-    [node setZPosition:1];
+    [node setZPosition:1];//All nodes appear in front of Background, but behind everything else
     [scene addChild:node];
 }
 
+
+//Fills pit scene with the required nodes
 -(void) buildPitScene{
     //Bottom left/right blocks
     [self createBarrier:CGSizeMake(120, 60) Position:CGPointMake(self.size.width*0.16, self.size.height*0.12) Scene:self Dynamic:false];
@@ -83,6 +86,7 @@
     
     //This is a berry
     Berry *berry = [[Berry alloc] initWithTexture:[SKTexture textureWithImageNamed:@"berry"]];
+    //Positioned in the "box" created by the barriers
     [berry setPosition:CGPointMake(self.size.width-self.size.width*0.31,self.size.height*0.45)];
     [berry setZPosition:19];
     [self addChild:berry];

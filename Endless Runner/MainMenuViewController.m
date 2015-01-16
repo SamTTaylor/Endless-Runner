@@ -36,16 +36,17 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    //Defaults the first time the game is loaded
     self.tiltbool = false;
     [self setBgimagestring:@"background"];
     [self setAvatarimagestring:@"avatar.gif"];
     self.bgtexture = [SKTexture textureWithImageNamed:self.bgimagestring];
-    self.groundtexture = [SKTexture textureWithImageNamed:@"ground"];
+    self.groundtexture = [SKTexture textureWithImageNamed:@"ground"];//Ground is always based on the bgimage so it is not stored as a string
     self.svc = nil;
     self.gvc = nil;
 }
 
+//Makes sure that the main menu scrolling background is recreated when the view is reached by backing through the navigation controller
 - (void) viewDidAppear:(BOOL)animated{
     [self setAvatarimagestring:@"avatar.gif"];
     [self setBgimagestring:@"background"];
@@ -58,6 +59,7 @@
     // Dispose of any resources that can be recreated.
 }
 
+//Sends the relevant settings information to the other view controller when a segue occurs
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     [(SKView*)self.view presentScene:nil];
     if ([[segue identifier]isEqualToString:@"segueToSettings"]) {
@@ -74,6 +76,7 @@
     }
 }
 
+//Creates the scrolling menu background from the currently selected background texture
 - (void)setMenuBackground{
     SKAction* moveBg = [SKAction moveByX:-self.bgtexture.size.width*2 y:0 duration:0.015 * self.bgtexture.size.width*2];
     SKAction* resetBg = [SKAction moveByX:self.bgtexture.size.width*2 y:0 duration:0];
@@ -89,10 +92,12 @@
     }
 }
 
+
 - (void)initialiseMenuScene{
-    // Configure  jthe view.
+    // Configure  the view.
     SKView * skView = (SKView *)self.view;
     skView.ignoresSiblingOrder = YES;
+    //Pulls a blank scene from the file
     self.menuscene = [GameScene unarchiveFromFile:@"MenuScene"];
     self.menuscene.scaleMode = SKSceneScaleModeAspectFill;
     [self setMenuBackground];

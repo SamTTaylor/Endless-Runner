@@ -15,21 +15,28 @@
 #import "GameModel.h"
 #import "AppDelegate.h"
 
-@interface MainMenuViewController : UIViewController
 
+@interface MainMenuViewController : UIViewController
+//>>>>>>>>>>>>>>>>>>>>PROPERTIES<<<<<<<<<<<<<<<<<<<<
+
+
+//>>>>>>>>>>>>>>>>>>>>UI ELEMENTS<<<<<<<<<<<<<<<<<<<<
 @property (weak) IBOutlet UIButton *play;
 @property (weak) IBOutlet UIButton *settings;
 @property (weak) IBOutlet UIButton *highscores;
 @property (weak) IBOutlet UIButton *instructions;
 
-@property bool tiltbool;
-@property SKTexture* bgtexture;
-@property SKTexture* groundtexture;
-@property NSString* bgimagestring;
+//>>>>>>>>>>>>>>>>>>>>SETTINGS<<<<<<<<<<<<<<<<<<<<
+//All passed to the GameView to be reflected in game
+@property bool tiltbool;//Tilt or buttons
+@property SKTexture* bgtexture;//What does the background look like
+@property SKTexture* groundtexture;//What does the ground look like
+@property NSString* bgimagestring;//Used to convert SKTexture to UIImage via the "...Named:" method
 @property NSString* avatarimagestring;
 
 
-@property (weak) GameScene* menuscene;
+//>>>>>>>>>>>>>>>>>>>>SEGUE STUFF<<<<<<<<<<<<<<<<<<<<
+@property (weak) GameScene* menuscene; //Used to create the nice scrolling background on the main menu
 @property (weak) SettingsViewController *svc;
 @property (weak) GameViewController *gvc;
 

@@ -11,8 +11,10 @@
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 
+//>>>>>>>>>>>>>>>>>>>>PROPERTIES<<<<<<<<<<<<<<<<<<<<
 @property (strong, nonatomic) UIWindow *window;
 
+//Used to store/retrieve high scores in the local session from anywhere in the app
 @property (strong, nonatomic) NSArray* highscores;
 @end
 

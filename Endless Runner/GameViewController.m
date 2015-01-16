@@ -12,7 +12,7 @@
 #import <Social/Social.h>
 
 @implementation SKScene (Unarchive)
-
+//Pulls blank Gamescene from the file
 + (instancetype)unarchiveFromFile:(NSString *)file {
     /* Retrieve scene file path from the application bundle */
     NSString *nodePath = [[NSBundle mainBundle] pathForResource:file ofType:@"sks"];
@@ -32,6 +32,7 @@
 
 @implementation GameViewController
 
+//All bit categories are kept as constants for easier reference
 static const int playerCategory = 0x1 << 1, enemyCategory = 0x1 << 2, bogCategory = 0x1 << 5, lethalpassableCategory = 0x1 << 6, mushroomCategory = 0x1 << 7, lethalimpassableCategory = 0x1 << 8, pitCategory = 0x1 << 10, berryCategory = 0x1 << 11, butterflyCategory = 0x1 << 12, havenCategory = 0x1 << 13;
 
 
@@ -41,23 +42,23 @@ NSTimer *updatetimer;
 {
     [super viewDidLoad];
     //Load new game
-    [self initialiseGameScene];
-    [self initialiseModel];
-    [self GameStart];
-    [self.gamescene.physicsWorld setContactDelegate:self];
+    [self initialiseGameScene];//Starts main level for the first time
+    [self initialiseModel];//Creates a fresh model
+    [self GameStart];//Sets the game in motion
+    [self.gamescene.physicsWorld setContactDelegate:self];//Used to read collision data from the main scene
     [self checkTiltBool];
     self.gamestarted = false;
     self.startedbytilt = false;
     [self addListenersToButtons];
     [self instantiateGestureRecognizers];
-    self.spawnedobjects = [[NSMutableArray alloc] init];
+    self.spawnedobjects = [[NSMutableArray alloc] init];//No objects spawned at the start
     if (self.tiltbool == true){
         [self startGame];
     }
-    [self updateLifeIcons];
+    [self updateLifeIcons];//Shows the life icons held in the Model's array
 }
 
-
+//>>>>>>>>>>>>>>>>>>>>INITIALISATION<<<<<<<<<<<<<<<<<<<<
 - (void)initialiseGameScene{
     // Configure the view.
     SKView * skView = (SKView *)self.view;
@@ -66,52 +67,56 @@ NSTimer *updatetimer;
     // Create and configure the scene.
     self.gamescene = [GameScene unarchiveFromFile:@"GameScene"];
     self.gamescene.scaleMode = SKSceneScaleModeAspectFill;
-    [self.gamescene setBoundsWithCategory:0];
+    [self.gamescene setBoundsWithCategory:0];//Draw main scene bounds from GameScene method
 }
 
-- (void)initialiseModel{
+- (void)initialiseModel{//Blank model with player created, model is told what the set ground texture is
     self.model = [[GameModel alloc] initWithPlayer];
     [self.model setGroundtexture:self.groundtexture];
-    [self.model setBackgroundtexture:self.bgtexture];
 }
 
+//Puts the game in a state where it is displayed but update timer is paused until the player moves
 -(void) GameStart{
-    [self setGameBackground];
-    [self setGameGround];
-    [self placePlayer:0];
+    [self setGameBackground];//Adds scrolling background
+    [self setGameGround];//Adds scrolling foreground
+    [self placePlayer:0];//Adds player at bottom left
     // Present the scene.
     // Configure the view.
     SKView * skView = (SKView *)self.view;
+    //After all the initialisation is done, scene can be shown
     [skView presentScene:self.gamescene transition:[SKTransition fadeWithColor:[UIColor blackColor] duration:1]];
 }
 
 - (void)startGame{
     //Lets get going
-    if (self.gamestarted == false) {
+    if (self.gamestarted == false) {//Stops the game being started multiple times
         self.gamestarted = true;
         self.updatespeed = 1;
-        [self updaterfire];
+        [self updaterfire];//Initialises and sets the updater timer going
     }
 }
 
+
+
+//>>>>>>>>>>>>>>>>>>>>MOTION<<<<<<<<<<<<<<<<<<<<
 - (void)instantiateAccelerometer{
     //Prepare the Accelerometer
     self.motionManager = [[CMMotionManager alloc]init];
     if (self.motionManager.accelerometerAvailable) {
-        self.motionManager.accelerometerUpdateInterval = 0.01; // 100 Hz
+        self.motionManager.accelerometerUpdateInterval = 0.01;
         [self.motionManager startAccelerometerUpdates];
         
         self.accelerometerHandler = ^(CMAccelerometerData *accData, NSError *error) {
             self.yRotation = accData.acceleration.y;
-            if (self.yRotation > self.model.tiltsensitivity){
+            if (self.yRotation > self.model.tiltsensitivity){//If you're tilting left over the threshold, move the player left
                 [self movePlayerLeft];
-                self.startedbytilt = true;
+                self.startedbytilt = true;//Allows the game to be started by the update timer
             }
-            if (self.yRotation < -self.model.tiltsensitivity){
+            if (self.yRotation < -self.model.tiltsensitivity){//If you're tilting right over the threshold, move the player right
                 [self movePlayerRight];
                 self.startedbytilt = true;
             }
-            if (self.yRotation < self.model.tiltsensitivity && self.yRotation > -self.model.tiltsensitivity){
+            if (self.yRotation < self.model.tiltsensitivity && self.yRotation > -self.model.tiltsensitivity){//If you are not over the threshold in any direction, stop the player moving
                 [self stopPlayerLeft];
                 [self stopPlayerRight];
             }
@@ -120,17 +125,18 @@ NSTimer *updatetimer;
         [self.motionManager startAccelerometerUpdatesToQueue:[[NSOperationQueue alloc]init] withHandler:self.accelerometerHandler];
     }
     else {
-        NSLog(@"No accelerometer on the device");
+        //No accelerometer detected
         self.motionManager = nil;
     }
 }
 
+//Shows buttons if the tilt movement is not requested by user, else it hides them and starts the accelerometer
 - (void)checkTiltBool{
     if (self.tiltbool == true){
         self.left.hidden = true;
         self.right.hidden = true;
         [self instantiateAccelerometer];
-        [ToastView showToastInParentView:self.view withText:@"Tilt to begin, tap to jump!" withDuaration:5.0];
+        [ToastView showToastInParentView:self.view withText:@"Tilt to begin, tap to jump!" withDuaration:5.0];//Toast for instruction
     } else {
         [ToastView showToastInParentView:self.view withText:@"Press movement buttons to begin, tap to jump!" withDuaration:5.0];
         self.left.hidden = false;
@@ -138,13 +144,22 @@ NSTimer *updatetimer;
     }
 }
 
+
+
+
+
+
+
+
+//>>>>>>>>>>>>>>>>>>>>ENVIRONMENT<<<<<<<<<<<<<<<<<<<<
 - (void)setGameBackground{
     int distance = self.bgtexture.size.width*2;
+    //Move the background picture far offscreen, then reset it and move it across again
     SKAction* moveBg = [SKAction moveByX:-distance y:0 duration:0.01 * distance];
     SKAction* resetBg = [SKAction moveByX:distance y:0 duration:0];
     SKAction* loopBgMovement = [SKAction repeatActionForever:[SKAction sequence:@[moveBg, resetBg]]];
     
-    
+    //Create many layers of pictures for a seemless effect
     for( int i = 0; i < 2 + self.gamescene.frame.size.width; ++i ) {
         SKSpriteNode* sprite = [SKSpriteNode spriteNodeWithTexture:self.bgtexture];
         [sprite setScale:0.55];
@@ -160,8 +175,8 @@ NSTimer *updatetimer;
     }
 }
 
+//Move game ground in the same way but a little faster to give the illusion of depth
 - (void)setGameGround{
-    
     for( int i = 0; i < 2 + self.gamescene.frame.size.width / ( self.groundtexture.size.width * 2 ); ++i ) {
         // Create the sprite
         SKSpriteNode* sprite = [SKSpriteNode spriteNodeWithTexture:self.groundtexture];
@@ -171,7 +186,7 @@ NSTimer *updatetimer;
         [self.gamescene addChild:sprite];
     }
     
-    //Adds an invisible tactile node for everything to stand on.
+    //Adds an invisible tactile node for everything to stand on in the physical world
     self.model.groundnode = [SKNode node];
     self.model.groundnode.position = CGPointMake(0, 20);
     self.model.groundnode.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:CGSizeMake(self.gamescene.size.width*4, 50)];
@@ -182,6 +197,8 @@ NSTimer *updatetimer;
     [self.gamescene addChild:self.model.groundnode];
 }
 
+
+//Passes player placement to the relevant method in the model, the scene in corresponds to the correct position int in the model's method so the player is always put in the right position for the scene selected
 - (void)placePlayer:(int)scene{
     [self.model placePlayer:scene];
     switch (scene) {
@@ -201,31 +218,36 @@ NSTimer *updatetimer;
 
 
 
-//Touch & Gesture handling
 
+
+
+//>>>>>>>>>>>>>>>>>>>>TOUCHG & GESTURE HANDLING<<<<<<<<<<<<<<<<<<<<
+//Tidy method for all gesture recognizers
 -(void) instantiateGestureRecognizers{
     [self instantiateSwipeRecognizer];
     [self instantiateDoubleTapRecognizer];
 }
 
+//Stops gesture recognizers from delaying input if the user is trying to use the movement buttons
 - (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldReceiveTouch:(UITouch *)touch {
-    
     if ((touch.view == self.left || touch.view == self.right)) {
         return NO;
     }
     return YES;
 }
 
+//Recognizes double taps
 - (void)instantiateDoubleTapRecognizer{
     self.doubleTapRecognizer =
     [[UITapGestureRecognizer alloc]initWithTarget:self
                                            action:@selector(handleDoubleTap)];
     self.doubleTapRecognizer.numberOfTapsRequired = 2;
     [self.doubleTapRecognizer setDelegate:self];
-    [self.doubleTapRecognizer requireGestureRecognizerToFail:self.swipeRecognizer];
+    [self.doubleTapRecognizer requireGestureRecognizerToFail:self.swipeRecognizer];//Swipe recognizer takes precedence
     [self.view addGestureRecognizer:self.doubleTapRecognizer];
 }
 
+//If a double tap is recognized, check the class of the node it occurred in, if it is a beehive, destroy it & give the player a little reward depending on the current difficulty level
 -(void)handleDoubleTap {
     if([self getNodeTouched:(UITouch*)self.doubleTapRecognizer].class == NSClassFromString(@"Beehive")){
             [(Beehive*)[self getNodeTouched:(UITouch*)self.doubleTapRecognizer] deathAnimation];
@@ -234,7 +256,7 @@ NSTimer *updatetimer;
     
 }
 
-
+//Recognizes swipes
 - (void)instantiateSwipeRecognizer{
     self.swipeRecognizer =
     [[UISwipeGestureRecognizer alloc]initWithTarget:self action:@selector(handleSwipe:)];
@@ -242,6 +264,7 @@ NSTimer *updatetimer;
     [self.view addGestureRecognizer:self.swipeRecognizer];
 }
 
+//If a swipe is recognized, check the class of the node it started in, if it is a bush, destroy it & give the player a little reward depending on the current difficulty level
 -(void)handleSwipe:(UISwipeGestureRecognizer*)sender{
     if([self.gamescene nodeAtPoint:CGPointMake([sender locationInView:self.gamescene.view].x, ([sender locationInView:self.gamescene.view].y-self.gamescene.view.frame.size.height)*-1)].class== NSClassFromString(@"Bush")){
             [(Bush*)[self getNodeTouched:(UITouch*)self.swipeRecognizer] deathAnimation];
@@ -249,6 +272,7 @@ NSTimer *updatetimer;
     }
 }
 
+//Every touch that is registered inside the SKView is caught and will make the player jump unless its inside a beehive, as causing the player to jump when they want to double tap a beehive often causes death
 -(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
     /* Called when a touch begins */
     for (UITouch *touch in touches) {
@@ -258,6 +282,7 @@ NSTimer *updatetimer;
     }
 }
 
+//Returns the node touched at the point, the touch and node coordinates need to be "converted" from their respective views to match up.
 -(SKNode*) getNodeTouched:(UITouch*)touch{
     return [self.gamescene nodeAtPoint:CGPointMake([touch locationInView:self.gamescene.view].x, ([touch locationInView:self.gamescene.view].y-self.gamescene.view.frame.size.height)*-1)];
 }
@@ -273,12 +298,14 @@ NSTimer *updatetimer;
 
 
 
-//TIMERS
+//>>>>>>>>>>>>>>>>>>>>TIMERS<<<<<<<<<<<<<<<<<<<<
+//Instanciates and fires the updater timer based on the updatespeed set on initialisation
 - (void)updaterfire{
     self.updatetimer = [NSTimer scheduledTimerWithTimeInterval:self.updatespeed target:self selector:@selector(updaterFireMethod:) userInfo:nil repeats:YES];
     [updatetimer fire];
 }
 
+//Stops the player wandering off screen, runs the spawn an object method and increments score & difficulty every tick (if tilt is enabled, it waits for the startedbytilt variable to be enabled before it takes action)
 - (void)updaterFireMethod:(NSTimer *)updatetimer{
     [self checkPlayerPos];
     if (self.startedbytilt == true || self.tiltbool == false) {
@@ -287,18 +314,21 @@ NSTimer *updatetimer;
     }
 }
 
+//Spawns (or doesn't spawn) a random object, used by the update timer
 - (void)spawnSomething{
+    //Used to get a % reprisentation of progress through the current level
     float i = (double)self.model.difficultyscore/(double)self.model.difficultythreshold;
-    //Should I spawn something?
+    //If the dice rolls YES to the % reprisentation then an object is spawned
+    //+20% is added so that the player doesn't have to wait forever to see the first minion each level
     if ([self dicerollWithPercentage:(i*100+20)] == YES){
         //What should I spawn?
-        if ([self dicerollWithPercentage:5]){//5% chance to spawn butterfly
-            if (self.model.player.gotfollower == false){
+        if ([self dicerollWithPercentage:5]){//5% chance to spawn butterfly or haven in the first instance
+            if (self.model.player.gotfollower == false){//If there is no butterfly present one is spawned
                 Butterfly *butterfly = [self.model spawnButterfly];
                 [self.gamescene addChild:butterfly];
-                [self checkIntroduction:butterfly];
+                [self checkIntroduction:butterfly];//Intro text tells the player what to do
                 self.model.player.currentbutterfly = butterfly;
-            } else {
+            } else {//If a butterfly is present a haven is spawned in its place
                 TactileObject *haven = [self.model spawnHaven];
                 [self.gamescene addChild:haven];
                 [self checkIntroduction:haven];
@@ -317,48 +347,54 @@ NSTimer *updatetimer;
     }
 }
 
+//Rolls a dice with success chance of the passed int as a percentage
 - (bool) dicerollWithPercentage:(int)percentage {
     return arc4random_uniform(100) < percentage;
 }
 
+
+//Uses the model's spawn method to add a random obstacle node to the game scene
 - (void) spawnRandomObstacle{
     TactileObject *spawn = [self.model spawnRandomObstacle];
-    [self checkIntroduction:spawn];
+    [self checkIntroduction:spawn];//If one has not been spawned before it introduces it
     [self.gamescene addChild:spawn];
 }
 
+//Uses the model's spawn method to add a random enemy node to the game scene
 - (void) spawnRandomEnemy{
     Enemy *spawn = [self.model spawnRandomEnemy];
     [self checkIntroduction:spawn];
     [self.gamescene addChild:spawn];
-    [spawn animateSelf];
+    [spawn animateSelf];//Asks the enemy to perform any relevant animations it has
 }
 
-
+//Stops player from running off screen, called by the updater timer
 -(void)checkPlayerPos{
-    if (self.model.player.position.x < 0){
-        [self.model placePlayer:0];
+    if (self.model.player.position.x < 0){//if player is off to the left
+        [self.model placePlayer:0];//Places player bottom left using the model method
+        //Then shuffles him even further to the left so the "ping back" isn't as jarring
         [self.model.player setPosition:CGPointMake(-20, self.model.player.position.y)];
-    } else if (self.model.player.position.x > [UIScreen mainScreen].bounds.size.width){
-        [self.model placePlayer:0];
-        [self.model.player setPosition:CGPointMake([UIScreen mainScreen].bounds.size.width, self.model.player.position.y)];
+    } else if (self.model.player.position.x > [UIScreen mainScreen].bounds.size.width){//If player is off to the right
+        [self.model placePlayer:0];//Places player in default position
+        [self.model.player setPosition:CGPointMake([UIScreen mainScreen].bounds.size.width, self.model.player.position.y)];//Then moves him to just off of the screen to the right
     }
 }
 
-
+//If an object of each class has not been spawned yet, this calls their introduciton toast
 -(void)checkIntroduction:(TactileObject*)Tobj{
-    bool containsobjectofclass = false;
-    for (int i = 0; i < self.spawnedobjects.count; i++) {
-        if ([self.spawnedobjects[i] isKindOfClass:Tobj.class]){
+    bool containsobjectofclass = false;//Innocent until proven guilty
+    for (int i = 0; i < self.spawnedobjects.count; i++) {//Cycles through the array
+        if ([self.spawnedobjects[i] isKindOfClass:Tobj.class]){//Checks their class against the passed Tobj
             containsobjectofclass = true;
         }
     }
-    if(containsobjectofclass == false){
+    if(containsobjectofclass == false){//If it is not in the array, it puts the toast in the current view
         [Tobj introduction:self.view];
-        [self.spawnedobjects addObject:Tobj];
+        [self.spawnedobjects addObject:Tobj];//And adds it to the array so it will not be introduced again
     }
 }
 
+//Increments score, difficulty in the model & UI label, and calls for a difficulty update check from the model all at once
 - (void) incrementScores{
     [self.model incrementScore:self.model.currentdifficulty * 10];
     [self.model incrementDifficultyScore:1];
@@ -366,6 +402,7 @@ NSTimer *updatetimer;
     self.score.text = [NSString stringWithFormat:@"Score: %d", self.model.score];
 }
 
+//Shuts everything down & returns to the main menu view controller
 - (void) quitSelf{
     self.motionManager = nil;
     self.swipeRecognizer = nil;
@@ -376,9 +413,12 @@ NSTimer *updatetimer;
     [[self presentingViewController] dismissViewControllerAnimated:YES completion:nil];
 }
 
+//Tries to take a life off of the player using it's own method, and then calls for an update on the life icons to represent any change
 - (void) checkLives{
     [self.model.player takeLife];
     [self updateLifeIcons];
+    
+    //If the player is at 0 lives (dead), game over alert dialogue is shown & update timer is stopped
     if (self.model.player.lives == 0){
         [self.updatetimer invalidate];
         
@@ -390,11 +430,12 @@ NSTimer *updatetimer;
                                 otherButtonTitles:@"Submit and Share on Facebook", nil];
         youdied.alertViewStyle = UIAlertViewStylePlainTextInput;
         [youdied show];
+        //Screenshot of the victim is taken upon death
         self.screenshot = [self getScreenShot];
     };
 }
 
-//You died alert redirects here: when you click OK quits
+//You died alert redirects here: if you click Submit it quits & records your score, if you click submit to facebook, it lets the save method know to trigger the facebook share when it's done
 -(void)alertView:(UIAlertView *)youdied clickedButtonAtIndex:(NSInteger)buttonIndex{
     if (buttonIndex == 0){
         UITextField *playername = [youdied textFieldAtIndex:0];
@@ -409,6 +450,7 @@ NSTimer *updatetimer;
 }
 
 
+//Takes the player's name and score, then compares the score against the current highscore array by copying it into a new array and splitting each string in that array using the delimiter ":  " and taking the last object, which can only be the score itself, before comparing it. If the current score is higher than any of them, it is inserted at that position, pushing the rest down a peg
 - (void)saveScoreWithName:(NSString*)name Score:(int)s Facebook:(bool)f{
     AppDelegate *ad = (AppDelegate *)[[UIApplication sharedApplication] delegate];
     NSMutableArray* maad = [[NSMutableArray alloc]initWithArray:ad.highscores];
@@ -421,12 +463,14 @@ NSTimer *updatetimer;
             break;
         }
     }
-    ad.highscores = [maad copy];
-    if (f == true){
+    ad.highscores = [maad copy]; //Copies the local mutable array into the highscores array
+    if (f == true){//If share on facebook is selected the method is triggered
         [self ShareScoreonFacebook];
     }
 }
 
+
+//Instantiates the facebook sharing view controller and passes it the screenshot to upload as proof of the score, lets the user type in any message they want before posting
 -(void)ShareScoreonFacebook{
 
     SLComposeViewController *controller = [SLComposeViewController composeViewControllerForServiceType:SLServiceTypeFacebook];
@@ -441,11 +485,14 @@ NSTimer *updatetimer;
                 NSLog(@"Posted");
                 [self quitSelf];
                 break;
-        }};
+        }};//No matter the outcome, the user is returned to the main menu afterward
     
     [self presentViewController:controller animated:YES completion:nil];
 }
 
+
+
+//Pulls a screenshot of the current SKView inside the screens bounds
 -(UIImage*)getScreenShot{
     SKView * skView = (SKView *)self.view;
     UIGraphicsBeginImageContextWithOptions([UIScreen mainScreen].bounds.size, NO, [UIScreen mainScreen].scale);
@@ -457,7 +504,7 @@ NSTimer *updatetimer;
 
 
 
-
+//Updates the model's Lives array, then runs through it and adds each of the nodes to the gamescene if they are not there already
 - (void) updateLifeIcons{
     [self.model updateLives];
     for (int i=0; i<self.model.lives.count; i++) {
@@ -491,63 +538,71 @@ NSTimer *updatetimer;
 
 
 //Contact handling
+//Checks every relevant combination of contact to the game and performs actions based on it, when contact occurs. If the player is dead (lives < 0), no contact is computed because the game is over.
 - (void)didBeginContact:(SKPhysicsContact *)contact {
     if(self.model.player.lives > 0){//Dont compute contact if player is dead
+        
+        //Kill player contact combinations, seperated for clarity & in case distinction is made later.
+        //Player vs any enemy
         if (contact.bodyA.categoryBitMask == playerCategory && contact.bodyB.categoryBitMask == enemyCategory){
-            [self checkLives];
+            [self checkLives];//Check lives tries to take a life from the player
+        //Player vs any lethal solid object
         }else if (contact.bodyA.categoryBitMask == playerCategory && contact.bodyB.categoryBitMask == lethalpassableCategory){
             [self checkLives];
+        //Player vs any lethal intangible object
         }else if (contact.bodyA.categoryBitMask == playerCategory && contact.bodyB.categoryBitMask == lethalimpassableCategory){
             [self checkLives];
             
-            
+        //Player vs Bog
         }else if (contact.bodyA.categoryBitMask == playerCategory && contact.bodyB.categoryBitMask == bogCategory){
-            [self.model.player collidedWithBog];
+            [self.model.player collidedWithBog]; //Calls the reaction from the player class
             
-            
+        //Player vs mushroom
         }else if (contact.bodyA.categoryBitMask == playerCategory && contact.bodyB.categoryBitMask == mushroomCategory){
             Mushroom* ms = (Mushroom*)contact.bodyB.node;
             ms.physicsBody.categoryBitMask = 0x1 << 9;//Stops over collision
-            [self stopPlayerLeft];
+            [self stopPlayerLeft];//Stops player movement so they dont get too confused by the change
             [self stopPlayerRight];
-            [ms deathAnimation];
-            [self.model.player collidedWithMushroom];
+            [ms deathAnimation]; //Asks mushroom to kill itself after performing any relevant animations
+            [self.model.player collidedWithMushroom];//Calls the reaction from the player class
             
-            
+        //Player vs Pit
         }else if (contact.bodyA.categoryBitMask == playerCategory && contact.bodyB.categoryBitMask == pitCategory){
-            [self.updatetimer invalidate];
-            [self movetoPitScene];
+            [self.updatetimer invalidate];//Timer is invalidated in order to pause progress of the game during the challenge
+            [self movetoPitScene]; //Moves player to the pit challenge scene
             
-            
+        //Player vs Berry
         } else if (contact.bodyA.categoryBitMask == playerCategory && contact.bodyB.categoryBitMask == berryCategory){
             Berry* berry = (Berry*)contact.bodyB.node;
             berry.physicsBody.categoryBitMask = 0x1 << 9;//Stops over collision
-            [berry deathAnimation];
-            [self.model incrementScore:500*self.model.currentdifficulty];
+            [berry deathAnimation];//Asks berry to kill itself after performing any relevant animations
+            [self.model incrementScore:500*self.model.currentdifficulty];//Give player a bunch of points
             SKView * skView = (SKView *)self.view;
             if (skView.scene == self.challengescene) {
-                [self moveBackToGameScene];
+                [self moveBackToGameScene];//Transport player back to main game
             }
             
-
+        //Player vs Butterfly
         } else if (contact.bodyA.categoryBitMask == playerCategory && contact.bodyB.categoryBitMask == butterflyCategory){
             TactileObject* butterfly = (TactileObject*)contact.bodyB.node;
-            [self followPlayer:butterfly];
-            [self.model.player setGotfollower:true];
+            [self followPlayer:butterfly];//Tells the butterfly to follow the player
+            [self.model.player setGotfollower:true]; //Player is only allowed 1 follower, this bool is used to make sure of that
             
             
-            
+        //Butterfly vs Haven
         } else if (contact.bodyA.categoryBitMask == butterflyCategory && contact.bodyB.categoryBitMask == havenCategory){
             TactileObject* butterfly = (TactileObject*)contact.bodyA.node;
-            [butterfly removeFromParent];
-            [self.model.player setGotfollower:false];
-            [self.model incrementScore:200*self.model.currentdifficulty];
+            [butterfly removeFromParent]; //Destroy the butterfly, no animation
+            [self.model.player setGotfollower:false];//Player no longer has a follower, allows butterflies to be spawned again
+            [self.model incrementScore:200*self.model.currentdifficulty];//Give player a decent amount of points for their trouble
         }
     }
 }
 
+
+//Makes the node follow the player by applying a velocity towards the player's current location over and over again every second, maintaining the target. Target is actually just to the top left of the player so as not to obscure either node.
 -(void)followPlayer:(SKSpriteNode*)node{
-    [node removeActionForKey:@"movingwithground"];
+    [node removeActionForKey:@"movingwithground"];//Moving with ground action is removed to stop conflict of movement
     [node removeActionForKey:@"followingplayer"];
     [node runAction:[SKAction repeatActionForever:
                      [SKAction sequence:@[
@@ -558,28 +613,34 @@ NSTimer *updatetimer;
     
 }
 
+
+//Lots of setup required to move to the Pit Scene
 - (void)movetoPitScene{
     // Configure the view.
     SKView * skView = (SKView *)self.view;
+    //Get blank scene from the file
     self.challengescene = [GameScene unarchiveFromFile:@"GameScene"];
     self.challengescene.scaleMode = SKSceneScaleModeAspectFill;
-    [self.challengescene setBoundsWithCategory:1];
+    [self.challengescene setBoundsWithCategory:1];//Set bounds relevant to the pit using the scene method
     // Create and configure the scene.
-    [self setChallengeBackground:1];
-    // Present the scene.
+    [self setChallengeBackground:1];//Set pit texture as background
+    // Present the scene with a fade to black transition
     [skView presentScene:self.challengescene transition:[SKTransition fadeWithColor:[UIColor blackColor] duration:1]];
+    //Used to remove any mid-animation nodes from the gamescene and free up memory
     [self.gamescene removeAllChildren];
     self.gamescene = nil;
-    [self placePlayer:1];
-    [self moveButterfly:false];
-    [self.model.player stopAnimation];
-    [self.challengescene.children[0] setZPosition:5];
+    [self placePlayer:1];//Place player in position relevant to the pit scene
+    [self moveButterfly:false];//Move the butterfly to the new scene to maintain the node
+    [self.model.player stopAnimation];//Player is no longer running so needs to stop to take a rest
+    [self.challengescene.children[0] setZPosition:5];//Some layer troubles needed to be reinforced
     [self.challengescene.children[1] setZPosition:20];
-    [self.challengescene buildPitScene];
-    [self.challengescene.physicsWorld setContactDelegate:self];
+    [self.challengescene buildPitScene];//Build the scene using the method in the GameScene class
+    [self.challengescene.physicsWorld setContactDelegate:self]; //Look for contact in this scene
     [self updateLifeIcons];
 }
 
+
+//Will be expanded upon for each background, for now, it just sets the background to the pit level texture & fits it with fine tuned positioning
 - (void)setChallengeBackground:(int)challenge{
     SKSpriteNode* sprite = [[SKSpriteNode alloc] init];
     CGFloat screenwidth = [UIScreen mainScreen].bounds.size.width;
@@ -589,7 +650,7 @@ NSTimer *updatetimer;
             sprite = [SKSpriteNode spriteNodeWithTexture:[SKTexture textureWithImageNamed:@"level1-bonus"]];
             [sprite setSize:CGSizeMake(screenwidth + 10, screenheight+20)];
             sprite.position = CGPointMake(CGRectGetMidX(self.gamescene.frame), CGRectGetMidY(self.gamescene.frame));
-            [self.model.player addLightNode];
+            [self.model.player addLightNode];//Adds a light node to the player for realism
             [self.challengescene addChild:sprite];
             break;
             
@@ -599,20 +660,21 @@ NSTimer *updatetimer;
 }
 
 
+//Destroys the current challenge scene and moves back to the main game
 - (void) moveBackToGameScene{
     // Configure the view.
-    [self.model.player removeLightNode];
+    [self.model.player removeLightNode]; //Its bright outside, no need for that
     [self.challengescene removeAllChildren];
-    [self initialiseGameScene];
-    [self GameStart];
-    [self updaterfire];
-    [self.model.player animateSelf];
-    [self.gamescene.physicsWorld setContactDelegate:self];
-    [self moveButterfly:true];
-    [self updateLifeIcons];
+    [self initialiseGameScene]; //(re)initialise
+    [self GameStart];//(re)start
+    [self updaterfire];//Start counting scores again
+    [self.model.player animateSelf];//Player is running again
+    [self.gamescene.physicsWorld setContactDelegate:self];//Listen for collisions in the main game
+    [self moveButterfly:true]; //Butterfly follows to main level
+    [self updateLifeIcons];//Refresh life icons
 }
 
-
+//Moves any present butterfly to where the player is going
 -(void)moveButterfly:(bool)toOrfromMainLevel{
     if (toOrfromMainLevel == false) {//Move from main level to challenge level
         if (self.model.player.gotfollower == true){
@@ -631,7 +693,7 @@ NSTimer *updatetimer;
 
 //PLAYER MOVEMENT
 
-
+//Move player left if not affected by a mushroom, else move them right, using the method in the model
 - (void)movePlayerLeft{
     if (self.model.player.inmushroom == false) {
         [self.model moveTactileObjectLeft:self.model.player speed:(int)0];
@@ -640,6 +702,7 @@ NSTimer *updatetimer;
     }
 }
 
+//Opposite of movePlayerLeft
 -(void)movePlayerRight{
     if (self.model.player.inmushroom == false) {
         [self.model moveTactileObjectRight:self.model.player speed:(int)0];
@@ -648,6 +711,7 @@ NSTimer *updatetimer;
     }
 }
 
+//stop player moving & check if you should pause the animation
 - (void)stopPlayerLeft{
     if (self.model.player.inmushroom == false) {
         [self.model stopTactileObjectMovement:self.model.player Direction:0];
@@ -656,7 +720,6 @@ NSTimer *updatetimer;
     }
     [self pausePlayerAnimation];
 }
-
 - (void)stopPlayerRight{
     if (self.model.player.inmushroom == false) {
         [self.model stopTactileObjectMovement:self.model.player Direction:1];
@@ -666,6 +729,8 @@ NSTimer *updatetimer;
     [self pausePlayerAnimation];
 }
 
+
+//If the player is in a challenge, stop running animation while he is not moving
 - (void)pausePlayerAnimation{
     SKView * skView = (SKView *)self.view;
     if (skView.scene == self.challengescene) {
@@ -681,6 +746,7 @@ NSTimer *updatetimer;
 
 
 //UI ELEMENTS
+//These listeners allow for a more responsive and fluid control of the player using the buttons
 -(void)addListenersToButtons{
     [self.left addTarget:self action:@selector(holdLeft) forControlEvents:UIControlEventTouchDown];
     [self.right addTarget:self action:@selector(holdRight) forControlEvents:UIControlEventTouchDown];
@@ -690,34 +756,40 @@ NSTimer *updatetimer;
     [self.right addTarget:self action:@selector(releaseRight) forControlEvents:UIControlEventTouchUpOutside];
 }
 
+//If the game is not started, start it, and move player left, while the button is held down
 -(void)holdLeft
 {
     [self startGame];
     [self movePlayerLeft];
 }
 
+//If the game is not started, start it, and move player right, while the button is held down
 -(void)holdRight
 {
     [self startGame];
     [self movePlayerRight];
 }
 
+//Stop player moving left when left button is released
 -(void)releaseLeft
 {
     [self stopPlayerLeft];
 }
-
+//Stop the player from moving right when the right button is released
 -(void)releaseRight
 {
     [self stopPlayerRight];
 }
 
+//Methods take care of movement, IBAction is too clumsy
 -(IBAction)leftPressed:(UIButton*)sender{
     
 }
 -(IBAction)rightPressed:(UIButton*)sender{
     
 }
+
+//Quit self if quit button is pressed
 -(IBAction)quitPressed:(UIButton*)sender{
     [self quitSelf];
 }

@@ -11,7 +11,7 @@
 
 @interface GameScene : SKScene 
 
-//Methods
+////>>>>>>>>>>>>>>>>>>>>METHODS<<<<<<<<<<<<<<<<<<<<
 -(void)setBoundsWithCategory:(int)cat; //Set physics world to square
 -(void) buildPitScene;//Builds pit challenge scene 
 @end
