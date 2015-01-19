@@ -177,7 +177,7 @@
                 return self.position;
         }
     } else {
-        self.costumeposition = CGPointMake(-200, -200);
+        return CGPointMake(0, 0);
     }
     return self.costumeposition;
 }

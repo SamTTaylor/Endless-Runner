@@ -97,12 +97,16 @@ NSTimer *updatetimer;
     }
 }
 
+//Applies the player's current costume using the specific position it needs to be on the player from the AssignCostumePosition method, and then joining it to the player there in the current physicsworld
 -(void)dressPlayer{
     SKView * skView = (SKView *)self.view;
     [self.model.player setCostume:self.playercostume];
     [self.model.player setCostumearray:self.costumearray];
     [self.model.player assignCostumePosition];
-    if ([self.model.player costume] != [UIImage imageNamed:@"avatar.gif"]) {
+    
+    CGPoint point = CGPointMake(0, 0);
+    CGPoint point2 = [self.model.player assignCostumePosition];
+    if (!CGPointEqualToPoint(point, point2)) {//Don't apply costume if it is the default model
         SKSpriteNode* node = [self.model dressPlayer];
         [skView.scene addChild:node];
         SKPhysicsJointFixed *joint = [SKPhysicsJointFixed jointWithBodyA:node.physicsBody bodyB:self.model.player.physicsBody anchor:CGPointMake(self.model.player.position.x, self.model.player.position.y)];
@@ -166,14 +170,14 @@ NSTimer *updatetimer;
 
 //>>>>>>>>>>>>>>>>>>>>ENVIRONMENT<<<<<<<<<<<<<<<<<<<<
 - (void)setGameBackground{
-    int distance = self.bgtexture.size.width*2;
+    int distance = self.bgtexture.size.width*0.55;
     //Move the background picture far offscreen, then reset it and move it across again
     SKAction* moveBg = [SKAction moveByX:-distance y:0 duration:0.01 * distance];
     SKAction* resetBg = [SKAction moveByX:distance y:0 duration:0];
     SKAction* loopBgMovement = [SKAction repeatActionForever:[SKAction sequence:@[moveBg, resetBg]]];
     
     //Create many layers of pictures for a seemless effect
-    for( int i = 0; i < 2 + self.gamescene.frame.size.width; ++i ) {
+    for( int i = 0; i < 3; ++i ) {
         SKSpriteNode* sprite = [SKSpriteNode spriteNodeWithTexture:self.bgtexture];
         [sprite setScale:0.55];
         sprite.zPosition = -20;
@@ -190,7 +194,7 @@ NSTimer *updatetimer;
 
 //Move game ground in the same way but a little faster to give the illusion of depth
 - (void)setGameGround{
-    for( int i = 0; i < 2 + self.gamescene.frame.size.width / ( self.groundtexture.size.width * 2 ); ++i ) {
+    for( int i = 0; i < 3; ++i ) {
         // Create the sprite
         SKSpriteNode* sprite = [SKSpriteNode spriteNodeWithTexture:self.groundtexture];
         sprite.yScale = 0.4;

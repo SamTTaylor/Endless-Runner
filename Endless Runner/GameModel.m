@@ -216,10 +216,10 @@
 ////>>>>>>>>>>>>>>>>>>>>NODE MOVEMENT<<<<<<<<<<<<<<<<<<<<
 -(void)moveNodeWithGround:(SKNode*)node Repeat:(bool)r{
     //Sets up the ground sprites, makes them scroll passed based on the groundtexture size
-    CGFloat distance =  [UIScreen mainScreen].bounds.size.width*1.5;
+    CGFloat distance =  self.groundtexture.size.width;
     if (r == true){//If you want you can reset it after a loop and have it scroll by again!
-        SKAction* move = [SKAction moveByX:-self.groundtexture.size.width y:0 duration:self.groundspeed];
-        SKAction* reset = [SKAction moveByX:self.groundtexture.size.width y:0 duration:0];
+        SKAction* move = [SKAction moveByX:-distance y:0 duration:self.groundspeed];
+        SKAction* reset = [SKAction moveByX:distance y:0 duration:0];
         SKAction* loopMovement = [SKAction repeatActionForever:[SKAction sequence:@[move, reset]]];
         
         [node runAction:[SKAction runBlock:^{
@@ -228,7 +228,7 @@
         
     } else {
         //Or you can just delete it
-        SKAction* move = [SKAction moveByX:-distance y:0 duration:self.groundspeed*10.35];
+        SKAction* move = [SKAction moveByX:-[UIScreen mainScreen].bounds.size.width*1.5 y:0 duration:self.groundspeed*10.35];
         SKAction* remove = [SKAction removeFromParent];
         SKAction* Movement = [SKAction sequence:@[move, remove]];
         
