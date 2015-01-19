@@ -28,6 +28,19 @@
 }
 
 -(void)jumpEntity{
+    
+    //remove walk animation
+    [self removeActionForKey:@"avatar"];
+     
+     //add jumpAnimation
+     NSMutableArray *textures = [NSMutableArray arrayWithCapacity:16];
+    SKTexture *texture =[SKTexture textureWithImageNamed:@"avatar8.png"];
+    //[textures addObject:texture];
+    [textures addObject:texture];
+     
+     self.jumpAnimation =[SKAction animateWithTextures:textures timePerFrame:3];
+    [self runAction:[SKAction repeatAction:self.jumpAnimation count:10]];
+    
     if (self.inbog == false) {
         CGFloat impulseX = 0.0f;
         CGFloat impulseY = self.speed * 100.0f;
@@ -72,7 +85,7 @@
     SKAction *repeat = [SKAction repeatActionForever:self.walkAnimation];
     [self runAction:[SKAction runBlock:^{
         [self runAction:repeat];
-    }]];
+    }] withKey:@"avatar"];
 }
 
 - (void)collidedWithBog{

@@ -17,6 +17,7 @@
 @property bool invulnerable;
 @property bool dead;
 @property SKAction *walkAnimation;
+@property SKAction *jumpAnimation;
 
 - (void)takeLife;
 - (void)collidedWithBog;
