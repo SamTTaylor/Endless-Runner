@@ -16,6 +16,8 @@
 @property (weak) IBOutlet UIButton *bgRight;
 @property (weak) IBOutlet UIButton *avatarLeft;
 @property (weak) IBOutlet UIButton *avatarRight;
+@property (weak) IBOutlet UILabel *bglocked;
+@property (weak) IBOutlet UILabel *costumelocked;
 
 @property (weak) IBOutlet UIImageView *bgimageview;
 @property (weak) IBOutlet UIImageView *avatarimageview;
@@ -29,7 +31,5 @@
 
 @property NSMutableArray* backgroundarray;
 @property NSMutableArray* costumearray;
-
-
 
 @end

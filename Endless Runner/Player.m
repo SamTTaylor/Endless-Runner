@@ -174,7 +174,7 @@
                 break;
                 
             default:
-                return self.position;
+                break;
         }
     } else {
         return CGPointMake(0, 0);

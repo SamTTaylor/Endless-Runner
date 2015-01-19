@@ -89,4 +89,6 @@
 - (void)setFlying:(bool)f flappingfrequenct:(double)freq LivingEntity:(LivingEntity*)Lent; //Triggers flying in any living entity with flap frequency
 
 
+-(void)saveDefaults;
+
 @end

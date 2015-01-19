@@ -36,6 +36,17 @@
 @property NSMutableArray* costumearray;
 @property NSMutableArray* backgroundarray;
 
+
+//User defaults
+@property (assign) bool england;
+@property (assign) bool austria;
+@property (assign) bool pit;
+@property (assign) bool superlenny;
+@property (assign) bool christmas;
+@property (assign) bool halloween;
+@property (assign) int bgimageindex;
+@property (assign) int costumeimageindex;
+
 //>>>>>>>>>>>>>>>>>>>>SEGUE STUFF<<<<<<<<<<<<<<<<<<<<
 @property (weak) GameScene* menuscene; //Used to create the nice scrolling background on the main menu
 @property (weak) SettingsViewController *svc;

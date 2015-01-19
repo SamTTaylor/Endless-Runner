@@ -36,12 +36,10 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self loadDefaults];
     //Defaults the first time the game is loaded
     self.tiltbool = false;
-    self.bgtexture = [SKTexture textureWithImageNamed:@"background"];
     self.groundtexture = [SKTexture textureWithImageNamed:@"ground"];//Ground is always based on the bgimage so it is not stored as a string
-    self.costumeimage = [UIImage imageNamed:@"avatar.gif"];
-    self.bgimage = [UIImage imageNamed:@"background"];
     self.svc = nil;
     self.gvc = nil;
     [self fillcostumearray];
@@ -51,8 +49,10 @@
 
 //Makes sure that the main menu scrolling background is recreated when the view is reached by backing through the navigation controller
 - (void) viewDidAppear:(BOOL)animated{
-    self.bgtexture = [SKTexture textureWithImage:self.bgimage];
     self.groundtexture = [SKTexture textureWithImageNamed:@"ground"];
+    [self saveDefaults];
+    [self loadDefaults];
+    [self loadAvatarandBG];
     [self initialiseMenuScene];
 }
 
@@ -128,6 +128,43 @@
     [self setMenuBackground];
     // Present the scene.
     [skView presentScene:self.menuscene];
+}
+
+
+-(void)loadDefaults{
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    self.england = [defaults boolForKey:@"england"];
+    self.austria = [defaults boolForKey:@"austria"];
+    self.christmas = [defaults boolForKey:@"christmas"];
+    self.halloween = [defaults boolForKey:@"halloween"];
+    self.pit = [defaults boolForKey:@"pit"];
+    self.superlenny = [defaults boolForKey:@"superlenny"];
+    self.bgimageindex = [defaults integerForKey:@"bgimageindex"];
+    self.costumeimageindex = [defaults integerForKey:@"costumeimageindex"];
+}
+
+-(void)saveDefaults{
+    NSUserDefaults *defaults =
+    [NSUserDefaults standardUserDefaults];
+    [defaults setInteger:self.bgimageindex forKey:@"bgimageindex"];
+    [defaults setInteger:self.costumeimageindex forKey:@"costumeimageindex"];
+    [defaults synchronize];
+}
+
+-(void)loadAvatarandBG{
+    if (self.bgimageindex > self.backgroundarray.count || self.bgimageindex <= 0) {
+        self.bgimage = [UIImage imageNamed:@"background"];
+        self.bgtexture = [SKTexture textureWithImageNamed:@"background"];
+    } else {
+        self.bgimage = self.backgroundarray[self.bgimageindex];
+        self.bgtexture = [SKTexture textureWithImage:self.backgroundarray[self.bgimageindex]];
+    }
+    
+    if (![self.costumearray objectAtIndex:self.costumeimageindex]) {
+        self.costumeimage = [UIImage imageNamed:@"avatar.gif"];
+    } else {
+        self.costumeimage = self.costumearray[self.costumeimageindex];
+    }
 }
 
 @end

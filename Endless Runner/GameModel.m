@@ -30,8 +30,14 @@
     return self;
 }
 
-
-
+//For unlocking content
+-(void)saveAchievement:(NSString*)achievement {
+    NSUserDefaults *defaults =
+    [NSUserDefaults standardUserDefaults];
+    [defaults setBool:true forKey:achievement];
+    [defaults synchronize];
+    NSLog(@"%@ unlocked", achievement);
+}
 
 
 
@@ -41,6 +47,9 @@
 //Add any value to score
 - (void) incrementScore:(int)i{
     self.score += i;
+    if (self.score > 10000) {
+        [self saveAchievement:@"superlenny"];//Congrats
+    }
 }
 //Add any value to difficulty score
 - (void) incrementDifficultyScore:(int)i{
@@ -352,6 +361,13 @@
 }
 
 
+-(void)loadDefaults{};
+
+-(void)saveDefaults:(NSString*)key{
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    [defaults setBool:true forKey:@"key"];
+    [defaults synchronize];
+}
 
 
 @end

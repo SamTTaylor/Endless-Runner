@@ -26,15 +26,31 @@
     }
     [self setbgPickerImage:self.currentbgimage];
     [self setavatarPickerImage:self.currentcostumeimage];
+    self.bglocked.hidden = true;
+    self.costumelocked.hidden = true;
+
 }
 
 - (void)setbgPickerImage:(UIImage*)image{
+    
+    if ([self checkContentAvailable:image] == false && image != self.backgroundarray[0]) {
+        self.bglocked.hidden = false;
+    } else {
+        self.bglocked.hidden = true;
+    }
+
     self.currentbgimage = image;
     image = [self scaleImage:image toSize:CGSizeMake(300, 160)];
     [self.bgimageview setImage:image];
 }
 
 - (void)setavatarPickerImage:(UIImage*)image{
+    if ([self checkContentAvailable:image] == false && image != self.costumearray[0]) {
+        self.costumelocked.hidden = false;
+    } else {
+        self.costumelocked.hidden = true;
+    }
+    
     self.currentcostumeimage = image;
     image = [self scaleImage:image toSize:CGSizeMake(105, 130)];
     [self.avatarimageview setImage:image];
@@ -59,16 +75,79 @@
     [super viewWillDisappear:animated];
     
     if (![[self.navigationController viewControllers] containsObject:self]) {
+        if (self.costumelocked.hidden == false) {
+            self.currentcostumeimage = [UIImage imageNamed:@"avatar.gif"];
+        }
+        if (self.bglocked.hidden == false) {
+            self.currentbgimage = [UIImage imageNamed:@"background"];
+        }
         [(MainMenuViewController*)self.navigationController.viewControllers[0] setTiltbool:self.tiltbool];
-        [(MainMenuViewController*)self.navigationController.viewControllers[0] setBgimage:self.currentbgimage];
-        [(MainMenuViewController*)self.navigationController.viewControllers[0] setCostumeimage:self.currentcostumeimage];
+        [(MainMenuViewController*)self.navigationController.viewControllers[0] setBgimageindex:[self.backgroundarray indexOfObject:self.currentbgimage]];
+        [(MainMenuViewController*)self.navigationController.viewControllers[0] setCostumeimageindex:[self.costumearray indexOfObject:self.currentcostumeimage]];
     }
 }
+
+
+-(bool)checkContentAvailable:(UIImage*)content{
+    bool unlocked;
+    if ([self.backgroundarray containsObject:content]) {
+        switch ([self.backgroundarray indexOfObjectIdenticalTo:content]) {
+            case 1:
+               unlocked = [(MainMenuViewController*)self.navigationController.viewControllers[0] england] ? YES : NO;
+                return unlocked;
+                break;
+            case 2:
+                unlocked = [(MainMenuViewController*)self.navigationController.viewControllers[0] austria] ? YES : NO;
+                return unlocked;
+                break;
+                
+            default:
+                break;
+        }
+    }
+    if ([self.costumearray containsObject:content]) {
+        switch ([self.costumearray indexOfObjectIdenticalTo:content]) {
+            case 1:
+                unlocked = [(MainMenuViewController*)self.navigationController.viewControllers[0] england] ? YES : NO;
+                return unlocked;
+                break;
+            case 2:
+                unlocked = [(MainMenuViewController*)self.navigationController.viewControllers[0] pit] ? YES : NO;
+                return unlocked;
+                break;
+            case 3:
+                unlocked = [(MainMenuViewController*)self.navigationController.viewControllers[0] superlenny] ? true : false;
+                return unlocked;
+                break;
+            case 4:
+                unlocked = [(MainMenuViewController*)self.navigationController.viewControllers[0] christmas] ? YES : NO;
+                return unlocked;
+                break;
+            case 5:
+                unlocked = [(MainMenuViewController*)self.navigationController.viewControllers[0] halloween] ? YES : NO;
+                return unlocked;
+                break;
+            case 6:
+                unlocked = [(MainMenuViewController*)self.navigationController.viewControllers[0] austria] ? YES : NO;
+                return unlocked;
+                break;
+
+            default:
+                break;
+        }
+    }
+    return false;
+}
+
+
+
+
 
 -(IBAction)tiltcontrolMoved:(UISegmentedControl*)sender{
     self.tiltbool = sender.selectedSegmentIndex;
 }
-//Methods take care of movement, IBAction is too clumsy
+
+
 -(IBAction)bgLeftPressed:(UIButton*)sender{
     int currentPos = [self.backgroundarray indexOfObject:self.currentbgimage];
     if (currentPos != 0){
@@ -101,4 +180,7 @@
         [self setavatarPickerImage:self.costumearray[0]];
     }
 }
+
+
+
 @end
