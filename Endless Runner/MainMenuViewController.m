@@ -159,7 +159,6 @@
         self.bgimage = self.backgroundarray[self.bgimageindex];
         self.bgtexture = [SKTexture textureWithImage:self.backgroundarray[self.bgimageindex]];
     }
-    
     if (![self.costumearray objectAtIndex:self.costumeimageindex]) {
         self.costumeimage = [UIImage imageNamed:@"avatar.gif"];
     } else {

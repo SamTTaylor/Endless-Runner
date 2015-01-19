@@ -36,7 +36,6 @@
     [NSUserDefaults standardUserDefaults];
     [defaults setBool:true forKey:achievement];
     [defaults synchronize];
-    NSLog(@"%@ unlocked", achievement);
 }
 
 

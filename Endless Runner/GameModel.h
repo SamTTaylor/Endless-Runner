@@ -46,6 +46,10 @@
 ////>>>>>>>>>>>>>>>>>>>>METHODS<<<<<<<<<<<<<<<<<<<<
 - (id)initWithPlayer;//Model should always be created with a Player node
 
+
+- (void)saveAchievement:(NSString*)achievement;//Unlocks content from the User Defaults
+
+
 - (void) incrementScore:(int)i; //Change score by any amount
 - (void) incrementDifficultyScore:(int)i;//Used by the game controller to increate difficulty
 - (void) updateDifficulty;//Used to increment the difficulty level when the score breaches the threshold

@@ -177,7 +177,7 @@ NSTimer *updatetimer;
     SKAction* loopBgMovement = [SKAction repeatActionForever:[SKAction sequence:@[moveBg, resetBg]]];
     
     //Create many layers of pictures for a seemless effect
-    for( int i = 0; i < 3; ++i ) {
+    for( int i = 0; i < 3; ++i ) {//3 copies are made for seemless loops
         SKSpriteNode* sprite = [SKSpriteNode spriteNodeWithTexture:self.bgtexture];
         [sprite setScale:0.55];
         sprite.zPosition = -20;
@@ -595,6 +595,8 @@ NSTimer *updatetimer;
             berry.physicsBody.categoryBitMask = 0x1 << 9;//Stops over collision
             [berry deathAnimation];//Asks berry to kill itself after performing any relevant animations
             [self.model incrementScore:500*self.model.currentdifficulty];//Give player a bunch of points
+            [self.model saveAchievement:@"pit"];//Player unlocks mining helmet for beating the pit
+            [ToastView showToastInParentView:self.view withText:@"You have unlocked the Miner's Helmet!" withDuaration:5.0];
             SKView * skView = (SKView *)self.view;
             if (skView.scene == self.challengescene) {
                 [self moveBackToGameScene];//Transport player back to main game
