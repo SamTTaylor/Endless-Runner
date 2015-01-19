@@ -33,12 +33,11 @@
     [self removeActionForKey:@"avatar"];
      
      //add jumpAnimation
-     NSMutableArray *textures = [NSMutableArray arrayWithCapacity:16];
+    NSMutableArray *textures = [NSMutableArray arrayWithCapacity:16];
     SKTexture *texture =[SKTexture textureWithImageNamed:@"avatar8.png"];
-    //[textures addObject:texture];
     [textures addObject:texture];
-     
-     self.jumpAnimation =[SKAction animateWithTextures:textures timePerFrame:3];
+    
+    self.jumpAnimation =[SKAction animateWithTextures:textures timePerFrame:3];
     [self runAction:[SKAction repeatAction:self.jumpAnimation count:10]];
     
     if (self.inbog == false) {
@@ -50,6 +49,22 @@
 }
 
 -(void) takeLife{
+    
+    //remove walkAnimation
+    [self removeActionForKey:@"avatar"];
+    
+    //add injuredAnimation
+    NSMutableArray *textures = [NSMutableArray arrayWithCapacity:16];
+    SKTexture *texture =[SKTexture textureWithImageNamed:@"avatar9.png"];
+    [textures addObject:texture];
+    
+    CGFloat impulseX = self.speed*-5.0f;
+    CGFloat impulseY = 0.0f;
+    [self.physicsBody applyImpulse:CGVectorMake(impulseX, impulseY) atPoint:self.position];
+    
+    self.injuredAnimation =[SKAction animateWithTextures:textures timePerFrame:3];
+    [self runAction:[SKAction repeatAction:self.injuredAnimation count:10]];
+    
     if (self.invulnerable == false){
         self.lives--;
         self.invulnerable = true;
