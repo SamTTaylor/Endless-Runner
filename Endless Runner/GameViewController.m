@@ -58,7 +58,13 @@ NSTimer *updatetimer;
     [self updateLifeIcons];//Shows the life icons held in the Model's array
     [self dressPlayer];
     [self checkLocation];
+    [self checkDate];
 }
+
+
+
+
+
 
 //>>>>>>>>>>>>>>>>>>>>INITIALISATION<<<<<<<<<<<<<<<<<<<<
 - (void)initialiseGameScene{
@@ -115,6 +121,45 @@ NSTimer *updatetimer;
         [skView.scene.physicsWorld addJoint:joint];
     }
 }
+
+
+//Compares todays date with key dates for unlocking achievements
+- (void) checkDate{
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    [formatter setDateFormat:@"DD-MM"];
+    NSString *christmas = @"25-12";
+    NSString *halloween = @"31-10";
+    NSString *today = [formatter stringFromDate:[NSDate date]];
+    NSComparisonResult result = [today compare:christmas];
+    switch (result) {
+        case NSOrderedSame:
+            //Dont unlock it twice
+            if ([defaults boolForKey:@"christmas"] == false) {
+                [ToastView showToastInParentView:self.view withText:@"You have unlocked the Santa Hat!" withDuaration:5.0];
+                [self.model saveAchievement:@"christmas"];//Player unlocks santa hat for playing on christmas
+            }
+            break;
+        default:
+            break;
+    }
+    result = [today compare:halloween];
+    switch (result) {
+        case NSOrderedSame:
+            //Dont unlock it twice
+            if ([defaults boolForKey:@"halloween"] == false) {
+                [ToastView showToastInParentView:self.view withText:@"You have unlocked the Vampire Costume!" withDuaration:5.0];
+                [self.model saveAchievement:@"halloween"];//Player unlocks vampire costume for playong on halloween
+            }
+            break;
+        default:
+            break;
+    }
+}
+
+
+
+
 
 //>>>>>>>>>>>>>>>>>>>>MOTION<<<<<<<<<<<<<<<<<<<<
 - (void)instantiateAccelerometer{
@@ -231,6 +276,8 @@ NSTimer *updatetimer;
     }
     
 }
+
+
 
 
 
@@ -535,6 +582,15 @@ NSTimer *updatetimer;
 }
 
 
+
+
+
+
+
+
+
+
+
 //STUFF
 - (BOOL)shouldAutorotate
 {
@@ -556,7 +612,15 @@ NSTimer *updatetimer;
 }
 
 
-//Contact handling
+
+
+
+
+
+
+
+
+//>>>>>>>>>>>>>>>>>>>>CONTACT HANDLING<<<<<<<<<<<<<<<<<<<<<<<
 //Checks every relevant combination of contact to the game and performs actions based on it, when contact occurs. If the player is dead (lives < 0), no contact is computed because the game is over.
 - (void)didBeginContact:(SKPhysicsContact *)contact {
     if(self.model.player.lives > 0){//Dont compute contact if player is dead
@@ -596,8 +660,15 @@ NSTimer *updatetimer;
             berry.physicsBody.categoryBitMask = 0x1 << 9;//Stops over collision
             [berry deathAnimation];//Asks berry to kill itself after performing any relevant animations
             [self.model incrementScore:500*self.model.currentdifficulty];//Give player a bunch of points
-            [self.model saveAchievement:@"pit"];//Player unlocks mining helmet for beating the pit
-            [ToastView showToastInParentView:self.view withText:@"You have unlocked the Miner's Helmet!" withDuaration:5.0];
+            
+            
+            NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+            //Dont unlock twice
+            if ([defaults boolForKey:@"pit"] == false) {
+                [self.model saveAchievement:@"pit"];//Player unlocks mining helmet for beating the pit
+                [ToastView showToastInParentView:self.view withText:@"You have unlocked the Miner's Helmet!" withDuaration:5.0];
+            }
+            
             SKView * skView = (SKView *)self.view;
             if (skView.scene == self.challengescene) {
                 [self moveBackToGameScene];//Transport player back to main game
@@ -746,6 +817,16 @@ NSTimer *updatetimer;
         [self.model.player stopAnimation];
     }
 }
+
+
+
+
+
+
+
+
+
+
 
 
 
