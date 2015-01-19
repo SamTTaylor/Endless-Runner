@@ -66,7 +66,7 @@
         //Add explosion
         self.explodeAnimation = [SKAction animateWithTextures:textures timePerFrame:3];
         [self runAction:[SKAction repeatAction:self.explodeAnimation count:1]];
-    }], [SKAction waitForDuration:20], [SKAction runBlock:^{
+    }], [SKAction waitForDuration:15], [SKAction runBlock:^{
         [self removeFromParent];//remove once animation is complete
     }], [SKAction waitForDuration:1]]] count:1]]] withKey:[NSString stringWithFormat:@"animate %@", self.class]];
 
