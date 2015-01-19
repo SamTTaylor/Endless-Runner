@@ -33,7 +33,8 @@
 @property SKTexture* groundtexture;//What does the ground look like
 @property UIImage* bgimage;
 @property UIImage* costumeimage;
-
+@property NSMutableArray* costumearray;
+@property NSMutableArray* backgroundarray;
 
 //>>>>>>>>>>>>>>>>>>>>SEGUE STUFF<<<<<<<<<<<<<<<<<<<<
 @property (weak) GameScene* menuscene; //Used to create the nice scrolling background on the main menu

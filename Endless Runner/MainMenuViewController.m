@@ -44,13 +44,34 @@
     self.bgimage = [UIImage imageNamed:@"background"];
     self.svc = nil;
     self.gvc = nil;
+    [self fillcostumearray];
+    [self fillBackgroundArray];
 }
+
 
 //Makes sure that the main menu scrolling background is recreated when the view is reached by backing through the navigation controller
 - (void) viewDidAppear:(BOOL)animated{
     self.bgtexture = [SKTexture textureWithImage:self.bgimage];
     self.groundtexture = [SKTexture textureWithImageNamed:@"ground"];
     [self initialiseMenuScene];
+}
+
+-(void)fillcostumearray{
+    self.costumearray = [[NSMutableArray alloc] initWithObjects:
+                        [UIImage imageNamed:@"avatar.gif"],
+                        [UIImage imageNamed:@"GuardHat"],
+                        [UIImage imageNamed:@"MiningHat"],
+                        [UIImage imageNamed:@"SuperLenny"],
+                        [UIImage imageNamed:@"Christmas"],
+                        [UIImage imageNamed:@"dracula-avatar"],
+                        [UIImage imageNamed:@"lederhosen"],nil];
+}
+
+-(void)fillBackgroundArray{
+    self.backgroundarray = [[NSMutableArray alloc] initWithObjects:
+                            [UIImage imageNamed:@"background"],
+                            [UIImage imageNamed:@"EnglandBG"],
+                            [UIImage imageNamed:@"austria"],nil];
 }
 
 
@@ -67,12 +88,16 @@
         [self.svc setTiltbool:self.tiltbool];
         [self.svc setCurrentbgimage:self.bgimage];
         [self.svc setCurrentcostumeimage:self.costumeimage];
+        [self.svc setCostumearray:self.costumearray];
+        [self.svc setBackgroundarray:self.backgroundarray];
     }
     if ([[segue identifier]isEqualToString:@"segueToGame"]) {
         self.gvc = [segue destinationViewController];
+        [self.gvc setPlayercostume:self.costumeimage];
         [self.gvc setTiltbool:self.tiltbool];
         [self.gvc setGroundtexture:self.groundtexture];
         [self.gvc setBgtexture:self.bgtexture];
+        [self.gvc setCostumearray:self.costumearray];
     }
 }
 

@@ -28,7 +28,7 @@
 @property NSString* avatarimagestring;//What the avatar image should be
 
 @property NSMutableArray* backgroundarray;
-@property NSMutableArray* avatararray;
+@property NSMutableArray* costumearray;
 
 
 

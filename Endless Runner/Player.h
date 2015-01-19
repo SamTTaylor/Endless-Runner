@@ -21,6 +21,9 @@
 @property bool animated;//Used to start and stop animation
 @property bool gotfollower;//Used to limit follower count to 1
 @property Butterfly* currentbutterfly;//Used to reference current butterfly follower
+@property UIImage* costume;
+@property CGPoint costumeposition;
+@property NSMutableArray* costumearray;
 
 
 //>>>>>>>>>>>>>>>>>>>>METHODS<<<<<<<<<<<<<<<<<<<<
@@ -29,6 +32,7 @@
 - (void)collidedWithBog;//Used to trigger bog effecs
 - (void)collidedWithMushroom;//Mushroom effects
 - (void)collidedWithEnemy;//enemy effects
+- (CGPoint)assignCostumePosition;
 
 
 @end

@@ -239,6 +239,30 @@
     }
 }
 
+//Makes the node follow the player by applying a velocity towards the player's current location over and over again every second, maintaining the target. Target is actually just to the top left of the player so as not to obscure either node.
+-(void)followPlayer:(SKSpriteNode*)node{
+    [node removeActionForKey:@"movingwithground"];//Moving with ground action is removed to stop conflict of movement
+    [node removeActionForKey:@"followingplayer"];
+    [node runAction:[SKAction repeatActionForever:
+                     [SKAction sequence:@[
+                                          [SKAction runBlock:^{
+                         [node.physicsBody setVelocity:CGVectorMake(((self.player.position.x-self.player.frame.size.width*1.5) - node.position.x), ((self.player.position.y+(self.player.position.y/2)) -node.position.y) )];
+                     }]
+                                          ,[SKAction waitForDuration:1.0]]]]withKey:@"followingplayer"];
+}
+
+-(SKSpriteNode*)dressPlayer{
+   SKSpriteNode* node = [[SKSpriteNode alloc]initWithTexture:[SKTexture textureWithImage:self.player.costume]];
+    [node setScale:0.2];
+    node.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:node.frame.size];
+    node.physicsBody.ContactTestBitMask = 0x1 << 9;
+    
+    node.position = [self.player assignCostumePosition];
+    [node setZPosition:200];
+    return node;
+}
+
+
 //These methods aren't required but it just makes it a little less verbose and a little more structured
 
 //Stop Tobj moving left or right by calling it's method
@@ -294,7 +318,7 @@
         case 1:
             //Top left-ish (Pit level)
             [self.player setScale:0.2];
-            [self.player setPosition:CGPointMake(self.player.size.width*2, [UIScreen mainScreen].bounds.size.height-self.player.size.height*1.5)];
+            [self.player setPosition:CGPointMake(self.player.size.width*2, [UIScreen mainScreen].bounds.size.height-self.player.size.height*3)];
             break;
         default:
             break;

@@ -50,9 +50,14 @@
 - (void) incrementDifficultyScore:(int)i;//Used by the game controller to increate difficulty
 - (void) updateDifficulty;//Used to increment the difficulty level when the score breaches the threshold
 
+
+
 - (void)addLife;//Adds a life to the life node array
 - (void)updateLives;//Moves the life node array 1 closer to the player's life number (if it is inaccurate)
 - (void)removeLife;//Removes 1 life from the life node array
+
+
+
 
 - (TactileObject*) spawnRandomObstacle;//Creates and passes an instance of a random obstacle from the array
 - (Enemy*) spawnRandomEnemy;//Creates and passes an instance of a random enemy from the array
@@ -62,7 +67,13 @@
 - (Butterfly*) spawnButterfly; //Creates and passes an instance of a butterfly object
 - (Haven*) spawnHaven; //Creates and passes an instance of a haven object
 
+
+
+
 - (void)moveNodeWithGround:(SKNode*)node Repeat:(bool)r;//Move any node with the ground node across the screen
+-(void)followPlayer:(SKSpriteNode*)node;//Have any node follow just behind the player
+-(SKSpriteNode*)dressPlayer;
+
 - (void)placePlayer:(int)scene; //Places a player in the appropriate starting position depending on the scene
 
 - (void)placeEntWithLoc:(int)loc Ent:(Entity*)ent; //Places entity in a number of convenient locations

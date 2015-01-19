@@ -150,4 +150,36 @@
     }], [SKAction waitForDuration:0.05]]] count:1]]] withKey:@"enemycollision"];
 }
 
+-(CGPoint)assignCostumePosition{
+    int arrayposition = [self.costumearray indexOfObjectIdenticalTo:self.costume];
+    if (arrayposition < self.costumearray.count){
+        switch (arrayposition) {
+            case 1://Guard hat
+                self.costumeposition = CGPointMake(self.position.x, self.position.y+45);
+                break;
+            case 2://Mining hat
+                self.costumeposition = CGPointMake(self.position.x, self.position.y+40);
+                break;
+            case 3://Super Lenny
+                self.costumeposition = CGPointMake(self.position.x-13, self.position.y);
+                break;
+            case 4://Christmas hat
+                self.costumeposition = CGPointMake(self.position.x-13, self.position.y+42);
+                break;
+            case 5://Vampire Lenny
+                self.costumeposition = CGPointMake(self.position.x, self.position.y);
+                break;
+            case 6://Lederhosen
+                self.costumeposition = CGPointMake(self.position.x, self.position.y-8);
+                break;
+                
+            default:
+                return self.position;
+        }
+    } else {
+        self.costumeposition = CGPointMake(-200, -200);
+    }
+    return self.costumeposition;
+}
+
 @end

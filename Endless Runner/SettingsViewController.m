@@ -26,8 +26,6 @@
     }
     [self setbgPickerImage:self.currentbgimage];
     [self setavatarPickerImage:self.currentcostumeimage];
-    [self fillAvatarArray];
-    [self fillBackgroundArray];
 }
 
 - (void)setbgPickerImage:(UIImage*)image{
@@ -67,23 +65,6 @@
     }
 }
 
--(void)fillAvatarArray{
-    self.avatararray = [[NSMutableArray alloc] initWithObjects:
-                        [UIImage imageNamed:@"avatar.gif"],
-                        [UIImage imageNamed:@"GuardHat"],
-                        [UIImage imageNamed:@"MiningHat"],
-                        [UIImage imageNamed:@"SuperLenny"],
-                        [UIImage imageNamed:@"christmas-avatar"],
-                        [UIImage imageNamed:@"dracula-avatar"],
-                        [UIImage imageNamed:@"lederhosen"],nil];
-}
-
--(void)fillBackgroundArray{
-    self.backgroundarray = [[NSMutableArray alloc] initWithObjects:
-                        [UIImage imageNamed:@"background"],
-                        [UIImage imageNamed:@"EnglandBG"],nil];
-}
-
 -(IBAction)tiltcontrolMoved:(UISegmentedControl*)sender{
     self.tiltbool = sender.selectedSegmentIndex;
 }
@@ -105,19 +86,19 @@
     }
 }
 -(IBAction)avatarLeftPressed:(UIButton*)sender{
-    int currentPos = [self.avatararray indexOfObject:self.currentcostumeimage];
+    int currentPos = [self.costumearray indexOfObject:self.currentcostumeimage];
     if (currentPos != 0){
-        [self setavatarPickerImage:self.avatararray[currentPos-1]];
+        [self setavatarPickerImage:self.costumearray[currentPos-1]];
     } else {
-        [self setavatarPickerImage:self.avatararray[self.avatararray.count-1]];
+        [self setavatarPickerImage:self.costumearray[self.costumearray.count-1]];
     }
 }
 -(IBAction)avatarRightPressed:(UIButton*)sender{
-    int currentPos = [self.avatararray indexOfObjectIdenticalTo:self.currentcostumeimage];
-    if (currentPos < self.avatararray.count-1){
-        [self setavatarPickerImage:self.avatararray[currentPos+1]];
+    int currentPos = [self.costumearray indexOfObjectIdenticalTo:self.currentcostumeimage];
+    if (currentPos < self.costumearray.count-1){
+        [self setavatarPickerImage:self.costumearray[currentPos+1]];
     } else {
-        [self setavatarPickerImage:self.avatararray[0]];
+        [self setavatarPickerImage:self.costumearray[0]];
     }
 }
 @end

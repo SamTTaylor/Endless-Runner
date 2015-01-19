@@ -13,6 +13,7 @@
 #import "GameModel.h"
 #import "AppDelegate.h"
 
+
 @interface GameViewController : UIViewController <SKPhysicsContactDelegate, UIGestureRecognizerDelegate>
 //>>>>>>>>>>>>>>>>>>>>UI ELEMENTS<<<<<<<<<<<<<<<<<<<<
 @property (weak) IBOutlet UIButton *left;
@@ -31,7 +32,8 @@
 @property bool tiltbool;
 @property SKTexture* bgtexture;
 @property SKTexture* groundtexture;
-
+@property UIImage* playercostume;
+@property NSMutableArray* costumearray;
 
 @property UIImage* screenshot;//Used to store the Facebook "Highscore" screen shot between methods
 

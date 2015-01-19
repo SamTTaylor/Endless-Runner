@@ -56,6 +56,7 @@ NSTimer *updatetimer;
         [self startGame];
     }
     [self updateLifeIcons];//Shows the life icons held in the Model's array
+    [self dressPlayer];
 }
 
 //>>>>>>>>>>>>>>>>>>>>INITIALISATION<<<<<<<<<<<<<<<<<<<<
@@ -96,7 +97,19 @@ NSTimer *updatetimer;
     }
 }
 
-
+-(void)dressPlayer{
+    SKView * skView = (SKView *)self.view;
+    [self.model.player setCostume:self.playercostume];
+    [self.model.player setCostumearray:self.costumearray];
+    [self.model.player assignCostumePosition];
+    if ([self.model.player costume] != [UIImage imageNamed:@"avatar.gif"]) {
+        SKSpriteNode* node = [self.model dressPlayer];
+        [skView.scene addChild:node];
+        SKPhysicsJointFixed *joint = [SKPhysicsJointFixed jointWithBodyA:node.physicsBody bodyB:self.model.player.physicsBody anchor:CGPointMake(self.model.player.position.x, self.model.player.position.y)];
+        
+        [skView.scene.physicsWorld addJoint:joint];
+    }
+}
 
 //>>>>>>>>>>>>>>>>>>>>MOTION<<<<<<<<<<<<<<<<<<<<
 - (void)instantiateAccelerometer{
@@ -586,7 +599,7 @@ NSTimer *updatetimer;
         //Player vs Butterfly
         } else if (contact.bodyA.categoryBitMask == playerCategory && contact.bodyB.categoryBitMask == butterflyCategory){
             TactileObject* butterfly = (TactileObject*)contact.bodyB.node;
-            [self followPlayer:butterfly];//Tells the butterfly to follow the player
+            [self.model followPlayer:butterfly];//Tells the butterfly to follow the player
             [self.model.player setGotfollower:true]; //Player is only allowed 1 follower, this bool is used to make sure of that
             
             
@@ -598,20 +611,6 @@ NSTimer *updatetimer;
             [self.model incrementScore:200*self.model.currentdifficulty];//Give player a decent amount of points for their trouble
         }
     }
-}
-
-
-//Makes the node follow the player by applying a velocity towards the player's current location over and over again every second, maintaining the target. Target is actually just to the top left of the player so as not to obscure either node.
--(void)followPlayer:(SKSpriteNode*)node{
-    [node removeActionForKey:@"movingwithground"];//Moving with ground action is removed to stop conflict of movement
-    [node removeActionForKey:@"followingplayer"];
-    [node runAction:[SKAction repeatActionForever:
-                     [SKAction sequence:@[
-                                          [SKAction runBlock:^{
-                                            [node.physicsBody setVelocity:CGVectorMake(((self.model.player.position.x-self.model.player.frame.size.width*1.5) - node.position.x), ((self.model.player.position.y+(self.model.player.position.y/2)) -node.position.y) )];
-                                                }]
-                                          ,[SKAction waitForDuration:1.0]]]]withKey:@"followingplayer"];
-    
 }
 
 
@@ -638,6 +637,7 @@ NSTimer *updatetimer;
     [self.challengescene buildPitScene];//Build the scene using the method in the GameScene class
     [self.challengescene.physicsWorld setContactDelegate:self]; //Look for contact in this scene
     [self updateLifeIcons];
+    [self dressPlayer];
 }
 
 
@@ -673,6 +673,7 @@ NSTimer *updatetimer;
     [self.gamescene.physicsWorld setContactDelegate:self];//Listen for collisions in the main game
     [self moveButterfly:true]; //Butterfly follows to main level
     [self updateLifeIcons];//Refresh life icons
+    [self dressPlayer];
 }
 
 //Moves any present butterfly to where the player is going
