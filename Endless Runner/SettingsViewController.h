@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface SettingsViewController : UIViewController <UIImagePickerControllerDelegate>
+@interface SettingsViewController : UIViewController
 
 //>>>>>>>>>>>>>>>>>>>>UI ELEMENTS<<<<<<<<<<<<<<<<<<<<
 @property (weak) IBOutlet UISegmentedControl *tiltcontrol;
@@ -19,10 +19,17 @@
 
 @property (weak) IBOutlet UIImageView *bgimageview;
 @property (weak) IBOutlet UIImageView *avatarimageview;
+@property UIImage* currentbgimage;
+@property UIImage* currentcostumeimage;
 
 //>>>>>>>>>>>>>>>>>>>>SETTINGS<<<<<<<<<<<<<<<<<<<<
 @property bool tiltbool;//Whether tilt should be user for movement control or not
 @property NSString* bgimagestring;//What the background image should be
 @property NSString* avatarimagestring;//What the avatar image should be
+
+@property NSMutableArray* backgroundarray;
+@property NSMutableArray* avatararray;
+
+
 
 @end

@@ -24,20 +24,23 @@
     } else {
         self.tiltcontrol.selectedSegmentIndex = 0;
     }
-    [self setbgPickerImage];
-    [self setavatarPickerImage];
+    [self setbgPickerImage:self.currentbgimage];
+    [self setavatarPickerImage:self.currentcostumeimage];
+    [self fillAvatarArray];
+    [self fillBackgroundArray];
 }
 
-- (void)setbgPickerImage{
-    UIImage *bg =[UIImage imageNamed:self.bgimagestring];
-    bg = [self scaleImage:bg toSize:CGSizeMake(300, 160)];
-    [self.bgimageview setImage:bg];
+- (void)setbgPickerImage:(UIImage*)image{
+    self.currentbgimage = image;
+    image = [self scaleImage:image toSize:CGSizeMake(300, 160)];
+    [self.bgimageview setImage:image];
 }
 
-- (void)setavatarPickerImage{
-    UIImage *avatar =[UIImage imageNamed:self.avatarimagestring];
-    avatar = [self scaleImage:avatar toSize:CGSizeMake(144, 160)];
-    [self.avatarimageview setImage:avatar];
+- (void)setavatarPickerImage:(UIImage*)image{
+    self.currentcostumeimage = image;
+    image = [self scaleImage:image toSize:CGSizeMake(105, 130)];
+    [self.avatarimageview setImage:image];
+    
 }
 
 -(UIImage*) scaleImage: (UIImage*)image toSize:(CGSize)newSize {
@@ -59,13 +62,62 @@
     
     if (![[self.navigationController viewControllers] containsObject:self]) {
         [(MainMenuViewController*)self.navigationController.viewControllers[0] setTiltbool:self.tiltbool];
-        [(MainMenuViewController*)self.navigationController.viewControllers[0] setBgimagestring:self.bgimagestring];
+        [(MainMenuViewController*)self.navigationController.viewControllers[0] setBgimage:self.currentbgimage];
+        [(MainMenuViewController*)self.navigationController.viewControllers[0] setCostumeimage:self.currentcostumeimage];
     }
 }
 
+-(void)fillAvatarArray{
+    self.avatararray = [[NSMutableArray alloc] initWithObjects:
+                        [UIImage imageNamed:@"avatar.gif"],
+                        [UIImage imageNamed:@"GuardHat"],
+                        [UIImage imageNamed:@"MiningHat"],
+                        [UIImage imageNamed:@"SuperLenny"],
+                        [UIImage imageNamed:@"christmas-avatar"],
+                        [UIImage imageNamed:@"dracula-avatar"],
+                        [UIImage imageNamed:@"lederhosen"],nil];
+}
+
+-(void)fillBackgroundArray{
+    self.backgroundarray = [[NSMutableArray alloc] initWithObjects:
+                        [UIImage imageNamed:@"background"],
+                        [UIImage imageNamed:@"EnglandBG"],nil];
+}
 
 -(IBAction)tiltcontrolMoved:(UISegmentedControl*)sender{
     self.tiltbool = sender.selectedSegmentIndex;
 }
-
+//Methods take care of movement, IBAction is too clumsy
+-(IBAction)bgLeftPressed:(UIButton*)sender{
+    int currentPos = [self.backgroundarray indexOfObject:self.currentbgimage];
+    if (currentPos != 0){
+        [self setbgPickerImage:self.backgroundarray[currentPos-1]];
+    } else {
+        [self setbgPickerImage:self.backgroundarray[self.backgroundarray.count-1]];
+    }
+}
+-(IBAction)bgRightPressed:(UIButton*)sender{
+    int currentPos = [self.backgroundarray indexOfObjectIdenticalTo:self.currentbgimage];
+    if (currentPos < self.backgroundarray.count-1){
+        [self setbgPickerImage:self.backgroundarray[currentPos+1]];
+    } else {
+        [self setbgPickerImage:self.backgroundarray[0]];
+    }
+}
+-(IBAction)avatarLeftPressed:(UIButton*)sender{
+    int currentPos = [self.avatararray indexOfObject:self.currentcostumeimage];
+    if (currentPos != 0){
+        [self setavatarPickerImage:self.avatararray[currentPos-1]];
+    } else {
+        [self setavatarPickerImage:self.avatararray[self.avatararray.count-1]];
+    }
+}
+-(IBAction)avatarRightPressed:(UIButton*)sender{
+    int currentPos = [self.avatararray indexOfObjectIdenticalTo:self.currentcostumeimage];
+    if (currentPos < self.avatararray.count-1){
+        [self setavatarPickerImage:self.avatararray[currentPos+1]];
+    } else {
+        [self setavatarPickerImage:self.avatararray[0]];
+    }
+}
 @end

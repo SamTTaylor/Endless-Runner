@@ -31,8 +31,8 @@
 @property bool tiltbool;//Tilt or buttons
 @property SKTexture* bgtexture;//What does the background look like
 @property SKTexture* groundtexture;//What does the ground look like
-@property NSString* bgimagestring;//Used to convert SKTexture to UIImage via the "...Named:" method
-@property NSString* avatarimagestring;
+@property UIImage* bgimage;
+@property UIImage* costumeimage;
 
 
 //>>>>>>>>>>>>>>>>>>>>SEGUE STUFF<<<<<<<<<<<<<<<<<<<<

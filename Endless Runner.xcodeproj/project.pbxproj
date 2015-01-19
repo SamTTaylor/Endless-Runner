@@ -56,6 +56,16 @@
 		6875162D1A24F92600748410 /* Endless_RunnerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6875162C1A24F92600748410 /* Endless_RunnerTests.m */; };
 		68AA902A1A56BE430056E5A2 /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 68AA90291A56BE430056E5A2 /* SettingsViewController.m */; };
 		68AA902D1A56C4700056E5A2 /* MainMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 68AA902C1A56C4700056E5A2 /* MainMenuViewController.m */; };
+		68E903281A6D0FB70009AE84 /* GuardHat.png in Resources */ = {isa = PBXBuildFile; fileRef = 68E903231A6D0FB70009AE84 /* GuardHat.png */; };
+		68E903291A6D0FB70009AE84 /* MiningHat.png in Resources */ = {isa = PBXBuildFile; fileRef = 68E903241A6D0FB70009AE84 /* MiningHat.png */; };
+		68E9032A1A6D0FB70009AE84 /* SuperLenny.png in Resources */ = {isa = PBXBuildFile; fileRef = 68E903251A6D0FB70009AE84 /* SuperLenny.png */; };
+		68E9032D1A6D0FCE0009AE84 /* EnglandBG.png in Resources */ = {isa = PBXBuildFile; fileRef = 68E9032B1A6D0FCE0009AE84 /* EnglandBG.png */; };
+		68E9032E1A6D0FCE0009AE84 /* EnglandGround.png in Resources */ = {isa = PBXBuildFile; fileRef = 68E9032C1A6D0FCE0009AE84 /* EnglandGround.png */; };
+		68E903301A6D187E0009AE84 /* CostumeText.png in Resources */ = {isa = PBXBuildFile; fileRef = 68E9032F1A6D187E0009AE84 /* CostumeText.png */; };
+		68E903351A6D266D0009AE84 /* christmas-avatar.png in Resources */ = {isa = PBXBuildFile; fileRef = 68E903311A6D266D0009AE84 /* christmas-avatar.png */; };
+		68E903361A6D266D0009AE84 /* christmas.png in Resources */ = {isa = PBXBuildFile; fileRef = 68E903321A6D266D0009AE84 /* christmas.png */; };
+		68E903371A6D266D0009AE84 /* dracula-avatar.png in Resources */ = {isa = PBXBuildFile; fileRef = 68E903331A6D266D0009AE84 /* dracula-avatar.png */; };
+		68E903381A6D266D0009AE84 /* lederhosen.png in Resources */ = {isa = PBXBuildFile; fileRef = 68E903341A6D266D0009AE84 /* lederhosen.png */; };
 		68F358FD1A63C80E0006E4B1 /* Bog.png in Resources */ = {isa = PBXBuildFile; fileRef = 68F358F81A63C80E0006E4B1 /* Bog.png */; };
 		68F358FE1A63C80E0006E4B1 /* Bush.png in Resources */ = {isa = PBXBuildFile; fileRef = 68F358F91A63C80E0006E4B1 /* Bush.png */; };
 		68F358FF1A63C80E0006E4B1 /* Mushroom.png in Resources */ = {isa = PBXBuildFile; fileRef = 68F358FA1A63C80E0006E4B1 /* Mushroom.png */; };
@@ -165,6 +175,16 @@
 		68AA90291A56BE430056E5A2 /* SettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsViewController.m; sourceTree = "<group>"; };
 		68AA902B1A56C4700056E5A2 /* MainMenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainMenuViewController.h; sourceTree = "<group>"; };
 		68AA902C1A56C4700056E5A2 /* MainMenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainMenuViewController.m; sourceTree = "<group>"; };
+		68E903231A6D0FB70009AE84 /* GuardHat.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = GuardHat.png; path = "Endless Runner/Images/Costumes/GuardHat.png"; sourceTree = "<group>"; };
+		68E903241A6D0FB70009AE84 /* MiningHat.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = MiningHat.png; path = "Endless Runner/Images/Costumes/MiningHat.png"; sourceTree = "<group>"; };
+		68E903251A6D0FB70009AE84 /* SuperLenny.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = SuperLenny.png; path = "Endless Runner/Images/Costumes/SuperLenny.png"; sourceTree = "<group>"; };
+		68E9032B1A6D0FCE0009AE84 /* EnglandBG.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = EnglandBG.png; path = "Endless Runner/Images/Backgrounds/EnglandBG.png"; sourceTree = "<group>"; };
+		68E9032C1A6D0FCE0009AE84 /* EnglandGround.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = EnglandGround.png; path = "Endless Runner/Images/Backgrounds/EnglandGround.png"; sourceTree = "<group>"; };
+		68E9032F1A6D187E0009AE84 /* CostumeText.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = CostumeText.png; path = "Endless Runner/Images/Text/CostumeText.png"; sourceTree = "<group>"; };
+		68E903311A6D266D0009AE84 /* christmas-avatar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "christmas-avatar.png"; path = "Endless Runner/Images/Costumes/christmas-avatar.png"; sourceTree = "<group>"; };
+		68E903321A6D266D0009AE84 /* christmas.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = christmas.png; path = "Endless Runner/Images/Costumes/christmas.png"; sourceTree = "<group>"; };
+		68E903331A6D266D0009AE84 /* dracula-avatar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "dracula-avatar.png"; path = "Endless Runner/Images/Costumes/dracula-avatar.png"; sourceTree = "<group>"; };
+		68E903341A6D266D0009AE84 /* lederhosen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = lederhosen.png; path = "Endless Runner/Images/Costumes/lederhosen.png"; sourceTree = "<group>"; };
 		68F358F81A63C80E0006E4B1 /* Bog.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Bog.png; path = "Endless Runner/Images/Obstacles/Bog.png"; sourceTree = "<group>"; };
 		68F358F91A63C80E0006E4B1 /* Bush.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Bush.png; path = "Endless Runner/Images/Obstacles/Bush.png"; sourceTree = "<group>"; };
 		68F358FA1A63C80E0006E4B1 /* Mushroom.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Mushroom.png; path = "Endless Runner/Images/Obstacles/Mushroom.png"; sourceTree = "<group>"; };
@@ -252,6 +272,7 @@
 		682428011A28748C00F71A3D /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				68E903201A6D0FA50009AE84 /* Costumes */,
 				681E67071A691B39007E727A /* Icons */,
 				717CCAB31A67C18300B55E61 /* avatar.atlas */,
 				717CCAB41A67C18300B55E61 /* beehive.atlas */,
@@ -284,6 +305,8 @@
 		682428031A2874A000F71A3D /* Backgrounds */ = {
 			isa = PBXGroup;
 			children = (
+				68E9032B1A6D0FCE0009AE84 /* EnglandBG.png */,
+				68E9032C1A6D0FCE0009AE84 /* EnglandGround.png */,
 				685F3D951A67E40900A20F9A /* level1-pit.png */,
 				685F3D901A67D73B00A20F9A /* level1-bonus.png */,
 				68F359021A63C81F0006E4B1 /* background.png */,
@@ -313,6 +336,7 @@
 		68480E181A667A7B004A4EEA /* Text */ = {
 			isa = PBXGroup;
 			children = (
+				68E9032F1A6D187E0009AE84 /* CostumeText.png */,
 				68480EC31A66A9F2004A4EEA /* ControlsText.png */,
 				68480E291A66A945004A4EEA /* AvatarText.png */,
 				68480E2A1A66A945004A4EEA /* BackgroundText.png */,
@@ -409,6 +433,20 @@
 				6875162B1A24F92600748410 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		68E903201A6D0FA50009AE84 /* Costumes */ = {
+			isa = PBXGroup;
+			children = (
+				68E903311A6D266D0009AE84 /* christmas-avatar.png */,
+				68E903321A6D266D0009AE84 /* christmas.png */,
+				68E903331A6D266D0009AE84 /* dracula-avatar.png */,
+				68E903341A6D266D0009AE84 /* lederhosen.png */,
+				68E903231A6D0FB70009AE84 /* GuardHat.png */,
+				68E903241A6D0FB70009AE84 /* MiningHat.png */,
+				68E903251A6D0FB70009AE84 /* SuperLenny.png */,
+			);
+			name = Costumes;
 			sourceTree = "<group>";
 		};
 		68F358F71A63C7940006E4B1 /* Obstacles */ = {
@@ -511,6 +549,7 @@
 				TargetAttributes = {
 					687516071A24F92600748410 = {
 						CreatedOnToolsVersion = 6.1;
+						DevelopmentTeam = 6YEH9YEK8B;
 					};
 					687516251A24F92600748410 = {
 						CreatedOnToolsVersion = 6.1;
@@ -550,6 +589,8 @@
 				687516211A24F92600748410 /* LaunchScreen.xib in Resources */,
 				68F359041A63C81F0006E4B1 /* background.png in Resources */,
 				717CCAB71A67C18300B55E61 /* beehive.atlas in Resources */,
+				68E903381A6D266D0009AE84 /* lederhosen.png in Resources */,
+				68E903371A6D266D0009AE84 /* dracula-avatar.png in Resources */,
 				68480E211A667C43004A4EEA /* IntroText.png in Resources */,
 				68480EC81A66E0A7004A4EEA /* LennyHighScores.plist in Resources */,
 				68480EC41A66A9F2004A4EEA /* ControlsText.png in Resources */,
@@ -557,17 +598,22 @@
 				68F358FF1A63C80E0006E4B1 /* Mushroom.png in Resources */,
 				68F359131A63C82F0006E4B1 /* Fox.png in Resources */,
 				685F3D921A67D73B00A20F9A /* berry.png in Resources */,
+				68E903351A6D266D0009AE84 /* christmas-avatar.png in Resources */,
 				68480E271A6680FE004A4EEA /* LeftArrowText.png in Resources */,
+				68E9032E1A6D0FCE0009AE84 /* EnglandGround.png in Resources */,
 				6875161E1A24F92600748410 /* Images.xcassets in Resources */,
 				681E67161A691B54007E727A /* 87x87.png in Resources */,
 				68F3590F1A63C82F0006E4B1 /* bee.png in Resources */,
 				717CCAB61A67C18300B55E61 /* avatar.atlas in Resources */,
+				68E903361A6D266D0009AE84 /* christmas.png in Resources */,
 				68480E241A667C43004A4EEA /* SettingsText.png in Resources */,
 				68F359051A63C81F0006E4B1 /* ground.png in Resources */,
 				68F359141A63C82F0006E4B1 /* Frog.png in Resources */,
 				68F359151A63C82F0006E4B1 /* Wolf.png in Resources */,
 				681E67131A691B54007E727A /* 58x58.png in Resources */,
 				6851ECAD1A6526FB00C661D2 /* kopf-animation.png in Resources */,
+				68E9032A1A6D0FB70009AE84 /* SuperLenny.png in Resources */,
+				68E903291A6D0FB70009AE84 /* MiningHat.png in Resources */,
 				68F3590E1A63C82F0006E4B1 /* avatar.gif in Resources */,
 				681E671F1A693932007E727A /* Birdhouse.png in Resources */,
 				68F358FD1A63C80E0006E4B1 /* Bog.png in Resources */,
@@ -580,6 +626,9 @@
 				68480E221A667C43004A4EEA /* PlayText.png in Resources */,
 				685F3D931A67D73B00A20F9A /* level1-bonus.png in Resources */,
 				681E67141A691B54007E727A /* 76x76.png in Resources */,
+				68E9032D1A6D0FCE0009AE84 /* EnglandBG.png in Resources */,
+				68E903281A6D0FB70009AE84 /* GuardHat.png in Resources */,
+				68E903301A6D187E0009AE84 /* CostumeText.png in Resources */,
 				681E67191A691B54007E727A /* 180x180.png in Resources */,
 				68F359121A63C82F0006E4B1 /* Bird.png in Resources */,
 				685F3D961A67E40900A20F9A /* level1-pit.png in Resources */,

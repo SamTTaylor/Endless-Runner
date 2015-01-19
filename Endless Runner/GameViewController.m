@@ -404,6 +404,7 @@ NSTimer *updatetimer;
 
 //Shuts everything down & returns to the main menu view controller
 - (void) quitSelf{
+    [self.updatetimer invalidate];
     self.motionManager = nil;
     self.swipeRecognizer = nil;
     self.doubleTapRecognizer = nil;

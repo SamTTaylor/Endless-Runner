@@ -38,18 +38,18 @@
     [super viewDidLoad];
     //Defaults the first time the game is loaded
     self.tiltbool = false;
-    [self setBgimagestring:@"background"];
-    [self setAvatarimagestring:@"avatar.gif"];
-    self.bgtexture = [SKTexture textureWithImageNamed:self.bgimagestring];
+    self.bgtexture = [SKTexture textureWithImageNamed:@"background"];
     self.groundtexture = [SKTexture textureWithImageNamed:@"ground"];//Ground is always based on the bgimage so it is not stored as a string
+    self.costumeimage = [UIImage imageNamed:@"avatar.gif"];
+    self.bgimage = [UIImage imageNamed:@"background"];
     self.svc = nil;
     self.gvc = nil;
 }
 
 //Makes sure that the main menu scrolling background is recreated when the view is reached by backing through the navigation controller
 - (void) viewDidAppear:(BOOL)animated{
-    [self setAvatarimagestring:@"avatar.gif"];
-    [self setBgimagestring:@"background"];
+    self.bgtexture = [SKTexture textureWithImage:self.bgimage];
+    self.groundtexture = [SKTexture textureWithImageNamed:@"ground"];
     [self initialiseMenuScene];
 }
 
@@ -65,8 +65,8 @@
     if ([[segue identifier]isEqualToString:@"segueToSettings"]) {
         self.svc = [segue destinationViewController];
         [self.svc setTiltbool:self.tiltbool];
-        [self.svc setBgimagestring:self.bgimagestring];
-        [self.svc setAvatarimagestring:self.avatarimagestring];
+        [self.svc setCurrentbgimage:self.bgimage];
+        [self.svc setCurrentcostumeimage:self.costumeimage];
     }
     if ([[segue identifier]isEqualToString:@"segueToGame"]) {
         self.gvc = [segue destinationViewController];
