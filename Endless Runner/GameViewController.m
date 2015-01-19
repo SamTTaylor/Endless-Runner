@@ -56,6 +56,12 @@ NSTimer *updatetimer;
         [self startGame];
     }
     [self updateLifeIcons];
+    NSMutableArray *frames = [[NSMutableArray alloc]init];
+    for (int i=0; i<[SKTextureAtlas atlasNamed:@"fox"].textureNames.count; i++) {
+        [frames addObject:[SKTexture textureWithImageNamed:[SKTextureAtlas atlasNamed:@"fox"].textureNames[i]]];
+    }
+    [SKTexture preloadTextures:frames withCompletionHandler:^{NSLog(@"Complete");}];
+
 }
 
 
