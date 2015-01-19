@@ -1,8 +1,7 @@
 //
 //  ToastView.m
-//  Endless Runner
 //
-// Taken from Stack Overflow to replicate Toast functionality in iOS
+// Solution fromm Stack Overflow to replicate Toast functionality in iOS
 
 #import "ToastView.h"
 

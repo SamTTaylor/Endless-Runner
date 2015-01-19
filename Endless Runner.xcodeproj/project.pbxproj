@@ -67,6 +67,7 @@
 		68E903371A6D266D0009AE84 /* dracula-avatar.png in Resources */ = {isa = PBXBuildFile; fileRef = 68E903331A6D266D0009AE84 /* dracula-avatar.png */; };
 		68E903381A6D266D0009AE84 /* lederhosen.png in Resources */ = {isa = PBXBuildFile; fileRef = 68E903341A6D266D0009AE84 /* lederhosen.png */; };
 		68E9033A1A6D4E3F0009AE84 /* austria.png in Resources */ = {isa = PBXBuildFile; fileRef = 68E903391A6D4E3F0009AE84 /* austria.png */; };
+		68E9033C1A6D87D00009AE84 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 68E9033B1A6D87D00009AE84 /* CoreLocation.framework */; };
 		68F358FD1A63C80E0006E4B1 /* Bog.png in Resources */ = {isa = PBXBuildFile; fileRef = 68F358F81A63C80E0006E4B1 /* Bog.png */; };
 		68F358FE1A63C80E0006E4B1 /* Bush.png in Resources */ = {isa = PBXBuildFile; fileRef = 68F358F91A63C80E0006E4B1 /* Bush.png */; };
 		68F358FF1A63C80E0006E4B1 /* Mushroom.png in Resources */ = {isa = PBXBuildFile; fileRef = 68F358FA1A63C80E0006E4B1 /* Mushroom.png */; };
@@ -187,6 +188,7 @@
 		68E903331A6D266D0009AE84 /* dracula-avatar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "dracula-avatar.png"; path = "Endless Runner/Images/Costumes/dracula-avatar.png"; sourceTree = "<group>"; };
 		68E903341A6D266D0009AE84 /* lederhosen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = lederhosen.png; path = "Endless Runner/Images/Costumes/lederhosen.png"; sourceTree = "<group>"; };
 		68E903391A6D4E3F0009AE84 /* austria.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = austria.png; path = "Endless Runner/Images/Backgrounds/austria.png"; sourceTree = "<group>"; };
+		68E9033B1A6D87D00009AE84 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		68F358F81A63C80E0006E4B1 /* Bog.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Bog.png; path = "Endless Runner/Images/Obstacles/Bog.png"; sourceTree = "<group>"; };
 		68F358F91A63C80E0006E4B1 /* Bush.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Bush.png; path = "Endless Runner/Images/Obstacles/Bush.png"; sourceTree = "<group>"; };
 		68F358FA1A63C80E0006E4B1 /* Mushroom.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Mushroom.png; path = "Endless Runner/Images/Obstacles/Mushroom.png"; sourceTree = "<group>"; };
@@ -231,6 +233,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				68E9033C1A6D87D00009AE84 /* CoreLocation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -366,6 +369,7 @@
 		687515FF1A24F92600748410 = {
 			isa = PBXGroup;
 			children = (
+				68E9033B1A6D87D00009AE84 /* CoreLocation.framework */,
 				68480EC71A66E0A7004A4EEA /* LennyHighScores.plist */,
 				682428011A28748C00F71A3D /* Images */,
 				6875160A1A24F92600748410 /* Endless Runner */,

@@ -57,6 +57,7 @@ NSTimer *updatetimer;
     }
     [self updateLifeIcons];//Shows the life icons held in the Model's array
     [self dressPlayer];
+    [self checkLocation];
 }
 
 //>>>>>>>>>>>>>>>>>>>>INITIALISATION<<<<<<<<<<<<<<<<<<<<
@@ -748,12 +749,52 @@ NSTimer *updatetimer;
 
 
 
+//>>>>>>>>>>>>>>>>>>>>LOCATION HANDLING<<<<<<<<<<<<<<<<<<<<
+- (void)checkLocation{
+    [self initialiseLocationManager];
+    [self.locationManager stopUpdatingLocation];
+}
+-(void)initialiseLocationManager{
+    // create a location manager if we don't have one
+    if (self.locationManager==nil)
+        self.locationManager = [[CLLocationManager alloc]init];
+    // this object will act as the delegate
+    self.locationManager.delegate = self;
+    // set the desired accuracy of location estimates
+    self.locationManager.desiredAccuracy = kCLLocationAccuracyThreeKilometers;
+    // set the movement threshold for new events
+    self.locationManager.distanceFilter = kCLDistanceFilterNone;
+    // start the service
+    [self.locationManager startUpdatingLocation];
+
+}
+
+//Receiving location updates
+- (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations
+{
+    NSLog(@"Updated");
+    self.location = [locations objectAtIndex:0];
+    [self.locationManager stopUpdatingLocation];
+    CLGeocoder *geocoder = [[CLGeocoder alloc] init] ;
+    [geocoder reverseGeocodeLocation:self.location completionHandler:^(NSArray *placemarks, NSError *error)
+     {
+         if (!(error))
+         {
+             CLPlacemark *placemark = [placemarks objectAtIndex:0];
+             self.Country = [[NSString alloc]initWithString:placemark.country];
+             NSLog(@"Currently in %@", self.Country);
+         }
+         else
+         {
+             NSLog(@"Geocode failed with error %@", error);
+             NSLog(@"\nCurrent Location Not Detected\n");
+         }}];
+}
 
 
 
 
-
-//UI ELEMENTS
+//>>>>>>>>>>>>>>>>>>>>UI ELEMENTS<<<<<<<<<<<<<<<<<<<<
 //These listeners allow for a more responsive and fluid control of the player using the buttons
 -(void)addListenersToButtons{
     [self.left addTarget:self action:@selector(holdLeft) forControlEvents:UIControlEventTouchDown];

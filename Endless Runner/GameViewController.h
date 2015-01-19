@@ -9,12 +9,14 @@
 #import <UIKit/UIKit.h>
 #import <SpriteKit/SpriteKit.h>
 #import <CoreMotion/CoreMotion.h>
+#import <CoreLocation/CoreLocation.h>
 #import "GameScene.h"
 #import "GameModel.h"
 #import "AppDelegate.h"
 
 
-@interface GameViewController : UIViewController <SKPhysicsContactDelegate, UIGestureRecognizerDelegate>
+
+@interface GameViewController : UIViewController <SKPhysicsContactDelegate, UIGestureRecognizerDelegate, CLLocationManagerDelegate>
 //>>>>>>>>>>>>>>>>>>>>UI ELEMENTS<<<<<<<<<<<<<<<<<<<<
 @property (weak) IBOutlet UIButton *left;
 @property (weak) IBOutlet UIButton *right;
@@ -55,6 +57,12 @@
 //>>>>>>>>>>>>>>>>>>>>TILT SENSOR<<<<<<<<<<<<<<<<<<<<
 @property (strong) CMMotionManager *motionManager;
 @property (copy) CMAccelerometerHandler accelerometerHandler;
+
+//>>>>>>>>>>>>>>>>>>>>LOCATION MANAGER<<<<<<<<<<<<<<<<<<<<
+@property (strong) CLLocationManager *locationManager;
+@property CLLocation *location;
+@property NSString *Country;
+
 
 - (void) quitSelf;
 

@@ -131,6 +131,7 @@
 }
 
 
+//Gets all the achievement and default image data from the user defaults
 -(void)loadDefaults{
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     self.england = [defaults boolForKey:@"england"];
@@ -143,6 +144,7 @@
     self.costumeimageindex = [defaults integerForKey:@"costumeimageindex"];
 }
 
+//Saves current costume and background between sessions
 -(void)saveDefaults{
     NSUserDefaults *defaults =
     [NSUserDefaults standardUserDefaults];
@@ -151,14 +153,19 @@
     [defaults synchronize];
 }
 
+//Sets all the necessary values for initialisation and consistency in backgrounds between views
 -(void)loadAvatarandBG{
+    //If currently selected BG's index is not in the array
     if (self.bgimageindex > self.backgroundarray.count || self.bgimageindex <= 0) {
+        //set to default
         self.bgimage = [UIImage imageNamed:@"background"];
         self.bgtexture = [SKTexture textureWithImageNamed:@"background"];
-    } else {
+    } else {//if it is
+        //set necessary values to the value represented by the index
         self.bgimage = self.backgroundarray[self.bgimageindex];
         self.bgtexture = [SKTexture textureWithImage:self.backgroundarray[self.bgimageindex]];
     }
+    //Same with costume
     if (![self.costumearray objectAtIndex:self.costumeimageindex]) {
         self.costumeimage = [UIImage imageNamed:@"avatar.gif"];
     } else {
