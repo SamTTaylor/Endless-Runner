@@ -28,7 +28,7 @@
 - (void) animateSelf{
     [super animateSelf];
     NSMutableArray *textures = [NSMutableArray arrayWithCapacity:16];
-    for (int i = 1; i < 5; i++) {
+    for (int i = 1; i < 8; i++) {
         NSString *textureName = [NSString stringWithFormat:@"wolf%d.png", i];
         SKTexture *texture =[SKTexture textureWithImageNamed:textureName];
         [textures addObject:texture];

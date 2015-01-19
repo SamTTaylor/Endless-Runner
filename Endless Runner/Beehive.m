@@ -18,6 +18,7 @@
         [self setScale:0.3];
         [self.physicsBody setDynamic:false];
         self.physicsBody.categoryBitMask = 0x1 << 6;
+        [self animateSelf];
     }
     return self;
 }
@@ -29,12 +30,22 @@
 
 - (void) animateSelf{
     [super animateSelf];
+    NSMutableArray *textures = [NSMutableArray arrayWithCapacity:16];
+    for (int i = 8; i < 14; i++) {
+        NSString *textureName = [NSString stringWithFormat:@"beehive%d.png", i];
+        SKTexture *texture =[SKTexture textureWithImageNamed:textureName];
+        [textures addObject:texture];
+    }
+    SKTexture *texture =[SKTexture textureWithImageNamed:@"beehive8.png"];
+    [textures addObject:texture];
     
     [self removeActionForKey:[NSString stringWithFormat:@"animate %@", self.class]];
     [self runAction:[SKAction sequence:@[[SKAction repeatAction:[SKAction sequence:@[[SKAction runBlock:^{
-        //Add Shrink
+        //Add Buzz animation
+        self.buzzAnimation =[SKAction animateWithTextures:textures timePerFrame:3];
     }], [SKAction waitForDuration:1], [SKAction runBlock:^{
-        //Add Shrink
+        //Add Buzz animation
+        [self runAction:[SKAction repeatActionForever:self.buzzAnimation]];
     }], [SKAction waitForDuration:1]]] count:5]]] withKey:[NSString stringWithFormat:@"animate %@", self.class]];
 }
 

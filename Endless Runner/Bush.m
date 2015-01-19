@@ -39,7 +39,7 @@
 - (void) deathAnimation{
     [super deathAnimation];
     NSMutableArray *textures = [NSMutableArray arrayWithCapacity:16];
-    for (int i = 1; i < 6; i++) {
+    for (int i = 1; i < 5; i++) {
         NSString *textureName = [NSString stringWithFormat:@"bush%d.png", i];
         SKTexture *texture =[SKTexture textureWithImageNamed:textureName];
         [textures addObject:texture];

@@ -68,6 +68,7 @@
 		717CCAB61A67C18300B55E61 /* avatar.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 717CCAB31A67C18300B55E61 /* avatar.atlas */; };
 		717CCAB71A67C18300B55E61 /* beehive.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 717CCAB41A67C18300B55E61 /* beehive.atlas */; };
 		717CCAB81A67C18300B55E61 /* frog.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 717CCAB51A67C18300B55E61 /* frog.atlas */; };
+		71F623751A6D194500D272E3 /* fox.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 71F623741A6D194500D272E3 /* fox.atlas */; };
 		BD0EEA8F1A691CD000D20A2D /* bush.atlas in Resources */ = {isa = PBXBuildFile; fileRef = BD0EEA8E1A691CD000D20A2D /* bush.atlas */; };
 		BD2BFCDE1A68043C00A1E697 /* bird.atlas in Resources */ = {isa = PBXBuildFile; fileRef = BD2BFCD91A68043C00A1E697 /* bird.atlas */; };
 		BD2BFCDF1A68043C00A1E697 /* bog.atlas in Resources */ = {isa = PBXBuildFile; fileRef = BD2BFCDA1A68043C00A1E697 /* bog.atlas */; };
@@ -176,6 +177,7 @@
 		717CCAB31A67C18300B55E61 /* avatar.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = avatar.atlas; sourceTree = "<group>"; };
 		717CCAB41A67C18300B55E61 /* beehive.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = beehive.atlas; sourceTree = "<group>"; };
 		717CCAB51A67C18300B55E61 /* frog.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = frog.atlas; sourceTree = "<group>"; };
+		71F623741A6D194500D272E3 /* fox.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = fox.atlas; sourceTree = "<group>"; };
 		BD0EEA8E1A691CD000D20A2D /* bush.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = bush.atlas; sourceTree = "<group>"; };
 		BD2BFCD91A68043C00A1E697 /* bird.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = bird.atlas; sourceTree = "<group>"; };
 		BD2BFCDA1A68043C00A1E697 /* bog.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = bog.atlas; sourceTree = "<group>"; };
@@ -206,6 +208,7 @@
 		682428011A28748C00F71A3D /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				71F623741A6D194500D272E3 /* fox.atlas */,
 				BD0EEA8E1A691CD000D20A2D /* bush.atlas */,
 				717CCAB31A67C18300B55E61 /* avatar.atlas */,
 				717CCAB41A67C18300B55E61 /* beehive.atlas */,
@@ -529,6 +532,7 @@
 				687516161A24F92600748410 /* GameScene.sks in Resources */,
 				BD2BFCDE1A68043C00A1E697 /* bird.atlas in Resources */,
 				717CCAB81A67C18300B55E61 /* frog.atlas in Resources */,
+				71F623751A6D194500D272E3 /* fox.atlas in Resources */,
 				6875161C1A24F92600748410 /* Main.storyboard in Resources */,
 				68F359011A63C80E0006E4B1 /* Stump.png in Resources */,
 			);
