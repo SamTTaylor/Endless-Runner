@@ -682,7 +682,7 @@ NSTimer *updatetimer;
             }
             
         //Player vs Butterfly
-        } else if (contact.bodyA.categoryBitMask == playerCategory && contact.bodyB.categoryBitMask == butterflyCategory){
+        } else if (contact.bodyA.categoryBitMask == playerCategory && contact.bodyB.categoryBitMask == butterflyCategory && self.model.player.gotfollower == false){
             TactileObject* butterfly = (TactileObject*)contact.bodyB.node;
             [self.model followPlayer:butterfly];//Tells the butterfly to follow the player
             [self.model.player setGotfollower:true]; //Player is only allowed 1 follower, this bool is used to make sure of that
