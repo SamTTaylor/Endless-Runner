@@ -62,7 +62,7 @@
                         [UIImage imageNamed:@"GuardHat"],
                         [UIImage imageNamed:@"MiningHat"],
                         [UIImage imageNamed:@"SuperLenny"],
-                        [UIImage imageNamed:@"Christmas"],
+                        [UIImage imageNamed:@"christmas"],
                         [UIImage imageNamed:@"dracula-avatar"],
                         [UIImage imageNamed:@"lederhosen"],nil];
 }

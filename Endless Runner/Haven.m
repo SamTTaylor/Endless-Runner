@@ -23,7 +23,7 @@
 
 -(void)introduction:(UIView*)inview{
     [super introduction:inview];
-    [ToastView showToastInParentView:inview withText:@"Return the butterfly to the Haven!" withDuaration:5.0];
+    [ToastView createToast:inview text:@"Return the butterfly to the Haven!" duration:5.0];
 }
 
 @end

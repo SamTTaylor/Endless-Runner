@@ -31,7 +31,7 @@
 }
 
 //For unlocking content
--(void)saveAchievement:(NSString*)achievement {
+-(void)saveAchievement:(NSString*)achievement{
     NSUserDefaults *defaults =
     [NSUserDefaults standardUserDefaults];
     [defaults setBool:true forKey:achievement];

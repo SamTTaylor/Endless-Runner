@@ -23,7 +23,7 @@
 
 -(void)introduction:(UIView*)inview{
     [super introduction:inview];
-    [ToastView showToastInParentView:inview withText:@"Bogs will stop you jumping!" withDuaration:5.0];
+    [ToastView createToast:inview text:@"Bogs will stop you jumping!" duration:5.0];
 }
 
 - (void) animateSelf{

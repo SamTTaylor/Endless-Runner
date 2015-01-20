@@ -24,7 +24,7 @@
 
 -(void)introduction:(UIView*)inview{
     [super introduction:inview];
-    [ToastView showToastInParentView:inview withText:@"Double Tap Beehives to break them!" withDuaration:5.0];
+    [ToastView createToast:inview text:@"Double Tap Beehives to break them!" duration:5.0];
 }
 
 - (void) animateSelf{

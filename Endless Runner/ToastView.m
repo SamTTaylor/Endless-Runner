@@ -1,18 +1,18 @@
 //
 //  ToastView.m
 //
-// Solution fromm Stack Overflow to replicate Toast functionality in iOS
+// Replicates Toast functionality in iOS
 
 #import "ToastView.h"
 
 @interface ToastView ()
-@property (strong, nonatomic, readonly) UILabel *textLabel;
+@property (strong, nonatomic) UILabel *toastText;
 @end
 @implementation ToastView
-@synthesize textLabel = _textLabel;
+@synthesize toastText = _toastText;
 
-float const ToastHeight = 50.0f;
-float const ToastGap = 10.0f;
+float const height = 50.0f;
+float const toastborder = 10.0f;
 
 - (id)initWithFrame:(CGRect)frame
 {
@@ -23,57 +23,60 @@ float const ToastGap = 10.0f;
     return self;
 }
 
--(UILabel *)textLabel
+-(UILabel *)toastText
 {
-    if (!_textLabel) {
-        _textLabel = [[UILabel alloc] initWithFrame:CGRectMake(5.0, 5.0, self.frame.size.width - 10.0, self.frame.size.height - 10.0)];
-        _textLabel.backgroundColor = [UIColor clearColor];
-        _textLabel.textAlignment = NSTextAlignmentCenter;
-        _textLabel.textColor = [UIColor whiteColor];
-        _textLabel.numberOfLines = 2;
-        _textLabel.font = [UIFont fontWithName:@"MarkerFelt-Thin" size:20];
-        _textLabel.lineBreakMode = NSLineBreakByCharWrapping;
-        [self addSubview:_textLabel];
+    if (!_toastText) {
+        _toastText = [[UILabel alloc] initWithFrame:CGRectMake(6.0, 6.0, self.frame.size.width - 15.0, self.frame.size.height - 15.0)];
+        _toastText.textColor = [UIColor whiteColor];
+        _toastText.numberOfLines = 2;
+        _toastText.backgroundColor = [UIColor clearColor];
+        _toastText.textAlignment = NSTextAlignmentCenter;
+        
+        
+        _toastText.font = [UIFont fontWithName:@"MarkerFelt-Thin" size:20];
+        [self addSubview:_toastText];
         
     }
-    return _textLabel;
+    return _toastText;
 }
 
 - (void)setText:(NSString *)text
 {
     _text = text;
-    self.textLabel.text = text;
+    self.toastText.text = text;
 }
 
-+ (void)showToastInParentView: (UIView *)parentView withText:(NSString *)text withDuaration:(float)duration;
++ (void)createToast: (UIView *)view text:(NSString *)text duration:(float)d
 {
     
-    //Count toast views are already showing on parent. Made to show several toasts one above another
-    int toastsAlreadyInParent = 0;
-    for (UIView *subView in [parentView subviews]) {
+    //Display new toasts under existing toasts (if there are any)
+    int existingtoasts = 0;
+    for (UIView *subView in [view subviews]) {
         if ([subView isKindOfClass:[ToastView class]])
         {
-            toastsAlreadyInParent++;
+            existingtoasts++;
         }
     }
     
-    CGRect parentFrame = parentView.frame;
+    CGRect parentFrame = view.frame;
     
-    float yOrigin = (70.0 + ToastHeight * toastsAlreadyInParent + ToastGap * toastsAlreadyInParent);
+    float yPos = (70.0 + height * existingtoasts + toastborder * existingtoasts);
     
-    CGRect selfFrame = CGRectMake(parentFrame.origin.x + 20.0, yOrigin, parentFrame.size.width - 40.0, ToastHeight);
+    CGRect selfFrame = CGRectMake(parentFrame.origin.x + 20.0, yPos, parentFrame.size.width - 40.0, height);
     ToastView *toast = [[ToastView alloc] initWithFrame:selfFrame];
     
-    toast.backgroundColor = [UIColor darkGrayColor];
-    toast.alpha = 0.0f;
     toast.layer.cornerRadius = 4.0;
     toast.text = text;
+    toast.backgroundColor = [UIColor darkGrayColor];
+    toast.alpha = 0.0f;
     
-    [parentView addSubview:toast];
+    
+    
+    [view addSubview:toast];
     
     [UIView animateWithDuration:0.4 animations:^{
         toast.alpha = 0.9f;
-        toast.textLabel.alpha = 0.9f;
+        toast.toastText.alpha = 0.9f;
     }completion:^(BOOL finished) {
         if(finished){
             
@@ -81,7 +84,7 @@ float const ToastGap = 10.0f;
     }];
     
     
-    [toast performSelector:@selector(hideSelf) withObject:nil afterDelay:duration];
+    [toast performSelector:@selector(hideSelf) withObject:nil afterDelay:d];
     
 }
 
@@ -90,7 +93,7 @@ float const ToastGap = 10.0f;
     
     [UIView animateWithDuration:0.4 animations:^{
         self.alpha = 0.0;
-        self.textLabel.alpha = 0.0;
+        self.toastText.alpha = 0.0;
     }completion:^(BOOL finished) {
         if(finished){
             [self removeFromSuperview];

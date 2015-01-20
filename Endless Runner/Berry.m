@@ -23,7 +23,7 @@
 
 -(void)introduction:(UIView*)inview{
     [super introduction:inview];
-    [ToastView showToastInParentView:inview withText:@"Find the berries!" withDuaration:5.0];
+    [ToastView createToast:inview text:@"Find the berries!" duration:5.0];
 }
 
 - (void) deathAnimation{

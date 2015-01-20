@@ -23,7 +23,7 @@
 
 -(void)introduction:(UIView*)inview{
     [super introduction:inview];
-    [ToastView showToastInParentView:inview withText:@"Swipe bushes from the centre to cut them down!" withDuaration:5.0];
+    [ToastView createToast:inview text:@"Swipe bushes from the centre to cut them down!" duration:5.0];
 }
 
 - (void) animateSelf{

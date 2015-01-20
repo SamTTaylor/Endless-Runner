@@ -57,7 +57,7 @@ NSTimer *updatetimer;
     }
     [self updateLifeIcons];//Shows the life icons held in the Model's array
     [self dressPlayer];
-    [self checkLocation];
+    [self initialiseLocationManager];
     [self checkDate];
 }
 
@@ -136,7 +136,7 @@ NSTimer *updatetimer;
         case NSOrderedSame:
             //Dont unlock it twice
             if ([defaults boolForKey:@"christmas"] == false) {
-                [ToastView showToastInParentView:self.view withText:@"You have unlocked the Santa Hat!" withDuaration:5.0];
+                [ToastView createToast:self.view text:@"You have unlocked the Santa Hat!" duration:5.0];
                 [self.model saveAchievement:@"christmas"];//Player unlocks santa hat for playing on christmas
             }
             break;
@@ -148,7 +148,7 @@ NSTimer *updatetimer;
         case NSOrderedSame:
             //Dont unlock it twice
             if ([defaults boolForKey:@"halloween"] == false) {
-                [ToastView showToastInParentView:self.view withText:@"You have unlocked the Vampire Costume!" withDuaration:5.0];
+                [ToastView createToast:self.view text:@"You have unlocked the Vampire Costume!" duration:5.0];
                 [self.model saveAchievement:@"halloween"];//Player unlocks vampire costume for playong on halloween
             }
             break;
@@ -199,9 +199,9 @@ NSTimer *updatetimer;
         self.left.hidden = true;
         self.right.hidden = true;
         [self instantiateAccelerometer];
-        [ToastView showToastInParentView:self.view withText:@"Tilt to begin, tap to jump!" withDuaration:5.0];//Toast for instruction
+        [ToastView createToast:self.view text:@"Tilt to begin, tap to jump!" duration:5.0];//Toast for instruction
     } else {
-        [ToastView showToastInParentView:self.view withText:@"Press movement buttons to begin, tap to jump!" withDuaration:5.0];
+        [ToastView createToast:self.view text:@"Press movement buttons to begin, tap to jump!" duration:5.0];
         self.left.hidden = false;
         self.right.hidden = false;
     }
@@ -666,7 +666,7 @@ NSTimer *updatetimer;
             //Dont unlock twice
             if ([defaults boolForKey:@"pit"] == false) {
                 [self.model saveAchievement:@"pit"];//Player unlocks mining helmet for beating the pit
-                [ToastView showToastInParentView:self.view withText:@"You have unlocked the Miner's Helmet!" withDuaration:5.0];
+                
             }
             
             SKView * skView = (SKView *)self.view;
@@ -831,10 +831,6 @@ NSTimer *updatetimer;
 
 
 //>>>>>>>>>>>>>>>>>>>>LOCATION HANDLING<<<<<<<<<<<<<<<<<<<<
-- (void)checkLocation{
-    [self initialiseLocationManager];
-    [self.locationManager stopUpdatingLocation];
-}
 -(void)initialiseLocationManager{
     // create a location manager if we don't have one
     if (self.locationManager==nil)
@@ -845,6 +841,10 @@ NSTimer *updatetimer;
     self.locationManager.desiredAccuracy = kCLLocationAccuracyThreeKilometers;
     // set the movement threshold for new events
     self.locationManager.distanceFilter = kCLDistanceFilterNone;
+    //RequestPermission
+    if ([self.locationManager respondsToSelector:@selector(requestWhenInUseAuthorization)]) {
+        [self.locationManager requestWhenInUseAuthorization];
+    }
     // start the service
     [self.locationManager startUpdatingLocation];
 
@@ -853,7 +853,6 @@ NSTimer *updatetimer;
 //Receiving location updates
 - (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations
 {
-    NSLog(@"Updated");
     self.location = [locations objectAtIndex:0];
     [self.locationManager stopUpdatingLocation];
     CLGeocoder *geocoder = [[CLGeocoder alloc] init] ;
@@ -863,7 +862,8 @@ NSTimer *updatetimer;
          {
              CLPlacemark *placemark = [placemarks objectAtIndex:0];
              self.Country = [[NSString alloc]initWithString:placemark.country];
-             NSLog(@"Currently in %@", self.Country);
+             [self.locationManager stopUpdatingLocation];
+             [self checkLocation];
          }
          else
          {
@@ -872,7 +872,17 @@ NSTimer *updatetimer;
          }}];
 }
 
-
+- (void)checkLocation{
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    if ([defaults boolForKey:@"england"] == false && [self.Country isEqualToString:@"United Kingdom"]) {
+        [ToastView createToast:self.view text:@"You have unlocked the England Background and Guard Hat!" duration:5.0];
+        [self.model saveAchievement:@"england"];//Player unlocks england background and guard hat for playing from england
+    }
+    if ([defaults boolForKey:@"austria"] == false && [self.Country isEqualToString:@"Austria"]) {
+        [ToastView createToast:self.view text:@"You have unlocked the Austria Background and Lederhosen!" duration:5.0];
+        [self.model saveAchievement:@"austria"];//Player unlocks austria background and lederhosen for playing from austria 
+    }
+}
 
 
 //>>>>>>>>>>>>>>>>>>>>UI ELEMENTS<<<<<<<<<<<<<<<<<<<<

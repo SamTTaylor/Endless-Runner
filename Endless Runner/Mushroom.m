@@ -23,7 +23,7 @@
 
 -(void)introduction:(UIView*)inview{
     [super introduction:inview];
-    [ToastView showToastInParentView:inview withText:@"Mushrooms will reverse your movement!" withDuaration:5.0];
+    [ToastView createToast:inview text:@"Mushrooms will reverse your movement!" duration:5.0];
 }
 
 - (void) deathAnimation{

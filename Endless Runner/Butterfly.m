@@ -27,8 +27,8 @@
 
 -(void)introduction:(UIView*)inview{
     [super introduction:inview];
-    [ToastView showToastInParentView:inview withText:@"Catch the butterfly to keep it safe!" withDuaration:5.0];
-    [ToastView showToastInParentView:inview withText:@"The butterfly will protect you from 1 lethal hit" withDuaration:5.0];
+    [ToastView createToast:inview text:@"Catch the butterfly to keep it safe!" duration:5.0];
+    [ToastView createToast:inview text:@"The butterfly will protect you from 1 lethal hit" duration:5.0];
 }
 
 @end

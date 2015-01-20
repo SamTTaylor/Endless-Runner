@@ -27,7 +27,7 @@
 
 -(void)introduction:(UIView*)inview{
     [super introduction:inview];
-    [ToastView showToastInParentView:inview withText:@"Dodge the frog's tongue attack!" withDuaration:5.0];
+    [ToastView createToast:inview text:@"Dodge the frog's tongue attack!" duration:5.0];
 }
 
 - (void) animateSelf{

@@ -2,7 +2,7 @@
 //  ToastView.h
 //  Endless Runner
 //
-//Taken from Stack Overflow to replicate Toast functionality in iOS
+//Replicates Toast functionality in iOS
 
 #import <UIKit/UIKit.h>
 
@@ -10,6 +10,6 @@
 
 @property (strong, nonatomic) NSString *text;
 
-+ (void)showToastInParentView: (UIView *)parentView withText:(NSString *)text withDuaration:(float)duration;
++ (void)createToast: (UIView *)view text:(NSString *)text duration:(float)d;
 
 @end
