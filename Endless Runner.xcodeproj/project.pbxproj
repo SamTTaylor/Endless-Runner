@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6801856C1A6E7F7400C527A0 /* Haven.png in Resources */ = {isa = PBXBuildFile; fileRef = 6801856B1A6E7F7400C527A0 /* Haven.png */; };
 		681608281A6010410090CB96 /* ToastView.m in Sources */ = {isa = PBXBuildFile; fileRef = 681608271A6010410090CB96 /* ToastView.m */; };
 		6816082B1A60172C0090CB96 /* Enemy.m in Sources */ = {isa = PBXBuildFile; fileRef = 6816082A1A60172C0090CB96 /* Enemy.m */; };
 		681E67111A691B54007E727A /* 29x29.png in Resources */ = {isa = PBXBuildFile; fileRef = 681E67081A691B54007E727A /* 29x29.png */; };
@@ -18,7 +19,6 @@
 		681E67171A691B54007E727A /* 120x120.png in Resources */ = {isa = PBXBuildFile; fileRef = 681E670E1A691B54007E727A /* 120x120.png */; };
 		681E67181A691B54007E727A /* 152x152.png in Resources */ = {isa = PBXBuildFile; fileRef = 681E670F1A691B54007E727A /* 152x152.png */; };
 		681E67191A691B54007E727A /* 180x180.png in Resources */ = {isa = PBXBuildFile; fileRef = 681E67101A691B54007E727A /* 180x180.png */; };
-		681E671F1A693932007E727A /* Birdhouse.png in Resources */ = {isa = PBXBuildFile; fileRef = 681E671D1A693932007E727A /* Birdhouse.png */; };
 		681E67201A693932007E727A /* Butterfly.png in Resources */ = {isa = PBXBuildFile; fileRef = 681E671E1A693932007E727A /* Butterfly.png */; };
 		681E67241A694CB2007E727A /* Butterfly.m in Sources */ = {isa = PBXBuildFile; fileRef = 681E67231A694CB2007E727A /* Butterfly.m */; };
 		681E67271A694CBD007E727A /* Haven.m in Sources */ = {isa = PBXBuildFile; fileRef = 681E67261A694CBD007E727A /* Haven.m */; };
@@ -108,6 +108,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		6801856B1A6E7F7400C527A0 /* Haven.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Haven.png; path = "Endless Runner/Images/Characters/Haven.png"; sourceTree = "<group>"; };
 		681608261A6010410090CB96 /* ToastView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ToastView.h; sourceTree = "<group>"; };
 		681608271A6010410090CB96 /* ToastView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ToastView.m; sourceTree = "<group>"; };
 		681608291A60172C0090CB96 /* Enemy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Enemy.h; sourceTree = "<group>"; };
@@ -121,7 +122,6 @@
 		681E670E1A691B54007E727A /* 120x120.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = 120x120.png; path = "Endless Runner/Images/Icons/120x120.png"; sourceTree = "<group>"; };
 		681E670F1A691B54007E727A /* 152x152.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = 152x152.png; path = "Endless Runner/Images/Icons/152x152.png"; sourceTree = "<group>"; };
 		681E67101A691B54007E727A /* 180x180.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = 180x180.png; path = "Endless Runner/Images/Icons/180x180.png"; sourceTree = "<group>"; };
-		681E671D1A693932007E727A /* Birdhouse.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Birdhouse.png; path = "Endless Runner/Images/Characters/Birdhouse.png"; sourceTree = "<group>"; };
 		681E671E1A693932007E727A /* Butterfly.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Butterfly.png; path = "Endless Runner/Images/Characters/Butterfly.png"; sourceTree = "<group>"; };
 		681E67221A694CB2007E727A /* Butterfly.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Butterfly.h; sourceTree = "<group>"; };
 		681E67231A694CB2007E727A /* Butterfly.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Butterfly.m; sourceTree = "<group>"; };
@@ -293,7 +293,7 @@
 		682428021A28749800F71A3D /* Characters */ = {
 			isa = PBXGroup;
 			children = (
-				681E671D1A693932007E727A /* Birdhouse.png */,
+				6801856B1A6E7F7400C527A0 /* Haven.png */,
 				681E671E1A693932007E727A /* Butterfly.png */,
 				6851ECAC1A6526FB00C661D2 /* kopf-animation.png */,
 				68F359A31A640CD60006E4B1 /* Beehive.png */,
@@ -615,6 +615,7 @@
 				68E903361A6D266D0009AE84 /* christmas.png in Resources */,
 				68480E241A667C43004A4EEA /* SettingsText.png in Resources */,
 				68F359051A63C81F0006E4B1 /* ground.png in Resources */,
+				6801856C1A6E7F7400C527A0 /* Haven.png in Resources */,
 				68E9033A1A6D4E3F0009AE84 /* austria.png in Resources */,
 				68F359141A63C82F0006E4B1 /* Frog.png in Resources */,
 				68F359151A63C82F0006E4B1 /* Wolf.png in Resources */,
@@ -623,7 +624,6 @@
 				68E9032A1A6D0FB70009AE84 /* SuperLenny.png in Resources */,
 				68E903291A6D0FB70009AE84 /* MiningHat.png in Resources */,
 				68F3590E1A63C82F0006E4B1 /* avatar.gif in Resources */,
-				681E671F1A693932007E727A /* Birdhouse.png in Resources */,
 				68F358FD1A63C80E0006E4B1 /* Bog.png in Resources */,
 				68F359001A63C80E0006E4B1 /* Spikes.png in Resources */,
 				68480E201A667C43004A4EEA /* HighScoresText.png in Resources */,

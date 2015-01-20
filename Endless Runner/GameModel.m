@@ -207,7 +207,7 @@
 }
 //Returns an instance of a Haven
 - (Haven*) spawnHaven{
-    Haven* haven = [[Haven alloc] initWithTexture:[SKTexture textureWithImageNamed:@"Birdhouse"]];
+    Haven* haven = [[Haven alloc] initWithTexture:[SKTexture textureWithImageNamed:@"Haven"]];
     [self placeEntWithLoc:2 Ent:haven];
     return haven;
 }
