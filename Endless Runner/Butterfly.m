@@ -16,7 +16,7 @@
         //Initialization code
         
         [self setScale:0.15];
-
+        //Unique physical attributes set for collision handling & real world presence
          self.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:CGSizeMake(self.frame.size.width/2, self.frame.size.height/2)];
         self.physicsBody.categoryBitMask = 0x1 << 12;
         self.physicsBody.contactTestBitMask = 0x1 << 13;
@@ -26,6 +26,7 @@
     return self;
 }
 
+//Butterfly specific introductions
 -(void)introduction:(UIView*)inview{
     [super introduction:inview];
     [ToastView createToast:inview text:@"Catch the butterfly to keep it safe!" duration:5.0];

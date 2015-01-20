@@ -22,9 +22,9 @@
 @property bool animated;//Used to start and stop animation
 @property bool gotfollower;//Used to limit follower count to 1
 @property Butterfly* currentbutterfly;//Used to reference current butterfly follower
-@property UIImage* costume;
-@property CGPoint costumeposition;
-@property NSMutableArray* costumearray;
+@property UIImage* costume; //Player's current costume image
+@property CGPoint costumeposition; //Costumes current position in player image
+@property NSMutableArray* costumearray; //Passed array containing all costumes for player to choose from
 
 
 //>>>>>>>>>>>>>>>>>>>>METHODS<<<<<<<<<<<<<<<<<<<<

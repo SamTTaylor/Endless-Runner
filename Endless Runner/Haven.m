@@ -15,12 +15,14 @@
     if (self) {
         //Initialization code
         [self setScale:0.3];
+        //Unique physical attributes set for collision handling & real world presence
         self.physicsBody.categoryBitMask = 0x1 << 13;
         self.physicsBody.contactTestBitMask = 0x1 << 12;
     }
     return self;
 }
 
+//Butterfly specific introductions
 -(void)introduction:(UIView*)inview{
     [super introduction:inview];
     [ToastView createToast:inview text:@"Return the butterfly to the Haven!" duration:5.0];

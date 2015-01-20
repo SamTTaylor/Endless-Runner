@@ -173,6 +173,7 @@
     }], [SKAction waitForDuration:0.05]]] count:1]]] withKey:@"enemycollision"];
 }
 
+//Specific positioning on the player for each costume to make it look realistic
 -(CGPoint)assignCostumePosition{
     int arrayposition = [self.costumearray indexOfObjectIdenticalTo:self.costume];
     if (arrayposition < self.costumearray.count){
@@ -200,7 +201,7 @@
                 break;
         }
     } else {
-        return CGPointMake(0, 0);
+        return CGPointMake(0, 0);//dummy value, is handled by receiving methods
     }
     return self.costumeposition;
 }

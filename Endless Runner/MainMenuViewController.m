@@ -150,7 +150,6 @@
     [NSUserDefaults standardUserDefaults];
     [defaults setInteger:self.bgimageindex forKey:@"bgimageindex"];
     [defaults setInteger:self.costumeimageindex forKey:@"costumeimageindex"];
-    [defaults setBool:true forKey:@"pit"];
     [defaults synchronize];
 }
 
