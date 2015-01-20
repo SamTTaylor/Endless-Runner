@@ -531,6 +531,12 @@ NSTimer *updatetimer;
         }
     }
     ad.highscores = [maad copy]; //Copies the local mutable array into the highscores array
+    
+    //Now write highscores array to plist
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *documentsDirectory = [paths objectAtIndex:0];
+    [ad.highscores writeToFile:[documentsDirectory stringByAppendingPathComponent:@"LennyHighScores.plist"] atomically:YES];
+    
     if (f == true){//If share on facebook is selected the method is triggered
         [self ShareScoreonFacebook];
     }
