@@ -18,14 +18,16 @@
         //Player collides with virtually everything in the game
         self.physicsBody.contactTestBitMask = 0x1 << 2 | 0x1 << 4 | 0x1 << 6 | 0x1 << 5 | 0x1 << 8 | 0x1 << 7 | 0x1 << 10 | 0x1 << 11 | 0x1 << 12;
         self.physicsBody.categoryBitMask = 0x1 << 1;//player
-        self.physicsBody.collisionBitMask = 0x1 << 2 | 0x1 << 4 | 0x1 << 3 | 0x1 << 8 | 0x1 << 7;
+        self.physicsBody.collisionBitMask = 0x1 << 2 | 0x1 << 4 | 0x1 << 3 | 0x1 << 8 | 0x1 << 7 ;
         
         //Player cannot be rotated
         self.physicsBody.allowsRotation = false;
         self.lives = 3;//default lives
         [self setInvulnerable:false];//Player is instanciated vulnerable
         [self setSpeed:50];//Default speed
+        [self setJumpcount:0];
         [self initialiseAnimation];//Player is animated upon instanciation
+        [self jumpcheckTimerFire];
     }
     return self;
 }
@@ -42,14 +44,35 @@
         [self animateSelf];
 }
 
-//Player has a condition on his jump: he is not allowed to jump if he is in a bog
+//Player has a condition on his jump: he is not allowed to jump if he is in a bog or has reached his jump limit
 -(void)jumpEntity{
-    if (self.inbog == false) {
+
+    if (self.inbog == false && self.jumpcount < 3) {
         CGFloat impulseX = 0.0f;
         CGFloat impulseY = self.speed * 100.0f;
         [self.physicsBody applyImpulse:CGVectorMake(impulseX, impulseY) atPoint:self.position];
+        self.jumpcount++;
     }
-    
+
+}
+
+//For when the player can jump again
+-(void)resetJumpCount{
+    self.jumpcount = 0;
+}
+
+
+//Instanciates and fires the jump check timer to monitor jump limit resets
+-(void)jumpcheckTimerFire{
+    NSTimer *jumpchecktimer = [NSTimer scheduledTimerWithTimeInterval:0.1 target:self selector:@selector(jumpcheckFireMethod:) userInfo:nil repeats:YES];
+    [jumpchecktimer fire];
+}
+
+//Resets the player's jump limit each time they rest
+- (void)jumpcheckFireMethod:(NSTimer *)updatetimer{
+    if (self.physicsBody.velocity.dy < 0.1 && self.physicsBody.velocity.dy > -0.1){
+        [self resetJumpCount];
+    }
 }
 
 //If a player is not invulnerable and has no followers protecting him, take a life and make him invulerable for a short duration

@@ -13,6 +13,7 @@
 @interface Player : LivingEntity
 
 //>>>>>>>>>>>>>>>>>>>>PROPERTIES<<<<<<<<<<<<<<<<<<<<
+@property int jumpcount;
 @property bool inmushroom;//Used to reverse movement direction while affected by a mushroom
 @property bool inbog;//Used to stop jumping while in a bog
 @property int lives;//Used to monitor player lives
@@ -27,6 +28,7 @@
 
 
 //>>>>>>>>>>>>>>>>>>>>METHODS<<<<<<<<<<<<<<<<<<<<
+- (void)resetJumpCount; //Resets player jumping
 - (void)stopAnimation;//used to stop walking animation
 - (void)takeLife;//Used to try and take 1 life from the player
 - (void)collidedWithBog;//Used to trigger bog effecs

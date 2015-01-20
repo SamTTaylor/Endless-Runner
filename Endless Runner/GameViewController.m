@@ -879,7 +879,9 @@ NSTimer *updatetimer;
          }}];
 }
 
+
 - (void)checkLocation{
+    //Checks player location and if they are in a designated country it unlocks content in the user defaults
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     if ([defaults boolForKey:@"england"] == false && [self.Country isEqualToString:@"United Kingdom"]) {
         [ToastView createToast:self.view text:@"You have unlocked the England Background and Guard Hat!" duration:5.0];
