@@ -19,7 +19,7 @@
         [self populateEnemyArray];
         [self populateObstacleArray];
         [self populateLivesArray];
-        [self setCurrentdifficulty:4];
+        [self setCurrentdifficulty:1];
         [self setDifficultyscore:0];
         [self setDifficultythreshold:30];
         [self setScore:0];
