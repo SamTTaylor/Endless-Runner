@@ -421,16 +421,17 @@ NSTimer *updatetimer;
 //Uses the model's spawn method to add a random obstacle node to the game scene
 - (void) spawnRandomObstacle{
     TactileObject *spawn = [self.model spawnRandomObstacle];
-    [self checkIntroduction:spawn];//If one has not been spawned before it introduces it
     [self.gamescene addChild:spawn];
+    [self checkIntroduction:spawn];//If one has not been spawned before it introduces it
 }
 
 //Uses the model's spawn method to add a random enemy node to the game scene
 - (void) spawnRandomEnemy{
     Enemy *spawn = [self.model spawnRandomEnemy];
-    [self checkIntroduction:spawn];
     [self.gamescene addChild:spawn];
+    [self checkIntroduction:spawn];
     [spawn animateSelf];//Asks the enemy to perform any relevant animations it has
+    
 }
 
 //Stops player from running off screen, called by the updater timer

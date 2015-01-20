@@ -8,6 +8,12 @@
 
 #import "Enemy.h"
 
+
 @interface Frog : Enemy
+
+@property int tonguelength;
+@property TactileObject *tongue;
+
+-(void)addTongue;
 
 @end
