@@ -43,6 +43,14 @@
 @property (copy) CMGyroHandler gyroHandler;
 @property (copy) CMAccelerometerHandler accelerometerHandler;
 
+@property SKTextureAtlas *foxAtlas;
+@property SKTextureAtlas *bushAtlas;
+@property SKTextureAtlas *beehiveAtlas;
+@property SKTextureAtlas *birdAtlas;
+@property SKTextureAtlas *bogAtlas;
+@property SKTextureAtlas *mushroomAtlas;
+@property SKTextureAtlas *wolfAtlas;
+
 - (void) quitSelf;
 
 @end

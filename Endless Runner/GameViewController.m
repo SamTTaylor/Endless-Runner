@@ -43,6 +43,10 @@ NSTimer *updatetimer;
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    //Load animations
+    [self preloadAtlas];
+    
     //Load new game
     [self initialiseGameScene];
     [self.gamescene.physicsWorld setContactDelegate:self];
@@ -56,14 +60,37 @@ NSTimer *updatetimer;
         [self startGame];
     }
     [self updateLifeIcons];
-    NSMutableArray *frames = [[NSMutableArray alloc]init];
-    for (int i=0; i<[SKTextureAtlas atlasNamed:@"fox"].textureNames.count; i++) {
-        [frames addObject:[SKTexture textureWithImageNamed:[SKTextureAtlas atlasNamed:@"fox"].textureNames[i]]];
-    }
-    [SKTexture preloadTextures:frames withCompletionHandler:^{NSLog(@"Complete");}];
-
 }
 
+-(void)preloadAtlas {
+    self.foxAtlas = [SKTextureAtlas atlasNamed:@"fox"];
+    [SKTextureAtlas preloadTextureAtlases:[NSArray arrayWithObject:self.foxAtlas] withCompletionHandler:^{
+    }];
+    
+    self.bushAtlas = [SKTextureAtlas atlasNamed:@"bush"];
+    [SKTextureAtlas preloadTextureAtlases:[NSArray arrayWithObject:self.bushAtlas] withCompletionHandler:^{
+    }];
+    
+    self.beehiveAtlas = [SKTextureAtlas atlasNamed:@"beehive"];
+    [SKTextureAtlas preloadTextureAtlases:[NSArray arrayWithObject:self.beehiveAtlas] withCompletionHandler:^{
+    }];
+    
+    self.birdAtlas = [SKTextureAtlas atlasNamed:@"bird"];
+    [SKTextureAtlas preloadTextureAtlases:[NSArray arrayWithObject:self.birdAtlas] withCompletionHandler:^{
+    }];
+    
+    self.bogAtlas = [SKTextureAtlas atlasNamed:@"bog"];
+    [SKTextureAtlas preloadTextureAtlases:[NSArray arrayWithObject:self.bogAtlas] withCompletionHandler:^{
+    }];
+    
+    self.mushroomAtlas = [SKTextureAtlas atlasNamed:@"mushroom"];
+    [SKTextureAtlas preloadTextureAtlases:[NSArray arrayWithObject:self.mushroomAtlas] withCompletionHandler:^{
+    }];
+    
+    self.wolfAtlas = [SKTextureAtlas atlasNamed:@"wolf"];
+    [SKTextureAtlas preloadTextureAtlases:[NSArray arrayWithObject:self.wolfAtlas] withCompletionHandler:^{
+    }];
+}
 
 - (void)initialiseGameScene{
     // Configure the view.

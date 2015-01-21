@@ -67,12 +67,10 @@
 		68F359B41A64221F0006E4B1 /* Bush.m in Sources */ = {isa = PBXBuildFile; fileRef = 68F359B31A64221F0006E4B1 /* Bush.m */; };
 		717CCAB61A67C18300B55E61 /* avatar.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 717CCAB31A67C18300B55E61 /* avatar.atlas */; };
 		717CCAB71A67C18300B55E61 /* beehive.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 717CCAB41A67C18300B55E61 /* beehive.atlas */; };
-		717CCAB81A67C18300B55E61 /* frog.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 717CCAB51A67C18300B55E61 /* frog.atlas */; };
 		71F623751A6D194500D272E3 /* fox.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 71F623741A6D194500D272E3 /* fox.atlas */; };
 		BD0EEA8F1A691CD000D20A2D /* bush.atlas in Resources */ = {isa = PBXBuildFile; fileRef = BD0EEA8E1A691CD000D20A2D /* bush.atlas */; };
 		BD2BFCDE1A68043C00A1E697 /* bird.atlas in Resources */ = {isa = PBXBuildFile; fileRef = BD2BFCD91A68043C00A1E697 /* bird.atlas */; };
 		BD2BFCDF1A68043C00A1E697 /* bog.atlas in Resources */ = {isa = PBXBuildFile; fileRef = BD2BFCDA1A68043C00A1E697 /* bog.atlas */; };
-		BD2BFCE01A68043C00A1E697 /* frog.atlas in Resources */ = {isa = PBXBuildFile; fileRef = BD2BFCDB1A68043C00A1E697 /* frog.atlas */; };
 		BD2BFCE11A68043C00A1E697 /* mushroom.atlas in Resources */ = {isa = PBXBuildFile; fileRef = BD2BFCDC1A68043C00A1E697 /* mushroom.atlas */; };
 		BD2BFCE21A68043C00A1E697 /* wolf.atlas in Resources */ = {isa = PBXBuildFile; fileRef = BD2BFCDD1A68043C00A1E697 /* wolf.atlas */; };
 		BD2BFCE41A6820DE00A1E697 /* Bog.png in Resources */ = {isa = PBXBuildFile; fileRef = BD2BFCE31A6820DE00A1E697 /* Bog.png */; };
@@ -176,12 +174,10 @@
 		68F359B31A64221F0006E4B1 /* Bush.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Bush.m; sourceTree = "<group>"; };
 		717CCAB31A67C18300B55E61 /* avatar.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = avatar.atlas; sourceTree = "<group>"; };
 		717CCAB41A67C18300B55E61 /* beehive.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = beehive.atlas; sourceTree = "<group>"; };
-		717CCAB51A67C18300B55E61 /* frog.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = frog.atlas; sourceTree = "<group>"; };
 		71F623741A6D194500D272E3 /* fox.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = fox.atlas; sourceTree = "<group>"; };
 		BD0EEA8E1A691CD000D20A2D /* bush.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = bush.atlas; sourceTree = "<group>"; };
 		BD2BFCD91A68043C00A1E697 /* bird.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = bird.atlas; sourceTree = "<group>"; };
 		BD2BFCDA1A68043C00A1E697 /* bog.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = bog.atlas; sourceTree = "<group>"; };
-		BD2BFCDB1A68043C00A1E697 /* frog.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = frog.atlas; sourceTree = "<group>"; };
 		BD2BFCDC1A68043C00A1E697 /* mushroom.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = mushroom.atlas; sourceTree = "<group>"; };
 		BD2BFCDD1A68043C00A1E697 /* wolf.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = wolf.atlas; sourceTree = "<group>"; };
 		BD2BFCE31A6820DE00A1E697 /* Bog.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Bog.png; path = "Endless Runner/Images/Obstacles/Bog.png"; sourceTree = "<group>"; };
@@ -212,10 +208,8 @@
 				BD0EEA8E1A691CD000D20A2D /* bush.atlas */,
 				717CCAB31A67C18300B55E61 /* avatar.atlas */,
 				717CCAB41A67C18300B55E61 /* beehive.atlas */,
-				717CCAB51A67C18300B55E61 /* frog.atlas */,
 				BD2BFCD91A68043C00A1E697 /* bird.atlas */,
 				BD2BFCDA1A68043C00A1E697 /* bog.atlas */,
-				BD2BFCDB1A68043C00A1E697 /* frog.atlas */,
 				BD2BFCDC1A68043C00A1E697 /* mushroom.atlas */,
 				BD2BFCDD1A68043C00A1E697 /* wolf.atlas */,
 				68480E181A667A7B004A4EEA /* Text */,
@@ -512,7 +506,6 @@
 				68480E241A667C43004A4EEA /* SettingsText.png in Resources */,
 				68F359051A63C81F0006E4B1 /* ground.png in Resources */,
 				BD2BFCE21A68043C00A1E697 /* wolf.atlas in Resources */,
-				BD2BFCE01A68043C00A1E697 /* frog.atlas in Resources */,
 				68F359141A63C82F0006E4B1 /* Frog.png in Resources */,
 				68F359151A63C82F0006E4B1 /* Wolf.png in Resources */,
 				6851ECAD1A6526FB00C661D2 /* kopf-animation.png in Resources */,
@@ -531,7 +524,6 @@
 				68480E231A667C43004A4EEA /* QuitText.png in Resources */,
 				687516161A24F92600748410 /* GameScene.sks in Resources */,
 				BD2BFCDE1A68043C00A1E697 /* bird.atlas in Resources */,
-				717CCAB81A67C18300B55E61 /* frog.atlas in Resources */,
 				71F623751A6D194500D272E3 /* fox.atlas in Resources */,
 				6875161C1A24F92600748410 /* Main.storyboard in Resources */,
 				68F359011A63C80E0006E4B1 /* Stump.png in Resources */,
