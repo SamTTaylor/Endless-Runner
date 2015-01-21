@@ -38,7 +38,6 @@
     [super viewDidLoad];
     [self loadDefaults];
     //Defaults the first time the game is loaded
-    self.tiltbool = false;
     self.groundtexture = [SKTexture textureWithImageNamed:@"ground"];//Ground is always based on the bgimage so it is not stored as a string
     self.svc = nil;
     self.gvc = nil;
@@ -140,6 +139,7 @@
     self.halloween = [defaults boolForKey:@"halloween"];
     self.pit = [defaults boolForKey:@"pit"];
     self.superlenny = [defaults boolForKey:@"superlenny"];
+    self.tiltbool = [defaults boolForKey:@"tilt"];
     self.bgimageindex = [defaults integerForKey:@"bgimageindex"];
     self.costumeimageindex = [defaults integerForKey:@"costumeimageindex"];
 }
@@ -150,6 +150,7 @@
     [NSUserDefaults standardUserDefaults];
     [defaults setInteger:self.bgimageindex forKey:@"bgimageindex"];
     [defaults setInteger:self.costumeimageindex forKey:@"costumeimageindex"];
+    [defaults setBool:self.tiltbool forKey:@"tilt"];
     [defaults synchronize];
 }
 
