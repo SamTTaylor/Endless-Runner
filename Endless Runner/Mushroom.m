@@ -15,7 +15,6 @@
     self = [super initWithTexture:nodetexture];
     if (self) {
         //Initialization code
-        [self setScale:0.2];
         self.physicsBody.categoryBitMask = 0x1 << 7;
     }
     return self;

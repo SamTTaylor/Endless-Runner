@@ -233,7 +233,7 @@
         
     } else {
         //Or you can just delete it
-        SKAction* move = [SKAction moveByX:-distance y:0 duration:self.groundspeed*5];
+        SKAction* move = [SKAction moveByX:-distance*2 y:0 duration:self.groundspeed*10];//make sure nodes are well off screen before removal
         SKAction* remove = [SKAction removeFromParent];
         SKAction* Movement = [SKAction sequence:@[move, remove]];
         

@@ -14,8 +14,6 @@
     self = [super initWithTexture:nodetexture];
     if (self) {
         //Initialization code
-        
-        [self setScale:0.15];
         //Unique physical attributes set for collision handling & real world presence
          self.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:CGSizeMake(self.frame.size.width/2, self.frame.size.height/2)];
         self.physicsBody.categoryBitMask = 0x1 << 12;

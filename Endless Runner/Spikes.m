@@ -15,7 +15,6 @@
     self = [super initWithTexture:nodetexture];
     if (self) {
         //Initialization code
-        [self setScale:0.3];
         //Lethal impassable
         self.physicsBody.categoryBitMask = 0x1 << 8;
     }

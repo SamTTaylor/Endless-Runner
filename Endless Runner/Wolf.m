@@ -16,7 +16,6 @@
     self = [super initWithTexture:nodetexture];
     if (self) {
         //Initialization code
-        [self setScale:0.3];
         self.physicsBody.allowsRotation = false;
         self.physicsBody.contactTestBitMask = 0x1 << 1 | 0x1 << 3;
         self.physicsBody.categoryBitMask = 0x1 << 2;//enemy
@@ -43,7 +42,7 @@
     [self runAction:[SKAction sequence:@[[SKAction repeatAction:[SKAction sequence:@[
         [SKAction waitForDuration:10],
         [SKAction runBlock:^{
-            [self setSpeed:50];
+            [self setMyspeed:30];
             [self impulseEntityLeft];
             [self moveEntityLeft:0];
             //Add pounce animation

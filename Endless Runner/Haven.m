@@ -14,7 +14,6 @@
     self = [super initWithTexture:nodetexture];
     if (self) {
         //Initialization code
-        [self setScale:0.3];
         //Unique physical attributes set for collision handling & real world presence
         self.physicsBody.categoryBitMask = 0x1 << 13;
         self.physicsBody.contactTestBitMask = 0x1 << 12;

@@ -16,8 +16,6 @@
     self = [super initWithTexture:nodetexture];
     if (self) {
         //Initialization code
-        [self setScale:0.2];
-        [self setXScale:-0.2];
         self.physicsBody.allowsRotation = false;
         self.physicsBody.contactTestBitMask = 0x1 << 1 | 0x1 << 3;
         self.physicsBody.categoryBitMask = 0x1 << 2;//enemy
@@ -59,7 +57,7 @@
     
     
     //Manually set tongue moving with ground, this is not ideal but given that the rest of the game moves without influencing the physics bodies (In order to achieve consistent speeds), it is the only way I can think of doing this inside the Frog class
-    SKAction* move = [SKAction moveByX:-[UIScreen mainScreen].bounds.size.width*1.5 y:0 duration:10*10.35];
+    SKAction* move = [SKAction moveByX:-[UIScreen mainScreen].bounds.size.width*1.5 y:0 duration:130];
     SKAction* remove = [SKAction removeFromParent];
     SKAction* Movement = [SKAction sequence:@[move, remove]];
     

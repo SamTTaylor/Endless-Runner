@@ -12,7 +12,7 @@
 @interface LivingEntity : TactileObject //3rd in the hierarchy
 
 @property bool flying; //All living entities can fly if they want
-@property float speed;//All living entities can have their movement and jump speed adjusted
+@property float myspeed;//All living entities can have their movement and jump speed adjusted
 
 -(void)impulseEntityRight; //All living entities can be shoved left or right
 -(void)impulseEntityLeft;

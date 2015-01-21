@@ -15,7 +15,6 @@
     self = [super initWithTexture:nodetexture];
     if (self) {
         //Initialization code
-        [self setScale:0.6];
         //Bog has specific category mask so player can get stuck in it
         
         [self animateSelf];

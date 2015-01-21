@@ -15,8 +15,7 @@
     self = [super initWithTexture:nodetexture];
     if (self) {
         //Initialization code
-        [self setScale:0.2];
-        [self setSpeed:20];
+        [self setMyspeed:5];
         //Enemy, touch ground and players
         self.physicsBody.allowsRotation = false;
         self.physicsBody.contactTestBitMask = 0x1 << 1 | 0x1 << 3;
@@ -42,18 +41,19 @@
     }
     [self removeActionForKey:[NSString stringWithFormat:@"animate %@", self.class]];
     [self runAction:[SKAction sequence:@[[SKAction repeatAction:[SKAction sequence:@[[SKAction runBlock:^{
-        self.xScale = -0.2;
+        self.xScale = -1.0;
+        [self setMyspeed:5];
         [self jumpEntity];
-        [self setSpeed:40];
+        [self setMyspeed:1.3];
         [self impulseEntityRight];
-        [self setSpeed:20];
-        self.runAnimation = [SKAction animateWithTextures:textures timePerFrame:3];
+        [self setMyspeed:5];
+        self.runAnimation = [SKAction animateWithTextures:textures timePerFrame:1];
     }], [SKAction waitForDuration:20], [SKAction runBlock:^{
-        self.xScale = 0.2;
+        self.xScale = 1.0;
         [self jumpEntity];
-        [self setSpeed:40];
+        [self setMyspeed:1.3];//Jumps slightly more left than right to get it off screen in time fo removal without affecting movement speed
         [self impulseEntityLeft];
-        [self setSpeed:20];
+        [self setMyspeed:5];
         [self runAction:[SKAction repeatActionForever:self.runAnimation]];
     }], [SKAction waitForDuration:20]]] count:5]]] withKey:[NSString stringWithFormat:@"animate %@", self.class]];
 }

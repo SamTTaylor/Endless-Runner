@@ -15,7 +15,6 @@
     self = [super initWithTexture:nodetexture];
     if (self) {
         //Initialization code
-        [self setScale:0.2];
         //Bird is always flying
         [self setFlying:YES flappingfrequency:0.4];
         self.physicsBody.contactTestBitMask = 0x1 << 1 | 0x1 << 3;

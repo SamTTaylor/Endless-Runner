@@ -24,7 +24,8 @@
         self.physicsBody.allowsRotation = false;
         self.lives = 3;//default lives
         [self setInvulnerable:false];//Player is instanciated vulnerable
-        [self setSpeed:50];//Default speed
+        [self setMyspeed:50];//Movement speed
+        [self setSpeed:50];//Speed in game world
         [self setJumpcount:0];
         [self initialiseAnimation];//Player is animated upon instanciation
         [self jumpcheckTimerFire];
@@ -33,13 +34,13 @@
 }
 
 //Player animated while moving if not animated already
--(void)moveEntityLeft:(int)speed{
-    [super moveEntityLeft:self.speed];
+-(void)moveEntityLeft:(int)myspeed{
+    [super moveEntityLeft:self.myspeed];
     if (self.animated == false)
         [self animateSelf];
 }
--(void)moveEntityRight:(int)speed{
-    [super moveEntityRight:self.speed];
+-(void)moveEntityRight:(int)myspeed{
+    [super moveEntityRight:self.myspeed];
     if (self.animated == false)
         [self animateSelf];
 }
@@ -59,7 +60,7 @@
 
     if (self.inbog == false && self.jumpcount < 3) {
         CGFloat impulseX = 0.0f;
-        CGFloat impulseY = self.speed * 100.0f;
+        CGFloat impulseY = self.myspeed * 100.0f;
         [self.physicsBody applyImpulse:CGVectorMake(impulseX, impulseY) atPoint:self.position];
         self.jumpcount++;
     }
@@ -96,7 +97,7 @@
     SKTexture *texture =[SKTexture textureWithImageNamed:@"avatar9.png"];
     [textures addObject:texture];
     
-    CGFloat impulseX = self.speed*-5.0f;
+    CGFloat impulseX = self.myspeed*-5.0f;
     CGFloat impulseY = 0.0f;
     [self.physicsBody applyImpulse:CGVectorMake(impulseX, impulseY) atPoint:self.position];
     
@@ -196,7 +197,7 @@
     [self removeActionForKey:@"enemycollision"];
     [self runAction:[SKAction sequence:@[[SKAction repeatAction:[SKAction sequence:@[[SKAction runBlock:^{
         [self setScale:0.0];
-    }], [SKAction waitForDuration:0.20], [SKAction runBlock:^{
+    }], [SKAction waitForDuration:10], [SKAction runBlock:^{
         [self setScale:1.0];
     }], [SKAction waitForDuration:0.05]]] count:1]]] withKey:@"enemycollision"];
 }
