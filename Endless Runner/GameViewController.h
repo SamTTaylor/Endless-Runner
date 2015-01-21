@@ -12,7 +12,6 @@
 #import "GameScene.h"
 #import "GameModel.h"
 #import "AppDelegate.h"
-#import "Fox.h"
 
 @interface GameViewController : UIViewController <SKPhysicsContactDelegate, UIGestureRecognizerDelegate>
 
@@ -24,7 +23,6 @@
 @property (weak) GameScene* gamescene;
 @property GameModel* model;
 
-@property Fox* fox;
 
 @property bool tiltbool;
 @property SKTexture* bgtexture;
