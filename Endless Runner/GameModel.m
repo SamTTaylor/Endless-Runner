@@ -19,7 +19,7 @@
         [self populateEnemyArray];
         [self populateObstacleArray];
         [self populateLivesArray];
-        [self setCurrentdifficulty:5];
+        [self setCurrentdifficulty:1];
         [self setDifficultyscore:0];
         [self setDifficultythreshold:30];
         [self setScore:0];
@@ -46,9 +46,6 @@
 //Add any value to score
 - (void) incrementScore:(int)i{
     self.score += i;
-    if (self.score > 10000) {
-        [self saveAchievement:@"superlenny"];//Congrats
-    }
 }
 //Add any value to difficulty score
 - (void) incrementDifficultyScore:(int)i{

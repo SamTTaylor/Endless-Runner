@@ -128,7 +128,9 @@
 //remove all animations from the player
 -(void) stopAnimation{
     [self setAnimated:false];
-    [self removeAllActions];
+    if ([self hasActions]){
+        [self removeAllActions];
+    }
 }
 
 

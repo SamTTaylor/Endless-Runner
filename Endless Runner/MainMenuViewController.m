@@ -36,13 +36,13 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self fillcostumearray];
+    [self fillBackgroundArray];
     [self loadDefaults];
     //Defaults the first time the game is loaded
     self.groundtexture = [SKTexture textureWithImageNamed:@"ground"];//Ground is always based on the bgimage so it is not stored as a string
     self.svc = nil;
     self.gvc = nil;
-    [self fillcostumearray];
-    [self fillBackgroundArray];
 }
 
 
@@ -163,6 +163,8 @@
         self.bgtexture = [SKTexture textureWithImageNamed:@"background"];
     } else {//if it is
         //set necessary values to the value represented by the index
+        NSLog(@"%d", self.bgimageindex);
+        NSLog(@"%@", self.backgroundarray[self.bgimageindex]);
         self.bgimage = self.backgroundarray[self.bgimageindex];
         self.bgtexture = [SKTexture textureWithImage:self.backgroundarray[self.bgimageindex]];
     }

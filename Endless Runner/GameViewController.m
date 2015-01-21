@@ -497,6 +497,16 @@ NSTimer *updatetimer;
     [self.model incrementDifficultyScore:1];
     [self.model updateDifficulty];
     self.score.text = [NSString stringWithFormat:@"Score: %d", self.model.score];
+    
+    if (self.model.score >= 10000) {
+        NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+        //Dont unlock twice
+        if ([defaults boolForKey:@"superlenny"] == false) {
+            [ToastView createToast:self.view text:@"You have unlocked Super Lenny!" duration:5.0];
+            [self.model saveAchievement:@"superlenny"];//Player unlocks superlenny for attaining a score of 10,000 or more
+        }
+    }
+
 }
 
 //Shuts everything down & returns to the main menu view controller
@@ -704,8 +714,8 @@ NSTimer *updatetimer;
             NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
             //Dont unlock twice
             if ([defaults boolForKey:@"pit"] == false) {
+                [ToastView createToast:self.view text:@"You have unlocked the Mining Hat!" duration:5.0];
                 [self.model saveAchievement:@"pit"];//Player unlocks mining helmet for beating the pit
-                
             }
             
             SKView * skView = (SKView *)self.view;
