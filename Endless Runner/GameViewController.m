@@ -145,7 +145,7 @@ NSTimer *updatetimer;
     CGPoint point = CGPointMake(0, 0);
     CGPoint point2 = [self.model.player assignCostumePosition];
     if (!CGPointEqualToPoint(point, point2)) {//Don't apply costume if it is the default model
-        SKSpriteNode* node = [self.model dressPlayer];
+        SKSpriteNode *node = [self.model dressPlayer];
         [skView.scene addChild:node];
         SKPhysicsJointFixed *joint = [SKPhysicsJointFixed jointWithBodyA:node.physicsBody bodyB:self.model.player.physicsBody anchor:CGPointMake(self.model.player.position.x, self.model.player.position.y)];
         
@@ -247,7 +247,7 @@ NSTimer *updatetimer;
 
 //>>>>>>>>>>>>>>>>>>>>ENVIRONMENT<<<<<<<<<<<<<<<<<<<<
 - (void)setGameBackground{
-    int distance = self.bgtexture.size.width*0.55;
+    int distance = self.bgtexture.size.width;
     //Move the background picture far offscreen, then reset it and move it across again
     SKAction* moveBg = [SKAction moveByX:-distance y:0 duration:0.01 * distance];
     SKAction* resetBg = [SKAction moveByX:distance y:0 duration:0];
@@ -256,7 +256,6 @@ NSTimer *updatetimer;
     //Create many layers of pictures for a seemless effect
     for( int i = 0; i < 3; ++i ) {//3 copies are made for seemless loops
         SKSpriteNode* sprite = [SKSpriteNode spriteNodeWithTexture:self.bgtexture];
-        [sprite setScale:0.55];
         sprite.zPosition = -20;
         sprite.lightingBitMask = 0x1 << 1;
         sprite.position = CGPointMake(i * sprite.size.width-(5*i), sprite.size.height/2);

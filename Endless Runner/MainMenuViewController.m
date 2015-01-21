@@ -102,14 +102,13 @@
 
 //Creates the scrolling menu background from the currently selected background texture
 - (void)setMenuBackground{
-    SKAction* moveBg = [SKAction moveByX:-self.bgtexture.size.width*0.55 y:0 duration:0.015 * self.bgtexture.size.width*0.55];
-    SKAction* resetBg = [SKAction moveByX:self.bgtexture.size.width*0.55 y:0 duration:0];
+    SKAction* moveBg = [SKAction moveByX:-self.bgtexture.size.width y:0 duration:0.015 * self.bgtexture.size.width];
+    SKAction* resetBg = [SKAction moveByX:self.bgtexture.size.width y:0 duration:0];
     SKAction* loopBgMovement = [SKAction repeatActionForever:[SKAction sequence:@[moveBg, resetBg]]];
     
     
     for( int i = 0; i < 3 ; ++i ) {
         SKSpriteNode* sprite = [SKSpriteNode spriteNodeWithTexture:self.bgtexture];
-        [sprite setScale:0.55];
         sprite.position = CGPointMake(i * sprite.size.width-(5*i), sprite.size.height/2);
         [sprite runAction:loopBgMovement];
         [self.menuscene addChild:sprite];
