@@ -10,4 +10,6 @@
 
 @interface Bush : TactileObject
 
+@property SKAction *cutAnimation;
+
 @end

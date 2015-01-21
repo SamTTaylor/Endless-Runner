@@ -33,20 +33,32 @@
     [super animateSelf];
     [self removeActionForKey:[NSString stringWithFormat:@"animate %@", self.class]];
     [self runAction:[SKAction sequence:@[[SKAction repeatAction:[SKAction sequence:@[[SKAction runBlock:^{
-        //Add Shrink
+        //Add Animation
     }], [SKAction waitForDuration:1], [SKAction runBlock:^{
-        //Add Shrinks
+        //Add Animation
     }], [SKAction waitForDuration:1]]] count:1]]] withKey:[NSString stringWithFormat:@"animate %@", self.class]];
 }
 
 //Bush waits briefly before disappearing when killed
 - (void) deathAnimation{
     [super deathAnimation];
+    
+    //Loop through frames for animation
+    NSMutableArray *textures = [NSMutableArray arrayWithCapacity:16];
+    for (int i = 1; i < 5; i++) {
+        NSString *textureName = [NSString stringWithFormat:@"bush%d.png", i];
+        SKTexture *texture =[SKTexture textureWithImageNamed:textureName];
+        [textures addObject:texture];
+    }
+    SKTexture *texture =[SKTexture textureWithImageNamed:@"bush0.png"];
+    [textures addObject:texture];
     [self removeActionForKey:[NSString stringWithFormat:@"animate %@", self.class]];
     [self runAction:[SKAction sequence:@[[SKAction repeatAction:[SKAction sequence:@[[SKAction runBlock:^{
-        //Add cut
-    }], [SKAction waitForDuration:1], [SKAction runBlock:^{
-        //Add cut
+        //Add cutAnimation
+        self.cutAnimation =[SKAction animateWithTextures:textures timePerFrame:3];
+    }], [SKAction waitForDuration:10], [SKAction runBlock:^{
+        //Add cutAnimation
+        [self runAction:[SKAction repeatAction:self.cutAnimation count:1]];
         [self removeFromParent];//remove once animation is complete
     }], [SKAction waitForDuration:1]]] count:1]]] withKey:[NSString stringWithFormat:@"animate %@", self.class]];
 }
