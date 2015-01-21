@@ -259,6 +259,7 @@
     [node setScale:0.5];
     node.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:node.frame.size];
     node.physicsBody.ContactTestBitMask = 0x1 << 9;
+    node.physicsBody.density = 0.1;//In order to not inhibit movement
     
     node.position = [self.player assignCostumePosition];
     [node setZPosition:self.player.zPosition+1];//Brings costume in front of player
