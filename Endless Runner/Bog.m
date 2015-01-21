@@ -18,6 +18,7 @@
         [self setScale:0.6];
         //Bog has specific category mask so player can get stuck in it
         self.physicsBody.categoryBitMask = 0x1 << 5;
+        [self animateSelf];
     }
     return self;
 }
@@ -31,11 +32,23 @@
 //Bog animation sequence
 - (void) animateSelf{
     [super animateSelf];
+    //Loop through frames for animation
+    NSMutableArray *textures = [NSMutableArray arrayWithCapacity:16];
+    for (int i = 1; i < 6; i++) {
+        NSString *textureName = [NSString stringWithFormat:@"bog%d.png", i];
+        SKTexture *texture =[SKTexture textureWithImageNamed:textureName];
+        [textures addObject:texture];
+    }
+    SKTexture *texture =[SKTexture textureWithImageNamed:@"bog0.png"];
+    [textures addObject:texture];
+    
     [self removeActionForKey:[NSString stringWithFormat:@"animate %@", self.class]];
     [self runAction:[SKAction sequence:@[[SKAction repeatAction:[SKAction sequence:@[[SKAction runBlock:^{
-        //Add Animation
+        //Add Bubbles
+        self.bubbleAnimation =[SKAction animateWithTextures:textures timePerFrame:3];
     }], [SKAction waitForDuration:1], [SKAction runBlock:^{
-        //Add Animation
+        //Add Bubbles
+        [self runAction:[SKAction repeatActionForever:self.bubbleAnimation]];
     }], [SKAction waitForDuration:1]]] count:5]]] withKey:[NSString stringWithFormat:@"animate %@", self.class]];
 }
 

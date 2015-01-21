@@ -27,10 +27,10 @@
 }
 
 
-//Animate flapping
+//Animate flying Bird
 - (void) animateSelf{
     [super animateSelf];
-    
+    //Loop through frames for animation
     NSMutableArray *textures = [NSMutableArray arrayWithCapacity:16];
     for (int i = 1; i < 3; i++) {
         NSString *textureName = [NSString stringWithFormat:@"bird%d.png", i];
