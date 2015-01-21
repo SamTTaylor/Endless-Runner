@@ -19,6 +19,8 @@
 @property int lives;//Used to monitor player lives
 @property bool invulnerable;//Used to stop enemy overcollision causing excessive loss of life
 @property SKAction *walkAnimation;//Used to animate player walk
+@property SKAction *jumpAnimation;//Used to animate player jump
+@property SKAction *injuredAnimation;//Used to animate when player loses one life
 @property bool animated;//Used to start and stop animation
 @property bool gotfollower;//Used to limit follower count to 1
 @property Butterfly* currentbutterfly;//Used to reference current butterfly follower

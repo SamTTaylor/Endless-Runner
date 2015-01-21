@@ -47,6 +47,16 @@
 //Player has a condition on his jump: he is not allowed to jump if he is in a bog or has reached his jump limit
 -(void)jumpEntity{
 
+    //remove walkAnimation
+    [self removeActionForKey:@"walkanimation"];
+    //add jumpAnimation
+    NSMutableArray *textures = [NSMutableArray arrayWithCapacity:16];
+    SKTexture *texture =[SKTexture textureWithImageNamed:@"avatar8.png"];
+    [textures addObject:texture];
+    
+    self.jumpAnimation =[SKAction animateWithTextures:textures timePerFrame:3];
+    [self runAction:[SKAction repeatAction:self.jumpAnimation count:10]];
+
     if (self.inbog == false && self.jumpcount < 3) {
         CGFloat impulseX = 0.0f;
         CGFloat impulseY = self.speed * 100.0f;
@@ -77,6 +87,22 @@
 
 //If a player is not invulnerable and has no followers protecting him, take a life and make him invulerable for a short duration
 -(void) takeLife{
+    
+    //remove walkAnimation
+    [self removeActionForKey:@"walkanimation"];
+    
+    //add injuredAnimation
+    NSMutableArray *textures = [NSMutableArray arrayWithCapacity:16];
+    SKTexture *texture =[SKTexture textureWithImageNamed:@"avatar9.png"];
+    [textures addObject:texture];
+    
+    CGFloat impulseX = self.speed*-5.0f;
+    CGFloat impulseY = 0.0f;
+    [self.physicsBody applyImpulse:CGVectorMake(impulseX, impulseY) atPoint:self.position];
+    
+    self.injuredAnimation =[SKAction animateWithTextures:textures timePerFrame:3];
+    [self runAction:[SKAction repeatAction:self.injuredAnimation count:10]];
+    
     if (self.invulnerable == false && self.gotfollower == false){
         self.lives--;
         self.invulnerable = true;
@@ -132,7 +158,7 @@
     SKAction *repeat = [SKAction repeatActionForever:self.walkAnimation];
     [self runAction:[SKAction runBlock:^{
         [self runAction:repeat];
-    }]withKey:@"playeranimation"];
+    }]withKey:@"walkanimation"];
 }
 
 
