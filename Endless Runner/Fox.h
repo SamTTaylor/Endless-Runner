@@ -11,5 +11,8 @@
 @interface Fox : Enemy
 
 @property SKAction *runAnimation;
+@property NSMutableArray *frames;
+
+-(void)loadFrames;
 
 @end

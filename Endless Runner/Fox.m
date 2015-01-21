@@ -26,14 +26,23 @@
     return self;
 }
 
+-(void)loadFrames{
+    NSMutableArray *frames = [[NSMutableArray alloc]init];
+    for (int i=0; i<[SKTextureAtlas atlasNamed:@"fox"].textureNames.count; i++) {
+        [frames addObject:[SKTexture textureWithImageNamed:[SKTextureAtlas atlasNamed:@"fox"].textureNames[i]]];
+    }
+    [SKTexture preloadTextures:frames withCompletionHandler:^{NSLog(@"Complete");}];
+}
+
 - (void) animateSelf{
     [super animateSelf];
-    NSMutableArray *textures = [NSMutableArray arrayWithCapacity:16];
+    /*NSMutableArray *textures = [NSMutableArray arrayWithCapacity:16];
     for (int i = 1; i < 5; i++) {
         NSString *textureName = [NSString stringWithFormat:@"fox%d.png", i];
         SKTexture *texture =[SKTexture textureWithImageNamed:textureName];
         [textures addObject:texture];
-    }
+    }*/
+    
     [self removeActionForKey:[NSString stringWithFormat:@"animate %@", self.class]];
     [self runAction:[SKAction sequence:@[[SKAction repeatAction:[SKAction sequence:@[[SKAction runBlock:^{
         self.xScale = -0.2;
@@ -41,7 +50,7 @@
         [self setSpeed:40];
         [self impulseEntityRight];
         [self setSpeed:20];
-        self.runAnimation = [SKAction animateWithTextures:textures timePerFrame:3];
+        self.runAnimation = [SKAction animateWithTextures:self.frames timePerFrame:3];
     }], [SKAction waitForDuration:20], [SKAction runBlock:^{
         self.xScale = 0.2;
         [self jumpEntity];
