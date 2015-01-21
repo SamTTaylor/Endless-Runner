@@ -82,8 +82,8 @@
             self.currentbgimage = [UIImage imageNamed:@"background"];
         }
         [(MainMenuViewController*)self.navigationController.viewControllers[0] setTiltbool:self.tiltbool];
-        [(MainMenuViewController*)self.navigationController.viewControllers[0] setBgimageindex:[self.backgroundarray indexOfObject:self.currentbgimage]];
-        [(MainMenuViewController*)self.navigationController.viewControllers[0] setCostumeimageindex:[self.costumearray indexOfObject:self.currentcostumeimage]];
+        [(MainMenuViewController*)self.navigationController.viewControllers[0] setBgimageindex:(int)[self.backgroundarray indexOfObject:self.currentbgimage]];
+        [(MainMenuViewController*)self.navigationController.viewControllers[0] setCostumeimageindex:(int)[self.costumearray indexOfObject:self.currentcostumeimage]];
     }
 }
 
@@ -149,7 +149,7 @@
 
 
 -(IBAction)bgLeftPressed:(UIButton*)sender{
-    int currentPos = [self.backgroundarray indexOfObject:self.currentbgimage];
+    int currentPos = (int)[self.backgroundarray indexOfObject:self.currentbgimage];
     if (currentPos != 0){
         [self setbgPickerImage:self.backgroundarray[currentPos-1]];
     } else {
@@ -157,7 +157,7 @@
     }
 }
 -(IBAction)bgRightPressed:(UIButton*)sender{
-    int currentPos = [self.backgroundarray indexOfObjectIdenticalTo:self.currentbgimage];
+    int currentPos = (int)[self.backgroundarray indexOfObjectIdenticalTo:self.currentbgimage];
     if (currentPos < self.backgroundarray.count-1){
         [self setbgPickerImage:self.backgroundarray[currentPos+1]];
     } else {
@@ -165,7 +165,7 @@
     }
 }
 -(IBAction)avatarLeftPressed:(UIButton*)sender{
-    int currentPos = [self.costumearray indexOfObject:self.currentcostumeimage];
+    int currentPos = (int)[self.costumearray indexOfObject:self.currentcostumeimage];
     if (currentPos != 0){
         [self setavatarPickerImage:self.costumearray[currentPos-1]];
     } else {
@@ -173,7 +173,7 @@
     }
 }
 -(IBAction)avatarRightPressed:(UIButton*)sender{
-    int currentPos = [self.costumearray indexOfObjectIdenticalTo:self.currentcostumeimage];
+    int currentPos = (int)[self.costumearray indexOfObjectIdenticalTo:self.currentcostumeimage];
     if (currentPos < self.costumearray.count-1){
         [self setavatarPickerImage:self.costumearray[currentPos+1]];
     } else {

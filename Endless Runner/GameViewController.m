@@ -515,6 +515,8 @@ NSTimer *updatetimer;
     self.doubleTapRecognizer = nil;
     self.closing = true;
     self.model = nil;
+    self.gamescene = nil;
+    self.challengescene = nil;
     [(SKView*)self.view presentScene:nil];
     [[self presentingViewController] dismissViewControllerAnimated:YES completion:nil];
 }

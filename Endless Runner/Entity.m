@@ -20,7 +20,7 @@
     self = [super initWithTexture:nodetexture];
     if (self) {
         //Initialization code
-      
+        
     }
     return self;
 }

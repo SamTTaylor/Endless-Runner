@@ -25,10 +25,10 @@
 
 
 //>>>>>>>>>>>>>>>>>>>>SCENES<<<<<<<<<<<<<<<<<<<<
-@property (weak) GameScene* gamescene;
-@property (weak) GameScene* challengescene;
+@property (strong) GameScene* gamescene;
+@property (strong) GameScene* challengescene;
 //(Model)
-@property GameModel* model;
+@property (strong) GameModel* model;
 
 //>>>>>>>>>>>>>>>>>>>>SETTINGS<<<<<<<<<<<<<<<<<<<<
 @property bool tiltbool;

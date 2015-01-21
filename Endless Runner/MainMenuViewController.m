@@ -41,8 +41,6 @@
     [self loadDefaults];
     //Defaults the first time the game is loaded
     self.groundtexture = [SKTexture textureWithImageNamed:@"ground"];//Ground is always based on the bgimage so it is not stored as a string
-    self.svc = nil;
-    self.gvc = nil;
 }
 
 
@@ -53,6 +51,8 @@
     [self loadDefaults];
     [self loadAvatarandBG];
     [self initialiseMenuScene];
+    self.svc = nil;
+    self.gvc = nil;
 }
 
 -(void)fillcostumearray{
@@ -81,6 +81,7 @@
 
 //Sends the relevant settings information to the other view controller when a segue occurs
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    self.menuscene = nil;
     [(SKView*)self.view presentScene:nil];
     if ([[segue identifier]isEqualToString:@"segueToSettings"]) {
         self.svc = [segue destinationViewController];
@@ -139,8 +140,8 @@
     self.pit = [defaults boolForKey:@"pit"];
     self.superlenny = [defaults boolForKey:@"superlenny"];
     self.tiltbool = [defaults boolForKey:@"tilt"];
-    self.bgimageindex = [defaults integerForKey:@"bgimageindex"];
-    self.costumeimageindex = [defaults integerForKey:@"costumeimageindex"];
+    self.bgimageindex = (int)[defaults integerForKey:@"bgimageindex"];
+    self.costumeimageindex = (int)[defaults integerForKey:@"costumeimageindex"];
 }
 
 //Saves current costume and background between sessions

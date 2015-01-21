@@ -104,41 +104,43 @@
 //>>>>>>>>>>>>>>>>>>>>NODES<<<<<<<<<<<<<<<<<<<<
 //Fills obstacle array with all 1 instance of each obstacle type, in order of their difficulty, and sets their difficulty levels using the array count as it is built, levels 1 - however many obstacles there are
 - (void) populateObstacleArray{
+    int count = ((int)self.obstacles.count);
     self.obstacles = [[NSMutableArray alloc] init];
     TactileObject* Tobj = [[Stump alloc] initWithTexture:[SKTexture textureWithImageNamed:@"Stump"]];
     [self.obstacles addObject:Tobj];
-    [Tobj setDifficultylevel:self.obstacles.count];
+    [Tobj setDifficultylevel:count];
     Tobj = [[Bog alloc] initWithTexture:[SKTexture textureWithImageNamed:@"Bog"]];
     [self.obstacles addObject:Tobj];
-    [Tobj setDifficultylevel:self.obstacles.count];
+    [Tobj setDifficultylevel:count];
     Tobj = [[Spikes alloc] initWithTexture:[SKTexture textureWithImageNamed:@"Spikes"]];
     [self.obstacles addObject:Tobj];
-    [Tobj setDifficultylevel:self.obstacles.count];
+    [Tobj setDifficultylevel:count];
     Tobj = [[Mushroom alloc] initWithTexture:[SKTexture textureWithImageNamed:@"Mushroom"]];
     [self.obstacles addObject:Tobj];
-    [Tobj setDifficultylevel:self.obstacles.count];
+    [Tobj setDifficultylevel:count];
     Tobj = [[Bush alloc] initWithTexture:[SKTexture textureWithImageNamed:@"Bush"]];
     [self.obstacles addObject:Tobj];
-    [Tobj setDifficultylevel:self.obstacles.count];
+    [Tobj setDifficultylevel:count];
 }
 //Same thing is done with all the enemies
 - (void) populateEnemyArray{
+    int count = ((int)self.enemies.count);
     self.enemies = [[NSMutableArray alloc] init];
-    Enemy* en = [[Fox alloc] initWithTexture:[SKTexture textureWithImageNamed:@"Fox"]];
+   Enemy* en = [[Fox alloc] initWithTexture:[SKTexture textureWithImageNamed:@"Fox"]];
     [self.enemies addObject:en];
-    [en setDifficultylevel:self.enemies.count];
+    [en setDifficultylevel:count];
     en = [[Bird alloc] initWithTexture:[SKTexture textureWithImageNamed:@"Bird"]];
     [self.enemies addObject:en];
-    [en setDifficultylevel:self.enemies.count];
+    [en setDifficultylevel:count];
     en = [[Beehive alloc] initWithTexture:[SKTexture textureWithImageNamed:@"Beehive"]];
     [self.enemies addObject:en];
-    [en setDifficultylevel:self.enemies.count];
+    [en setDifficultylevel:count];
     en = [[Frog alloc] initWithTexture:[SKTexture textureWithImageNamed:@"Frog"]];
     [self.enemies addObject:en];
-    [en setDifficultylevel:self.enemies.count];
+    [en setDifficultylevel:count];
     en = [[Wolf alloc] initWithTexture:[SKTexture textureWithImageNamed:@"Wolf"]];
     [self.enemies addObject:en];
-    [en setDifficultylevel:self.enemies.count];
+    [en setDifficultylevel:count];
 
 }
 

@@ -40,7 +40,7 @@
         [textures addObject:texture];
     }
     [self removeActionForKey:[NSString stringWithFormat:@"animate %@", self.class]];
-    [self runAction:[SKAction sequence:@[[SKAction repeatAction:[SKAction sequence:@[[SKAction runBlock:^{
+    [self runAction:[SKAction repeatAction:[SKAction sequence:@[[SKAction runBlock:^{
         self.xScale = -1.0;
         [self setMyspeed:5];
         [self jumpEntity];
@@ -55,7 +55,7 @@
         [self impulseEntityLeft];
         [self setMyspeed:5];
         [self runAction:[SKAction repeatActionForever:self.runAnimation]];
-    }], [SKAction waitForDuration:20]]] count:5]]] withKey:[NSString stringWithFormat:@"animate %@", self.class]];
+    }], [SKAction waitForDuration:20]]] count:5] withKey:[NSString stringWithFormat:@"animate %@", self.class]];
 }
 
 @end
