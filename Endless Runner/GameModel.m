@@ -23,7 +23,7 @@
         [self setDifficultyscore:0];
         [self setDifficultythreshold:30];
         [self setScore:0];
-        [self setGroundspeed:10];
+        [self setGroundspeed:20];
         [self setTiltsensitivity:0.08];
         [self.player animateSelf];
     }
@@ -223,7 +223,7 @@
     //Sets up the ground sprites, makes them scroll passed based on the groundtexture size
     CGFloat distance =  self.groundtexture.size.width;
     if (r == true){//If you want you can reset it after a loop and have it scroll by again!
-        SKAction* move = [SKAction moveByX:-distance y:0 duration:self.groundspeed];
+        SKAction* move = [SKAction moveByX:-distance y:0 duration:self.groundspeed/4];
         SKAction* reset = [SKAction moveByX:distance y:0 duration:0];
         SKAction* loopMovement = [SKAction repeatActionForever:[SKAction sequence:@[move, reset]]];
         
@@ -233,7 +233,7 @@
         
     } else {
         //Or you can just delete it
-        SKAction* move = [SKAction moveByX:-[UIScreen mainScreen].bounds.size.width*1.5 y:0 duration:self.groundspeed*10.35];
+        SKAction* move = [SKAction moveByX:-distance y:0 duration:self.groundspeed*5];
         SKAction* remove = [SKAction removeFromParent];
         SKAction* Movement = [SKAction sequence:@[move, remove]];
         

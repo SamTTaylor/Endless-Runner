@@ -62,7 +62,6 @@
 		68E903291A6D0FB70009AE84 /* MiningHat.png in Resources */ = {isa = PBXBuildFile; fileRef = 68E903241A6D0FB70009AE84 /* MiningHat.png */; };
 		68E9032A1A6D0FB70009AE84 /* SuperLenny.png in Resources */ = {isa = PBXBuildFile; fileRef = 68E903251A6D0FB70009AE84 /* SuperLenny.png */; };
 		68E9032D1A6D0FCE0009AE84 /* EnglandBG.png in Resources */ = {isa = PBXBuildFile; fileRef = 68E9032B1A6D0FCE0009AE84 /* EnglandBG.png */; };
-		68E9032E1A6D0FCE0009AE84 /* EnglandGround.png in Resources */ = {isa = PBXBuildFile; fileRef = 68E9032C1A6D0FCE0009AE84 /* EnglandGround.png */; };
 		68E903301A6D187E0009AE84 /* CostumeText.png in Resources */ = {isa = PBXBuildFile; fileRef = 68E9032F1A6D187E0009AE84 /* CostumeText.png */; };
 		68E903351A6D266D0009AE84 /* christmas-avatar.png in Resources */ = {isa = PBXBuildFile; fileRef = 68E903311A6D266D0009AE84 /* christmas-avatar.png */; };
 		68E903361A6D266D0009AE84 /* christmas.png in Resources */ = {isa = PBXBuildFile; fileRef = 68E903321A6D266D0009AE84 /* christmas.png */; };
@@ -190,7 +189,6 @@
 		68E903241A6D0FB70009AE84 /* MiningHat.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = MiningHat.png; path = "Endless Runner/Images/Costumes/MiningHat.png"; sourceTree = "<group>"; };
 		68E903251A6D0FB70009AE84 /* SuperLenny.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = SuperLenny.png; path = "Endless Runner/Images/Costumes/SuperLenny.png"; sourceTree = "<group>"; };
 		68E9032B1A6D0FCE0009AE84 /* EnglandBG.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = EnglandBG.png; path = "Endless Runner/Images/Backgrounds/EnglandBG.png"; sourceTree = "<group>"; };
-		68E9032C1A6D0FCE0009AE84 /* EnglandGround.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = EnglandGround.png; path = "Endless Runner/Images/Backgrounds/EnglandGround.png"; sourceTree = "<group>"; };
 		68E9032F1A6D187E0009AE84 /* CostumeText.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = CostumeText.png; path = "Endless Runner/Images/Text/CostumeText.png"; sourceTree = "<group>"; };
 		68E903311A6D266D0009AE84 /* christmas-avatar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "christmas-avatar.png"; path = "Endless Runner/Images/Costumes/christmas-avatar.png"; sourceTree = "<group>"; };
 		68E903321A6D266D0009AE84 /* christmas.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = christmas.png; path = "Endless Runner/Images/Costumes/christmas.png"; sourceTree = "<group>"; };
@@ -332,7 +330,6 @@
 			children = (
 				68E903391A6D4E3F0009AE84 /* austria.png */,
 				68E9032B1A6D0FCE0009AE84 /* EnglandBG.png */,
-				68E9032C1A6D0FCE0009AE84 /* EnglandGround.png */,
 				685F3D951A67E40900A20F9A /* level1-pit.png */,
 				685F3D901A67D73B00A20F9A /* level1-bonus.png */,
 				68F359021A63C81F0006E4B1 /* background.png */,
@@ -630,7 +627,6 @@
 				685F3D921A67D73B00A20F9A /* berry.png in Resources */,
 				68E903351A6D266D0009AE84 /* christmas-avatar.png in Resources */,
 				68480E271A6680FE004A4EEA /* LeftArrowText.png in Resources */,
-				68E9032E1A6D0FCE0009AE84 /* EnglandGround.png in Resources */,
 				6875161E1A24F92600748410 /* Images.xcassets in Resources */,
 				681E67161A691B54007E727A /* 87x87.png in Resources */,
 				68F3590F1A63C82F0006E4B1 /* bee.png in Resources */,

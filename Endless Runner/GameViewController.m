@@ -273,8 +273,7 @@ NSTimer *updatetimer;
     for( int i = 0; i < 3; ++i ) {
         // Create the sprite
         SKSpriteNode* sprite = [SKSpriteNode spriteNodeWithTexture:self.groundtexture];
-        sprite.yScale = 0.4;
-        sprite.position = CGPointMake(i * sprite.size.width-(30*i),sprite.size.height/2);
+        sprite.position = CGPointMake(i * sprite.size.width,sprite.size.height/2);
         [self.model moveNodeWithGround:sprite Repeat:true];
         [self.gamescene addChild:sprite];
     }
