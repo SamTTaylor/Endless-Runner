@@ -256,6 +256,7 @@
                                           ,[SKAction waitForDuration:1.0]]]]withKey:@"followingplayer"];
 }
 
+//Applies players current costume to player
 -(SKSpriteNode*)dressPlayer{
    SKSpriteNode* node = [[SKSpriteNode alloc]initWithTexture:[SKTexture textureWithImage:self.player.costume]];
     [node setScale:0.2];
@@ -263,7 +264,7 @@
     node.physicsBody.ContactTestBitMask = 0x1 << 9;
     
     node.position = [self.player assignCostumePosition];
-    [node setZPosition:200];
+    [node setZPosition:self.player.zPosition+1];//Brings costume in front of player
     return node;
 }
 

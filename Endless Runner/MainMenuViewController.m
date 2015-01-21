@@ -163,8 +163,6 @@
         self.bgtexture = [SKTexture textureWithImageNamed:@"background"];
     } else {//if it is
         //set necessary values to the value represented by the index
-        NSLog(@"%d", self.bgimageindex);
-        NSLog(@"%@", self.backgroundarray[self.bgimageindex]);
         self.bgimage = self.backgroundarray[self.bgimageindex];
         self.bgtexture = [SKTexture textureWithImage:self.backgroundarray[self.bgimageindex]];
     }
