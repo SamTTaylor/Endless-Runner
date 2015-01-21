@@ -64,17 +64,17 @@
         SKTexture *texture =[SKTexture textureWithImageNamed:textureName];
         [textures addObject:texture];
     }
-    SKTexture *texture =[SKTexture textureWithImageNamed:@"beehive0.png"];
-    [textures addObject:texture];
     [self removeActionForKey:[NSString stringWithFormat:@"animate %@", self.class]];
-    
-    [self runAction:[SKAction sequence:@[[SKAction repeatAction:[SKAction sequence:@[[SKAction runBlock:^{
+    [self runAction:[SKAction runBlock:^{
         //Add explodeAnimation
         self.explodeAnimation = [SKAction animateWithTextures:textures timePerFrame:1.5];
-        [self runAction:[SKAction repeatAction:self.explodeAnimation count:1]];
-    }], [SKAction waitForDuration:15], [SKAction runBlock:^{
-        [self removeFromParent];//wait and then remove once animation is complete
-    }], [SKAction waitForDuration:1]]] count:1]]] withKey:[NSString stringWithFormat:@"animate %@", self.class]];
+        [self runAction:[SKAction sequence:@[
+            self.explodeAnimation,
+            [SKAction runBlock:^{
+            [self removeFromParent];
+        }]]]];
+        
+    }] withKey:[NSString stringWithFormat:@"animate %@", self.class]];
 }
 
 
