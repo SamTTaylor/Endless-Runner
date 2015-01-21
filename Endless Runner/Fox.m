@@ -17,6 +17,7 @@
         //Initialization code
         [self setScale:0.2];
         [self setSpeed:20];
+        //Enemy, touch ground and players
         self.physicsBody.allowsRotation = false;
         self.physicsBody.contactTestBitMask = 0x1 << 1 | 0x1 << 3;
         self.physicsBody.categoryBitMask = 0x1 << 2;//enemy
@@ -25,6 +26,8 @@
     return self;
 }
 
+
+//Fox jumps left and right periodically
 - (void) animateSelf{
     [super animateSelf];
     [self removeActionForKey:[NSString stringWithFormat:@"animate %@", self.class]];

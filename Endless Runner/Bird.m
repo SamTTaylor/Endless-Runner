@@ -16,6 +16,7 @@
     if (self) {
         //Initialization code
         [self setScale:0.2];
+        //Bird is always flying
         [self setFlying:YES flappingfrequency:0.4];
         self.physicsBody.contactTestBitMask = 0x1 << 1 | 0x1 << 3;
         self.physicsBody.categoryBitMask = 0x1 << 2;//enemy
@@ -24,6 +25,8 @@
     return self;
 }
 
+
+//Animate flapping
 - (void) animateSelf{
     [super animateSelf];
     [self removeActionForKey:[NSString stringWithFormat:@"animate %@", self.class]];

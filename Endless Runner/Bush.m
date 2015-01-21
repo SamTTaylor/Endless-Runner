@@ -16,16 +16,19 @@
     if (self) {
         //Initialization code
         [self setScale:0.6];
+        //Lethal impassable
         self.physicsBody.categoryBitMask = 0x1 << 8;
     }
     return self;
 }
 
+//Bush specific introduction
 -(void)introduction:(UIView*)inview{
     [super introduction:inview];
     [ToastView createToast:inview text:@"Swipe bushes from the centre to cut them down!" duration:5.0];
 }
 
+//Animation block
 - (void) animateSelf{
     [super animateSelf];
     [self removeActionForKey:[NSString stringWithFormat:@"animate %@", self.class]];
@@ -36,6 +39,7 @@
     }], [SKAction waitForDuration:1]]] count:1]]] withKey:[NSString stringWithFormat:@"animate %@", self.class]];
 }
 
+//Bush waits briefly before disappearing when killed
 - (void) deathAnimation{
     [super deathAnimation];
     [self removeActionForKey:[NSString stringWithFormat:@"animate %@", self.class]];

@@ -11,9 +11,8 @@
 
 @interface Frog : Enemy
 
-@property int tonguelength;
 @property TactileObject *tongue;
 
--(void)addTongue;
+-(void)addTongue;//Initialises tongue node and sets it moving
 
 @end

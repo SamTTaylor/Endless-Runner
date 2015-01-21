@@ -22,11 +22,13 @@
     return self;
 }
 
+//Beehive intro
 -(void)introduction:(UIView*)inview{
     [super introduction:inview];
     [ToastView createToast:inview text:@"Double Tap Beehives to break them!" duration:5.0];
 }
 
+//Animate anger
 - (void) animateSelf{
     [super animateSelf];
     [self removeActionForKey:[NSString stringWithFormat:@"animate %@", self.class]];
@@ -37,6 +39,7 @@
     }], [SKAction waitForDuration:1]]] count:5]]] withKey:[NSString stringWithFormat:@"animate %@", self.class]];
 }
 
+//Beehive waits for a short duration then removes itself when killed
 - (void) deathAnimation{
     [super deathAnimation];
     [self removeActionForKey:[NSString stringWithFormat:@"animate %@", self.class]];

@@ -25,7 +25,7 @@ float const toastborder = 10.0f;
 
 -(UILabel *)toastText
 {
-    if (!_toastText) {
+    if (!_toastText) {//If toast text has not yet been initialised then set it up
         _toastText = [[UILabel alloc] initWithFrame:CGRectMake(6.0, 6.0, self.frame.size.width - 15.0, self.frame.size.height - 15.0)];
         _toastText.textColor = [UIColor whiteColor];
         _toastText.numberOfLines = 2;
@@ -37,15 +37,17 @@ float const toastborder = 10.0f;
         [self addSubview:_toastText];
         
     }
-    return _toastText;
+    return _toastText;//And add it to the toasts
 }
 
 - (void)setText:(NSString *)text
+//overrides regular set text method to set the toasts text instead of the toastview
 {
     _text = text;
     self.toastText.text = text;
 }
 
+//Sets up a toast in defined view using defined string for defined length of time
 + (void)createToast: (UIView *)view text:(NSString *)text duration:(float)d
 {
     

@@ -16,16 +16,19 @@
     if (self) {
         //Initialization code
         [self setScale:0.3];
+        //Unique bit mask for interaction
         self.physicsBody.categoryBitMask = 0x1 << 11;
     }
     return self;
 }
 
+//Berry specific intro
 -(void)introduction:(UIView*)inview{
     [super introduction:inview];
     [ToastView createToast:inview text:@"Find the berries!" duration:5.0];
 }
 
+//Berry disappears immediately when touched
 - (void) deathAnimation{
     [super deathAnimation];
     [self removeFromParent];

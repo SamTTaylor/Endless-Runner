@@ -25,6 +25,8 @@
     return self;
 }
 
+
+//Wolf waits just a moment before pouncing across the screen at high speed
 - (void) animateSelf{
     [super animateSelf];
     [self removeActionForKey:[NSString stringWithFormat:@"animate %@", self.class]];
