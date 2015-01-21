@@ -51,7 +51,7 @@
     }], [SKAction waitForDuration:20], [SKAction runBlock:^{
         self.xScale = 1.0;
         [self jumpEntity];
-        [self setMyspeed:1.3];//Jumps slightly more left than right to get it off screen in time fo removal without affecting movement speed
+        [self setMyspeed:1.3];
         [self impulseEntityLeft];
         [self setMyspeed:5];
         [self runAction:[SKAction repeatActionForever:self.runAnimation]];
