@@ -30,11 +30,23 @@
 //Mushrooms wait briefly before disappearing so they can explode
 - (void) deathAnimation{
     [super deathAnimation];
+    
+    //Loop through frames for Animation
+    NSMutableArray *textures = [NSMutableArray arrayWithCapacity:16];
+    for (int i = 1; i < 8; i++) {
+        NSString *textureName = [NSString stringWithFormat:@"mushroom%d.png", i];
+        SKTexture *texture =[SKTexture textureWithImageNamed:textureName];
+        [textures addObject:texture];
+    }
+    SKTexture *texture =[SKTexture textureWithImageNamed:@"mushroom0.png"];
+    [textures addObject:texture];
     [self removeActionForKey:[NSString stringWithFormat:@"animate %@", self.class]];
     [self runAction:[SKAction sequence:@[[SKAction repeatAction:[SKAction sequence:@[[SKAction runBlock:^{
-        //Add burst
+        //Add burstAnimation
+        self.burstAnimation =[SKAction animateWithTextures:textures timePerFrame:3];
     }], [SKAction waitForDuration:20], [SKAction runBlock:^{
-        //Add burst
+        //Add burstAnimation
+        [self runAction:[SKAction repeatAction:self.burstAnimation count:1]];
         [self removeFromParent];//remove once animation is complete
     }], [SKAction waitForDuration:1]]] count:1]]] withKey:[NSString stringWithFormat:@"animate %@", self.class]];
 }

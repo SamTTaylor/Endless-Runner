@@ -11,6 +11,7 @@
 @interface Mushroom : TactileObject
 
 @property bool touched;//For reversing movement controls
+@property SKAction *burstAnimation;
 
 
 @end
