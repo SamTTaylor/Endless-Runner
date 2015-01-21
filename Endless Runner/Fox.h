@@ -10,4 +10,6 @@
 
 @interface Fox : Enemy
 
+@property SKAction *runAnimation;
+
 @end
