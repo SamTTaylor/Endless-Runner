@@ -70,7 +70,7 @@
     
     [self runAction:[SKAction sequence:@[[SKAction repeatAction:[SKAction sequence:@[[SKAction runBlock:^{
         //Add explodeAnimation
-        self.explodeAnimation = [SKAction animateWithTextures:textures timePerFrame:3];
+        self.explodeAnimation = [SKAction animateWithTextures:textures timePerFrame:1.5];
         [self runAction:[SKAction repeatAction:self.explodeAnimation count:1]];
     }], [SKAction waitForDuration:15], [SKAction runBlock:^{
         [self removeFromParent];//wait and then remove once animation is complete

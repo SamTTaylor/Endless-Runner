@@ -211,7 +211,7 @@
                 self.costumeposition = CGPointMake(self.position.x, self.position.y+40);
                 break;
             case 3://Super Lenny
-                self.costumeposition = CGPointMake(self.position.x-13, self.position.y);
+                self.costumeposition = CGPointMake(self.position.x-13, self.position.y+2);
                 break;
             case 4://Christmas hat
                 self.costumeposition = CGPointMake(self.position.x-13, self.position.y+42);

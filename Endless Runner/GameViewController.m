@@ -755,6 +755,7 @@ NSTimer *updatetimer;
     [self.challengescene.physicsWorld setContactDelegate:self]; //Look for contact in this scene
     [self updateLifeIcons];
     [self dressPlayer];
+    [self.model.player jumpcheckTimerFire];//Makes sure player's jump count is reset in the pit
 }
 
 
@@ -791,6 +792,7 @@ NSTimer *updatetimer;
     [self moveButterfly:true]; //Butterfly follows to main level
     [self updateLifeIcons];//Refresh life icons
     [self dressPlayer];
+    [self.model.player jumpcheckTimerFire];//Makes sure player's jump count is reset in the main game
 }
 
 //Moves any present butterfly to where the player is going

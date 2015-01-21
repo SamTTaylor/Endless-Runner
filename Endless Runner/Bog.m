@@ -17,8 +17,11 @@
         //Initialization code
         [self setScale:0.6];
         //Bog has specific category mask so player can get stuck in it
-        self.physicsBody.categoryBitMask = 0x1 << 5;
+        
         [self animateSelf];
+        self.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:CGSizeMake(self.frame.size.width, 20)];
+        self.physicsBody.categoryBitMask = 0x1 << 5;
+        self.physicsBody.dynamic = false;
     }
     return self;
 }

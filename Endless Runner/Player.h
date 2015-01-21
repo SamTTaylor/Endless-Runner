@@ -31,6 +31,7 @@
 
 //>>>>>>>>>>>>>>>>>>>>METHODS<<<<<<<<<<<<<<<<<<<<
 - (void)resetJumpCount; //Resets player jumping
+- (void)jumpcheckTimerFire; //Restarts the jump timer
 - (void)stopAnimation;//used to stop walking animation
 - (void)takeLife;//Used to try and take 1 life from the player
 - (void)collidedWithBog;//Used to trigger bog effecs
