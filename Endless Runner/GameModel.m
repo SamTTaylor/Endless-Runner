@@ -88,7 +88,6 @@
 - (void) addLife{
     //Life nodes are represented by the Lenny Head texture, and placed at the top of the screen in front of the other life nodes
     SKSpriteNode *life = [[SKSpriteNode alloc] initWithImageNamed:@"kopf-animation"];
-    [life setScale:0.2];
     life.position = CGPointMake(([UIScreen mainScreen].bounds.size.width/2 - (self.player.lives/2)*life.frame.size.width) + self.lives.count*life.frame.size.width, [UIScreen mainScreen].bounds.size.height - life.frame.size.height);
     [self.lives addObject:(life)];
 }
@@ -189,8 +188,6 @@
 //Returns an instance of a Tobj node with the Pit texture, bit mask is set here as there is no "Pit" class to set it on initialisation
 - (TactileObject*) spawnPit{
     TactileObject* pit = [[TactileObject alloc] initWithTexture:[SKTexture textureWithImageNamed:@"level1-pit"]];
-    [pit setScale:0.4];
-    [pit setXScale:0.6];
     [self placeEntWithLoc:0 Ent:pit];
     pit.physicsBody.categoryBitMask = 0x1 << 10;
     [pit setPosition:CGPointMake(pit.position.x, pit.position.y+5)];//Slightly repositioned to look right
@@ -318,12 +315,10 @@
     switch (scene) {
         case 0://Fun fact: This is also used to reset player position if he runs off screen left in the main level
             //Bottom left (Main level)
-            [self.player setScale:0.2];
             [self placeEntWithLoc:1 Ent:self.player];
             break;
         case 1:
             //Top left-ish (Pit level)
-            [self.player setScale:0.2];
             [self.player setPosition:CGPointMake(self.player.size.width*2, [UIScreen mainScreen].bounds.size.height-self.player.size.height*3)];
             break;
         default:

@@ -60,7 +60,7 @@
 
     if (self.inbog == false && self.jumpcount < 3) {
         CGFloat impulseX = 0.0f;
-        CGFloat impulseY = self.myspeed * 100.0f;
+        CGFloat impulseY = self.myspeed*4;
         [self.physicsBody applyImpulse:CGVectorMake(impulseX, impulseY) atPoint:self.position];
         self.jumpcount++;
     }
@@ -96,10 +96,6 @@
     NSMutableArray *textures = [NSMutableArray arrayWithCapacity:16];
     SKTexture *texture =[SKTexture textureWithImageNamed:@"avatar9.png"];
     [textures addObject:texture];
-    
-    CGFloat impulseX = self.myspeed*-5.0f;
-    CGFloat impulseY = 0.0f;
-    [self.physicsBody applyImpulse:CGVectorMake(impulseX, impulseY) atPoint:self.position];
     
     self.injuredAnimation =[SKAction animateWithTextures:textures timePerFrame:3];
     [self runAction:[SKAction repeatAction:self.injuredAnimation count:10]];
@@ -190,16 +186,6 @@
     }], [SKAction waitForDuration:20], [SKAction runBlock:^{
         //Add animation
     }], [SKAction waitForDuration:0.05]]] count:1]]] withKey:@"mushroomcollision"];
-}
-
-//Player flashes to indicate contact with an enemy
-- (void)collidedWithEnemy{//Use for block animation later
-    [self removeActionForKey:@"enemycollision"];
-    [self runAction:[SKAction sequence:@[[SKAction repeatAction:[SKAction sequence:@[[SKAction runBlock:^{
-        [self setScale:0.0];
-    }], [SKAction waitForDuration:10], [SKAction runBlock:^{
-        [self setScale:1.0];
-    }], [SKAction waitForDuration:0.05]]] count:1]]] withKey:@"enemycollision"];
 }
 
 //Specific positioning on the player for each costume to make it look realistic

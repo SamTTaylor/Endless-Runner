@@ -36,7 +36,6 @@
 - (void)takeLife;//Used to try and take 1 life from the player
 - (void)collidedWithBog;//Used to trigger bog effecs
 - (void)collidedWithMushroom;//Mushroom effects
-- (void)collidedWithEnemy;//enemy effects
 - (CGPoint)assignCostumePosition;
 
 

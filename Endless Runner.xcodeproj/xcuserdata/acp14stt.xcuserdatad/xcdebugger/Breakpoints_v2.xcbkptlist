@@ -324,11 +324,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Endless Runner/GameModel.m"
-            timestampString = "443543990.67003"
+            timestampString = "443551277.069697"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "261"
-            endingLineNumber = "261"
+            startingLineNumber = "258"
+            endingLineNumber = "258"
             landmarkName = "-dressPlayer"
             landmarkType = "5">
          </BreakpointContent>
@@ -452,11 +452,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Endless Runner/Player.m"
-            timestampString = "443548771.515811"
+            timestampString = "443552201.366363"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "180"
-            endingLineNumber = "180"
+            startingLineNumber = "176"
+            endingLineNumber = "176"
             landmarkName = "-collidedWithMushroom"
             landmarkType = "5">
          </BreakpointContent>
@@ -484,11 +484,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Endless Runner/Player.m"
-            timestampString = "443548771.515811"
+            timestampString = "443552201.366363"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "134"
-            endingLineNumber = "134"
+            startingLineNumber = "130"
+            endingLineNumber = "130"
             landmarkName = "-stopAnimation"
             landmarkType = "5">
          </BreakpointContent>
