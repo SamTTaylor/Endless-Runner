@@ -18,6 +18,7 @@
         [self setScale:0.3];
         [self.physicsBody setDynamic:false];
         self.physicsBody.categoryBitMask = 0x1 << 6;
+        [self animateSelf];//start animation
     }
     return self;
 }
@@ -28,26 +29,51 @@
     [ToastView createToast:inview text:@"Double Tap Beehives to break them!" duration:5.0];
 }
 
-//Animate anger
+//Animate bees buzzAnimation
 - (void) animateSelf{
     [super animateSelf];
+    
+    //Loop through frames for animations
+    NSMutableArray *textures = [NSMutableArray arrayWithCapacity:16];
+    for (int i = 8; i < 14; i++) {
+        NSString *textureName = [NSString stringWithFormat:@"beehive%d.png", i];
+        SKTexture *texture =[SKTexture textureWithImageNamed:textureName];
+        [textures addObject:texture];
+    }
+    SKTexture *texture =[SKTexture textureWithImageNamed:@"beehive8.png"];
+    [textures addObject:texture];
+    
     [self removeActionForKey:[NSString stringWithFormat:@"animate %@", self.class]];
     [self runAction:[SKAction sequence:@[[SKAction repeatAction:[SKAction sequence:@[[SKAction runBlock:^{
-        //Add Shrink
+        //Add bees buzzAnimation
+        self.buzzAnimation =[SKAction animateWithTextures:textures timePerFrame:3];
     }], [SKAction waitForDuration:1], [SKAction runBlock:^{
-        //Add Shrink
+        //Add bees buzzAnimation
+        [self runAction:[SKAction repeatActionForever:self.buzzAnimation]];
     }], [SKAction waitForDuration:1]]] count:5]]] withKey:[NSString stringWithFormat:@"animate %@", self.class]];
 }
 
 //Beehive waits for a short duration then removes itself when killed
 - (void) deathAnimation{
     [super deathAnimation];
+    
+    //Loop through frames for animations
+    NSMutableArray *textures = [NSMutableArray arrayWithCapacity:16];
+    for (int i = 1; i < 7; i++) {
+        NSString *textureName = [NSString stringWithFormat:@"beehive%d.png", i];
+        SKTexture *texture =[SKTexture textureWithImageNamed:textureName];
+        [textures addObject:texture];
+    }
+    SKTexture *texture =[SKTexture textureWithImageNamed:@"beehive0.png"];
+    [textures addObject:texture];
     [self removeActionForKey:[NSString stringWithFormat:@"animate %@", self.class]];
+    
     [self runAction:[SKAction sequence:@[[SKAction repeatAction:[SKAction sequence:@[[SKAction runBlock:^{
-        //Add cut
-    }], [SKAction waitForDuration:1], [SKAction runBlock:^{
-        //Add cut
-        [self removeFromParent];//remove once animation is complete
+        //Add explodeAnimation
+        self.explodeAnimation = [SKAction animateWithTextures:textures timePerFrame:3];
+        [self runAction:[SKAction repeatAction:self.explodeAnimation count:1]];
+    }], [SKAction waitForDuration:15], [SKAction runBlock:^{
+        [self removeFromParent];//wait and then remove once animation is complete
     }], [SKAction waitForDuration:1]]] count:1]]] withKey:[NSString stringWithFormat:@"animate %@", self.class]];
 }
 

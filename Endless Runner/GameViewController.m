@@ -44,6 +44,7 @@ NSTimer *updatetimer;
     //Load new game
     [self initialiseGameScene];//Starts main level for the first time
     [self initialiseModel];//Creates a fresh model
+    [self preloadAtlas];//Loads all Atlases
     [self GameStart];//Sets the game in motion
     [self.gamescene.physicsWorld setContactDelegate:self];//Used to read collision data from the main scene
     [self checkTiltBool];
@@ -81,6 +82,36 @@ NSTimer *updatetimer;
 - (void)initialiseModel{//Blank model with player created, model is told what the set ground texture is
     self.model = [[GameModel alloc] initWithPlayer];
     [self.model setGroundtexture:self.groundtexture];
+}
+
+-(void)preloadAtlas{
+    self.foxAtlas = [SKTextureAtlas atlasNamed:@"fox"];
+    [SKTextureAtlas preloadTextureAtlases:[NSArray arrayWithObject:self.foxAtlas] withCompletionHandler:^{
+    }];
+    
+    self.bushAtlas = [SKTextureAtlas atlasNamed:@"bush"];
+    [SKTextureAtlas preloadTextureAtlases:[NSArray arrayWithObject:self.bushAtlas] withCompletionHandler:^{
+    }];
+    
+    self.beehiveAtlas = [SKTextureAtlas atlasNamed:@"beehive"];
+    [SKTextureAtlas preloadTextureAtlases:[NSArray arrayWithObject:self.beehiveAtlas] withCompletionHandler:^{
+    }];
+    
+    self.birdAtlas = [SKTextureAtlas atlasNamed:@"bird"];
+    [SKTextureAtlas preloadTextureAtlases:[NSArray arrayWithObject:self.birdAtlas] withCompletionHandler:^{
+    }];
+    
+    self.bogAtlas = [SKTextureAtlas atlasNamed:@"bog"];
+    [SKTextureAtlas preloadTextureAtlases:[NSArray arrayWithObject:self.bogAtlas] withCompletionHandler:^{
+    }];
+    
+    self.mushroomAtlas = [SKTextureAtlas atlasNamed:@"mushroom"];
+    [SKTextureAtlas preloadTextureAtlases:[NSArray arrayWithObject:self.mushroomAtlas] withCompletionHandler:^{
+    }];
+    
+    self.wolfAtlas = [SKTextureAtlas atlasNamed:@"wolf"];
+    [SKTextureAtlas preloadTextureAtlases:[NSArray arrayWithObject:self.wolfAtlas] withCompletionHandler:^{
+    }];
 }
 
 //Puts the game in a state where it is displayed but update timer is paused until the player moves

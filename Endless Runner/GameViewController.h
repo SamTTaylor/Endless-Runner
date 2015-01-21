@@ -63,6 +63,14 @@
 @property CLLocation *location;
 @property NSString *Country;
 
+//>>>>>>>>>>>>>>>>>>>>TEXTURE ATLASES<<<<<<<<<<<<<<<<<<<<
+@property SKTextureAtlas *foxAtlas;
+@property SKTextureAtlas *bushAtlas;
+@property SKTextureAtlas *beehiveAtlas;
+@property SKTextureAtlas *birdAtlas;
+@property SKTextureAtlas *bogAtlas;
+@property SKTextureAtlas *mushroomAtlas;
+@property SKTextureAtlas *wolfAtlas;
 
 - (void) quitSelf;
 
