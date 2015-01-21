@@ -38,17 +38,16 @@
         SKTexture *texture =[SKTexture textureWithImageNamed:textureName];
         [textures addObject:texture];
     }
-    SKTexture *texture =[SKTexture textureWithImageNamed:@"mushroom0.png"];
-    [textures addObject:texture];
     [self removeActionForKey:[NSString stringWithFormat:@"animate %@", self.class]];
-    [self runAction:[SKAction sequence:@[[SKAction repeatAction:[SKAction sequence:@[[SKAction runBlock:^{
-        //Add burstAnimation
-        self.burstAnimation =[SKAction animateWithTextures:textures timePerFrame:3];
-    }], [SKAction waitForDuration:20], [SKAction runBlock:^{
-        //Add burstAnimation
-        [self runAction:[SKAction repeatAction:self.burstAnimation count:1]];
-        [self removeFromParent];//remove once animation is complete
-    }], [SKAction waitForDuration:1]]] count:1]]] withKey:[NSString stringWithFormat:@"animate %@", self.class]];
+    [self runAction:[SKAction runBlock:^{
+        //Add cutAnimation
+        self.burstAnimation = [SKAction animateWithTextures:textures timePerFrame:1.5];
+        [self runAction:[SKAction sequence:@[
+            self.burstAnimation,
+            [SKAction runBlock:^{
+                [self removeFromParent];
+        }]]]];
+    }] withKey:[NSString stringWithFormat:@"animate %@", self.class]];
 }
 
 @end
