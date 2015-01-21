@@ -256,7 +256,7 @@
 //Applies players current costume to player
 -(SKSpriteNode*)dressPlayer{
    SKSpriteNode* node = [[SKSpriteNode alloc]initWithTexture:[SKTexture textureWithImage:self.player.costume]];
-    [node setScale:0.2];
+    [node setScale:0.5];
     node.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:node.frame.size];
     node.physicsBody.ContactTestBitMask = 0x1 << 9;
     

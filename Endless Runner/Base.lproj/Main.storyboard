@@ -48,9 +48,6 @@
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="TitleText.png" translatesAutoresizingMaskIntoConstraints="NO" id="u2v-Be-5On">
                                 <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
-                                <variation key="heightClass=regular-widthClass=regular" misplaced="YES">
-                                    <rect key="frame" x="112" y="190" width="574" height="89"/>
-                                </variation>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -86,18 +83,18 @@
                                 <exclude reference="u2v-Be-5On"/>
                             </mask>
                             <mask key="constraints">
-                                <exclude reference="NKM-Iy-g5O"/>
-                                <exclude reference="YmQ-rD-T5y"/>
-                                <exclude reference="39B-l6-zRe"/>
-                                <exclude reference="U72-ul-Ium"/>
-                                <exclude reference="bc3-Qx-CPH"/>
-                                <exclude reference="gyX-8t-Zb6"/>
+                                <exclude reference="faU-Yg-kMs"/>
+                                <exclude reference="uIL-ha-9jC"/>
                                 <exclude reference="9af-bq-zkn"/>
                                 <exclude reference="SJK-0e-ZXv"/>
                                 <exclude reference="ZyB-Ks-rcL"/>
                                 <exclude reference="fvz-sm-olJ"/>
-                                <exclude reference="faU-Yg-kMs"/>
-                                <exclude reference="uIL-ha-9jC"/>
+                                <exclude reference="39B-l6-zRe"/>
+                                <exclude reference="U72-ul-Ium"/>
+                                <exclude reference="bc3-Qx-CPH"/>
+                                <exclude reference="gyX-8t-Zb6"/>
+                                <exclude reference="NKM-Iy-g5O"/>
+                                <exclude reference="YmQ-rD-T5y"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=regular-widthClass=regular">
@@ -108,18 +105,18 @@
                                 <include reference="u2v-Be-5On"/>
                             </mask>
                             <mask key="constraints">
-                                <include reference="NKM-Iy-g5O"/>
-                                <include reference="YmQ-rD-T5y"/>
-                                <exclude reference="39B-l6-zRe"/>
-                                <exclude reference="U72-ul-Ium"/>
-                                <include reference="bc3-Qx-CPH"/>
-                                <include reference="gyX-8t-Zb6"/>
+                                <include reference="faU-Yg-kMs"/>
+                                <include reference="uIL-ha-9jC"/>
                                 <exclude reference="9af-bq-zkn"/>
                                 <include reference="SJK-0e-ZXv"/>
                                 <include reference="ZyB-Ks-rcL"/>
                                 <exclude reference="fvz-sm-olJ"/>
-                                <include reference="faU-Yg-kMs"/>
-                                <include reference="uIL-ha-9jC"/>
+                                <exclude reference="39B-l6-zRe"/>
+                                <exclude reference="U72-ul-Ium"/>
+                                <include reference="bc3-Qx-CPH"/>
+                                <include reference="gyX-8t-Zb6"/>
+                                <include reference="NKM-Iy-g5O"/>
+                                <include reference="YmQ-rD-T5y"/>
                             </mask>
                         </variation>
                     </view>
@@ -159,9 +156,6 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="80"/>
                                 <color key="textColor" red="0.99607849120000003" green="0.054901964960000001" blue="0.0078431377190000002" alpha="1" colorSpace="deviceRGB"/>
                                 <nil key="highlightedColor"/>
-                                <variation key="heightClass=regular-widthClass=regular" misplaced="YES">
-                                    <rect key="frame" x="266" y="574" width="260" height="96"/>
-                                </variation>
                             </label>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="OgR-G4-H3K">
                                 <rect key="frame" x="-61" y="-14" width="123" height="29"/>
