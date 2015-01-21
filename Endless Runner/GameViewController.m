@@ -670,7 +670,7 @@ NSTimer *updatetimer;
 
 
 //>>>>>>>>>>>>>>>>>>>>CONTACT HANDLING<<<<<<<<<<<<<<<<<<<<<<<
-//Checks every relevant combination of contact to the game and performs actions based on it, when contact occurs. If the player is dead (lives < 0), no contact is computed because the game is over.
+//Checks every relevant combination of contact to the game and performs actions based on it, when contact occurs. If the player is dead (lives < 0), no contact is computed because the game is over. Contact handling is in the GVC because it involves switching scenes
 - (void)didBeginContact:(SKPhysicsContact *)contact {
     if(self.model.player.lives > 0){//Dont compute contact if player is dead
         
