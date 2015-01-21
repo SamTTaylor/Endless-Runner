@@ -50,22 +50,17 @@
         SKTexture *texture =[SKTexture textureWithImageNamed:textureName];
         [textures addObject:texture];
     }
-    
-    SKTexture *texture =[SKTexture textureWithImageNamed:@"bush0.png"];
-    [textures addObject:texture];
+
     [self removeActionForKey:[NSString stringWithFormat:@"animate %@", self.class]];
-    
-    
-    [self runAction:[SKAction sequence:@[
-       [SKAction runBlock:^{
-            //Add cutAnimation
-            self.cutAnimation =[SKAction animateWithTextures:textures timePerFrame:1.5];
-    }],[SKAction waitForDuration:10],
-       [SKAction runBlock:^{
-            //Run cutAnimation
-            [self runAction:[SKAction repeatAction:self.cutAnimation count:1]];
-            [self removeFromParent];//remove once animation is complete
-    }]]]withKey:[NSString stringWithFormat:@"animate %@", self.class]];
+    [self runAction:[SKAction runBlock:^{
+        //Add cutAnimation
+        self.cutAnimation =[SKAction animateWithTextures:textures timePerFrame:1.5];
+        [self runAction:[SKAction sequence:@[
+                self.cutAnimation,
+                [SKAction runBlock:^{
+                    [self removeFromParent];
+        }]]]];
+    }] withKey:[NSString stringWithFormat:@"animate %@", self.class]];
 }
 
 @end
