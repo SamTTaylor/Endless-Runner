@@ -26,7 +26,7 @@
 }
 
 -(void)testDifficultyLevel{
-    
+    XCTAssertEqual(difficultylevel, 0);
 }
 
 -(void)testLight{

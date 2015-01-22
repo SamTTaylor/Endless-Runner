@@ -12,11 +12,16 @@
 
 @interface GameModelTest : XCTestCase {
     
-    GameModel *model;
     Player *player;
+    float tiltsensitivity;
     NSMutableArray *enemies;
     NSMutableArray *obstacles;
     NSMutableArray *lives;
+    int score;
+    int difficultyscore;
+    int difficultythreshold;
+    int currentdifficulty;
+    int groundspeed;
 }
 
 @end
@@ -34,6 +39,10 @@
     XCTAssertNotNil(player);
 }
 
+-(void)testTiltSensitivity {
+    XCTAssertEqual(tiltsensitivity, 0.0);
+}
+
 -(void)testGroundNode {
 
 }
@@ -47,7 +56,6 @@
 -(void)testObstaclesArray {
     obstacles = [[NSMutableArray alloc] init];
     XCTAssertNotNil(obstacles);
-    
 }
 
 -(void)testLives {
@@ -56,23 +64,23 @@
 }
 
 -(void)testScore {
-
+    XCTAssertEqual(score, 0);
 }
 
 -(void)testDifficultyScore {
-
+    XCTAssertEqual(difficultyscore, 0);
 }
 
 -(void)testDifficultyThreshold {
-
+    XCTAssertEqual(difficultythreshold, 0);
 }
 
 -(void)testCurrentDifficulty {
-
+    XCTAssertEqual(currentdifficulty, 0);
 }
 
 -(void)testGroundSpeed {
-
+    XCTAssertEqual(groundspeed, 0);
 }
 
 -(void)testGroundTexture {

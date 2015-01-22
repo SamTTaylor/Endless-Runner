@@ -30,23 +30,25 @@
 }
 
 - (void)testTiltBool {
-    XCTAssertTrue(tiltbool);
+    XCTAssertFalse(tiltbool);
 }
 
 - (void)testBgImageString {
-    XCTAssertEqual(bgimagestring, @"background");
+    //XCTAssertEqual(bgimagestring, @"");
 }
 
 - (void)testAvatarImageString {
-     XCTAssertEqual(avatarimagestring, @"avatar.gif");
+     //XCTAssertEqual(avatarimagestring, @"");
 }
 
 - (void)testBackgroundArray {
-    
+    backgroundarray = [[NSMutableArray alloc] init];
+    XCTAssertNotNil(backgroundarray);
 }
 
 - (void)testGroundArray {
-    
+    costumearray = [[NSMutableArray alloc] init];
+    XCTAssertNotNil(costumearray);
 }
 
 - (void)tearDown {

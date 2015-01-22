@@ -26,11 +26,11 @@
 }
 
 -(void)testFlying{
-    
+    XCTAssertFalse(flying);
 }
 
 -(void)testMySpeed{
-    
+    XCTAssertEqual(myspeed, 0);
 }
 
 - (void)tearDown {

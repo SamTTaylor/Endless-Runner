@@ -48,19 +48,19 @@
 
 - (void)testCostumeArray {
     costumearray = [[NSMutableArray alloc] init];
-    XCTAssertNil(costumearray);
+    XCTAssertNotNil(costumearray);
 }
 
 - (void)testClosing {
-    
+    XCTAssertFalse(closing);
 }
 
 - (void)testGameStarted {
-    
+    XCTAssertFalse(gamestarted);
 }
 
 - (void)testStartedByTilt {
-    
+    XCTAssertFalse(startedbytilt);
 }
 
 - (void)testYRotation {

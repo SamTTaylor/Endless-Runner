@@ -36,23 +36,23 @@
 }
 
 - (void)testJumpCount{
-    
+    XCTAssertEqual(jumpcount, 0);
 }
 
 - (void)testInMushroom{
-    
+    XCTAssertFalse(inmushroom);
 }
 
 - (void)testInBog{
-    
+    XCTAssertFalse(inbog);
 }
 
 - (void)testLives{
-    
+    XCTAssertEqual(lives, 0);
 }
 
 - (void)testInvulnerable{
-    
+    XCTAssertFalse(invulnerable);
 }
 
 - (void)testWalkAnimation{
@@ -68,19 +68,11 @@
 }
 
 - (void)testAnimated{
-    
+     XCTAssertTrue(animated);
 }
 
 - (void)testGotFollower{
-    
-}
-
-- (void)testCurrentButterfly{
-    
-}
-
-- (void)testCostume{
-    
+    XCTAssertFalse(gotfollower);
 }
 
 - (void)testCostumePosition{
@@ -88,11 +80,8 @@
 }
 
 - (void)testCostumeArray{
-    
-}
-
-- (void)testAssignCostumePosition{
-    
+    costumearray = [[NSMutableArray alloc] init];
+    XCTAssertNotNil(costumearray);
 }
 
 - (void)tearDown {
