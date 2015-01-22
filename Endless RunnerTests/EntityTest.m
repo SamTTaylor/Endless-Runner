@@ -12,6 +12,8 @@
 
 @interface EntityTest : XCTestCase
 
+@property(nonatomic, strong) Entity *ent;
+
 @end
 
 @implementation EntityTest
@@ -19,8 +21,9 @@
 - (void)setUp {
     [super setUp];
     // Put setup code here. This method is called before the invocation of each test method in the class.
+    
+    self.ent = [[Entity alloc] init];
 }
-
 
 - (void)testNodeTexture{
     

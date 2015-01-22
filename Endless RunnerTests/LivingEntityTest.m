@@ -10,11 +10,9 @@
 #import <XCTest/XCTest.h>
 #import "LivingEntity.h"
 
-@interface LivingEntityTest : XCTestCase {
-    
-    bool flying;
-    float myspeed;
-}
+@interface LivingEntityTest : XCTestCase
+
+@property(nonatomic, strong) LivingEntity *lent;
 
 @end
 
@@ -23,14 +21,15 @@
 - (void)setUp {
     [super setUp];
     // Put setup code here. This method is called before the invocation of each test method in the class.
+    self.lent = [[LivingEntity alloc] init];
 }
 
 -(void)testFlying{
-    XCTAssertFalse(flying);
+    XCTAssertFalse(self.lent.flying);
 }
 
 -(void)testMySpeed{
-    XCTAssertEqual(myspeed, 0);
+    XCTAssertEqual(self.lent.myspeed, 0);
 }
 
 - (void)tearDown {
