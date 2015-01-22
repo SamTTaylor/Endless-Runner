@@ -10,15 +10,9 @@
 #import <XCTest/XCTest.h>
 #import "SettingsViewController.h"
 
-@interface SettingsViewControllerTest : XCTestCase {
-    
-    bool tiltbool;
-    NSString *bgimagestring;
-    NSString *avatarimagestring;
-    NSMutableArray *backgroundarray;
-    NSMutableArray *costumearray;
-    
-}
+@interface SettingsViewControllerTest : XCTestCase
+
+@property(nonatomic, strong) SettingsViewController *svc;
 
 @end
 
@@ -27,40 +21,35 @@
 - (void)setUp {
     [super setUp];
     // Put setup code here. This method is called before the invocation of each test method in the class.
+    self.svc = [[SettingsViewController alloc]init];
 }
 
-- (void)testTiltBool {
-    XCTAssertFalse(tiltbool);
+
+//If buttons are selected, set Tiltbool to false
+-(void)testTiltBoolZero {
+    
+    self.svc.tiltcontrol.selectedSegmentIndex = 0;
+    if (self.svc.tiltcontrol.selectedSegmentIndex == 0) {
+        [self.svc setTiltbool:false];
+    }
+    XCTAssertFalse(self.svc.tiltbool);
 }
 
-- (void)testBgImageString {
-    //XCTAssertEqual(bgimagestring, @"");
-}
-
-- (void)testAvatarImageString {
-     //XCTAssertEqual(avatarimagestring, @"");
-}
-
+//Inititate BackgroundArray and check if available
 - (void)testBackgroundArray {
-    backgroundarray = [[NSMutableArray alloc] init];
-    XCTAssertNotNil(backgroundarray);
+    self.svc.backgroundarray = [[NSMutableArray alloc] init];
+    XCTAssertNotNil(self.svc.backgroundarray);
 }
 
-- (void)testGroundArray {
-    costumearray = [[NSMutableArray alloc] init];
-    XCTAssertNotNil(costumearray);
+//Inititate BackgroundArray and check if available
+- (void)testCustomeArray {
+    self.svc.costumearray = [[NSMutableArray alloc] init];
+    XCTAssertNotNil(self.svc.costumearray);
 }
 
 - (void)tearDown {
     // Put teardown code here. This method is called after the invocation of each test method in the class.
     [super tearDown];
-}
-
-- (void)testPerformanceExample {
-    // This is an example of a performance test case.
-    [self measureBlock:^{
-        // Put the code you want to measure the time of here.
-    }];
 }
 
 @end
