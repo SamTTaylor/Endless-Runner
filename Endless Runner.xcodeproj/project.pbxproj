@@ -105,7 +105,6 @@
 		BD824D951A70473200A0AAC0 /* MainMenuViewControllerTest.m in Sources */ = {isa = PBXBuildFile; fileRef = BD824D941A70473200A0AAC0 /* MainMenuViewControllerTest.m */; };
 		BD824D971A70475100A0AAC0 /* SettingsViewControllerTest.m in Sources */ = {isa = PBXBuildFile; fileRef = BD824D961A70475100A0AAC0 /* SettingsViewControllerTest.m */; };
 		BD824D991A70481900A0AAC0 /* HighScoresViewControllerTest.m in Sources */ = {isa = PBXBuildFile; fileRef = BD824D981A70481900A0AAC0 /* HighScoresViewControllerTest.m */; };
-		BD824D9B1A70489F00A0AAC0 /* ToastViewTest.m in Sources */ = {isa = PBXBuildFile; fileRef = BD824D9A1A70489F00A0AAC0 /* ToastViewTest.m */; };
 		BD824D9D1A7048B200A0AAC0 /* PlayerTest.m in Sources */ = {isa = PBXBuildFile; fileRef = BD824D9C1A7048B200A0AAC0 /* PlayerTest.m */; };
 		BD824D9F1A7048CB00A0AAC0 /* LivingEntityTest.m in Sources */ = {isa = PBXBuildFile; fileRef = BD824D9E1A7048CB00A0AAC0 /* LivingEntityTest.m */; };
 		BD824DA11A7048DA00A0AAC0 /* TactileObjectTest.m in Sources */ = {isa = PBXBuildFile; fileRef = BD824DA01A7048DA00A0AAC0 /* TactileObjectTest.m */; };
@@ -251,7 +250,6 @@
 		BD824D941A70473200A0AAC0 /* MainMenuViewControllerTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainMenuViewControllerTest.m; sourceTree = "<group>"; };
 		BD824D961A70475100A0AAC0 /* SettingsViewControllerTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsViewControllerTest.m; sourceTree = "<group>"; };
 		BD824D981A70481900A0AAC0 /* HighScoresViewControllerTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HighScoresViewControllerTest.m; sourceTree = "<group>"; };
-		BD824D9A1A70489F00A0AAC0 /* ToastViewTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ToastViewTest.m; sourceTree = "<group>"; };
 		BD824D9C1A7048B200A0AAC0 /* PlayerTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayerTest.m; sourceTree = "<group>"; };
 		BD824D9E1A7048CB00A0AAC0 /* LivingEntityTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LivingEntityTest.m; sourceTree = "<group>"; };
 		BD824DA01A7048DA00A0AAC0 /* TactileObjectTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TactileObjectTest.m; sourceTree = "<group>"; };
@@ -465,15 +463,14 @@
 			isa = PBXGroup;
 			children = (
 				BD824D901A703EEF00A0AAC0 /* GameModelTest.m */,
+				BD824D921A7046E300A0AAC0 /* GameViewControllerTest.m */,
+				BD824D941A70473200A0AAC0 /* MainMenuViewControllerTest.m */,
+				BD824D961A70475100A0AAC0 /* SettingsViewControllerTest.m */,
+				BD824D981A70481900A0AAC0 /* HighScoresViewControllerTest.m */,
 				BD824D9C1A7048B200A0AAC0 /* PlayerTest.m */,
 				BD824D9E1A7048CB00A0AAC0 /* LivingEntityTest.m */,
 				BD824DA01A7048DA00A0AAC0 /* TactileObjectTest.m */,
 				BD824DA21A7048E900A0AAC0 /* EntityTest.m */,
-				BD824D941A70473200A0AAC0 /* MainMenuViewControllerTest.m */,
-				BD824D961A70475100A0AAC0 /* SettingsViewControllerTest.m */,
-				BD824D921A7046E300A0AAC0 /* GameViewControllerTest.m */,
-				BD824D981A70481900A0AAC0 /* HighScoresViewControllerTest.m */,
-				BD824D9A1A70489F00A0AAC0 /* ToastViewTest.m */,
 				6875162A1A24F92600748410 /* Supporting Files */,
 			);
 			path = "Endless RunnerTests";
@@ -752,7 +749,6 @@
 				BD824D951A70473200A0AAC0 /* MainMenuViewControllerTest.m in Sources */,
 				BD824DA11A7048DA00A0AAC0 /* TactileObjectTest.m in Sources */,
 				BD824D911A703EEF00A0AAC0 /* GameModelTest.m in Sources */,
-				BD824D9B1A70489F00A0AAC0 /* ToastViewTest.m in Sources */,
 				BD824D9F1A7048CB00A0AAC0 /* LivingEntityTest.m in Sources */,
 				BD824DA31A7048E900A0AAC0 /* EntityTest.m in Sources */,
 				BD824D9D1A7048B200A0AAC0 /* PlayerTest.m in Sources */,

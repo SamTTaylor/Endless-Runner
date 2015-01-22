@@ -26,10 +26,57 @@
     [super tearDown];
 }
 
-- (void)testExample {
-    // This is an example of a functional test case.
-    XCTAssert(YES, @"Pass");
+- (void)testTiltBool {
+    GameViewController *tiltbool = [[GameModel alloc]init];
 }
+
+- (void)testBgTexture {
+    
+}
+
+- (void)testGroundTexture {
+    
+}
+
+- (void)testCostumeArray {
+    
+}
+
+- (void)testClosing {
+    
+}
+
+- (void)testGameStarted {
+    
+}
+
+- (void)testStartedByTilt {
+    
+}
+
+- (void)testYRotation {
+    
+}
+
+- (void)testUpdateSpeed {
+    
+}
+
+- (void)testUpdateTimer {
+    
+}
+
+- (void)testSpawnedObjects {
+    
+}
+
+//>>>>>>>>>>>>>>>>>>>>GESTURE RECOGNIZERS<<<<<<<<<<<<<<<<<<<<
+
+//>>>>>>>>>>>>>>>>>>>>TILT SENSOR<<<<<<<<<<<<<<<<<<<<
+
+//>>>>>>>>>>>>>>>>>>>>LOCATION MANAGER<<<<<<<<<<<<<<<<<<<<
+
+//>>>>>>>>>>>>>>>>>>>>TEXTURE ATLASES<<<<<<<<<<<<<<<<<<<<
 
 - (void)testPerformanceExample {
     // This is an example of a performance test case.

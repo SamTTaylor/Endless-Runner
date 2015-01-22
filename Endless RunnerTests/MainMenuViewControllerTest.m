@@ -26,9 +26,32 @@
     [super tearDown];
 }
 
-- (void)testExample {
-    // This is an example of a functional test case.
-    XCTAssert(YES, @"Pass");
+- (void)testTiltBool {
+    
+}
+
+- (void)testBgTexture {
+    
+}
+
+- (void)testGroundTexture {
+    
+}
+
+- (void)testBgImage {
+    
+}
+
+- (void)testCostumeImage {
+    
+}
+
+- (void)testCostumeArray {
+    
+}
+
+- (void)testBackgroundArray {
+    
 }
 
 - (void)testPerformanceExample {

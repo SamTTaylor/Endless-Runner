@@ -2,7 +2,7 @@
 //  GameViewController.h
 //  Endless Runner
 //
-
+//  Created by acp14jp on 25/11/2014.
 //  Copyright (c) 2014 sheffield. All rights reserved.
 //
 

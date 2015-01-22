@@ -16,32 +16,64 @@
 
 @implementation PlayerTest
 
-- (void)testResetJumpCount{
+- (void)testJumpCount{
     
 }
 
-- (void)testJumpcheckTimerFire{
+- (void)testInMushroom{
     
 }
 
-- (void)testStopAnimation{
+- (void)testInBog{
     
 }
 
-- (void)testTakeLife{
+- (void)testLives{
     
 }
 
-- (void)testCollidedWithBog{
+- (void)testInvulnerable{
     
 }
 
-- (void)testCollidedWithMushroom{
+- (void)testWalkAnimation{
+    
+}
+
+- (void)testJumpAnimation{
+
+}
+
+- (void)testInjuredAnimation{
+    
+}
+
+- (void)testAnimated{
+    
+}
+
+- (void)testGotFollower{
+    
+}
+
+- (void)testCurrentButterfly{
+    
+}
+
+- (void)testCostume{
+    
+}
+
+- (void)testCostumePosition{
+    
+}
+
+- (void)testCostumeArray{
     
 }
 
 - (void)testAssignCostumePosition{
-
+    
 }
 
 - (void)setUp {

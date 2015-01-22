@@ -16,19 +16,11 @@
 
 @implementation LivingEntityTest
 
--(void)testImpulseEntityRight{
+-(void)testFlying{
     
 }
 
--(void)testImpulseEntityLeft{
-    
-}
-
--(void)testJumpEntity{
-    
-}
-
--(void)testSetFlying{
+-(void)testMySpeed{
     
 }
 

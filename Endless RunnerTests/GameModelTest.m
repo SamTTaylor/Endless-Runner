@@ -16,81 +16,6 @@
 
 @implementation GameModelTest
 
--(void)testInitWithPlayer {
-    
-}
-
--(void)testSaveAchievement{
-    
-}
-
--(void)testIncrementScore {
-    
-}
-
--(void)testIncrementDifficultyScore{
-    
-}
-
--(void)testUpdateDifficulty{
-    
-}
-
--(void)testUpdateLives{
-    
-}
-
--(void)testRemoveLife{
-    
-}
-
--(void)testMoveNodeWithGround{
-    
-}
-
--(void)testFollowPlayer{
-    
-}
-
--(void)testDressPlayer{
-    
-}
-
--(void)testPlacePlayer{
-    
-}
-
--(void)testPlaceEntWithLoc{
-    
-}
-
--(void)testStopTactileObjectMovement{
-    
-}
-
--(void)testMoveTactileObjectRight{
-    
-}
-
--(void)testMoveTactileObjectLeft{
-    
-}
-
--(void)testImpulseEntityRight{
-    
-}
-
--(void)testImpulseEntityLeft{
-    
-}
-
--(void)testJumpEntity{
-    
-}
-
--(void)testSetFlying {
-    
-}
 
 - (void)setUp {
     [super setUp];
@@ -102,9 +27,55 @@
     [super tearDown];
 }
 
-- (void)testExample {
-    // This is an example of a functional test case.
-    XCTAssert(YES, @"Pass");
+-(void)testPlayer {
+    GameModel *player = [[GameModel alloc] initWithPlayer];
+}
+
+-(void)testGroundNode {
+
+}
+
+-(void)testTiltSensitivity {
+    GameModel *tiltsensitivity = [[GameModel alloc] init];
+    float test_sensitivity = 0.08;
+    
+    XCTAssertEqual(tiltsensitivity, test_sensitivity);
+}
+
+-(void)testEnemies {
+    GameModel *enemies = [[GameModel alloc] init];
+}
+
+-(void)testObstacles {
+    GameModel *obstacles = [[GameModel alloc] init];
+}
+
+-(void)testLives {
+    GameModel *lives = [[GameModel alloc] init];
+}
+
+-(void)testScore {
+    GameModel *score = [[GameModel alloc] init];
+}
+
+-(void)testDifficultyScore {
+    GameModel *difficultyscore = [[GameModel alloc] init];
+}
+
+-(void)testDifficultyThreshold {
+    GameModel *difficultythresold = [[GameModel alloc] init];
+}
+
+-(void)testCurrentDifficulty {
+    GameModel *currentdifficulty = [[GameModel alloc] init];
+}
+
+-(void)testGroundSpeed {
+    GameModel *groundspeed = [[GameModel alloc] init];
+}
+
+-(void)testGroundTexture {
+    GameModel *groundTexture = [[GameModel alloc] init];
 }
 
 - (void)testPerformanceExample {
