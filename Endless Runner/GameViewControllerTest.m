@@ -10,20 +10,11 @@
 #import <XCTest/XCTest.h>
 #import "GameViewController.h"
 
-@interface GameViewControllerTest : XCTestCase {
-    
-    bool tiltbool;
-    SKTexture* bgtexture;
-    SKTexture* groundtexture;
-    NSMutableArray* costumearray;
-    bool closing;
-    bool gamestarted;
-    bool startedbytilt;
-    double yRotation;
-    float updatespeed;
-    NSTimer* updatetimer;
-    NSMutableArray *spawnedobjects;
-}
+@interface GameViewControllerTest : XCTestCase
+
+@property(nonatomic, strong) GameViewController *view;
+@property(nonatomic, strong) GameModel *model;
+@property(nonatomic, strong) Player *player;
 
 @end
 
@@ -32,61 +23,142 @@
 - (void)setUp {
     [super setUp];
     // Put setup code here. This method is called before the invocation of each test method in the class.
+    self.view = [[GameViewController alloc]init];
 }
 
-- (void)testTiltBool {
-    XCTAssertFalse(tiltbool);
+-(void)testInitialiseGameScene{
+    
+}
+
+-(void)testInitialiseModel {
+    
+    self.view.model = [[GameModel alloc] initWithPlayer];
+    XCTAssertNotNil(self.view.model);
+}
+
+-(void)testPlacePlayer {
+
+}
+
+- (void)testCheckTiltBool {
+    [self.view setTiltbool:false];
+    XCTAssertFalse(self.view.tiltbool);
+    [self.view setTiltbool:true];
+    XCTAssertTrue(self.view.tiltbool);
+}
+
+- (void)testAccelerometer {
+    [self.view setTiltbool:true];
+    if (self.view.tiltbool == true) {
+        [self.view instantiateAccelerometer];
+        self.view.motionManager = [[CMMotionManager alloc]init];
+    }
+    XCTAssertNotNil(self.view.motionManager);
 }
 
 - (void)testBgTexture {
-    
+    XCTAssertNil(self.view.bgtexture);
 }
 
 - (void)testGroundTexture {
-    
+    XCTAssertNil(self.view.groundtexture);
 }
 
 - (void)testCostumeArray {
-    costumearray = [[NSMutableArray alloc] init];
-    XCTAssertNotNil(costumearray);
+    self.view.costumearray = [[NSMutableArray alloc] init];
+    [self.model.player setCostumearray:self.view.costumearray];
+    XCTAssertNotNil(self.view.costumearray);
 }
 
 - (void)testClosing {
-    XCTAssertFalse(closing);
+    XCTAssertFalse(self.view.closing);
 }
 
-- (void)testGameStarted {
-    XCTAssertFalse(gamestarted);
-}
-
+//Game doesn't start until Player starts navigation
 - (void)testStartedByTilt {
-    XCTAssertFalse(startedbytilt);
+    XCTAssertFalse(self.view.startedbytilt);
+    self.view.startedbytilt = true;
+    if (self.view.startedbytilt == true) {
+        [self.view startGame];
+    }
+    XCTAssertTrue(self.view.gamestarted);
 }
 
-- (void)testYRotation {
-    
+- (void)testStartedByButtonLeft {
+    XCTAssertFalse(self.view.gamestarted);
+    [self.view holdLeft];
+    XCTAssertTrue(self.view.gamestarted);
 }
 
-- (void)testUpdateSpeed {
-    
-}
-
-- (void)testUpdateTimer {
-    
+- (void)testStartedByButtonRight {
+    XCTAssertFalse(self.view.gamestarted);
+    [self.view holdRight];
+    XCTAssertTrue(self.view.gamestarted);
 }
 
 - (void)testSpawnedObjects {
-    spawnedobjects = [[NSMutableArray alloc] init];
-    XCTAssertNotNil(spawnedobjects);
+    self.view.spawnedobjects = [[NSMutableArray alloc] init];
+    XCTAssertNotNil(self.view.spawnedobjects);
 }
 
-//>>>>>>>>>>>>>>>>>>>>GESTURE RECOGNIZERS<<<<<<<<<<<<<<<<<<<<
-
-//>>>>>>>>>>>>>>>>>>>>TILT SENSOR<<<<<<<<<<<<<<<<<<<<
 
 //>>>>>>>>>>>>>>>>>>>>LOCATION MANAGER<<<<<<<<<<<<<<<<<<<<
 
+//test Location Manager initialisation
+- (void)testLocationManager {
+    self.view.locationManager = [[CLLocationManager alloc]init];
+    XCTAssertNotNil(self.view.locationManager);
+}
+
+- (void)testCheckLocation {
+
+}
+
 //>>>>>>>>>>>>>>>>>>>>TEXTURE ATLASES<<<<<<<<<<<<<<<<<<<<
+
+-(void)testPreloadAtlas{
+    self.view.foxAtlas = [SKTextureAtlas atlasNamed:@"fox"];
+    [SKTextureAtlas preloadTextureAtlases:[NSArray arrayWithObject:self.view.foxAtlas] withCompletionHandler:^{
+        bool fox = true;
+        XCTAssertTrue(fox);
+    }];
+    
+    self.view.bushAtlas = [SKTextureAtlas atlasNamed:@"fox"];
+    [SKTextureAtlas preloadTextureAtlases:[NSArray arrayWithObject:self.view.bushAtlas] withCompletionHandler:^{
+        bool bush = true;
+        XCTAssertTrue(bush);
+    }];
+    
+    self.view.beehiveAtlas = [SKTextureAtlas atlasNamed:@"fox"];
+    [SKTextureAtlas preloadTextureAtlases:[NSArray arrayWithObject:self.view.beehiveAtlas] withCompletionHandler:^{
+        bool beehive = true;
+        XCTAssertTrue(beehive);
+    }];
+    
+    self.view.birdAtlas = [SKTextureAtlas atlasNamed:@"fox"];
+    [SKTextureAtlas preloadTextureAtlases:[NSArray arrayWithObject:self.view.birdAtlas] withCompletionHandler:^{
+        bool bird = true;
+        XCTAssertTrue(bird);
+    }];
+    
+    self.view.bogAtlas = [SKTextureAtlas atlasNamed:@"fox"];
+    [SKTextureAtlas preloadTextureAtlases:[NSArray arrayWithObject:self.view.bogAtlas] withCompletionHandler:^{
+        bool bog = true;
+        XCTAssertTrue(bog);
+    }];
+    
+    self.view.mushroomAtlas = [SKTextureAtlas atlasNamed:@"fox"];
+    [SKTextureAtlas preloadTextureAtlases:[NSArray arrayWithObject:self.view.mushroomAtlas] withCompletionHandler:^{
+        bool mushroom = true;
+        XCTAssertTrue(mushroom);
+    }];
+    
+    self.view.wolfAtlas = [SKTextureAtlas atlasNamed:@"fox"];
+    [SKTextureAtlas preloadTextureAtlases:[NSArray arrayWithObject:self.view.wolfAtlas] withCompletionHandler:^{
+        bool wolf = true;
+        XCTAssertTrue(wolf);
+    }];
+}
 
 - (void)tearDown {
     // Put teardown code here. This method is called after the invocation of each test method in the class.
@@ -97,6 +169,7 @@
     // This is an example of a performance test case.
     [self measureBlock:^{
         // Put the code you want to measure the time of here.
+        [self testPreloadAtlas];
     }];
 }
 

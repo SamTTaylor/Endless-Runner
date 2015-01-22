@@ -72,6 +72,11 @@
 @property SKTextureAtlas *mushroomAtlas;
 @property SKTextureAtlas *wolfAtlas;
 
-- (void) quitSelf;
+- (void)quitSelf;
+- (void)startGame;
+- (void)holdLeft;
+- (void)holdRight;
+- (void)setGameBackground;
+- (void)instantiateAccelerometer;
 
 @end
