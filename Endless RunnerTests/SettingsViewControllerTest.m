@@ -10,7 +10,15 @@
 #import <XCTest/XCTest.h>
 #import "SettingsViewController.h"
 
-@interface SettingsViewControllerTest : XCTestCase
+@interface SettingsViewControllerTest : XCTestCase {
+    
+    bool tiltbool;
+    NSString *bgimagestring;
+    NSString *avatarimagestring;
+    NSMutableArray *backgroundarray;
+    NSMutableArray *costumearray;
+    
+}
 
 @end
 
@@ -21,21 +29,16 @@
     // Put setup code here. This method is called before the invocation of each test method in the class.
 }
 
-- (void)tearDown {
-    // Put teardown code here. This method is called after the invocation of each test method in the class.
-    [super tearDown];
-}
-
 - (void)testTiltBool {
-
+    XCTAssertTrue(tiltbool);
 }
 
 - (void)testBgImageString {
-    
+    XCTAssertEqual(bgimagestring, @"background");
 }
 
 - (void)testAvatarImageString {
-    
+     XCTAssertEqual(avatarimagestring, @"avatar.gif");
 }
 
 - (void)testBackgroundArray {
@@ -44,6 +47,11 @@
 
 - (void)testGroundArray {
     
+}
+
+- (void)tearDown {
+    // Put teardown code here. This method is called after the invocation of each test method in the class.
+    [super tearDown];
 }
 
 - (void)testPerformanceExample {

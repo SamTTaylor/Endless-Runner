@@ -10,7 +10,20 @@
 #import <XCTest/XCTest.h>
 #import "GameViewController.h"
 
-@interface GameViewControllerTest : XCTestCase
+@interface GameViewControllerTest : XCTestCase {
+    
+    bool tiltbool;
+    SKTexture* bgtexture;
+    SKTexture* groundtexture;
+    NSMutableArray* costumearray;
+    bool closing;
+    bool gamestarted;
+    bool startedbytilt;
+    double yRotation;
+    float updatespeed;
+    NSTimer* updatetimer;
+    NSMutableArray *spawnedobjects;
+}
 
 @end
 
@@ -21,13 +34,8 @@
     // Put setup code here. This method is called before the invocation of each test method in the class.
 }
 
-- (void)tearDown {
-    // Put teardown code here. This method is called after the invocation of each test method in the class.
-    [super tearDown];
-}
-
 - (void)testTiltBool {
-    GameViewController *tiltbool = [[GameModel alloc]init];
+    XCTAssertFalse(tiltbool);
 }
 
 - (void)testBgTexture {
@@ -39,7 +47,8 @@
 }
 
 - (void)testCostumeArray {
-    
+    costumearray = [[NSMutableArray alloc] init];
+    XCTAssertNil(costumearray);
 }
 
 - (void)testClosing {
@@ -67,7 +76,8 @@
 }
 
 - (void)testSpawnedObjects {
-    
+    spawnedobjects = [[NSMutableArray alloc] init];
+    XCTAssertNotNil(spawnedobjects);
 }
 
 //>>>>>>>>>>>>>>>>>>>>GESTURE RECOGNIZERS<<<<<<<<<<<<<<<<<<<<
@@ -77,6 +87,11 @@
 //>>>>>>>>>>>>>>>>>>>>LOCATION MANAGER<<<<<<<<<<<<<<<<<<<<
 
 //>>>>>>>>>>>>>>>>>>>>TEXTURE ATLASES<<<<<<<<<<<<<<<<<<<<
+
+- (void)tearDown {
+    // Put teardown code here. This method is called after the invocation of each test method in the class.
+    [super tearDown];
+}
 
 - (void)testPerformanceExample {
     // This is an example of a performance test case.

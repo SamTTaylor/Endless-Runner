@@ -10,7 +10,11 @@
 #import <XCTest/XCTest.h>
 #import "TactileObject.h"
 
-@interface TactileObjectTest : XCTestCase
+@interface TactileObjectTest : XCTestCase {
+    
+    int difficultylevel;
+    SKLightNode *light;
+}
 
 @end
 
@@ -21,17 +25,17 @@
     // Put setup code here. This method is called before the invocation of each test method in the class.
 }
 
-- (void)tearDown {
-    // Put teardown code here. This method is called after the invocation of each test method in the class.
-    [super tearDown];
-}
-
 -(void)testDifficultyLevel{
     
 }
 
 -(void)testLight{
     
+}
+
+- (void)tearDown {
+    // Put teardown code here. This method is called after the invocation of each test method in the class.
+    [super tearDown];
 }
 
 - (void)testPerformanceExample {

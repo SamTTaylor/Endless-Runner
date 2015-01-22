@@ -10,7 +10,14 @@
 #import <XCTest/XCTest.h>
 #import "GameModel.h"
 
-@interface GameModelTest : XCTestCase
+@interface GameModelTest : XCTestCase {
+    
+    GameModel *model;
+    Player *player;
+    NSMutableArray *enemies;
+    NSMutableArray *obstacles;
+    NSMutableArray *lives;
+}
 
 @end
 
@@ -22,60 +29,59 @@
     // Put setup code here. This method is called before the invocation of each test method in the class.
 }
 
-- (void)tearDown {
-    // Put teardown code here. This method is called after the invocation of each test method in the class.
-    [super tearDown];
-}
-
 -(void)testPlayer {
-    GameModel *player = [[GameModel alloc] initWithPlayer];
+    player = [[Player alloc] init];
+    XCTAssertNotNil(player);
 }
 
 -(void)testGroundNode {
 
 }
 
--(void)testTiltSensitivity {
-    GameModel *tiltsensitivity = [[GameModel alloc] init];
-    float test_sensitivity = 0.08;
+
+-(void)testEnemiesArray {
+    enemies = [[NSMutableArray alloc] init];
+    XCTAssertNotNil(enemies);
+};
+
+-(void)testObstaclesArray {
+    obstacles = [[NSMutableArray alloc] init];
+    XCTAssertNotNil(obstacles);
     
-    XCTAssertEqual(tiltsensitivity, test_sensitivity);
-}
-
--(void)testEnemies {
-    GameModel *enemies = [[GameModel alloc] init];
-}
-
--(void)testObstacles {
-    GameModel *obstacles = [[GameModel alloc] init];
 }
 
 -(void)testLives {
-    GameModel *lives = [[GameModel alloc] init];
+    lives = [[NSMutableArray alloc] init];
+    XCTAssertNotNil(lives);
 }
 
 -(void)testScore {
-    GameModel *score = [[GameModel alloc] init];
+
 }
 
 -(void)testDifficultyScore {
-    GameModel *difficultyscore = [[GameModel alloc] init];
+
 }
 
 -(void)testDifficultyThreshold {
-    GameModel *difficultythresold = [[GameModel alloc] init];
+
 }
 
 -(void)testCurrentDifficulty {
-    GameModel *currentdifficulty = [[GameModel alloc] init];
+
 }
 
 -(void)testGroundSpeed {
-    GameModel *groundspeed = [[GameModel alloc] init];
+
 }
 
 -(void)testGroundTexture {
-    GameModel *groundTexture = [[GameModel alloc] init];
+
+}
+
+- (void)tearDown {
+    // Put teardown code here. This method is called after the invocation of each test method in the class.
+    [super tearDown];
 }
 
 - (void)testPerformanceExample {

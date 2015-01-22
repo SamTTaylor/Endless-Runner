@@ -41,10 +41,10 @@
 
 @property SKTexture *groundtexture; //Used to move nodes across the screen the correct distance
 
-
-
 ////>>>>>>>>>>>>>>>>>>>>METHODS<<<<<<<<<<<<<<<<<<<<
 - (id)initWithPlayer;//Model should always be created with a Player node
+
+-(void)populateEnemyArray;
 
 
 - (void)saveAchievement:(NSString*)achievement;//Unlocks content from the User Defaults
