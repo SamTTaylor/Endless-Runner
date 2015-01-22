@@ -16,7 +16,7 @@
 
 
 
-@interface GameViewController : UIViewController <SKPhysicsContactDelegate, UIGestureRecognizerDelegate, CLLocationManagerDelegate>
+@interface GameViewController : UIViewController <SKPhysicsContactDelegate, UIGestureRecognizerDelegate>
 //>>>>>>>>>>>>>>>>>>>>UI ELEMENTS<<<<<<<<<<<<<<<<<<<<
 @property (weak) IBOutlet UIButton *left;
 @property (weak) IBOutlet UIButton *right;
@@ -58,10 +58,6 @@
 @property (strong) CMMotionManager *motionManager;
 @property (copy) CMAccelerometerHandler accelerometerHandler;
 
-//>>>>>>>>>>>>>>>>>>>>LOCATION MANAGER<<<<<<<<<<<<<<<<<<<<
-@property (strong) CLLocationManager *locationManager;
-@property CLLocation *location;
-@property NSString *Country;
 
 //>>>>>>>>>>>>>>>>>>>>TEXTURE ATLASES<<<<<<<<<<<<<<<<<<<<
 @property SKTextureAtlas *foxAtlas;
