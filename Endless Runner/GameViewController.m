@@ -510,6 +510,7 @@ NSTimer *updatetimer;
 - (void) quitSelf{
     [self.updatetimer invalidate];
     self.motionManager = nil;
+    self.accelerometerHandler = nil;
     self.swipeRecognizer = nil;
     self.doubleTapRecognizer = nil;
     self.closing = true;

@@ -56,7 +56,7 @@
 
 //>>>>>>>>>>>>>>>>>>>>TILT SENSOR<<<<<<<<<<<<<<<<<<<<
 @property (strong) CMMotionManager *motionManager;
-@property (copy) CMAccelerometerHandler accelerometerHandler;
+@property (strong) CMAccelerometerHandler accelerometerHandler;
 
 
 //>>>>>>>>>>>>>>>>>>>>TEXTURE ATLASES<<<<<<<<<<<<<<<<<<<<
