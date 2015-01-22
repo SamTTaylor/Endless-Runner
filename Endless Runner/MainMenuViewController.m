@@ -215,7 +215,8 @@
          {
              NSLog(@"Geocode failed with error %@", error);
              NSLog(@"\nCurrent Location Not Detected\n");
-         }}];
+         }
+     }];
 }
 
 
