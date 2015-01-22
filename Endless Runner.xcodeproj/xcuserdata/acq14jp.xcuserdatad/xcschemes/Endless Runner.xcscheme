@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "687516071A24F92600748410"
-               BuildableName = "Endless Runner.app"
+               BuildableName = "Run, Lenny, Run!.app"
                BlueprintName = "Endless Runner"
                ReferencedContainer = "container:Endless Runner.xcodeproj">
             </BuildableReference>
@@ -57,7 +57,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "687516071A24F92600748410"
-            BuildableName = "Endless Runner.app"
+            BuildableName = "Run, Lenny, Run!.app"
             BlueprintName = "Endless Runner"
             ReferencedContainer = "container:Endless Runner.xcodeproj">
          </BuildableReference>
@@ -76,7 +76,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "687516071A24F92600748410"
-            BuildableName = "Endless Runner.app"
+            BuildableName = "Run, Lenny, Run!.app"
             BlueprintName = "Endless Runner"
             ReferencedContainer = "container:Endless Runner.xcodeproj">
          </BuildableReference>
@@ -94,7 +94,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "687516071A24F92600748410"
-            BuildableName = "Endless Runner.app"
+            BuildableName = "Run, Lenny, Run!.app"
             BlueprintName = "Endless Runner"
             ReferencedContainer = "container:Endless Runner.xcodeproj">
          </BuildableReference>
