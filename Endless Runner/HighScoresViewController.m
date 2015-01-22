@@ -1,6 +1,6 @@
 //
 //  HighScoreViewController.m
-//  Wiggly Wormhole
+//  Endless Runner
 //
 //  Created by acp14stt on 05/11/2014.
 //  Copyright (c) 2014 sheffield. All rights reserved.
