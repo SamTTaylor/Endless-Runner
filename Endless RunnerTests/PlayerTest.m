@@ -68,7 +68,7 @@
 }
 
 - (void)testAnimated{
-     XCTAssertTrue(animated);
+     XCTAssertFalse(animated);
 }
 
 - (void)testGotFollower{
