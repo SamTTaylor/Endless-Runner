@@ -157,7 +157,7 @@
 //Sets all the necessary values for initialisation and consistency in backgrounds between views
 -(void)loadAvatarandBG{
     //If currently selected BG's index is not in the array
-    if (self.bgimageindex > self.backgroundarray.count || self.bgimageindex <= 0) {
+    if (self.bgimageindex > self.backgroundarray.count-1 || self.bgimageindex <= 0) {
         //set to default
         self.bgimage = [UIImage imageNamed:@"background"];
         self.bgtexture = [SKTexture textureWithImageNamed:@"background"];
