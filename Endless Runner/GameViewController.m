@@ -548,13 +548,14 @@ NSTimer *updatetimer;
         UITextField *playername = [youdied textFieldAtIndex:0];
         if ([playername.text isEqual:@""]) { playername.text=@"Lenny";}
         [self saveScoreWithName:playername.text Score:[self.model score] Facebook:false];
+        youdied = nil;
         [self quitSelf];
     } else if (buttonIndex == 1){
         UITextField *playername = [youdied textFieldAtIndex:0];
+        youdied = nil;
         [self saveScoreWithName:playername.text Score:[self.model score] Facebook:true];
     
     }
-    
 }
 
 
