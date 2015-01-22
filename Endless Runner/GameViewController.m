@@ -766,6 +766,7 @@ NSTimer *updatetimer;
     [self updateLifeIcons];
     [self dressPlayer];
     [self.model.player jumpcheckTimerFire];//Makes sure player's jump count is reset in the pit
+    [self.model.player setInbog:false];
 }
 
 
