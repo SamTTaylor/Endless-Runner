@@ -10,19 +10,10 @@
 #import <XCTest/XCTest.h>
 #import "GameModel.h"
 
-@interface GameModelTest : XCTestCase {
-    
-    Player *player;
-    float tiltsensitivity;
-    NSMutableArray *enemies;
-    NSMutableArray *obstacles;
-    NSMutableArray *lives;
-    int score;
-    int difficultyscore;
-    int difficultythreshold;
-    int currentdifficulty;
-    int groundspeed;
-}
+@interface GameModelTest : XCTestCase
+
+@property(nonatomic, strong) GameModel *model;
+@property(nonatomic, strong) LivingEntity *lent;
 
 @end
 
@@ -32,59 +23,81 @@
 - (void)setUp {
     [super setUp];
     // Put setup code here. This method is called before the invocation of each test method in the class.
+    self.model = [[GameModel alloc]init];
 }
 
+//Initiate Player With Texture
 -(void)testPlayer {
-    player = [[Player alloc] init];
-    XCTAssertNotNil(player);
+    self.model.player = [[Player alloc] initWithTexture:self.lent.nodetexture];
+    XCTAssertNotNil(self.model.player);
 }
 
--(void)testTiltSensitivity {
-    XCTAssertEqual(tiltsensitivity, 0.0);
-}
-
--(void)testGroundNode {
-
-}
-
-
+//Initiate Enemies Array and populate with Enemies
 -(void)testEnemiesArray {
-    enemies = [[NSMutableArray alloc] init];
-    XCTAssertNotNil(enemies);
-};
-
--(void)testObstaclesArray {
-    obstacles = [[NSMutableArray alloc] init];
-    XCTAssertNotNil(obstacles);
+    self.model.enemies = [[NSMutableArray alloc] init];
+    XCTAssertNotNil(self.model.enemies);
+    [self.model populateEnemyArray];
+    XCTAssertEqual(self.model.enemies.count, 5);
 }
 
+//Initiate Obstacle Array and populate with Obstacles
+-(void)testObstacleArray {
+    self.model.obstacles = [[NSMutableArray alloc] init];
+    XCTAssertNotNil(self.model.obstacles);
+    [self.model populateObstacleArray];
+    XCTAssertEqual(self.model.obstacles.count, 5);
+}
+
+//Initiate Lives Array and Test adding and removing lives
 -(void)testLives {
-    lives = [[NSMutableArray alloc] init];
-    XCTAssertNotNil(lives);
+    self.model.lives = [[NSMutableArray alloc] init];
+    XCTAssertNotNil(self.model.lives);
+    [self.model addLife];
+    [self.model addLife];
+    [self.model addLife];
+    [self.model removeLife];
+    XCTAssertEqual(self.model.lives.count, 2);
 }
 
+//Score is 0 at the start of the game
 -(void)testScore {
-    XCTAssertEqual(score, 0);
+    XCTAssertEqual(self.model.score, 0);
+    //score can be set to any value
+    [self.model setScore:5];
+    XCTAssertEqual(self.model.score, 5);
+    //score can be incremented by any value
+    [self.model incrementScore:1];
+    XCTAssertEqual(self.model.score, 6);
 }
 
+//Difficulty Score is used to increment the difficulty based on the score
 -(void)testDifficultyScore {
-    XCTAssertEqual(difficultyscore, 0);
+    XCTAssertEqual(self.model.difficultyscore, 0);
+    //can be incremented by any value
+    [self.model incrementDifficultyScore:1];
+    XCTAssertEqual(self.model.difficultyscore, 1);
 }
 
+//past the difficutly threshold the difficulty will be incremented
 -(void)testDifficultyThreshold {
-    XCTAssertEqual(difficultythreshold, 0);
+    XCTAssertEqual(self.model.difficultythreshold, 0);
+    [self.model setDifficultythreshold:30];
+    XCTAssertEqual(self.model.difficultythreshold, 30);
 }
 
+//Current difficulty starts at 0
 -(void)testCurrentDifficulty {
-    XCTAssertEqual(currentdifficulty, 0);
+    XCTAssertEqual(self.model.currentdifficulty, 0);
+    //can be set to any value
+    [self.model setCurrentdifficulty:1];
+    XCTAssertEqual(self.model.currentdifficulty, 1);
 }
 
+//Ground Speed 0 at the start
 -(void)testGroundSpeed {
-    XCTAssertEqual(groundspeed, 0);
-}
-
--(void)testGroundTexture {
-
+    //can be set to any given value
+    [self.model setGroundspeed:20];
+    XCTAssertEqual(self.model.groundspeed, 20);
 }
 
 - (void)tearDown {
