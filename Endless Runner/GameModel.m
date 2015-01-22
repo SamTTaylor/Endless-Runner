@@ -19,12 +19,12 @@
         [self populateEnemyArray];
         [self populateObstacleArray];
         [self populateLivesArray];
-        [self setCurrentdifficulty:1];
+        [self setCurrentdifficulty:1];//Set any starting difficulty levle here
         [self setDifficultyscore:0];
-        [self setDifficultythreshold:30];
-        [self setScore:0];
-        [self setGroundspeed:20];
-        [self setTiltsensitivity:0.08];
+        [self setDifficultythreshold:30];//Set length of levels here
+        [self setScore:0];//Starting score
+        [self setGroundspeed:20];//Inversely proportional speed
+        [self setTiltsensitivity:0.08];//How far you have to tilt before movement
         [self.player animateSelf];
     }
     return self;
