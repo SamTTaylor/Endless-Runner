@@ -515,9 +515,8 @@ NSTimer *updatetimer;
     self.doubleTapRecognizer = nil;
     self.closing = true;
     self.model = nil;
-    self.gamescene = nil;
-    self.challengescene = nil;
-    [(SKView*)self.view presentScene:nil];
+    [self.gamescene removeAllChildren];
+    [self.challengescene removeAllChildren];
     [[self presentingViewController] dismissViewControllerAnimated:YES completion:nil];
 }
 
@@ -755,7 +754,6 @@ NSTimer *updatetimer;
     [skView presentScene:self.challengescene transition:[SKTransition fadeWithColor:[UIColor blackColor] duration:1]];
     //Used to remove any mid-animation nodes from the gamescene and free up memory
     [self.gamescene removeAllChildren];
-    self.gamescene = nil;
     [self placePlayer:1];//Place player in position relevant to the pit scene
     [self moveButterfly:false];//Move the butterfly to the new scene to maintain the node
     [self.model.player stopAnimation];//Player is no longer running so needs to stop to take a rest
@@ -819,7 +817,6 @@ NSTimer *updatetimer;
             [self.gamescene addChild:self.model.player.currentbutterfly];
         }
     }
-
 }
 
 

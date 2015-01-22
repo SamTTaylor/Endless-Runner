@@ -46,7 +46,6 @@
 
 //Makes sure that the main menu scrolling background is recreated when the view is reached by backing through the navigation controller
 - (void) viewDidAppear:(BOOL)animated{
-    self.groundtexture = [SKTexture textureWithImageNamed:@"ground"];
     [self saveDefaults];
     [self loadDefaults];
     [self loadAvatarandBG];
@@ -81,8 +80,7 @@
 
 //Sends the relevant settings information to the other view controller when a segue occurs
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    self.menuscene = nil;
-    [(SKView*)self.view presentScene:nil];
+    [self.menuscene removeAllChildren];
     if ([[segue identifier]isEqualToString:@"segueToSettings"]) {
         self.svc = [segue destinationViewController];
         [self.svc setTiltbool:self.tiltbool];
@@ -124,9 +122,9 @@
     //Pulls a blank scene from the file
     self.menuscene = [GameScene unarchiveFromFile:@"MenuScene"];
     self.menuscene.scaleMode = SKSceneScaleModeAspectFill;
-    [self setMenuBackground];
     // Present the scene.
     [skView presentScene:self.menuscene];
+    [self setMenuBackground];
 }
 
 
@@ -159,8 +157,8 @@
     //If currently selected BG's index is not in the array
     if (self.bgimageindex > self.backgroundarray.count-1 || self.bgimageindex <= 0) {
         //set to default
-        self.bgimage = [UIImage imageNamed:@"background"];
-        self.bgtexture = [SKTexture textureWithImageNamed:@"background"];
+        self.bgimage = self.backgroundarray[0];
+        self.bgtexture = [SKTexture textureWithImage:self.backgroundarray[0]];
     } else {//if it is
         //set necessary values to the value represented by the index
         self.bgimage = self.backgroundarray[self.bgimageindex];
