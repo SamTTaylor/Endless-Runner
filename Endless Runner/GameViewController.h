@@ -79,6 +79,7 @@
 
 - (void)quitSelf;
 - (void)startGame;
+- (void)preloadAtlas;
 - (void)holdLeft;
 - (void)holdRight;
 - (void)setGameBackground;

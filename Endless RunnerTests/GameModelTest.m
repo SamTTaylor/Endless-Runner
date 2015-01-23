@@ -31,6 +31,8 @@
 
 }
 
+//>>>>>>>>>>>>>>>>>>>>TEST PLAYER, ENEMIES, OBSTACLES <<<<<<<<<<<<<<<<<<<<
+
 //Initiate Player With Texture
 -(void)testPlayer {
     self.model.player = [[Player alloc] initWithTexture:self.lent.nodetexture];
@@ -59,6 +61,8 @@
     [self.model populateObstacleArray];
     XCTAssertEqual(self.model.obstacles.count, 5);
 }
+
+//>>>>>>>>>>>>>>>>>>>>TEST LIVES, SCORE, DIFFICULTY<<<<<<<<<<<<<<<<<<<<
 
 //Initiate Lives Array and Test adding and removing lives
 -(void)testLives {
@@ -112,6 +116,8 @@
     [self.model setGroundspeed:20];
     XCTAssertEqual(self.model.groundspeed, 20);
 }
+
+//>>>>>>>>>>>>>>>>>>>>TEST UNLOCKABLES<<<<<<<<<<<<<<<<<<<<
 
 -(void)saveAchievementBasedOnLocation {
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
@@ -171,6 +177,8 @@
     // This is an example of a performance test case.
     [self measureBlock:^{
         // Put the code you want to measure the time of here.
+        [self.model populateEnemyArray];
+        [self.model populateObstacleArray];
     }];
 }
 

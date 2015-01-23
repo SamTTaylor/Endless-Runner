@@ -37,6 +37,7 @@
 
 //>>>>>>>>>>>>>>>>>>>>GAME SCENE<<<<<<<<<<<<<<<<<<<<
 
+//place Player on Game Scene
 -(void)testPlacePlayerGameScene {
     int scene = 0;
     bool gamescene = TRUE;
@@ -51,6 +52,7 @@
     XCTAssertTrue(gamescene);
 }
 
+//place Player on Challenge Scene
 -(void)testPlacePlayerChallengeScene {
     int scene = 1;
     bool gamescene = TRUE;
@@ -192,7 +194,8 @@
     // This is an example of a performance test case.
     [self measureBlock:^{
         // Put the code you want to measure the time of here.
-        [self testPreloadAtlas];
+        [self.view preloadAtlas];
+        [self.view instantiateAccelerometer];
     }];
 }
 
