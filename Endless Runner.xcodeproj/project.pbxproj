@@ -98,6 +98,10 @@
 		BD1D86C41A729ABA00A8CD09 /* HighScoresViewControllerTest.m in Sources */ = {isa = PBXBuildFile; fileRef = BD1D86C31A729ABA00A8CD09 /* HighScoresViewControllerTest.m */; };
 		BD1D86C61A729AE500A8CD09 /* MainMenuViewControllerTest.m in Sources */ = {isa = PBXBuildFile; fileRef = BD1D86C51A729AE500A8CD09 /* MainMenuViewControllerTest.m */; };
 		BD1D86C81A729B4200A8CD09 /* SettingsViewControllerTest.m in Sources */ = {isa = PBXBuildFile; fileRef = BD1D86C71A729B4200A8CD09 /* SettingsViewControllerTest.m */; };
+		BD1D86CA1A729BBB00A8CD09 /* EntityTest.m in Sources */ = {isa = PBXBuildFile; fileRef = BD1D86C91A729BBB00A8CD09 /* EntityTest.m */; };
+		BD1D86CC1A729BC800A8CD09 /* LivingEntityTest.m in Sources */ = {isa = PBXBuildFile; fileRef = BD1D86CB1A729BC800A8CD09 /* LivingEntityTest.m */; };
+		BD1D86CE1A729BD400A8CD09 /* ToastViewTest.m in Sources */ = {isa = PBXBuildFile; fileRef = BD1D86CD1A729BD400A8CD09 /* ToastViewTest.m */; };
+		BD1D86D01A729BE100A8CD09 /* TactileObjectTest.m in Sources */ = {isa = PBXBuildFile; fileRef = BD1D86CF1A729BE100A8CD09 /* TactileObjectTest.m */; };
 		BD824D7F1A6FB79000A0AAC0 /* bird.atlas in Resources */ = {isa = PBXBuildFile; fileRef = BD824D7E1A6FB79000A0AAC0 /* bird.atlas */; };
 		BD824D811A6FB7A700A0AAC0 /* bog.atlas in Resources */ = {isa = PBXBuildFile; fileRef = BD824D801A6FB7A700A0AAC0 /* bog.atlas */; };
 		BD824D831A6FB7AE00A0AAC0 /* bush.atlas in Resources */ = {isa = PBXBuildFile; fileRef = BD824D821A6FB7AE00A0AAC0 /* bush.atlas */; };
@@ -247,6 +251,10 @@
 		BD1D86C31A729ABA00A8CD09 /* HighScoresViewControllerTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HighScoresViewControllerTest.m; sourceTree = "<group>"; };
 		BD1D86C51A729AE500A8CD09 /* MainMenuViewControllerTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainMenuViewControllerTest.m; sourceTree = "<group>"; };
 		BD1D86C71A729B4200A8CD09 /* SettingsViewControllerTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsViewControllerTest.m; sourceTree = "<group>"; };
+		BD1D86C91A729BBB00A8CD09 /* EntityTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EntityTest.m; sourceTree = "<group>"; };
+		BD1D86CB1A729BC800A8CD09 /* LivingEntityTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LivingEntityTest.m; sourceTree = "<group>"; };
+		BD1D86CD1A729BD400A8CD09 /* ToastViewTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ToastViewTest.m; sourceTree = "<group>"; };
+		BD1D86CF1A729BE100A8CD09 /* TactileObjectTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TactileObjectTest.m; sourceTree = "<group>"; };
 		BD824D7E1A6FB79000A0AAC0 /* bird.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = bird.atlas; sourceTree = "<group>"; };
 		BD824D801A6FB7A700A0AAC0 /* bog.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = bog.atlas; sourceTree = "<group>"; };
 		BD824D821A6FB7AE00A0AAC0 /* bush.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = bush.atlas; sourceTree = "<group>"; };
@@ -469,6 +477,10 @@
 				BD1D86C31A729ABA00A8CD09 /* HighScoresViewControllerTest.m */,
 				BD1D86C51A729AE500A8CD09 /* MainMenuViewControllerTest.m */,
 				BD1D86C71A729B4200A8CD09 /* SettingsViewControllerTest.m */,
+				BD1D86CB1A729BC800A8CD09 /* LivingEntityTest.m */,
+				BD1D86C91A729BBB00A8CD09 /* EntityTest.m */,
+				BD1D86CF1A729BE100A8CD09 /* TactileObjectTest.m */,
+				BD1D86CD1A729BD400A8CD09 /* ToastViewTest.m */,
 				6875162A1A24F92600748410 /* Supporting Files */,
 			);
 			path = "Endless RunnerTests";
@@ -746,10 +758,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				6875162D1A24F92600748410 /* Endless_RunnerTests.m in Sources */,
+				BD1D86D01A729BE100A8CD09 /* TactileObjectTest.m in Sources */,
 				BD1D86C01A7298B400A8CD09 /* GameModelTest.m in Sources */,
 				BD1D86C21A7299A200A8CD09 /* GameViewControllerTest.m in Sources */,
+				BD1D86CC1A729BC800A8CD09 /* LivingEntityTest.m in Sources */,
+				BD1D86CA1A729BBB00A8CD09 /* EntityTest.m in Sources */,
 				BD1D86C81A729B4200A8CD09 /* SettingsViewControllerTest.m in Sources */,
 				BD1D86C61A729AE500A8CD09 /* MainMenuViewControllerTest.m in Sources */,
+				BD1D86CE1A729BD400A8CD09 /* ToastViewTest.m in Sources */,
 				BD1D86C41A729ABA00A8CD09 /* HighScoresViewControllerTest.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
