@@ -32,6 +32,7 @@
     XCTAssertEqual(self.mmvc.backgroundarray.count, 3);
 }
 
+//>>>>>>>>>>>>>>>>>>>>TEST SUSER DEFAULTS<<<<<<<<<<<<<<<<<<<<
 -(void)testLoadDefaults {
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     self.mmvc.austria = [defaults boolForKey:@"austria"];

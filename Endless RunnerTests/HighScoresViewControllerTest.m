@@ -28,6 +28,7 @@
     self.app = (AppDelegate *)[[UIApplication sharedApplication] delegate];
 }
 
+//Add Dummy values to Highscore and check if they are saved onto the array
 -(void)testHighScoreArray {
     [self.view saveScoreWithName:@"Jennifer" Score:10000 Facebook:NO];
     XCTAssertNotNil(self.app.highscores);

@@ -24,6 +24,7 @@
     self.tact = [[TactileObject alloc] initWithTexture:self.tact.nodetexture];
 }
 
+//>>>>>>>>>>>>>>>>>>>>TEST MOVEMENT<<<<<<<<<<<<<<<<<<<<
 -(void)testMoveEntityRight {
     bool moveright;
     [self.tact moveEntityRight:10];

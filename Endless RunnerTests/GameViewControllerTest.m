@@ -81,7 +81,7 @@
     XCTAssertNotNil(self.view.costumearray);
 }
 
-//>>>>>>>>>>>>>>>>>>>>NAVIGATION<<<<<<<<<<<<<<<<<<<<
+//>>>>>>>>>>>>>>>>>>>>TEST NAVIGATION<<<<<<<<<<<<<<<<<<<<
 
 - (void)testCheckTiltBool {
     [self.view setTiltbool:false];
@@ -121,7 +121,7 @@
     XCTAssertTrue(self.view.gamestarted);
 }
 
-//>>>>>>>>>>>>>>>>>>>>FACEBOOK<<<<<<<<<<<<<<<<<<<<
+//>>>>>>>>>>>>>>>>>>>>TEST SHARE FACEBOOK<<<<<<<<<<<<<<<<<<<<
 
 - (void)ShareonFacebook {
     bool f = true;
@@ -131,7 +131,7 @@
     XCTAssertNotNil(self.view.screenshot);
 }
 
-//>>>>>>>>>>>>>>>>>>>>LOCATION MANAGER<<<<<<<<<<<<<<<<<<<<
+//>>>>>>>>>>>>>>>>>>>>TEST LOCATION MANAGER<<<<<<<<<<<<<<<<<<<<
 
 //test Location Manager initialisation
 - (void)testLocationManager {

@@ -25,6 +25,7 @@
 }
 
 
+//>>>>>>>>>>>>>>>>>>>>TEST CHANGE CONTROLS <<<<<<<<<<<<<<<<<<<<
 //If buttons are selected, set Tiltbool to false
 -(void)testTiltBoolZero {
     
@@ -35,6 +36,7 @@
     XCTAssertFalse(self.svc.tiltbool);
 }
 
+//>>>>>>>>>>>>>>>>>>>>TEST CHECK UNLOCKABLES<<<<<<<<<<<<<<<<<<<<
 //Inititate BackgroundArray and check if available
 - (void)testBackgroundArray {
     self.svc.backgroundarray = [[NSMutableArray alloc] init];
