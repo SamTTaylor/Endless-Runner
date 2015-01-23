@@ -58,7 +58,6 @@ NSTimer *updatetimer;
     }
     [self updateLifeIcons];//Shows the life icons held in the Model's array
     [self dressPlayer];
-    [self initialiseLocationManager];
     [self checkDate];
 }
 
@@ -197,7 +196,7 @@ NSTimer *updatetimer;
     //Prepare the Accelerometer
     self.motionManager = [[CMMotionManager alloc]init];
     if (self.motionManager.accelerometerAvailable) {
-        self.motionManager.accelerometerUpdateInterval = 0.01;
+        self.motionManager.accelerometerUpdateInterval = 0.02;
         [self.motionManager startAccelerometerUpdates];
         
         self.accelerometerHandler = ^(CMAccelerometerData *accData, NSError *error) {
@@ -511,11 +510,13 @@ NSTimer *updatetimer;
 - (void) quitSelf{
     [self.updatetimer invalidate];
     self.motionManager = nil;
+    self.accelerometerHandler = nil;
     self.swipeRecognizer = nil;
     self.doubleTapRecognizer = nil;
     self.closing = true;
     self.model = nil;
-    [(SKView*)self.view presentScene:nil];
+    [self.gamescene removeAllChildren];
+    [self.challengescene removeAllChildren];
     [[self presentingViewController] dismissViewControllerAnimated:YES completion:nil];
 }
 
@@ -545,15 +546,16 @@ NSTimer *updatetimer;
 -(void)alertView:(UIAlertView *)youdied clickedButtonAtIndex:(NSInteger)buttonIndex{
     if (buttonIndex == 0){
         UITextField *playername = [youdied textFieldAtIndex:0];
-        if ([playername.text isEqual:@""]) { playername.text=@"Unknown";}
+        if ([playername.text isEqual:@""]) { playername.text=@"Lenny";}
         [self saveScoreWithName:playername.text Score:[self.model score] Facebook:false];
+        youdied = nil;
         [self quitSelf];
     } else if (buttonIndex == 1){
         UITextField *playername = [youdied textFieldAtIndex:0];
+        youdied = nil;
         [self saveScoreWithName:playername.text Score:[self.model score] Facebook:true];
     
     }
-    
 }
 
 
@@ -668,7 +670,7 @@ NSTimer *updatetimer;
 
 
 //>>>>>>>>>>>>>>>>>>>>CONTACT HANDLING<<<<<<<<<<<<<<<<<<<<<<<
-//Checks every relevant combination of contact to the game and performs actions based on it, when contact occurs. If the player is dead (lives < 0), no contact is computed because the game is over.
+//Checks every relevant combination of contact to the game and performs actions based on it, when contact occurs. If the player is dead (lives < 0), no contact is computed because the game is over. Contact handling is in the GVC because it involves switching scenes
 - (void)didBeginContact:(SKPhysicsContact *)contact {
     if(self.model.player.lives > 0){//Dont compute contact if player is dead
         
@@ -753,7 +755,6 @@ NSTimer *updatetimer;
     [skView presentScene:self.challengescene transition:[SKTransition fadeWithColor:[UIColor blackColor] duration:1]];
     //Used to remove any mid-animation nodes from the gamescene and free up memory
     [self.gamescene removeAllChildren];
-    self.gamescene = nil;
     [self placePlayer:1];//Place player in position relevant to the pit scene
     [self moveButterfly:false];//Move the butterfly to the new scene to maintain the node
     [self.model.player stopAnimation];//Player is no longer running so needs to stop to take a rest
@@ -764,6 +765,7 @@ NSTimer *updatetimer;
     [self updateLifeIcons];
     [self dressPlayer];
     [self.model.player jumpcheckTimerFire];//Makes sure player's jump count is reset in the pit
+    [self.model.player setInbog:false];
 }
 
 
@@ -816,7 +818,6 @@ NSTimer *updatetimer;
             [self.gamescene addChild:self.model.player.currentbutterfly];
         }
     }
-
 }
 
 
@@ -878,62 +879,6 @@ NSTimer *updatetimer;
 
 
 
-
-//>>>>>>>>>>>>>>>>>>>>LOCATION HANDLING<<<<<<<<<<<<<<<<<<<<
--(void)initialiseLocationManager{
-    // create a location manager if we don't have one
-    if (self.locationManager==nil)
-        self.locationManager = [[CLLocationManager alloc]init];
-    // this object will act as the delegate
-    self.locationManager.delegate = self;
-    // set the desired accuracy of location estimates
-    self.locationManager.desiredAccuracy = kCLLocationAccuracyThreeKilometers;
-    // set the movement threshold for new events
-    self.locationManager.distanceFilter = kCLDistanceFilterNone;
-    //RequestPermission
-    if ([self.locationManager respondsToSelector:@selector(requestWhenInUseAuthorization)]) {
-        [self.locationManager requestWhenInUseAuthorization];
-    }
-    // start the service
-    [self.locationManager startUpdatingLocation];
-
-}
-
-//Receiving location updates
-- (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations
-{
-    self.location = [locations objectAtIndex:0];
-    [self.locationManager stopUpdatingLocation];
-    CLGeocoder *geocoder = [[CLGeocoder alloc] init] ;
-    [geocoder reverseGeocodeLocation:self.location completionHandler:^(NSArray *placemarks, NSError *error)
-     {
-         if (!(error))
-         {
-             CLPlacemark *placemark = [placemarks objectAtIndex:0];
-             self.Country = [[NSString alloc]initWithString:placemark.country];
-             [self.locationManager stopUpdatingLocation];
-             [self checkLocation];
-         }
-         else
-         {
-             NSLog(@"Geocode failed with error %@", error);
-             NSLog(@"\nCurrent Location Not Detected\n");
-         }}];
-}
-
-
-- (void)checkLocation{
-    //Checks player location and if they are in a designated country it unlocks content in the user defaults
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    if ([defaults boolForKey:@"england"] == false && [self.Country isEqualToString:@"United Kingdom"]) {
-        [ToastView createToast:self.view text:@"You have unlocked the England Background and Guard Hat!" duration:5.0];
-        [self.model saveAchievement:@"england"];//Player unlocks england background and guard hat for playing from england
-    }
-    if ([defaults boolForKey:@"austria"] == false && [self.Country isEqualToString:@"Austria"]) {
-        [ToastView createToast:self.view text:@"You have unlocked the Austria Background and Lederhosen!" duration:5.0];
-        [self.model saveAchievement:@"austria"];//Player unlocks austria background and lederhosen for playing from austria 
-    }
-}
 
 
 //>>>>>>>>>>>>>>>>>>>>UI ELEMENTS<<<<<<<<<<<<<<<<<<<<

@@ -16,7 +16,7 @@
 
 
 
-@interface GameViewController : UIViewController <SKPhysicsContactDelegate, UIGestureRecognizerDelegate, CLLocationManagerDelegate>
+@interface GameViewController : UIViewController <SKPhysicsContactDelegate, UIGestureRecognizerDelegate>
 //>>>>>>>>>>>>>>>>>>>>UI ELEMENTS<<<<<<<<<<<<<<<<<<<<
 @property (weak) IBOutlet UIButton *left;
 @property (weak) IBOutlet UIButton *right;
@@ -25,10 +25,10 @@
 
 
 //>>>>>>>>>>>>>>>>>>>>SCENES<<<<<<<<<<<<<<<<<<<<
-@property (weak) GameScene* gamescene;
-@property (weak) GameScene* challengescene;
+@property (strong) GameScene* gamescene;
+@property (strong) GameScene* challengescene;
 //(Model)
-@property GameModel* model;
+@property (strong) GameModel* model;
 
 //>>>>>>>>>>>>>>>>>>>>SETTINGS<<<<<<<<<<<<<<<<<<<<
 @property bool tiltbool;
@@ -57,12 +57,8 @@
 
 //>>>>>>>>>>>>>>>>>>>>TILT SENSOR<<<<<<<<<<<<<<<<<<<<
 @property (strong) CMMotionManager *motionManager;
-@property (copy) CMAccelerometerHandler accelerometerHandler;
+@property (strong) CMAccelerometerHandler accelerometerHandler;
 
-//>>>>>>>>>>>>>>>>>>>>LOCATION MANAGER<<<<<<<<<<<<<<<<<<<<
-@property (strong) CLLocationManager *locationManager;
-@property CLLocation *location;
-@property NSString *Country;
 
 //>>>>>>>>>>>>>>>>>>>>TEXTURE ATLASES<<<<<<<<<<<<<<<<<<<<
 @property SKTextureAtlas *foxAtlas;

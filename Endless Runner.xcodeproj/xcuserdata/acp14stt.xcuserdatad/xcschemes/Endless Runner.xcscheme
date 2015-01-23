@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "687516071A24F92600748410"
-               BuildableName = "Endless Runner.app"
+               BuildableName = "Run, Lenny, Run!.app"
                BlueprintName = "Endless Runner"
                ReferencedContainer = "container:Endless Runner.xcodeproj">
             </BuildableReference>
@@ -57,7 +57,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "687516071A24F92600748410"
-            BuildableName = "Endless Runner.app"
+            BuildableName = "Run, Lenny, Run!.app"
             BlueprintName = "Endless Runner"
             ReferencedContainer = "container:Endless Runner.xcodeproj">
          </BuildableReference>
@@ -76,7 +76,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "687516071A24F92600748410"
-            BuildableName = "Endless Runner.app"
+            BuildableName = "Run, Lenny, Run!.app"
             BlueprintName = "Endless Runner"
             ReferencedContainer = "container:Endless Runner.xcodeproj">
          </BuildableReference>
@@ -86,7 +86,7 @@
    </LaunchAction>
    <ProfileAction
       shouldUseLaunchSchemeArgsEnv = "YES"
-      savedToolIdentifier = ""
+      savedToolIdentifier = "/Applications/Xcode.app/Contents/Applications/Instruments.app/Contents/Resources/templates/Leaks.tracetemplate"
       useCustomWorkingDirectory = "NO"
       buildConfiguration = "Release"
       debugDocumentVersioning = "YES">
@@ -94,7 +94,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "687516071A24F92600748410"
-            BuildableName = "Endless Runner.app"
+            BuildableName = "Run, Lenny, Run!.app"
             BlueprintName = "Endless Runner"
             ReferencedContainer = "container:Endless Runner.xcodeproj">
          </BuildableReference>

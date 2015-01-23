@@ -190,7 +190,7 @@
 
 //Specific positioning on the player for each costume to make it look realistic
 -(CGPoint)assignCostumePosition{
-    int arrayposition = [self.costumearray indexOfObjectIdenticalTo:self.costume];
+    int arrayposition = (int)[self.costumearray indexOfObjectIdenticalTo:self.costume];
     if (arrayposition < self.costumearray.count){
         switch (arrayposition) {
             case 1://Guard hat
