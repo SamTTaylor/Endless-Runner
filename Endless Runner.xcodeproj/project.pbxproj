@@ -93,6 +93,7 @@
 		68F359AE1A6422050006E4B1 /* Spikes.m in Sources */ = {isa = PBXBuildFile; fileRef = 68F359AD1A6422050006E4B1 /* Spikes.m */; };
 		68F359B11A6422110006E4B1 /* Mushroom.m in Sources */ = {isa = PBXBuildFile; fileRef = 68F359B01A6422110006E4B1 /* Mushroom.m */; };
 		68F359B41A64221F0006E4B1 /* Bush.m in Sources */ = {isa = PBXBuildFile; fileRef = 68F359B31A64221F0006E4B1 /* Bush.m */; };
+		BD1D86C01A7298B400A8CD09 /* GameModelTest.m in Sources */ = {isa = PBXBuildFile; fileRef = BD1D86BF1A7298B400A8CD09 /* GameModelTest.m */; };
 		BD824D7F1A6FB79000A0AAC0 /* bird.atlas in Resources */ = {isa = PBXBuildFile; fileRef = BD824D7E1A6FB79000A0AAC0 /* bird.atlas */; };
 		BD824D811A6FB7A700A0AAC0 /* bog.atlas in Resources */ = {isa = PBXBuildFile; fileRef = BD824D801A6FB7A700A0AAC0 /* bog.atlas */; };
 		BD824D831A6FB7AE00A0AAC0 /* bush.atlas in Resources */ = {isa = PBXBuildFile; fileRef = BD824D821A6FB7AE00A0AAC0 /* bush.atlas */; };
@@ -110,6 +111,13 @@
 			proxyType = 1;
 			remoteGlobalIDString = 687516071A24F92600748410;
 			remoteInfo = "Endless Runner";
+		};
+		BD1D86BD1A7296ED00A8CD09 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 687516001A24F92600748410 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 687516251A24F92600748410;
+			remoteInfo = "Endless RunnerTests";
 		};
 /* End PBXContainerItemProxy section */
 
@@ -165,7 +173,7 @@
 		685F3D951A67E40900A20F9A /* level1-pit.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "level1-pit.png"; path = "Endless Runner/Images/Backgrounds/level1-pit.png"; sourceTree = "<group>"; };
 		685F3D9A1A68332600A20F9A /* Berry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Berry.h; sourceTree = "<group>"; };
 		685F3D9B1A68332600A20F9A /* Berry.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Berry.m; sourceTree = "<group>"; };
-		687516081A24F92600748410 /* Run, Lenny, Run!.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Run, Lenny, Run!.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		687516081A24F92600748410 /* Endless Runner.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Endless Runner.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6875160C1A24F92600748410 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6875160D1A24F92600748410 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		6875160F1A24F92600748410 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -230,6 +238,7 @@
 		68F359B01A6422110006E4B1 /* Mushroom.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Mushroom.m; sourceTree = "<group>"; };
 		68F359B21A64221F0006E4B1 /* Bush.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Bush.h; sourceTree = "<group>"; };
 		68F359B31A64221F0006E4B1 /* Bush.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Bush.m; sourceTree = "<group>"; };
+		BD1D86BF1A7298B400A8CD09 /* GameModelTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameModelTest.m; sourceTree = "<group>"; };
 		BD824D7E1A6FB79000A0AAC0 /* bird.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = bird.atlas; sourceTree = "<group>"; };
 		BD824D801A6FB7A700A0AAC0 /* bog.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = bog.atlas; sourceTree = "<group>"; };
 		BD824D821A6FB7AE00A0AAC0 /* bush.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = bush.atlas; sourceTree = "<group>"; };
@@ -399,7 +408,7 @@
 		687516091A24F92600748410 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				687516081A24F92600748410 /* Run, Lenny, Run!.app */,
+				687516081A24F92600748410 /* Endless Runner.app */,
 				687516261A24F92600748410 /* Endless RunnerTests.xctest */,
 			);
 			name = Products;
@@ -447,6 +456,7 @@
 			isa = PBXGroup;
 			children = (
 				6875162C1A24F92600748410 /* Endless_RunnerTests.m */,
+				BD1D86BF1A7298B400A8CD09 /* GameModelTest.m */,
 				6875162A1A24F92600748410 /* Supporting Files */,
 			);
 			path = "Endless RunnerTests";
@@ -539,10 +549,11 @@
 			buildRules = (
 			);
 			dependencies = (
+				BD1D86BE1A7296ED00A8CD09 /* PBXTargetDependency */,
 			);
 			name = "Endless Runner";
 			productName = "Endless Runner";
-			productReference = 687516081A24F92600748410 /* Run, Lenny, Run!.app */;
+			productReference = 687516081A24F92600748410 /* Endless Runner.app */;
 			productType = "com.apple.product-type.application";
 		};
 		687516251A24F92600748410 /* Endless RunnerTests */ = {
@@ -723,6 +734,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6875162D1A24F92600748410 /* Endless_RunnerTests.m in Sources */,
+				BD1D86C01A7298B400A8CD09 /* GameModelTest.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -733,6 +745,11 @@
 			isa = PBXTargetDependency;
 			target = 687516071A24F92600748410 /* Endless Runner */;
 			targetProxy = 687516271A24F92600748410 /* PBXContainerItemProxy */;
+		};
+		BD1D86BE1A7296ED00A8CD09 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 687516251A24F92600748410 /* Endless RunnerTests */;
+			targetProxy = BD1D86BD1A7296ED00A8CD09 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -843,7 +860,7 @@
 				INFOPLIST_FILE = "Endless Runner/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_NAME = "Run, Lenny, Run!";
+				PRODUCT_NAME = "Endless Runner";
 				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
@@ -857,7 +874,7 @@
 				INFOPLIST_FILE = "Endless Runner/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_NAME = "Run, Lenny, Run!";
+				PRODUCT_NAME = "Endless Runner";
 				PROVISIONING_PROFILE = "";
 			};
 			name = Release;

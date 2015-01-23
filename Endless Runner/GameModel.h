@@ -94,5 +94,8 @@
 
 
 -(void)saveDefaults;
+-(void)populateEnemyArray;
+-(void)populateObstacleArray;
+-(void)populateLivesArray;
 
 @end
