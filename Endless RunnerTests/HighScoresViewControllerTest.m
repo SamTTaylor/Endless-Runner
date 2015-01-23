@@ -15,6 +15,7 @@
 
 @property (nonatomic, strong) HighScoresViewController *hsvc;
 @property (nonatomic, strong) AppDelegate *app;
+@property (nonatomic, strong) GameViewController *view;
 
 @end
 
@@ -24,11 +25,20 @@
     [super setUp];
     // Put setup code here. This method is called before the invocation of each test method in the class.
     self.hsvc = [[HighScoresViewController alloc] init];
+    self.app = (AppDelegate *)[[UIApplication sharedApplication] delegate];
 }
 
 -(void)testHighScoreArray {
-    XCTAssertNil(self.app.highscores);
-    [self.view saveScore];
+    [self.view saveScoreWithName:@"Jennifer" Score:10000 Facebook:NO];
+    XCTAssertNotNil(self.app.highscores);
+    bool highscoresaved;
+    NSUInteger scoreIndex = [self.app.highscores indexOfObject: @"Jennifer"];
+    if (scoreIndex == nan) {
+        highscoresaved = false;
+    } else {
+        highscoresaved = true;
+    }
+    XCTAssertTrue(highscoresaved);
 }
 
 

@@ -9,13 +9,13 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Endless RunnerTests/PlayerTest.m"
-            timestampString = "443628352.196453"
+            filePath = "Endless Runner/GameModel.m"
+            timestampString = "443633688.778207"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "64"
-            endingLineNumber = "64"
-            landmarkName = "-testJumpAnimation"
+            startingLineNumber = "17"
+            endingLineNumber = "17"
+            landmarkName = "-initWithPlayer"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
