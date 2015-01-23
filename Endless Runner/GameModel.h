@@ -41,8 +41,6 @@
 
 @property SKTexture *groundtexture; //Used to move nodes across the screen the correct distance
 
-
-
 ////>>>>>>>>>>>>>>>>>>>>METHODS<<<<<<<<<<<<<<<<<<<<
 - (id)initWithPlayer;//Model should always be created with a Player node
 
@@ -51,7 +49,7 @@
 
 
 - (void) incrementScore:(int)i; //Change score by any amount
-- (void) incrementDifficultyScore:(int)i;//Used by the game controller to increate difficulty
+- (void) incrementDifficultyScore:(int)i;//Used by the game controller to increment difficulty
 - (void) updateDifficulty;//Used to increment the difficulty level when the score breaches the threshold
 
 
@@ -60,10 +58,11 @@
 - (void)updateLives;//Moves the life node array 1 closer to the player's life number (if it is inaccurate)
 - (void)removeLife;//Removes 1 life from the life node array
 
-
-
+-(void) populateEnemyArray;//fill the Enemy Array with frames
+-(void) populateObstacleArray;//fill the Obstacle Array with frames
 
 - (TactileObject*) spawnRandomObstacle;//Creates and passes an instance of a random obstacle from the array
+- (TactileObject*) spawn;
 - (Enemy*) spawnRandomEnemy;//Creates and passes an instance of a random enemy from the array
 
 //Objects that dont fit into an initial array
@@ -94,5 +93,6 @@
 
 
 -(void)saveDefaults;
+- (void) populateLivesArray;
 
 @end

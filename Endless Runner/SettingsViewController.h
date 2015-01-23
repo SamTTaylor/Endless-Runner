@@ -29,7 +29,11 @@
 @property NSString* bgimagestring;//What the background image should be
 @property NSString* avatarimagestring;//What the avatar image should be
 
+@property bool unlocked;//Is content available or not
 @property NSMutableArray* backgroundarray;
 @property NSMutableArray* costumearray;
+
+@property UIImage* content;
+-(bool)checkContentAvailable:(UIImage*)content;
 
 @end
