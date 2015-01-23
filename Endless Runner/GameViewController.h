@@ -58,6 +58,9 @@
 @property (strong) CMMotionManager *motionManager;
 @property (strong) CMAccelerometerHandler accelerometerHandler;
 
+//>>>>>>>>>>>>>>>>>>>>LOCATION <<<<<<<<<<<<<<<<<<<<
+@property (strong) CLLocationManager *locationManager;
+
 
 //>>>>>>>>>>>>>>>>>>>>TEXTURE ATLASES<<<<<<<<<<<<<<<<<<<<
 @property SKTextureAtlas *foxAtlas;
@@ -68,6 +71,12 @@
 @property SKTextureAtlas *mushroomAtlas;
 @property SKTextureAtlas *wolfAtlas;
 
-- (void) quitSelf;
+- (void)quitSelf;
+- (void)instantiateAccelerometer;
+- (void)startGame;
+- (void)holdLeft;
+- (void)holdRight;
+- (void)ShareScoreonFacebook;
+- (void)preloadAtlas;
 
 @end
