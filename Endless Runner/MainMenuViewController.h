@@ -57,4 +57,7 @@
 @property CLLocation *location;
 @property NSString *Country;
 
+-(void)fillcostumearray;
+-(void)fillBackgroundArray;
+
 @end

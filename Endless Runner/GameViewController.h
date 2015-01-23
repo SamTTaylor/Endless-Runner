@@ -78,5 +78,6 @@
 - (void)holdRight;
 - (void)ShareScoreonFacebook;
 - (void)preloadAtlas;
+- (void)saveScoreWithName:(NSString*)name Score:(int)s Facebook:(bool)f;
 
 @end

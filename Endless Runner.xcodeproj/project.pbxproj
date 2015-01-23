@@ -95,6 +95,8 @@
 		68F359B41A64221F0006E4B1 /* Bush.m in Sources */ = {isa = PBXBuildFile; fileRef = 68F359B31A64221F0006E4B1 /* Bush.m */; };
 		BD1D86C01A7298B400A8CD09 /* GameModelTest.m in Sources */ = {isa = PBXBuildFile; fileRef = BD1D86BF1A7298B400A8CD09 /* GameModelTest.m */; };
 		BD1D86C21A7299A200A8CD09 /* GameViewControllerTest.m in Sources */ = {isa = PBXBuildFile; fileRef = BD1D86C11A7299A200A8CD09 /* GameViewControllerTest.m */; };
+		BD1D86C41A729ABA00A8CD09 /* HighScoresViewControllerTest.m in Sources */ = {isa = PBXBuildFile; fileRef = BD1D86C31A729ABA00A8CD09 /* HighScoresViewControllerTest.m */; };
+		BD1D86C61A729AE500A8CD09 /* MainMenuViewControllerTest.m in Sources */ = {isa = PBXBuildFile; fileRef = BD1D86C51A729AE500A8CD09 /* MainMenuViewControllerTest.m */; };
 		BD824D7F1A6FB79000A0AAC0 /* bird.atlas in Resources */ = {isa = PBXBuildFile; fileRef = BD824D7E1A6FB79000A0AAC0 /* bird.atlas */; };
 		BD824D811A6FB7A700A0AAC0 /* bog.atlas in Resources */ = {isa = PBXBuildFile; fileRef = BD824D801A6FB7A700A0AAC0 /* bog.atlas */; };
 		BD824D831A6FB7AE00A0AAC0 /* bush.atlas in Resources */ = {isa = PBXBuildFile; fileRef = BD824D821A6FB7AE00A0AAC0 /* bush.atlas */; };
@@ -241,6 +243,8 @@
 		68F359B31A64221F0006E4B1 /* Bush.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Bush.m; sourceTree = "<group>"; };
 		BD1D86BF1A7298B400A8CD09 /* GameModelTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameModelTest.m; sourceTree = "<group>"; };
 		BD1D86C11A7299A200A8CD09 /* GameViewControllerTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameViewControllerTest.m; sourceTree = "<group>"; };
+		BD1D86C31A729ABA00A8CD09 /* HighScoresViewControllerTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HighScoresViewControllerTest.m; sourceTree = "<group>"; };
+		BD1D86C51A729AE500A8CD09 /* MainMenuViewControllerTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainMenuViewControllerTest.m; sourceTree = "<group>"; };
 		BD824D7E1A6FB79000A0AAC0 /* bird.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = bird.atlas; sourceTree = "<group>"; };
 		BD824D801A6FB7A700A0AAC0 /* bog.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = bog.atlas; sourceTree = "<group>"; };
 		BD824D821A6FB7AE00A0AAC0 /* bush.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = bush.atlas; sourceTree = "<group>"; };
@@ -460,6 +464,8 @@
 				6875162C1A24F92600748410 /* Endless_RunnerTests.m */,
 				BD1D86BF1A7298B400A8CD09 /* GameModelTest.m */,
 				BD1D86C11A7299A200A8CD09 /* GameViewControllerTest.m */,
+				BD1D86C31A729ABA00A8CD09 /* HighScoresViewControllerTest.m */,
+				BD1D86C51A729AE500A8CD09 /* MainMenuViewControllerTest.m */,
 				6875162A1A24F92600748410 /* Supporting Files */,
 			);
 			path = "Endless RunnerTests";
@@ -739,6 +745,8 @@
 				6875162D1A24F92600748410 /* Endless_RunnerTests.m in Sources */,
 				BD1D86C01A7298B400A8CD09 /* GameModelTest.m in Sources */,
 				BD1D86C21A7299A200A8CD09 /* GameViewControllerTest.m in Sources */,
+				BD1D86C61A729AE500A8CD09 /* MainMenuViewControllerTest.m in Sources */,
+				BD1D86C41A729ABA00A8CD09 /* HighScoresViewControllerTest.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
