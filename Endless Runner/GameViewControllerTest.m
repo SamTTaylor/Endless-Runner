@@ -135,8 +135,8 @@
 
 //test Location Manager initialisation
 - (void)testLocationManager {
-    self.view.locationManager = [[CLLocationManager alloc]init];
-    XCTAssertNotNil(self.view.locationManager);
+    self.mmvc.locationManager = [[CLLocationManager alloc]init];
+    XCTAssertNotNil(self.mmvc.locationManager);
 }
 
 //>>>>>>>>>>>>>>>>>>>>TEXTURE ATLASES<<<<<<<<<<<<<<<<<<<<
