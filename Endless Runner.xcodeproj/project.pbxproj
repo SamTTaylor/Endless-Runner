@@ -881,6 +881,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "Run, Lenny, Run!";
 				PROVISIONING_PROFILE = "";
+				TEST_HOST = " $(BUNDLE_LOADER)";
+				"TEST_HOST[sdk=iphonesimulator8.1]" = " $(BUNDLE_LOADER)";
 			};
 			name = Debug;
 		};
@@ -895,6 +897,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "Run, Lenny, Run!";
 				PROVISIONING_PROFILE = "";
+				TEST_HOST = " $(BUNDLE_LOADER)";
 			};
 			name = Release;
 		};

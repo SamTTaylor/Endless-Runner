@@ -126,7 +126,7 @@
 - (void)ShareonFacebook {
     bool f = true;
     if (f == true) {
-        [self.view ShareOnFacebook];
+        [self.view ShareScoreonFacebook];
     }
     XCTAssertNotNil(self.view.snapshotImage);
 }

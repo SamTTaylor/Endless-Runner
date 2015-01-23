@@ -34,7 +34,7 @@
     XCTAssertNotNil(self.app.highscores);
     bool highscoresaved;
     NSUInteger scoreIndex = [self.app.highscores indexOfObject: @"Jennifer"];
-    if ((int)scoreIndex == nil) {
+    if (scoreIndex == NAN) {
         highscoresaved = false;
     } else {
         highscoresaved = true;

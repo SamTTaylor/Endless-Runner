@@ -81,6 +81,6 @@
 - (void)setGameBackground;
 - (void)spawnSomething;
 - (void)instantiateAccelerometer;
-- (void)ShareOnFacebook;
+- (void)ShareScoreonFacebook;
 
 @end
