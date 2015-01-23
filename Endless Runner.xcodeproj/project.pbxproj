@@ -55,6 +55,7 @@
 		6875161C1A24F92600748410 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6875161A1A24F92600748410 /* Main.storyboard */; };
 		6875161E1A24F92600748410 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6875161D1A24F92600748410 /* Images.xcassets */; };
 		687516211A24F92600748410 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6875161F1A24F92600748410 /* LaunchScreen.xib */; };
+		6875162D1A24F92600748410 /* Endless_RunnerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6875162C1A24F92600748410 /* Endless_RunnerTests.m */; };
 		68AA902A1A56BE430056E5A2 /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 68AA90291A56BE430056E5A2 /* SettingsViewController.m */; };
 		68AA902D1A56C4700056E5A2 /* MainMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 68AA902C1A56C4700056E5A2 /* MainMenuViewController.m */; };
 		68E903281A6D0FB70009AE84 /* GuardHat.png in Resources */ = {isa = PBXBuildFile; fileRef = 68E903231A6D0FB70009AE84 /* GuardHat.png */; };
@@ -92,7 +93,6 @@
 		68F359AE1A6422050006E4B1 /* Spikes.m in Sources */ = {isa = PBXBuildFile; fileRef = 68F359AD1A6422050006E4B1 /* Spikes.m */; };
 		68F359B11A6422110006E4B1 /* Mushroom.m in Sources */ = {isa = PBXBuildFile; fileRef = 68F359B01A6422110006E4B1 /* Mushroom.m */; };
 		68F359B41A64221F0006E4B1 /* Bush.m in Sources */ = {isa = PBXBuildFile; fileRef = 68F359B31A64221F0006E4B1 /* Bush.m */; };
-		BD1D86941A7286F700A8CD09 /* GameModelTest.m in Sources */ = {isa = PBXBuildFile; fileRef = BD1D86931A7286F700A8CD09 /* GameModelTest.m */; };
 		BD824D7F1A6FB79000A0AAC0 /* bird.atlas in Resources */ = {isa = PBXBuildFile; fileRef = BD824D7E1A6FB79000A0AAC0 /* bird.atlas */; };
 		BD824D811A6FB7A700A0AAC0 /* bog.atlas in Resources */ = {isa = PBXBuildFile; fileRef = BD824D801A6FB7A700A0AAC0 /* bog.atlas */; };
 		BD824D831A6FB7AE00A0AAC0 /* bush.atlas in Resources */ = {isa = PBXBuildFile; fileRef = BD824D821A6FB7AE00A0AAC0 /* bush.atlas */; };
@@ -180,6 +180,7 @@
 		687516201A24F92600748410 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		687516261A24F92600748410 /* Endless RunnerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Endless RunnerTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6875162B1A24F92600748410 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6875162C1A24F92600748410 /* Endless_RunnerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Endless_RunnerTests.m; sourceTree = "<group>"; };
 		68AA90281A56BE430056E5A2 /* SettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsViewController.h; sourceTree = "<group>"; };
 		68AA90291A56BE430056E5A2 /* SettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsViewController.m; sourceTree = "<group>"; };
 		68AA902B1A56C4700056E5A2 /* MainMenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainMenuViewController.h; sourceTree = "<group>"; };
@@ -229,7 +230,6 @@
 		68F359B01A6422110006E4B1 /* Mushroom.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Mushroom.m; sourceTree = "<group>"; };
 		68F359B21A64221F0006E4B1 /* Bush.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Bush.h; sourceTree = "<group>"; };
 		68F359B31A64221F0006E4B1 /* Bush.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Bush.m; sourceTree = "<group>"; };
-		BD1D86931A7286F700A8CD09 /* GameModelTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameModelTest.m; sourceTree = "<group>"; };
 		BD824D7E1A6FB79000A0AAC0 /* bird.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = bird.atlas; sourceTree = "<group>"; };
 		BD824D801A6FB7A700A0AAC0 /* bog.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = bog.atlas; sourceTree = "<group>"; };
 		BD824D821A6FB7AE00A0AAC0 /* bush.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = bush.atlas; sourceTree = "<group>"; };
@@ -446,8 +446,8 @@
 		687516291A24F92600748410 /* Endless RunnerTests */ = {
 			isa = PBXGroup;
 			children = (
+				6875162C1A24F92600748410 /* Endless_RunnerTests.m */,
 				6875162A1A24F92600748410 /* Supporting Files */,
-				BD1D86931A7286F700A8CD09 /* GameModelTest.m */,
 			);
 			path = "Endless RunnerTests";
 			sourceTree = "<group>";
@@ -722,7 +722,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BD1D86941A7286F700A8CD09 /* GameModelTest.m in Sources */,
+				6875162D1A24F92600748410 /* Endless_RunnerTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
