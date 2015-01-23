@@ -68,7 +68,6 @@
     //If invulnerable is true, we can't remove lives
     [self.model removeLife];
     XCTAssertEqual(self.player.lives, 3);
-    
 }
 
 //Invulnerable is set to False
@@ -80,7 +79,6 @@
     //If Gotfollower is set to true true, we can't remove lives
     [self.model removeLife];
     XCTAssertEqual(self.player.lives, 3);
-    
 }
 
 
@@ -111,10 +109,6 @@
 - (void)testCostumeArray{
     self.player.costumearray = [[NSMutableArray alloc] init];
     XCTAssertNotNil(self.player.costumearray);
-}
-
-- (void)testCostumePosition{
-    
 }
 
 - (void)tearDown {

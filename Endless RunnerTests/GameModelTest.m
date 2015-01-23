@@ -52,7 +52,10 @@
 }
 
 -(void)testEnemies {
-    
+    self.model.enemies = [[NSMutableArray alloc] init];
+    XCTAssertNotNil(self.model.enemies);
+    [self.model populateEnemyArray];
+    XCTAssertEqual(self.model.enemies.count, 5);
 }
 
 //Initiate Obstacle Array and populate with Obstacles

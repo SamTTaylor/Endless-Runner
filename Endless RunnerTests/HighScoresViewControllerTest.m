@@ -9,10 +9,12 @@
 #import <UIKit/UIKit.h>
 #import <XCTest/XCTest.h>
 #import "HighScoresViewController.h"
+#import "AppDelegate.h"
 
 @interface HighScoresViewControllerTest : XCTestCase
 
-@property (nonatomic, strong) HighScoresViewController *highscore;
+@property (nonatomic, strong) HighScoresViewController *hsvc;
+@property (nonatomic, strong) AppDelegate *app;
 
 @end
 
@@ -21,7 +23,11 @@
 - (void)setUp {
     [super setUp];
     // Put setup code here. This method is called before the invocation of each test method in the class.
-    self.highscore = [[HighScoresViewController alloc] init];
+    self.hsvc = [[HighScoresViewController alloc] init];
+}
+
+-(void)testHighScores {
+
 }
 
 - (void)tearDown {

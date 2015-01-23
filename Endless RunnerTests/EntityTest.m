@@ -22,15 +22,17 @@
     [super setUp];
     // Put setup code here. This method is called before the invocation of each test method in the class.
     
-    self.ent = [[Entity alloc] init];
+    self.ent = [[Entity alloc] initWithTexture:self.ent.nodetexture];
 }
 
 - (void)testNodeTexture{
-    
+    XCTAssertNotNil(self.ent);
 }
 
 - (void)testCollisionBoundingBox{
-    
+    CGRect testrect = CGRectInset(self.ent.frame, 2, 0);
+    CGRect realrect = [self.ent collisionBoundingBox];
+    XCTAssertTrue(CGRectEqualToRect(testrect, realrect));
 }
 
 - (void)tearDown {

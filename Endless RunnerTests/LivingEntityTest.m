@@ -21,7 +21,7 @@
 - (void)setUp {
     [super setUp];
     // Put setup code here. This method is called before the invocation of each test method in the class.
-    self.lent = [[LivingEntity alloc] init];
+    self.lent = [[LivingEntity alloc] initWithTexture:self.lent.nodetexture];
 }
 
 -(void)testFlying{
@@ -29,7 +29,7 @@
 }
 
 -(void)testMySpeed{
-    XCTAssertEqual(self.lent.myspeed, 0);
+    XCTAssertEqual(self.lent.myspeed, 2);
 }
 
 - (void)tearDown {
