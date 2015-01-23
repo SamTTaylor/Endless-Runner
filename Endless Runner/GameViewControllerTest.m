@@ -9,12 +9,14 @@
 #import <UIKit/UIKit.h>
 #import <XCTest/XCTest.h>
 #import "GameViewController.h"
+#import "MainMenuViewController.h"
 
 @interface GameViewControllerTest : XCTestCase
 
 @property(nonatomic, strong) GameViewController *view;
 @property(nonatomic, strong) GameModel *model;
 @property(nonatomic, strong) Player *player;
+@property(nonatomic, strong) MainMenuViewController *mmvc;
 
 @end
 
@@ -26,9 +28,6 @@
     self.view = [[GameViewController alloc]init];
 }
 
--(void)testInitialiseGameScene{
-    
-}
 
 -(void)testInitialiseModel {
     
@@ -36,24 +35,34 @@
     XCTAssertNotNil(self.view.model);
 }
 
--(void)testPlacePlayer {
+//>>>>>>>>>>>>>>>>>>>>GAME SCENE<<<<<<<<<<<<<<<<<<<<
 
-}
-
-- (void)testCheckTiltBool {
-    [self.view setTiltbool:false];
-    XCTAssertFalse(self.view.tiltbool);
-    [self.view setTiltbool:true];
-    XCTAssertTrue(self.view.tiltbool);
-}
-
-- (void)testAccelerometer {
-    [self.view setTiltbool:true];
-    if (self.view.tiltbool == true) {
-        [self.view instantiateAccelerometer];
-        self.view.motionManager = [[CMMotionManager alloc]init];
+-(void)testPlacePlayerGameScene {
+    int scene = 0;
+    bool gamescene = TRUE;
+    [self.model placePlayer:scene];
+    if (scene == 0) {
+        gamescene = TRUE;
+        [self.view.gamescene addChild:self.model.player];
+    } else {
+        gamescene = FALSE;
+        [self.view.challengescene addChild:self.model.player];
     }
-    XCTAssertNotNil(self.view.motionManager);
+    XCTAssertTrue(gamescene);
+}
+
+-(void)testPlacePlayerChallengeScene {
+    int scene = 1;
+    bool gamescene = TRUE;
+    [self.model placePlayer:scene];
+    if (scene == 0) {
+        gamescene = TRUE;
+        [self.view.gamescene addChild:self.model.player];
+    } else {
+        gamescene = FALSE;
+        [self.view.challengescene addChild:self.model.player];
+    }
+    XCTAssertFalse(gamescene);
 }
 
 - (void)testBgTexture {
@@ -70,8 +79,22 @@
     XCTAssertNotNil(self.view.costumearray);
 }
 
-- (void)testClosing {
-    XCTAssertFalse(self.view.closing);
+//>>>>>>>>>>>>>>>>>>>>NAVIGATION<<<<<<<<<<<<<<<<<<<<
+
+- (void)testCheckTiltBool {
+    [self.view setTiltbool:false];
+    XCTAssertFalse(self.view.tiltbool);
+    [self.view setTiltbool:true];
+    XCTAssertTrue(self.view.tiltbool);
+}
+
+- (void)testAccelerometer {
+    [self.view setTiltbool:true];
+    if (self.view.tiltbool == true) {
+        [self.view instantiateAccelerometer];
+        self.view.motionManager = [[CMMotionManager alloc]init];
+    }
+    XCTAssertNotNil(self.view.motionManager);
 }
 
 //Game doesn't start until Player starts navigation
@@ -96,11 +119,15 @@
     XCTAssertTrue(self.view.gamestarted);
 }
 
-- (void)testSpawnedObjects {
-    self.view.spawnedobjects = [[NSMutableArray alloc] init];
-    XCTAssertNotNil(self.view.spawnedobjects);
-}
+//>>>>>>>>>>>>>>>>>>>>FACEBOOK<<<<<<<<<<<<<<<<<<<<
 
+- (void)ShareonFacebook {
+    bool f = true;
+    if (f == true) {
+        [self.view ShareonFacebook];
+    }
+    XCTAssertNotNil(self.view.snapshotImage);
+}
 
 //>>>>>>>>>>>>>>>>>>>>LOCATION MANAGER<<<<<<<<<<<<<<<<<<<<
 
@@ -108,10 +135,6 @@
 - (void)testLocationManager {
     self.view.locationManager = [[CLLocationManager alloc]init];
     XCTAssertNotNil(self.view.locationManager);
-}
-
-- (void)testCheckLocation {
-
 }
 
 //>>>>>>>>>>>>>>>>>>>>TEXTURE ATLASES<<<<<<<<<<<<<<<<<<<<

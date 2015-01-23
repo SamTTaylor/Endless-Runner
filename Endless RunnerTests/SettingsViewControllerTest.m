@@ -42,9 +42,20 @@
 }
 
 //Inititate BackgroundArray and check if available
-- (void)testCustomeArray {
+- (void)testCostumeArray {
     self.svc.costumearray = [[NSMutableArray alloc] init];
     XCTAssertNotNil(self.svc.costumearray);
+}
+
+//Check if backgroundArray and customeArray are unlocked
+-(void)checkContentAvailableFalse {
+    self.svc.unlocked = YES;
+    XCTAssertFalse([self.svc checkContentAvailable:self.svc.content]);
+}
+
+-(void)checkContentAvailableTrue {
+    self.svc.unlocked = NO;
+    XCTAssertTrue([self.svc checkContentAvailable:self.svc.content]);
 }
 
 - (void)tearDown {

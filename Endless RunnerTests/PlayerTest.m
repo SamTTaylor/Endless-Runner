@@ -81,19 +81,6 @@
     XCTAssertEqual(self.player.lives, 3);
 }
 
-
-- (void)testWalkAnimation{
-    
-}
-
-- (void)testJumpAnimation{
-
-}
-
-- (void)testInjuredAnimation{
-    
-}
-
 //Player animation set to false by default
 - (void)testAnimated{
      XCTAssertFalse(self.player.animated);
@@ -101,7 +88,7 @@
     [self.player animateSelf];
     XCTAssertTrue(self.player.animated);
     //stop animating player
-    [self.player setAnimated:false];
+    [self.player stopAnimation];
     XCTAssertFalse(self.player.animated);
 }
 

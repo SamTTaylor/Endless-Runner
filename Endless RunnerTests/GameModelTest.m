@@ -9,11 +9,15 @@
 #import <UIKit/UIKit.h>
 #import <XCTest/XCTest.h>
 #import "GameModel.h"
+#import "MainMenuViewController.h"
 
 @interface GameModelTest : XCTestCase
 
 @property(nonatomic, strong) GameModel *model;
+@property(nonatomic, strong) GameViewController *view;
 @property(nonatomic, strong) LivingEntity *lent;
+@property(nonatomic, strong) TactileObject *tact;
+@property(nonatomic, strong) MainMenuViewController *mmvc;
 
 @end
 
@@ -39,16 +43,6 @@
     XCTAssertNotNil(self.model.enemies);
     [self.model populateEnemyArray];
     XCTAssertEqual(self.model.enemies.count, 5);
-}
-
--(void)testGroundNode {
-
-}
-
--(void)testTiltSensitivity {
-    //GameModel *tiltsensitivity = [[GameModel alloc] init];
-    //float tiltsensitivity = [self.setTiltsensitivity:0.08];
-    //XCTAssertEqual(tiltsensitivity, 0.08);
 }
 
 -(void)testEnemies {
@@ -117,6 +111,55 @@
     //can be set to any given value
     [self.model setGroundspeed:20];
     XCTAssertEqual(self.model.groundspeed, 20);
+}
+
+-(void)saveAchievementBasedOnLocation {
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    self.mmvc.austria = [defaults boolForKey:@"austria"];
+    self.view.Country = @"Austria";
+    if ([defaults boolForKey:@"austria"] && [self.view.Country isEqualToString:@"Austria"]) {
+        [self.model saveAchievement:@"austria"];
+    }
+    bool savedachievement;
+    NSNumber* key = [[NSUserDefaults standardUserDefaults] objectForKey:@"austria"];
+    if (key == nil) {
+        savedachievement = false;
+    } else {
+        savedachievement = true;
+    }
+    XCTAssertTrue(savedachievement);
+}
+
+-(void)saveAchievementBasedOnScore {
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    self.mmvc.superlenny = [defaults boolForKey:@"superlenny"];
+    if ([defaults boolForKey:@"superlenny"] == false) {
+        [self.model saveAchievement:@"superlenny"];
+    }
+    bool savedachievement;
+    NSNumber* key = [[NSUserDefaults standardUserDefaults] objectForKey:@"superlenny"];
+    if (key == nil) {
+        savedachievement = false;
+    } else {
+        savedachievement = true;
+    }
+    XCTAssertTrue(savedachievement);
+}
+
+-(void)saveAchievementBasedOnEvent {
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    self.mmvc.halloween = [defaults boolForKey:@"halloween"];
+    if ([defaults boolForKey:@"halloween"]) {
+        [self.model saveAchievement:@"halloween"];
+    }
+    bool savedachievement;
+    NSNumber* key = [[NSUserDefaults standardUserDefaults] objectForKey:@"halloween"];
+    if (key == nil) {
+        savedachievement = false;
+    } else {
+        savedachievement = true;
+    }
+    XCTAssertTrue(savedachievement);
 }
 
 - (void)tearDown {
