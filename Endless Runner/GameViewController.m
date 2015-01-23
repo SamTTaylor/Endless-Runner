@@ -196,7 +196,7 @@ NSTimer *updatetimer;
     //Prepare the Accelerometer
     self.motionManager = [[CMMotionManager alloc]init];
     if (self.motionManager.accelerometerAvailable) {
-        self.motionManager.accelerometerUpdateInterval = 0.01;
+        self.motionManager.accelerometerUpdateInterval = 0.02;
         [self.motionManager startAccelerometerUpdates];
         
         self.accelerometerHandler = ^(CMAccelerometerData *accData, NSError *error) {
