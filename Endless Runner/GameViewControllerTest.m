@@ -37,7 +37,6 @@
 
 //>>>>>>>>>>>>>>>>>>>>GAME SCENE<<<<<<<<<<<<<<<<<<<<
 
-//place Player on Game Scene
 -(void)testPlacePlayerGameScene {
     int scene = 0;
     bool gamescene = TRUE;
@@ -52,7 +51,6 @@
     XCTAssertTrue(gamescene);
 }
 
-//place Player on Challenge Scene
 -(void)testPlacePlayerChallengeScene {
     int scene = 1;
     bool gamescene = TRUE;
@@ -126,7 +124,7 @@
 - (void)ShareonFacebook {
     bool f = true;
     if (f == true) {
-        [self.view ShareScoreonFacebook];
+        [self.view ShareonFacebook];
     }
     XCTAssertNotNil(self.view.snapshotImage);
 }
@@ -135,8 +133,8 @@
 
 //test Location Manager initialisation
 - (void)testLocationManager {
-    self.mmvc.locationManager = [[CLLocationManager alloc]init];
-    XCTAssertNotNil(self.mmvc.locationManager);
+    self.view.locationManager = [[CLLocationManager alloc]init];
+    XCTAssertNotNil(self.view.locationManager);
 }
 
 //>>>>>>>>>>>>>>>>>>>>TEXTURE ATLASES<<<<<<<<<<<<<<<<<<<<
@@ -194,8 +192,7 @@
     // This is an example of a performance test case.
     [self measureBlock:^{
         // Put the code you want to measure the time of here.
-        [self.view preloadAtlas];
-        [self.view instantiateAccelerometer];
+        [self testPreloadAtlas];
     }];
 }
 

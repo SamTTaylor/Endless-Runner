@@ -29,7 +29,6 @@
     XCTAssertNotNil(self.ent);
 }
 
-//>>>>>>>>>>>>>>>>>>>>TEST COLLISION<<<<<<<<<<<<<<<<<<<<
 - (void)testCollisionBoundingBox{
     CGRect testrect = CGRectInset(self.ent.frame, 2, 0);
     CGRect realrect = [self.ent collisionBoundingBox];

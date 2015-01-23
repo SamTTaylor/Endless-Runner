@@ -92,6 +92,7 @@
     XCTAssertFalse(self.player.animated);
 }
 
+
 - (void)testCostumeArray{
     self.player.costumearray = [[NSMutableArray alloc] init];
     XCTAssertNotNil(self.player.costumearray);

@@ -25,7 +25,6 @@
 }
 
 
-//>>>>>>>>>>>>>>>>>>>>NAVIGATION<<<<<<<<<<<<<<<<<<<<
 //If buttons are selected, set Tiltbool to false
 -(void)testTiltBoolZero {
     
@@ -36,7 +35,6 @@
     XCTAssertFalse(self.svc.tiltbool);
 }
 
-//>>>>>>>>>>>>>>>>>>>>UNLOCKABLES<<<<<<<<<<<<<<<<<<<<
 //Inititate BackgroundArray and check if available
 - (void)testBackgroundArray {
     self.svc.backgroundarray = [[NSMutableArray alloc] init];
@@ -49,7 +47,7 @@
     XCTAssertNotNil(self.svc.costumearray);
 }
 
-//Check if backgroundArray and costumeArray are unlocked
+//Check if backgroundArray and customeArray are unlocked
 -(void)checkContentAvailableFalse {
     self.svc.unlocked = YES;
     XCTAssertFalse([self.svc checkContentAvailable:self.svc.content]);

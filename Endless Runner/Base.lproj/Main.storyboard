@@ -388,7 +388,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GWy-SA-426" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1073" y="1770"/>
+            <point key="canvasLocation" x="-958.5" y="1486.5"/>
         </scene>
         <!--High Scores View Controller-->
         <scene sceneID="mqt-93-f1v">
@@ -472,7 +472,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="L64-Mp-iro" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-137" y="1750"/>
+            <point key="canvasLocation" x="-304.5" y="1486.5"/>
         </scene>
         <!--Game View Controller-->
         <scene sceneID="tXr-a1-R10">

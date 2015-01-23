@@ -16,7 +16,7 @@
 
 
 
-@interface GameViewController : UIViewController <SKPhysicsContactDelegate, UIGestureRecognizerDelegate>
+@interface GameViewController : UIViewController <SKPhysicsContactDelegate, UIGestureRecognizerDelegate, CLLocationManagerDelegate>
 //>>>>>>>>>>>>>>>>>>>>UI ELEMENTS<<<<<<<<<<<<<<<<<<<<
 @property (weak) IBOutlet UIButton *left;
 @property (weak) IBOutlet UIButton *right;
@@ -25,10 +25,10 @@
 
 
 //>>>>>>>>>>>>>>>>>>>>SCENES<<<<<<<<<<<<<<<<<<<<
-@property (strong) GameScene* gamescene;
-@property (strong) GameScene* challengescene;
+@property (weak) GameScene* gamescene;
+@property (weak) GameScene* challengescene;
 //(Model)
-@property (strong) GameModel* model;
+@property GameModel* model;
 
 //>>>>>>>>>>>>>>>>>>>>SETTINGS<<<<<<<<<<<<<<<<<<<<
 @property bool tiltbool;
@@ -57,8 +57,12 @@
 
 //>>>>>>>>>>>>>>>>>>>>TILT SENSOR<<<<<<<<<<<<<<<<<<<<
 @property (strong) CMMotionManager *motionManager;
-@property (strong) CMAccelerometerHandler accelerometerHandler;
+@property (copy) CMAccelerometerHandler accelerometerHandler;
 
+//>>>>>>>>>>>>>>>>>>>>LOCATION MANAGER<<<<<<<<<<<<<<<<<<<<
+@property (strong) CLLocationManager *locationManager;
+@property CLLocation *location;
+@property NSString *Country;
 
 //>>>>>>>>>>>>>>>>>>>>TEXTURE ATLASES<<<<<<<<<<<<<<<<<<<<
 @property SKTextureAtlas *foxAtlas;
@@ -75,12 +79,11 @@
 
 - (void)quitSelf;
 - (void)startGame;
-- (void)preloadAtlas;
 - (void)holdLeft;
 - (void)holdRight;
 - (void)setGameBackground;
 - (void)spawnSomething;
 - (void)instantiateAccelerometer;
-- (void)ShareScoreonFacebook;
+- (void)ShareonFacebook;
 
 @end

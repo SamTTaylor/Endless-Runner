@@ -40,7 +40,7 @@
         [textures addObject:texture];
     }
     [self removeActionForKey:[NSString stringWithFormat:@"animate %@", self.class]];
-    [self runAction:[SKAction repeatAction:[SKAction sequence:@[[SKAction runBlock:^{
+    [self runAction:[SKAction sequence:@[[SKAction repeatAction:[SKAction sequence:@[[SKAction runBlock:^{
         self.xScale = -1.0;
         [self setMyspeed:5];
         [self jumpEntity];
@@ -51,11 +51,11 @@
     }], [SKAction waitForDuration:20], [SKAction runBlock:^{
         self.xScale = 1.0;
         [self jumpEntity];
-        [self setMyspeed:1.3];
+        [self setMyspeed:1.3];//Jumps slightly more left than right to get it off screen in time fo removal without affecting movement speed
         [self impulseEntityLeft];
         [self setMyspeed:5];
         [self runAction:[SKAction repeatActionForever:self.runAnimation]];
-    }], [SKAction waitForDuration:20]]] count:5] withKey:[NSString stringWithFormat:@"animate %@", self.class]];
+    }], [SKAction waitForDuration:20]]] count:5]]] withKey:[NSString stringWithFormat:@"animate %@", self.class]];
 }
 
 @end

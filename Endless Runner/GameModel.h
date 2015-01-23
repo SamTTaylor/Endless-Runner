@@ -30,8 +30,8 @@
 @property Player* player;//Used to keep track of the player node
 @property SKNode* groundnode;//Used to measure the height of the ground
 @property float tiltsensitivity;
-@property (strong) NSMutableArray *enemies; //Array of 1 instance of each spawnable enemy
-@property (strong) NSMutableArray *obstacles;//Array of 1 instance of each spawnable obstacle
+@property NSMutableArray *enemies; //Array of 1 instance of each spawnable enemy
+@property NSMutableArray *obstacles;//Array of 1 instance of each spawnable obstacle
 @property NSMutableArray *lives;//Array of life nodes to represent player lives
 @property int score;//Current game score
 @property int difficultyscore;//Score used to measure progress in current difficulty level
@@ -62,6 +62,7 @@
 -(void) populateObstacleArray;//fill the Obstacle Array with frames
 
 - (TactileObject*) spawnRandomObstacle;//Creates and passes an instance of a random obstacle from the array
+- (TactileObject*) spawn;
 - (Enemy*) spawnRandomEnemy;//Creates and passes an instance of a random enemy from the array
 
 //Objects that dont fit into an initial array

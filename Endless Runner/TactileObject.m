@@ -48,15 +48,10 @@
 -(void)stopMovementActionsWithDirection:(int)d{
     switch (d) {
         case 0:
-            //Been receiving some exceptions on these action removals so I guarded them
-            if ([self actionForKey:@"MovingLeft"]) {
-                [self removeActionForKey:@"MovingLeft"];
-            }
+            [self removeActionForKey:@"MovingLeft"];
             break;
         case 1:
-            if ([self actionForKey:@"MovingRight"]) {
-                [self removeActionForKey:@"MovingRight"];
-            }
+            [self removeActionForKey:@"MovingRight"];
             break;
         default:
             break;

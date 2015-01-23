@@ -174,7 +174,7 @@
 		685F3D951A67E40900A20F9A /* level1-pit.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "level1-pit.png"; path = "Endless Runner/Images/Backgrounds/level1-pit.png"; sourceTree = "<group>"; };
 		685F3D9A1A68332600A20F9A /* Berry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Berry.h; sourceTree = "<group>"; };
 		685F3D9B1A68332600A20F9A /* Berry.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Berry.m; sourceTree = "<group>"; };
-		687516081A24F92600748410 /* Run, Lenny, Run!.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Run, Lenny, Run!.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		687516081A24F92600748410 /* Endless Runner.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Endless Runner.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6875160C1A24F92600748410 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6875160D1A24F92600748410 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		6875160F1A24F92600748410 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -417,7 +417,7 @@
 		687516091A24F92600748410 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				687516081A24F92600748410 /* Run, Lenny, Run!.app */,
+				687516081A24F92600748410 /* Endless Runner.app */,
 				687516261A24F92600748410 /* Endless RunnerTests.xctest */,
 			);
 			name = Products;
@@ -569,7 +569,7 @@
 			);
 			name = "Endless Runner";
 			productName = "Endless Runner";
-			productReference = 687516081A24F92600748410 /* Run, Lenny, Run!.app */;
+			productReference = 687516081A24F92600748410 /* Endless Runner.app */;
 			productType = "com.apple.product-type.application";
 		};
 		687516251A24F92600748410 /* Endless RunnerTests */ = {
@@ -879,10 +879,8 @@
 				INFOPLIST_FILE = "Endless Runner/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_NAME = "Run, Lenny, Run!";
+				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
-				TEST_HOST = " $(BUNDLE_LOADER)";
-				"TEST_HOST[sdk=iphonesimulator8.1]" = " $(BUNDLE_LOADER)";
 			};
 			name = Debug;
 		};
@@ -895,9 +893,8 @@
 				INFOPLIST_FILE = "Endless Runner/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_NAME = "Run, Lenny, Run!";
+				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
-				TEST_HOST = " $(BUNDLE_LOADER)";
 			};
 			name = Release;
 		};

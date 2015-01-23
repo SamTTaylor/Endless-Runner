@@ -16,7 +16,7 @@
 #import "AppDelegate.h"
 
 
-@interface MainMenuViewController : UIViewController <CLLocationManagerDelegate>
+@interface MainMenuViewController : UIViewController
 //>>>>>>>>>>>>>>>>>>>>PROPERTIES<<<<<<<<<<<<<<<<<<<<
 
 
@@ -49,14 +49,9 @@
 @property (assign) int costumeimageindex;
 
 //>>>>>>>>>>>>>>>>>>>>SEGUE STUFF<<<<<<<<<<<<<<<<<<<<
-@property (strong) GameScene* menuscene; //Used to create the nice scrolling background on the main menu
-@property (strong) SettingsViewController *svc;
-@property (strong) GameViewController *gvc;
-
-//>>>>>>>>>>>>>>>>>>>>LOCATION MANAGER<<<<<<<<<<<<<<<<<<<<
-@property (strong) CLLocationManager *locationManager;
-@property CLLocation *location;
-@property NSString *Country;
+@property (weak) GameScene* menuscene; //Used to create the nice scrolling background on the main menu
+@property (weak) SettingsViewController *svc;
+@property (weak) GameViewController *gvc;
 
 -(void)loadDefaults;
 -(void)saveDefaults;

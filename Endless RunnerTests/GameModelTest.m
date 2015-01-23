@@ -31,8 +31,6 @@
 
 }
 
-//>>>>>>>>>>>>>>>>>>>>TEST PLAYER, ENEMIES, OBSTACLES <<<<<<<<<<<<<<<<<<<<
-
 //Initiate Player With Texture
 -(void)testPlayer {
     self.model.player = [[Player alloc] initWithTexture:self.lent.nodetexture];
@@ -61,8 +59,6 @@
     [self.model populateObstacleArray];
     XCTAssertEqual(self.model.obstacles.count, 5);
 }
-
-//>>>>>>>>>>>>>>>>>>>>TEST LIVES, SCORE, DIFFICULTY<<<<<<<<<<<<<<<<<<<<
 
 //Initiate Lives Array and Test adding and removing lives
 -(void)testLives {
@@ -117,13 +113,11 @@
     XCTAssertEqual(self.model.groundspeed, 20);
 }
 
-//>>>>>>>>>>>>>>>>>>>>TEST UNLOCKABLES<<<<<<<<<<<<<<<<<<<<
-
 -(void)saveAchievementBasedOnLocation {
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     self.mmvc.austria = [defaults boolForKey:@"austria"];
-    self.mmvc.Country = @"Austria";
-    if ([defaults boolForKey:@"austria"] && [self.mmvc.Country isEqualToString:@"Austria"]) {
+    self.view.Country = @"Austria";
+    if ([defaults boolForKey:@"austria"] && [self.view.Country isEqualToString:@"Austria"]) {
         [self.model saveAchievement:@"austria"];
     }
     bool savedachievement;
@@ -177,8 +171,6 @@
     // This is an example of a performance test case.
     [self measureBlock:^{
         // Put the code you want to measure the time of here.
-        [self.model populateEnemyArray];
-        [self.model populateObstacleArray];
     }];
 }
 
