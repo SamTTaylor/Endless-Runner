@@ -122,8 +122,8 @@
 -(void)saveAchievementBasedOnLocation {
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     self.mmvc.austria = [defaults boolForKey:@"austria"];
-    self.view.Country = @"Austria";
-    if ([defaults boolForKey:@"austria"] && [self.view.Country isEqualToString:@"Austria"]) {
+    self.mmvc.Country = @"Austria";
+    if ([defaults boolForKey:@"austria"] && [self.mmvc.Country isEqualToString:@"Austria"]) {
         [self.model saveAchievement:@"austria"];
     }
     bool savedachievement;
