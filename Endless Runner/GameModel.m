@@ -51,7 +51,7 @@
 - (void) incrementDifficultyScore:(int)i{
     self.difficultyscore += i;
 }
-//Check if difficulty score is passed the  threshold, if it is, raise current difficulty level and reset the score
+//Check if diffivulty score is passed the  threshold, if it is, raise current difficulty level and reset the score
 - (void) updateDifficulty{
     //Don't do this if its more than 4 because there are currently only 5 levels of difficulty
     if(self.difficultyscore > self.difficultythreshold && self.currentdifficulty <= 4){
@@ -310,7 +310,7 @@
 
 
 //>>>>>>>>>>>>>>>>>>>>NODE PLACEMENT<<<<<<<<<<<<<<<<<<<<
-//Puts the player in the right starting position for each scene
+//Puts hte player in the right starting position for each scene
 
 -(void)placePlayer:(int)scene{
     switch (scene) {

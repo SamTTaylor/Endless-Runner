@@ -410,7 +410,7 @@ NSTimer *updatetimer;
 
 //Spawns (or doesn't spawn) a random object, used by the update timer
 - (void)spawnSomething{
-    //Used to get a % representation of progress through the current level
+    //Used to get a % reprisentation of progress through the current level
     float i = (double)self.model.difficultyscore/(double)self.model.difficultythreshold;
     //If the dice rolls YES to the % reprisentation then an object is spawned
     //+20% is added so that the player doesn't have to wait forever to see the first minion each level

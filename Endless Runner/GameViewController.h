@@ -2,7 +2,7 @@
 //  GameViewController.h
 //  Endless Runner
 //
-//  Created by acp14jp on 25/11/2014.
+
 //  Copyright (c) 2014 sheffield. All rights reserved.
 //
 
@@ -45,7 +45,6 @@
 @property bool startedbytilt;//Used to stop the motionmanager from sending too many commands once the game has started, by letting the update timer read this value instead and start the game
 @property double yRotation;//Used to monitor the tilt of the device
 @property float updatespeed;//How fast updater timer ticks
-@property float i;
 @property NSTimer* updatetimer;//Performs spawn actions and score updates (primarily)
 @property NSMutableArray *spawnedobjects;//Used to check what types of mob have been spawned
 
@@ -84,6 +83,8 @@
 - (void)setGameBackground;
 - (void)spawnSomething;
 - (void)instantiateAccelerometer;
-- (void)ShareonFacebook;
+- (void)ShareScoreonFacebook;
+- (void)preloadAtlas;
+- (void)quitSelf;
 
 @end

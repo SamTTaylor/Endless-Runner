@@ -2,7 +2,7 @@
 //  HighScoreViewController.m
 //  Endless Runner
 //
-//  Created by acp14jp on 05/11/2014.
+//  Created by acp14stt on 05/11/2014.
 //  Copyright (c) 2014 sheffield. All rights reserved.
 //
 
