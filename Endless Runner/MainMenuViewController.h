@@ -57,9 +57,4 @@
 @property CLLocation *location;
 @property NSString *Country;
 
--(void)loadDefaults;
--(void)saveDefaults;
--(void)fillcostumearray;
--(void)fillBackgroundArray;
-
 @end
