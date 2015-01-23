@@ -45,6 +45,7 @@
 @property bool startedbytilt;//Used to stop the motionmanager from sending too many commands once the game has started, by letting the update timer read this value instead and start the game
 @property double yRotation;//Used to monitor the tilt of the device
 @property float updatespeed;//How fast updater timer ticks
+@property float i;
 @property NSTimer* updatetimer;//Performs spawn actions and score updates (primarily)
 @property NSMutableArray *spawnedobjects;//Used to check what types of mob have been spawned
 
@@ -72,11 +73,17 @@
 @property SKTextureAtlas *mushroomAtlas;
 @property SKTextureAtlas *wolfAtlas;
 
+//>>>>>>>>>>>>>>>>>>>>FACEBOOK<<<<<<<<<<<<<<<<<<<<
+@property UIImage *snapshotImage;
+- (void)saveScoreWithName:(NSString*)name Score:(int)s Facebook:(bool)f;
+
 - (void)quitSelf;
 - (void)startGame;
 - (void)holdLeft;
 - (void)holdRight;
 - (void)setGameBackground;
+- (void)spawnSomething;
 - (void)instantiateAccelerometer;
+- (void)ShareonFacebook;
 
 @end

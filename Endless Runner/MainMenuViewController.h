@@ -38,6 +38,7 @@
 
 
 //User defaults
+@property NSUserDefaults* defaults;
 @property (assign) bool england;
 @property (assign) bool austria;
 @property (assign) bool pit;
@@ -51,5 +52,10 @@
 @property (weak) GameScene* menuscene; //Used to create the nice scrolling background on the main menu
 @property (weak) SettingsViewController *svc;
 @property (weak) GameViewController *gvc;
+
+-(void)loadDefaults;
+-(void)saveDefaults;
+-(void)fillcostumearray;
+-(void)fillBackgroundArray;
 
 @end

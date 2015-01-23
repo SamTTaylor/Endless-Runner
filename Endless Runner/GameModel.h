@@ -62,6 +62,7 @@
 -(void) populateObstacleArray;//fill the Obstacle Array with frames
 
 - (TactileObject*) spawnRandomObstacle;//Creates and passes an instance of a random obstacle from the array
+- (TactileObject*) spawn;
 - (Enemy*) spawnRandomEnemy;//Creates and passes an instance of a random enemy from the array
 
 //Objects that dont fit into an initial array
