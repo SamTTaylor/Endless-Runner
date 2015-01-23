@@ -92,5 +92,6 @@
 
 
 -(void)saveDefaults;
+- (void) populateLivesArray;
 
 @end

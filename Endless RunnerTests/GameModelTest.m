@@ -23,17 +23,12 @@
 - (void)setUp {
     [super setUp];
     // Put setup code here. This method is called before the invocation of each test method in the class.
-<<<<<<< Updated upstream
     self.model = [[GameModel alloc]init];
-=======
-    
-    self.model = [[GameModel alloc] init];
->>>>>>> Stashed changes
+
 }
 
 //Initiate Player With Texture
 -(void)testPlayer {
-<<<<<<< Updated upstream
     self.model.player = [[Player alloc] initWithTexture:self.lent.nodetexture];
     XCTAssertNotNil(self.model.player);
 }
@@ -44,9 +39,6 @@
     XCTAssertNotNil(self.model.enemies);
     [self.model populateEnemyArray];
     XCTAssertEqual(self.model.enemies.count, 5);
-=======
-    GameModel *player = [[GameModel alloc] initWithPlayer];
-    XCTAssertNotNil(player);
 }
 
 -(void)testGroundNode {
@@ -61,7 +53,6 @@
 
 -(void)testEnemies {
     
->>>>>>> Stashed changes
 }
 
 //Initiate Obstacle Array and populate with Obstacles
@@ -74,18 +65,14 @@
 
 //Initiate Lives Array and Test adding and removing lives
 -(void)testLives {
-<<<<<<< Updated upstream
     self.model.lives = [[NSMutableArray alloc] init];
+    [self.model populateLivesArray];
     XCTAssertNotNil(self.model.lives);
     [self.model addLife];
     [self.model addLife];
     [self.model addLife];
     [self.model removeLife];
     XCTAssertEqual(self.model.lives.count, 2);
-=======
-    NSMutableArray *lives = [GameModel populateLivesArray];
-    XCTAssertEqual(lives, 3);
->>>>>>> Stashed changes
 }
 
 //Score is 0 at the start of the game
